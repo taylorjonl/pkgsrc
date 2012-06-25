@@ -42,6 +42,7 @@ PLIST.oss=	yes
 .endif
 
 CPPFLAGS.SunOS+=	-D__u32=uint32_t -DHAVE_SYSI86
+CPPFLAGS.SunOS+=	-DHAVE_MMX_FALSE	# XXX: -fomit-frame-pointer
 LDFLAGS.SunOS+=		-lresolv
 
 # flac is supported internally; don't know what the plugin is good for

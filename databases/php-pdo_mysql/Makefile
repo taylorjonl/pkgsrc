@@ -10,9 +10,18 @@ USE_PHP_EXT_PATCHES=	yes
 
 .include "../../lang/php/ext.mk"
 
-CONFIGURE_ARGS+=	--with-${MODNAME}
-CONFIGURE_ARGS+=	--with-${PKGMODNAME}=shared,${BUILDLINK_PREFIX.mysql-client}
+PKG_OPTIONS_VAR=	PKG_OPTIONS.php-pdo_mysql
+PKG_SUPPORTED_OPTIONS=	mysqlnd
+PKG_SUGGESTED_OPTIONS=	# empty
 
+.include "../../mk/bsd.options.mk"
+
+.if !empty(PKG_OPTIONS:Mmysqlnd)
+CONFIGURE_ARGS+=	--with-${MODNAME}=shared,mysqlnd
+.else
+CONFIGURE_ARGS+=	--with-${MODNAME}=shared,${BUILDLINK_PREFIX.mysql-client}
 .include "../../mk/mysql.buildlink3.mk"
+.endif
+
 .include "../../databases/php-pdo/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
