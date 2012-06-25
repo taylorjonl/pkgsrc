@@ -278,8 +278,8 @@ _JDK_PKGSRCDIR=		../../lang/openjdk8
 _JRE_PKGSRCDIR=		${_JDK_PKGSRCDIR}
 _JAVA_HOME=		${LOCALBASE}/java/openjdk8
 .elif ${_PKG_JVM} == "sun-jdk6"
-_JDK_PKGSRCDIR=		../../lang/sun-jdk6
-_JRE_PKGSRCDIR=		../../lang/sun-jre6
+_JDK_PKGSRCDIR=		../../joyent/sun-jdk6
+_JRE_PKGSRCDIR=		../../joyent/sun-jre6
 _JAVA_HOME=		${LOCALBASE}/java/sun-6
 UNLIMIT_RESOURCES+=	datasize
 .elif ${_PKG_JVM} == "sun-jdk7"
