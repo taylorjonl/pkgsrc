@@ -35,6 +35,5 @@ sbin/spread
 share/doc/spread/LICENSE
 share/doc/spread/Readme.txt
 share/doc/spread/Short_Buffer_Handling.txt
-share/examples/rc.d/spread
 share/examples/spread/spread.access_ip.sample
 share/examples/spread/spread.conf.sample

@@ -8,4 +8,3 @@ sbin/ndtpcheck
 sbin/ndtpcontrol
 sbin/ndtpdaily
 sbin/ndtpupgrade
-share/examples/rc.d/ndtpd

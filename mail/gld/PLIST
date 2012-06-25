@@ -3,7 +3,6 @@ bin/gld
 share/doc/gld/LICENCE
 share/doc/gld/README
 share/examples/gld/gld.conf
-share/examples/rc.d/gld
 share/gld/table-whitelist.sql
 share/gld/tables.mysql
 share/gld/tables.pgsql

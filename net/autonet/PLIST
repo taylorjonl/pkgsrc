@@ -3,4 +3,3 @@ man/man8/autonet.8
 sbin/autonet
 share/examples/autonet/autonet.local
 share/examples/autonet/lid_switch
-share/examples/rc.d/autonet

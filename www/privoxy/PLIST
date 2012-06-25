@@ -91,4 +91,3 @@ share/examples/privoxy/templates/url-info-osd.xml
 share/examples/privoxy/trust
 share/examples/privoxy/user.action
 share/examples/privoxy/user.filter
-share/examples/rc.d/privoxy

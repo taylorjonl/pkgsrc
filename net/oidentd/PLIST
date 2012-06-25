@@ -3,4 +3,3 @@ man/man5/oidentd.conf.5
 man/man5/oidentd_masq.conf.5
 man/man8/oidentd.8
 sbin/oidentd
-share/examples/rc.d/oidentd

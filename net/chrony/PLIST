@@ -10,4 +10,3 @@ share/doc/chrony/README
 share/doc/chrony/chrony.txt
 share/examples/chrony/chrony.conf.example
 share/examples/chrony/chrony.keys.example
-share/examples/rc.d/chronyd

@@ -9,8 +9,5 @@ sbin/dhcp6c
 sbin/dhcp6ctl
 sbin/dhcp6relay
 sbin/dhcp6s
-share/examples/rc.d/dhcp6c
-share/examples/rc.d/dhcp6relay
-share/examples/rc.d/dhcp6s
 share/examples/wide-dhcpv6/dhcp6c.conf
 share/examples/wide-dhcpv6/dhcp6s.conf

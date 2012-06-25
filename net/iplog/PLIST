@@ -3,4 +3,3 @@ man/man5/iplog.conf.5
 man/man8/iplog.8
 sbin/iplog
 share/examples/iplog/iplog.conf
-share/examples/rc.d/iplog

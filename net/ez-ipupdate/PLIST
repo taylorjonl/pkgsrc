@@ -11,4 +11,3 @@ share/examples/ez-ipupdate/example-ods.conf
 share/examples/ez-ipupdate/example-pgpow.conf
 share/examples/ez-ipupdate/example-tzo.conf
 share/examples/ez-ipupdate/ez-ipupdate.conf
-share/examples/rc.d/ez-ipupdate

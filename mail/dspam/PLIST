@@ -225,6 +225,5 @@ share/examples/dspam/cgi-admins
 share/examples/dspam/cgi-default.prefs
 share/examples/dspam/configure.pl
 share/examples/dspam/dspam.conf
-share/examples/rc.d/dspam
 @pkgdir lib/dspam
 @pkgdir etc/dspam

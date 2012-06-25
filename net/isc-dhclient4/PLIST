@@ -5,4 +5,3 @@ man/man8/dhclient-script.8
 man/man8/dhclient.8
 sbin/dhclient
 share/examples/isc-dhclient/dhclient.conf
-share/examples/rc.d/isc_dhclient

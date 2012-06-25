@@ -12,6 +12,5 @@ man/man8/pksd.8
 man/man8/pksdctl.8
 share/examples/pks-commands.html
 share/examples/pksd.conf
-share/examples/rc.d/pksd
 share/pks/mail_intro
 share/pks/pks_help.en

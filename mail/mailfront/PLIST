@@ -60,4 +60,3 @@ share/doc/mailfront/protocol-qmqp.html
 share/doc/mailfront/protocol-qmtp.html
 share/doc/mailfront/protocol-smtp.html
 share/doc/mailfront/std-handle.html
-share/examples/rc.d/smtpfront

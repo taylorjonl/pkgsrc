@@ -60,7 +60,6 @@ share/doc/wwwoffle/pl/INSTALL
 share/doc/wwwoffle/pl/LSM
 share/doc/wwwoffle/pl/README.1st
 share/doc/wwwoffle/pl/README.lang
-share/examples/rc.d/wwwoffled
 share/examples/wwwoffle/wwwoffle.conf
 @exec gzip -d -c %D/libdata/wwwoffle-spool.tar.gz | tar xzCf /
 @unexec cd /var/wwwoffle && ${RM} -rf html* search*

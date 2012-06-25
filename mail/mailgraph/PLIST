@@ -4,4 +4,3 @@ sbin/mailgraph
 share/doc/mailgraph/CHANGES
 share/doc/mailgraph/COPYING
 share/doc/mailgraph/README
-share/examples/rc.d/mailgraph

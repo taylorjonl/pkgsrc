@@ -18,4 +18,3 @@ man/man8/cfs_name.8
 man/man8/cfsd.8
 sbin/cfsd
 share/doc/cfs/notes.ms
-share/examples/rc.d/cfsd

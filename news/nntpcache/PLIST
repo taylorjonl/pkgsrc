@@ -36,5 +36,4 @@ share/examples/nntpcache/pubring.asc-dist
 share/examples/nntpcache/pubring.pgp
 share/examples/nntpcache/pubring.pgp-dist
 share/examples/nntpcache/spam.filter
-share/examples/rc.d/nntpcached
 @pkgdir share/examples/nntpcache/http/innreport/pics

@@ -75,4 +75,3 @@ share/denyhosts/plugins/test_deny.py
 share/denyhosts/scripts/restricted_from_invalid.py
 share/denyhosts/scripts/restricted_from_passwd.py
 share/denyhosts/setup.py
-share/examples/rc.d/denyhosts

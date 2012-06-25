@@ -15,7 +15,6 @@ man/man5/rplay.hosts.5
 man/man5/rplay.servers.5
 man/man8/rplayd.8
 sbin/rplayd
-share/examples/rc.d/rplayd
 share/examples/rplay/rplay.conf
 share/examples/rplay/rplay.helpers
 share/examples/rplay/rplay.hosts

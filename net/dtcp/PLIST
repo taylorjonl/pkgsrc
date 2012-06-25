@@ -8,5 +8,3 @@ man/man8/dtcps.8
 sbin/dtcpauth
 sbin/dtcpc
 sbin/dtcps
-share/examples/rc.d/dtcpc
-share/examples/rc.d/dtcps

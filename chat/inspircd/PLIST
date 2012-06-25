@@ -72,7 +72,6 @@ share/examples/inspircd/sql/m_sqllog.sqlite3.sql
 share/examples/inspircd/sql/m_sqloper.mysql.sql
 share/examples/inspircd/sql/m_sqloper.postgresql.sql
 share/examples/inspircd/sql/m_sqloper.sqlite3.sql
-share/examples/rc.d/inspircd
 share/inspircd/.gdbargs
 share/inspircd/inspircd
 share/inspircd/modules/m_alias.so

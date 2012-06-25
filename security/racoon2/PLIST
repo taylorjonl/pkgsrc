@@ -37,10 +37,6 @@ share/examples/racoon2/hook/ikesa-rekey
 share/examples/racoon2/hook/migration
 share/examples/racoon2/hook/ph1-up
 share/examples/racoon2/hook/ph1-down
-share/examples/rc.d/iked
-share/examples/rc.d/kinkd
-share/examples/rc.d/racoon2
-share/examples/rc.d/spmd
 @dirrm share/doc/racoon2
 @exec ${MKDIR} %D/share/examples/racoon2/hook/child-up.d
 @exec ${MKDIR} %D/share/examples/racoon2/hook/child-down.d

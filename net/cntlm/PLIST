@@ -2,4 +2,3 @@
 bin/cntlm
 man/man1/cntlm.1
 share/examples/cntlm/cntlm.conf
-share/examples/rc.d/cntlm

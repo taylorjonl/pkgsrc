@@ -99,6 +99,7 @@ MESSAGE_SUBST+=	VARBASE=${VARBASE:Q}
 BUILD_DEFS+=	VARBASE
 
 RCD_SCRIPTS+=	munin-node
+SMF_NAME=	munin
 
 EGDIR=		${PREFIX}/share/examples/munin
 

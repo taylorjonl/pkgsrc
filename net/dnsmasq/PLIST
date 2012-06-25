@@ -2,5 +2,4 @@
 man/man8/dnsmasq.8
 sbin/dnsmasq
 share/examples/dnsmasq/dnsmasq.conf.example
-share/examples/rc.d/dnsmasq
 ${PLIST.dbus}share/examples/dnsmasq/dnsmasq-dbus.conf

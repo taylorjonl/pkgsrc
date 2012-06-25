@@ -9,7 +9,6 @@ share/doc/fetchmail/README
 share/doc/fetchmail/design-notes.html
 share/doc/fetchmail/fetchmail-FAQ.html
 share/doc/fetchmail/fetchmail-features.html
-share/examples/rc.d/fetchmail
 share/locale/ca/LC_MESSAGES/fetchmail.mo
 share/locale/cs/LC_MESSAGES/fetchmail.mo
 share/locale/da/LC_MESSAGES/fetchmail.mo

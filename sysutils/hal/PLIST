@@ -62,7 +62,6 @@ share/PolicyKit/policy/org.freedesktop.hal.power-management.policy
 share/PolicyKit/policy/org.freedesktop.hal.storage.policy
 share/PolicyKit/policy/org.freedesktop.hal.wol.policy
 share/examples/hal/hal.conf
-share/examples/rc.d/hal
 share/gtk-doc/html/libhal-storage/home.png
 share/gtk-doc/html/libhal-storage/index.html
 share/gtk-doc/html/libhal-storage/index.sgml

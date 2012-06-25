@@ -10,4 +10,3 @@ sbin/sockd
 share/examples/dante/sockd.conf
 share/examples/dante/socks-simple.conf
 share/examples/dante/socks.conf
-share/examples/rc.d/sockd

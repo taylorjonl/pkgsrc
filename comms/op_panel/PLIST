@@ -15,7 +15,6 @@ share/examples/op_panel/op_lang_se.cfg
 share/examples/op_panel/op_panel.conf
 share/examples/op_panel/op_server.cfg
 share/examples/op_panel/op_style.cfg
-share/examples/rc.d/op_panel
 share/op_panel/crossdomain.xml
 share/op_panel/help_de.html
 share/op_panel/help_en.html

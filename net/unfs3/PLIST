@@ -2,5 +2,4 @@
 man/man7/tags.7
 man/man8/unfsd.8
 sbin/unfsd
-share/examples/rc.d/unfsd
 share/examples/unfs3/exports

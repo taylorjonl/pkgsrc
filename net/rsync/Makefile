@@ -26,6 +26,7 @@ PKG_SYSCONFSUBDIR=	rsync
 
 RCD_SCRIPTS=		rsyncd
 RCD_SCRIPT_SRC.rsyncd=	files/rsyncd.sh
+SMF_NAME=		rsyncd
 
 SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Fixing hardcoded paths.

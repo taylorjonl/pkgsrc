@@ -24,7 +24,6 @@ share/examples/logrotate.d/libvirtd
 share/examples/logrotate.d/libvirtd.lxc
 share/examples/logrotate.d/libvirtd.qemu
 share/examples/logrotate.d/libvirtd.uml
-share/examples/rc.d/libvirtd
 share/examples/sasl2/libvirt.conf
 include/libvirt/libvirt-qemu.h
 include/libvirt/libvirt.h

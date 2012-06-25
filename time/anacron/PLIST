@@ -4,4 +4,3 @@ man/man8/anacron.8
 sbin/anacron
 share/examples/anacron/anacrontab.FreeBSD
 share/examples/anacron/anacrontab.NetBSD
-share/examples/rc.d/anacron

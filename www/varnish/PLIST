@@ -38,7 +38,4 @@ man/man7/varnish-cli.7
 man/man7/varnish-counters.7
 man/man7/vcl.7
 sbin/varnishd
-share/examples/rc.d/varnishd
-share/examples/rc.d/varnishlog
-share/examples/rc.d/varnishncsa
 share/examples/varnish/default.vcl

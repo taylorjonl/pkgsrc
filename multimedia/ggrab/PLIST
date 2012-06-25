@@ -2,4 +2,3 @@
 bin/ggrab
 bin/sserver
 share/doc/ggrab/README
-share/examples/rc.d/sserver

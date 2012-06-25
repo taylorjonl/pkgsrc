@@ -798,4 +798,3 @@ share/examples/dovecot/dovecot-openssl.cnf
 share/examples/dovecot/dovecot-sql.conf.ext
 share/examples/dovecot/dovecot.conf
 share/examples/dovecot/mkcert.sh
-share/examples/rc.d/dovecot

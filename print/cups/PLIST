@@ -1095,7 +1095,6 @@ share/doc/cups/ru/index.html
 ${PLIST.pam}share/examples/cups/cups.pam
 share/examples/cups/cupsd.conf
 share/examples/cups/snmp.conf
-share/examples/rc.d/cupsd
 share/locale/da/cups_da.po
 share/locale/de/cups_de.po
 share/locale/es/cups_es.po

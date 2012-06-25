@@ -47,6 +47,10 @@ PKG_SHELL.${RMQ_USER}=	${RMQ_SHELL}
 PKG_SYSCONFSUBDIR=	${PKGBASE}
 CONF_FILES+=		${PREFIX}/share/examples/rabbitmq/rabbitmq-env.conf ${PKG_SYSCONFDIR}/rabbitmq-env.conf
 
+FILES_SUBST+=		RMQ_USER=${RMQ_USER}
+FILES_SUBST+=		RMQ_GROUP=${RMQ_GROUP}
+FILES_SUBST+=		RMQ_DIR=${RMQ_DIR}
+
 INSTALLATION_DIRS+=	share/examples/rabbitmq
 
 SCRIPTS_DIR=		${WRKSRC}/scripts

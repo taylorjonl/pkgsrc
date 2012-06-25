@@ -4,4 +4,3 @@ man/man8/pdns_recursor.8
 man/man8/rec_control.8
 sbin/pdns_recursor
 share/examples/pdns-recursor/recursor.conf-dist
-share/examples/rc.d/pdns_recursor

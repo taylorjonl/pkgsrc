@@ -22,4 +22,3 @@ share/doc/ircd/readme.log
 share/doc/ircd/readme.who
 share/doc/ircd/readme.www
 share/examples/ircd/example.conf
-share/examples/rc.d/ircd

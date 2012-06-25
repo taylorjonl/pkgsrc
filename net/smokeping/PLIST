@@ -138,7 +138,6 @@ share/doc/smokeping/COPYRIGHT
 share/doc/smokeping/LICENSE
 share/doc/smokeping/README
 share/doc/smokeping/TODO
-share/examples/rc.d/smokeping
 share/examples/smokeping/basepage.html.dist
 share/examples/smokeping/config.dist
 share/examples/smokeping/config.echoping

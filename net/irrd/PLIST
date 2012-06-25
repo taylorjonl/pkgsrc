@@ -7,6 +7,5 @@ sbin/irr_rpsl_submit
 sbin/irrdcacher
 sbin/ripe2rpsl
 share/examples/irrd/irrd.conf
-share/examples/rc.d/irrd
 share/doc/irrd/irrd-user.pdf
 share/doc/irrd/irrd-user.sgml

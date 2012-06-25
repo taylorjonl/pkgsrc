@@ -175,8 +175,6 @@ sbin/funmount
 sbin/sfscd
 sbin/sfssd
 sbin/vidb
-share/examples/rc.d/sfscd
-share/examples/rc.d/sfssd
 share/examples/sfs/sfsrwsd_config.sample
 share/sfs/agentrc
 share/sfs/sfs_config

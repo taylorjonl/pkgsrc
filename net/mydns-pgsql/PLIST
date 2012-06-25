@@ -14,7 +14,6 @@ man/man8/mydnsimport.8
 man/man8/mydnsptrconvert.8
 sbin/mydns
 share/examples/mydns-pgsql/mydns.conf
-share/examples/rc.d/mydns
 share/locale/es/LC_MESSAGES/mydns.mo
 share/locale/fr/LC_MESSAGES/mydns.mo
 share/locale/pt_BR/LC_MESSAGES/mydns.mo

@@ -25,4 +25,3 @@ share/examples/dict-server/dictd_mime.conf
 share/examples/dict-server/dictd_plugin_dbi.conf
 share/examples/dict-server/dictd_site.txt
 share/examples/dict-server/dictd_virtual.conf
-share/examples/rc.d/dictd

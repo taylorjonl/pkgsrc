@@ -327,4 +327,3 @@ share/examples/atheme/atheme.conf.example
 share/examples/atheme/atheme.conf.userserv-example
 share/examples/atheme/atheme.cron.example
 share/examples/atheme/atheme.motd.example
-share/examples/rc.d/atheme

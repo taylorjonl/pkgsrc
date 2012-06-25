@@ -4,4 +4,3 @@ man/man8/saslauthd.8
 sbin/saslauthd
 sbin/testsaslauthd
 ${PLIST.ldap}share/doc/cyrus-saslauthd/LDAP_SASLAUTHD
-share/examples/rc.d/saslauthd

@@ -41,4 +41,3 @@ share/examples/apcupsd/hosts.conf
 share/examples/apcupsd/multimon.conf
 share/examples/apcupsd/offbattery
 share/examples/apcupsd/onbattery
-share/examples/rc.d/apcupsd

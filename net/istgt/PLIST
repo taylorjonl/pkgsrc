@@ -6,4 +6,3 @@ share/examples/istgt/auth.conf
 share/examples/istgt/istgt.conf
 share/examples/istgt/istgt.large.conf
 share/examples/istgt/istgtcontrol.conf
-share/examples/rc.d/istgt

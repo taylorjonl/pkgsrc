@@ -12,7 +12,6 @@ lib/prelude-manager/reports/smtp.la
 lib/prelude-manager/reports/xmlmod.la
 sbin/run-prelude-manager
 share/examples/prelude-manager/prelude-manager.conf
-share/examples/rc.d/preludemanager
 share/doc/prelude-manager/smtp/template.example
 share/prelude-manager/xmlmod/idmef-message.dtd
 man/man1/prelude-manager.1

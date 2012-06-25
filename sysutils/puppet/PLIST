@@ -1747,8 +1747,6 @@ ${GEM_LIBDIR}/spec/watchr.rb
 ${GEM_LIBDIR}/tasks/manpages.rake
 ${GEM_LIBDIR}/tasks/parser.rake
 ${GEM_HOME}/specifications/${GEM_NAME}.gemspec
-share/examples/rc.d/puppetd
-share/examples/rc.d/puppetmasterd
 ${PLIST.sunos}${EGDIR}/svc/puppetd.xml
 ${PLIST.sunos}${EGDIR}/svc/puppetmasterd.xml
 ${RUBY_EG}-puppet/puppet.conf

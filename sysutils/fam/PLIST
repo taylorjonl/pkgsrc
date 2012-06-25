@@ -6,4 +6,3 @@ man/man5/famd.conf.5
 man/man8/famd.8
 sbin/famd
 share/examples/fam/fam.conf
-share/examples/rc.d/famd

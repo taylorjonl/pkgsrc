@@ -2144,5 +2144,4 @@ share/doc/mailman/mailman-member.ps
 share/doc/mailman/mailman-member.txt
 share/examples/mailman/crontab.in
 share/examples/mailman/mailman.conf
-share/examples/rc.d/mailman
 @pkgdir lib/mailman/pythonlib

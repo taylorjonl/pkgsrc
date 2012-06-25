@@ -144,4 +144,3 @@ sbin/munin-node-configure
 sbin/munin-node-configure-snmp
 sbin/munin-run
 share/examples/munin/munin-node.conf
-share/examples/rc.d/munin-node

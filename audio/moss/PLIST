@@ -24,7 +24,6 @@ ${PYSITELIB}/moss/template.pyo
 ${PYSITELIB}/moss/web.py
 ${PYSITELIB}/moss/web.pyc
 ${PYSITELIB}/moss/web.pyo
-share/examples/rc.d/moss
 share/moss/images/back.gif
 share/moss/images/dir.gif
 share/moss/images/file.gif

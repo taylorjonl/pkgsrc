@@ -13,6 +13,4 @@ man/man8/mimedefang.pl.8
 man/man8/watch-mimedefang.8
 share/examples/mimedefang/mimedefang-filter
 share/examples/mimedefang/sa-mimedefang.cf
-share/examples/rc.d/mimedefang
-share/examples/rc.d/mimedefang-multiplexor
 share/mimedefang/gen-ip-validator.pl

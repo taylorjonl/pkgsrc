@@ -29,4 +29,3 @@ sbin/sshd
 share/examples/openssh/moduli
 share/examples/openssh/ssh_config
 share/examples/openssh/sshd_config
-share/examples/rc.d/sshd

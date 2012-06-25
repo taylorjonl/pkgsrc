@@ -121,6 +121,5 @@ share/examples/fidogate/point/fidogate.conf
 share/examples/fidogate/point/newsfeeds
 share/examples/fidogate/point/packing
 share/examples/fidogate/point/routing
-share/examples/rc.d/fidogate
 share/fidogate/sendmail/mailer/ffx.m4
 share/fidogate/sendmail/mailer/ftn.m4

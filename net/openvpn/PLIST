@@ -44,4 +44,3 @@ share/examples/openvpn/scripts/bridge-start
 share/examples/openvpn/scripts/bridge-stop
 share/examples/openvpn/scripts/ucn.pl
 share/examples/openvpn/scripts/verify-cn
-share/examples/rc.d/openvpn

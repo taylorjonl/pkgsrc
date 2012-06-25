@@ -29,5 +29,3 @@ ${PLIST.milter}sbin/clamav-milter
 share/examples/clamav/clamav-milter.conf
 share/examples/clamav/clamd.conf
 share/examples/clamav/freshclam.conf
-share/examples/rc.d/clamd
-share/examples/rc.d/freshclamd

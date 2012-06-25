@@ -3,7 +3,6 @@ bin/freepopsd
 man/man1/freepopsd.1
 share/doc/freepops/MANUAL.txt
 share/examples/freepops/config.lua
-share/examples/rc.d/freepopsd
 share/freepops/lua/abv.lua
 share/freepops/lua/aggregator.lua
 share/freepops/lua/aol.lua

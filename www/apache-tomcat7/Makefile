@@ -28,6 +28,7 @@ TOMCAT_HOME=		${PREFIX}/share/tomcat
 EGDIR=			${PREFIX}/share/examples/tomcat
 DOCDIR=			${PREFIX}/share/doc/tomcat
 RCD_SCRIPTS=		tomcat
+SMF_NAME=		tomcat
 TOMCAT_USER?=		tomcat
 TOMCAT_GROUP?=		tomcat
 PKG_GROUPS=		${TOMCAT_GROUP}

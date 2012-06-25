@@ -105,4 +105,3 @@ share/examples/lighttpd/modules.conf
 share/examples/lighttpd/rrdtool-graph.sh
 share/examples/lighttpd/spawn-php.sh
 share/examples/lighttpd/vhosts.d/vhosts.template
-share/examples/rc.d/lighttpd

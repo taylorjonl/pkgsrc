@@ -134,4 +134,3 @@ man/man8/pygopherd.8
 share/examples/pygopherd/gophermap
 share/examples/pygopherd/mime.types
 share/examples/pygopherd/pygopherd.conf
-share/examples/rc.d/pygopherd

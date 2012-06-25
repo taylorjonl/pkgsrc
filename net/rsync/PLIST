@@ -4,4 +4,3 @@ man/man1/rsync.1
 man/man5/rsyncd.conf.5
 share/doc/rsync/README
 share/doc/rsync/tech_report.tex
-share/examples/rc.d/rsyncd

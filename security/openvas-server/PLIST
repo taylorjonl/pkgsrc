@@ -21,4 +21,3 @@ sbin/openvas-adduser
 sbin/openvas-mkcert
 sbin/openvas-rmuser
 sbin/openvasd
-share/examples/rc.d/openvasd

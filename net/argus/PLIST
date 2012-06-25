@@ -104,7 +104,6 @@ share/examples/argus/locale/template
 share/examples/argus/log
 share/examples/argus/notno
 share/examples/argus/users.example
-share/examples/rc.d/argusd
 @pkgdir share/examples/argus/stats
 @pkgdir share/examples/argus/perl
 @pkgdir share/examples/argus/notify

@@ -26,7 +26,6 @@ libexec/xymon/client/xymoncmd
 libexec/xymon/client/xymondigest
 libexec/xymon/client/xymongrep
 libexec/xymon/client/xymonlaunch
-share/examples/rc.d/xymonclient
 share/examples/xymon/clientlaunch.cfg
 share/examples/xymon/localclient.cfg
 share/examples/xymon/xymonclient.cfg

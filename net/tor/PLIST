@@ -11,7 +11,6 @@ share/doc/tor/tor-gencert.html
 share/doc/tor/tor-resolve.html
 share/doc/tor/tor.html
 share/doc/tor/torify.html
-share/examples/rc.d/tor
 share/examples/tor/tor-tsocks.conf
 share/examples/tor/torrc.sample
 share/tor/geoip

@@ -3,4 +3,3 @@ man/man5/opendkim.conf.5
 man/man8/opendkim.8
 sbin/opendkim
 share/examples/opendkim/opendkim.conf.sample
-share/examples/rc.d/opendkim

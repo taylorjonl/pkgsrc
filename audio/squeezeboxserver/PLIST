@@ -614,7 +614,6 @@ lib/squeezeboxserver/lib/README
 lib/squeezeboxserver/lib/Template/Provider.pm
 lib/squeezeboxserver/scanner.pl
 lib/squeezeboxserver/slimserver.pl
-share/examples/rc.d/squeezeboxserver
 share/squeezeboxserver/Changelog.html
 share/squeezeboxserver/Changelog1.html
 share/squeezeboxserver/Changelog2.html

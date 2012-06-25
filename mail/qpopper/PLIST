@@ -6,4 +6,3 @@ sbin/qpopauth
 sbin/qpopper
 share/doc/qpopper.License
 share/examples/qpopper.config
-share/examples/rc.d/qpopper

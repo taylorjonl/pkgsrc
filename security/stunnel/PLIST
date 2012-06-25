@@ -29,5 +29,4 @@ share/doc/stunnel/examples/stunnel.spec
 share/doc/stunnel/stunnel.fr.html
 share/doc/stunnel/stunnel.html
 share/doc/stunnel/stunnel.pl.html
-share/examples/rc.d/stunnel
 share/examples/stunnel/stunnel.conf-sample

@@ -330,4 +330,3 @@ share/doc/ejabberd/yozhikheader.png
 share/examples/ejabberd/ejabberd.yml
 share/examples/ejabberd/ejabberdctl.cfg
 share/examples/ejabberd/inetrc
-share/examples/rc.d/ejabberd

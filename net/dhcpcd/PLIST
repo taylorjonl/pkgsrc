@@ -14,4 +14,3 @@ man/man8/dhcpcd-run-hooks.8
 man/man8/dhcpcd.8
 sbin/dhcpcd
 share/examples/dhcpcd.conf
-share/examples/rc.d/dhcpcd

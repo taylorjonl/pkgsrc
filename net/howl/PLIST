@@ -28,7 +28,6 @@ lib/libhowl.la
 lib/libmDNSResponder.la
 lib/pkgconfig/howl.pc
 man/man8/mDNSResponder.8
-share/examples/rc.d/howl
 share/howl/help/address-summary.html
 share/howl/help/address.html
 share/howl/help/discovery-summary.html

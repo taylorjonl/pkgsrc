@@ -8,7 +8,6 @@ share/doc/redis/00-RELEASENOTES
 share/doc/redis/BUGS
 share/doc/redis/COPYING
 share/doc/redis/README
-share/examples/rc.d/redis
 share/examples/redis/redis.conf.example
 share/examples/redis/tests/assets/default.conf
 share/examples/redis/tests/assets/encodings.rdb

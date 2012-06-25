@@ -20,7 +20,3 @@ share/examples/perdition/Makefile.popmap
 share/examples/perdition/perdition.conf
 share/examples/perdition/popmap
 share/examples/perdition/popmap.re
-share/examples/rc.d/perdition.imap4
-share/examples/rc.d/perdition.imap4s
-share/examples/rc.d/perdition.pop3
-share/examples/rc.d/perdition.pop3s

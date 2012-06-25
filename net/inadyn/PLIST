@@ -2,4 +2,3 @@
 bin/inadyn
 ${PKGMANDIR}/man5/inadyn.conf.5
 ${PKGMANDIR}/man8/inadyn.8
-share/examples/rc.d/inadyn

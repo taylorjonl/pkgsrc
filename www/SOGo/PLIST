@@ -1594,4 +1594,3 @@ sbin/sogo-tool
 sbin/sogod
 share/examples/SOGo/SOGo.conf
 share/examples/SOGo/sogo-conf.sh
-share/examples/rc.d/sogod

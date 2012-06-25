@@ -29,4 +29,3 @@ sbin/lircd
 sbin/lircmd
 share/examples/lirc/lircd.conf
 share/examples/lirc/lircmd.conf
-share/examples/rc.d/lircd

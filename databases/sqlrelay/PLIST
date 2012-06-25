@@ -154,7 +154,6 @@ share/doc/sqlrelay/programming/zope/zsqlmethodresultset.gif
 share/doc/sqlrelay/running.html
 share/doc/sqlrelay/tuning.html
 share/doc/sqlrelay/windows.html
-share/examples/rc.d/sqlrelay
 share/examples/sqlrelay/sqlrelay
 share/examples/sqlrelay/sqlrelay.conf.example
 share/examples/sqlrelay/sqlrelay.dtd

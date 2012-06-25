@@ -386,8 +386,6 @@ man/man8/snmptrapd.8
 sbin/snmpd
 sbin/snmptrapd
 share/examples/net-snmp/EXAMPLE.conf
-share/examples/rc.d/snmpd
-share/examples/rc.d/snmptrapd
 ${PLIST.perl}share/snmp/mib2c-data/default-mfd-top.m2c
 ${PLIST.perl}share/snmp/mib2c-data/details-enums.m2i
 ${PLIST.perl}share/snmp/mib2c-data/details-node.m2i

@@ -3,7 +3,6 @@ share/doc/tomcat/LICENSE
 share/doc/tomcat/NOTICE
 share/doc/tomcat/RELEASE-NOTES
 share/doc/tomcat/RUNNING.txt
-share/examples/rc.d/tomcat
 share/examples/tomcat/catalina.policy
 share/examples/tomcat/catalina.properties
 share/examples/tomcat/context.xml

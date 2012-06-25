@@ -151,11 +151,6 @@ share/examples/nut/upsd.conf.sample
 share/examples/nut/upsd.users.sample
 share/examples/nut/upsmon.conf.sample
 share/examples/nut/upssched.conf.sample
-share/examples/rc.d/ups
-share/examples/rc.d/upsd
-share/examples/rc.d/upsdriver
-share/examples/rc.d/upslog
-share/examples/rc.d/upsmon
 share/nut/cmdvartab
 share/nut/driver.list
 @pkgdir share/nut/html

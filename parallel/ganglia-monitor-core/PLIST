@@ -29,5 +29,3 @@ sbin/gmond
 share/doc/ganglia/README
 share/examples/ganglia/gmetad.conf
 share/examples/ganglia/gmond.conf
-share/examples/rc.d/gmetad
-share/examples/rc.d/gmond

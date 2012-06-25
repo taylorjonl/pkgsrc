@@ -51,6 +51,3 @@ share/examples/cfengine/cfrc.example
 share/examples/cfengine/cfrun.hosts.example
 share/examples/cfengine/cfservd.conf.example
 share/examples/cfengine/update.conf.example
-share/examples/rc.d/cfenvd
-share/examples/rc.d/cfexecd
-share/examples/rc.d/cfservd

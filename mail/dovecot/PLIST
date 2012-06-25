@@ -522,5 +522,4 @@ share/examples/dovecot/dovecot-ldap-example.conf
 share/examples/dovecot/dovecot-openssl.cnf
 share/examples/dovecot/dovecot-sql-example.conf
 share/examples/dovecot/mkcert.sh
-share/examples/rc.d/dovecot
 @pkgdir lib/dovecot/auth

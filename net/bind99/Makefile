@@ -66,6 +66,7 @@ PLIST.inet6=	yes
 .endif
 
 RCD_SCRIPTS=		lwresd named9
+SMF_METHODS=		named
 
 INSTALLATION_DIRS=	${DOCDIR} share/doc/bind9/arm
 

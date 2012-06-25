@@ -3,4 +3,3 @@ man/man8/rtspd.8
 sbin/rtspd
 share/doc/ra-rtsp-proxy/README
 share/doc/ra-rtsp-proxy/license.txt
-share/examples/rc.d/rtspd

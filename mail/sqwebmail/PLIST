@@ -120,4 +120,3 @@ share/examples/courier/calendarmode
 share/examples/courier/ldapaddressbook.dist
 share/examples/courier/sqwebmaild.dist
 share/examples/courier/webmail.authpam
-share/examples/rc.d/sqwebmail

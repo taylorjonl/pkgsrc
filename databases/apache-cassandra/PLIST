@@ -2805,4 +2805,3 @@ share/examples/cassandra/commitlog_archiving.properties
 share/examples/cassandra/cqlshrc.sample
 share/examples/cassandra/log4j-server.properties
 share/examples/cassandra/log4j-tools.properties
-share/examples/rc.d/cassandra
