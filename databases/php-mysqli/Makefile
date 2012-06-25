@@ -8,9 +8,19 @@ MAINTAINER=		pkgsrc-users@NetBSD.org
 
 CONFLICTS=	php-mysqli-[0-9]*
 
+PKG_OPTIONS_VAR=	PKG_OPTIONS.php-mysqli
+PKG_SUPPORTED_OPTIONS=	mysqlnd
+PKG_SUGGESTED_OPTIONS=	# empty
+
+.include "../../mk/bsd.options.mk"
+
+.if !empty(PKG_OPTIONS:Mmysqlnd)
+CONFIGURE_ARGS+=	--with-${MODNAME}=shared,mysqlnd
+.else
 EVAL_PREFIX+=		MYSQLDIR=mysql-client
-CONFIGURE_ARGS+=	--with-${MODNAME}=${PREFIX}/bin/mysql_config
+CONFIGURE_ARGS+=	--with-${MODNAME}=shared,${BUILDLINK_PREFIX.mysql-client}
+.  include "../../mk/mysql.buildlink3.mk"
+.endif
 
 .include "../../lang/php/ext.mk"
-.include "../../mk/mysql.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

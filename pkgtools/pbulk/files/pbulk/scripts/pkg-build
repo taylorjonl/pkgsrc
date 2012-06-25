@@ -30,7 +30,7 @@
 # OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-. @PBULK_CONFIG@
+. ${PBULK_CONF:-@PBULK_CONFIG@}
 
 if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 	echo "Your configuration has version ${config_version}."
@@ -172,20 +172,29 @@ fi
 # Go to target directory
 cd ${pkgsrc}/${pkgdir}
 # Clean build area, just in case
-${make} clean > ${bulklog}/${pkgname}/pre-clean.log 2>&1
+${make} clean 2>&1 | tee ${bulklog}/${pkgname}/pre-clean.log >/dev/null 2>&1
 # Install all dependencies the package said it would need
 if [ ! -z "$dependencies" ]; then
-	${pkg_add_cmd} $dependencies > ${bulklog}/${pkgname}/depends.log 2>&1
+	${pkg_add_cmd} $dependencies 2>&1 | tee ${bulklog}/${pkgname}/depends.log >/dev/null 2>&1
+	[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
 fi
 # Build package, create a separate log file for each major phase
-run_make run_direct checksum  > ${bulklog}/${pkgname}/checksum.log 2>&1 || cleanup
-run_usergroup configure > ${bulklog}/${pkgname}/configure.log 2>&1 || cleanup
-run_make ${run_build} configure >> ${bulklog}/${pkgname}/configure.log 2>&1 || cleanup
-run_usergroup build> ${bulklog}/${pkgname}/build.log 2>&1 || cleanup
-run_make ${run_build} all >> ${bulklog}/${pkgname}/build.log 2>&1 || cleanup
-run_usergroup install > ${bulklog}/${pkgname}/install.log 2>&1 || cleanup
-run_make ${run_install} stage-install >> ${bulklog}/${pkgname}/install.log 2>&1 || cleanup
-run_make run_direct package  > ${bulklog}/${pkgname}/package.log 2>&1 || cleanup
+run_make run_direct checksum          2>&1 | tee    ${bulklog}/${pkgname}/checksum.log  >${bulklog}/${pkgname}/checksum-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_usergroup configure               2>&1 | tee    ${bulklog}/${pkgname}/configure.log >${bulklog}/${pkgname}/configure-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_make ${run_build} configure       2>&1 | tee -a ${bulklog}/${pkgname}/configure.log >>${bulklog}/${pkgname}/configure-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_usergroup build                   2>&1 | tee    ${bulklog}/${pkgname}/build.log     >${bulklog}/${pkgname}/build-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_make ${run_build} all             2>&1 | tee -a ${bulklog}/${pkgname}/build.log     >>${bulklog}/${pkgname}/build-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_usergroup install                 2>&1 | tee    ${bulklog}/${pkgname}/install.log   >${bulklog}/${pkgname}/install-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_make ${run_install} stage-install 2>&1 | tee -a ${bulklog}/${pkgname}/install.log   >>${bulklog}/${pkgname}/install-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
+run_make run_direct package           2>&1 | tee    ${bulklog}/${pkgname}/package.log   >${bulklog}/${pkgname}/package-tee.log 2>&1
+[ ${PIPESTATUS[0]} -eq 0 ] || cleanup
 
 # When using DESTDIR build, add the package once to test install rules.
 # This is not done for potential bootstrap packages as they might already
@@ -193,21 +202,21 @@ run_make run_direct package  > ${bulklog}/${pkgname}/package.log 2>&1 || cleanup
 if [ "${use_destdir}" != "no" ] && \
    [ -z "${is_bootstrap}" ]; then
 	if ! ${pkg_add_cmd} ${pkgname} \
-	    >> ${bulklog}/${pkgname}/package.log 2>&1; then
+	    2>&1 | tee ${bulklog}/${pkgname}/package.log >/dev/null 2>&1 ; then
 		run_make run_direct package-clean
 		cleanup
 	fi
 fi
 
 # Clean build area
-${make} clean > ${bulklog}/${pkgname}/clean.log 2>&1
+${make} clean 2>&1 | tee ${bulklog}/${pkgname}/clean.log >/dev/null 2>&1
 
 # Test uninstall rules. This is not for cross-compiling as the install script
 # is not run in that case anyway. This is also not done for packages marked as
 # part of the bootstrap, those have the preserve flag set.
 if [ "$cross_compile" = "no" ] && \
    [ -z "${is_bootstrap}" ]; then
-	${pkg_delete} -K ${cur_pkgdb} ${pkgname} > ${bulklog}/${pkgname}/deinstall.log 2>&1
+	${pkg_delete} -K ${cur_pkgdb} ${pkgname} 2>&1 | tee ${bulklog}/${pkgname}/deinstall.log >/dev/null 2>&1
 fi
 
 # Comment the following out if you want to test all deinstall scripts.

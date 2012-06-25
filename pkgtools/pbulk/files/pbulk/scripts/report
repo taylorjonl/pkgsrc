@@ -30,7 +30,7 @@
 # OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-. @PBULK_CONFIG@
+. ${PBULK_CONF:-@PBULK_CONFIG@}
 
 set -e
 
@@ -107,4 +107,20 @@ echo "Uploading report..."
 		[ -f "$file" ] && echo "+ $file"
 	done
 	echo "- *"
-} | ${rsync} --exclude-from=- ${report_rsync_args} . ${report_rsync_target}/${build_start_dir}
+} | {
+	if [ -n "${report_manta_target}" ]; then
+		# Variables sourced from pbulk.conf
+		export MANTA_USER MANTA_KEY_ID MANTA_URL
+		PATH=$MANTA_PATH:$PATH
+		# XXX: rewrite file generation to avoid rsync+tar
+		${rsync} -a --exclude-from=- --delete-excluded . /var/tmp/report-$$/
+		(cd /var/tmp/report-$$; gtar -cf /var/tmp/manta.tar .)
+		mput -f /var/tmp/manta.tar /${MANTA_USER}/stor/${report_subject_prefix}-${build_start_dir}.tar
+		echo /${MANTA_USER}/stor/${report_subject_prefix}-${build_start_dir}.tar \
+		    | mjob create -qom "muntar -f \$MANTA_INPUT_FILE ${report_manta_target}/${build_start_dir}"
+		mrm /${MANTA_USER}/stor/${report_subject_prefix}-${build_start_dir}.tar
+		rm -rf /var/tmp/manta.tar /var/tmp/report-$$
+	else
+		${rsync} --exclude-from=- ${report_rsync_args} . ${report_rsync_target}/${build_start_dir}
+	fi
+}

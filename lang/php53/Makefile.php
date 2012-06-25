@@ -38,6 +38,7 @@ CONFIGURE_ARGS+=	--disable-pdo
 CONFIGURE_ARGS+=	--disable-json
 
 CONFIGURE_ARGS+=	--enable-cgi
+CONFIGURE_ARGS+=	--enable-mysqlnd
 CONFIGURE_ARGS+=	--enable-xml
 CONFIGURE_ARGS+=	--with-libxml-dir=${PREFIX}
 

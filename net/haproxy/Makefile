@@ -19,6 +19,8 @@ INSTALL_MAKE_FLAGS+=	MANDIR=${PREFIX}/${PKGMANDIR}
 EGDIR=			${PREFIX}/share/examples/${PKGBASE}
 INSTALLATION_DIRS=	${EGDIR} share/examples/rc.d
 
+CONF_FILES+=		${EGDIR}/haproxy.cfg ${PKG_SYSCONFDIR}/haproxy.cfg
+
 .include "../../mk/bsd.prefs.mk"
 
 PLIST_VARS+=		rcd
