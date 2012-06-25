@@ -23,6 +23,8 @@ EGDIR=			${PREFIX}/share/examples/${PKGBASE}
 DOCDIR=			${PREFIX}/share/doc/${PKGBASE}
 INSTALLATION_DIRS+=	${EGDIR}
 
+CONF_FILES+=		${EGDIR}/haproxy.cfg ${PKG_SYSCONFDIR}/haproxy.cfg
+
 .include "../../mk/bsd.prefs.mk"
 
 .if ${OPSYS} == "NetBSD"
