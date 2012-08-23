@@ -10,6 +10,8 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 COMMENT=	Extensions to Tcl to support scripting of interactive programs
 LICENSE=	public-domain
 
+USE_GCC_RUNTIME=	yes
+
 CONFIGURE_ARGS+=	--enable-shared
 CONFIGURE_ARGS+=	--without-x
 

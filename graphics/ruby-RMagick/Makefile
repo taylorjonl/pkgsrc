@@ -12,6 +12,8 @@ LICENSE=	mit
 
 USE_TOOLS+=	pkg-config
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 
 BUILDLINK_API_DEPENDS.ImageMagick+=	ImageMagick>=6.3.5.10

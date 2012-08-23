@@ -9,6 +9,8 @@ HOMEPAGE=	http://oniguruma.rubyforge.org/
 COMMENT=	Fast regular expression library
 LICENSE=	modified-bsd
 
+USE_GCC_RUNTIME=	yes
+
 USE_TOOLS+=	pax
 
 .include "../../textproc/oniguruma/buildlink3.mk"

@@ -15,6 +15,8 @@ BUILDDIR=		${WRKSRC}/mDNSPosix/build/prod
 AUTO_MKDIRS=		yes
 MAKE_JOBS_SAFE=		no
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../mk/bsd.prefs.mk"
 
 SO_SUFFIX=	so

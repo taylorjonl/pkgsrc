@@ -8,6 +8,8 @@ HOMEPAGE=	http://wiki.github.com/hpricot/hpricot
 COMMENT=	Fast, enjoyable HTML parser for Ruby
 LICENSE=	mit
 
+USE_GCC_RUNTIME=	yes
+
 post-extract:
 	${FIND} ${WRKSRC} -type f -exec ${CHMOD} g-w {} \;
 

@@ -15,6 +15,7 @@ BUILD_DEPENDS+=		git-base>=1.5:../../devel/git-base
 CONFLICTS+=		jabberd-[0-9]*
 
 GNU_CONFIGURE=		yes
+USE_GCC_RUNTIME=	yes
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		gmake patch
 

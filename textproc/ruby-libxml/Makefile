@@ -9,6 +9,8 @@ HOMEPAGE=	http://libxml.rubyforge.org/
 COMMENT=	Support module for libxml2 library
 LICENSE=	mit
 
+USE_GCC_RUNTIME=	yes
+
 CONFIGURE_ARGS+=	\
 	--with-xml2-include=${BUILDLINK_PREFIX.libxml2}/include/libxml2
 OVERRIDE_GEMSPEC=	:files ext/libxml/extconf.h= test/tc_parser.rb.orig=

@@ -15,6 +15,7 @@ CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}nss/tests/multinit/multinit.sh
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}js/src/configure
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}configure
 
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		gmake perl pax pkg-config
 
 .include "../../mk/bsd.prefs.mk"

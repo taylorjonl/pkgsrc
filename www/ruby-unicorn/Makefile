@@ -14,5 +14,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-kgio>=2.6<3:../../devel/ruby-kgio
 DEPENDS+=	${RUBY_PKGPREFIX}-rack-[0-9]*:../../www/ruby-rack
 DEPENDS+=	${RUBY_PKGPREFIX}-raindrops>=0.7<1:../../www/ruby-raindrops
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

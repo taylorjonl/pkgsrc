@@ -14,5 +14,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-gem_plugin>=0.2.3:../../misc/ruby-gem_plugin
 
 CONFLICTS+=	ruby[1-9][0-9]-mongrel-[0-9]* mongrel-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

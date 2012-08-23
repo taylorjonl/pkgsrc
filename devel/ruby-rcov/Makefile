@@ -10,6 +10,8 @@ LICENSE=	gnu-gpl-v2 OR ruby-license
 
 RUBY_VERSION_SUPPORTED=	18
 
+USE_GCC_RUNTIME=	yes
+
 post-install:
 	${MV} ${DESTDIR}${PREFIX}/bin/rcov ${DESTDIR}${PREFIX}/bin/rcov${RUBY_VER}
 

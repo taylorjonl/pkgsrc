@@ -8,6 +8,8 @@ HOMEPAGE=	http://flori.github.com/json
 COMMENT=	Native extension implementation of JSON for Ruby
 LICENSE=	ruby-license
 
+USE_GCC_RUNTIME=	yes
+
 GEM_CLEANBUILD=	ext/json/ext/generator/* ext/json/ext/parser/*
 
 post-extract:

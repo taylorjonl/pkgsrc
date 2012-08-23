@@ -10,5 +10,7 @@ LICENSE=	original-bsd
 
 CONFLICTS+=	ruby[1-9][0-9]-bluecloth-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

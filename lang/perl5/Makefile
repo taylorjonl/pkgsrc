@@ -97,6 +97,9 @@ SUPERSEDES+=	p5-Memoize<=1.03
 SUPERSEDES+=	p5-I18N-LangTags<=0.39
 SUPERSEDES+=	p5-Locale-Maketext<=1.23
 
+# XXX: requires that gcc use an external perl to avoid circular dependencies
+USE_GCC_RUNTIME=	yes
+
 .include "../../mk/bsd.prefs.mk"
 
 # Determine the Perl API version from the patchlevel.h file from the

@@ -11,6 +11,7 @@ COMMENT=	Modern implementation of DBM
 LICENSE=	gnu-lgpl-v2.1
 
 GNU_CONFIGURE=	yes
+USE_GCC_RUNTIME=yes
 USE_TOOLS+=	gmake pkg-config
 USE_LANGUAGES=	c99
 

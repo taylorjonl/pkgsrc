@@ -23,6 +23,7 @@ CONFLICTS+=		ssh2-[0-9]* ssh2-nox11-[0-9]*
 CONFLICTS+=		openssh+gssapi-[0-9]*
 CONFLICTS+=		lsh>2.0
 
+USE_GCC_RUNTIME=	yes
 USE_TOOLS+=		perl
 
 CRYPTO=			yes

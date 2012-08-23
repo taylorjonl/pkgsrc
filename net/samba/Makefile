@@ -12,6 +12,8 @@ LICENSE=	gnu-gpl-v3
 VERSION=	3.6.22
 CONFLICTS+=	ja-samba-[0-9]* pam-smbpass-[0-9]* winbind-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 FILESDIR=		${PKGDIR}/../../net/samba/files
 DESCR_SRC=		${PKGDIR}/../../net/samba/DESCR
 MESSAGE_SRC=		${PKGDIR}/../../net/samba/MESSAGE

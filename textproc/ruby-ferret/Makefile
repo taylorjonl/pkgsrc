@@ -8,5 +8,7 @@ HOMEPAGE=	https://github.com/jkraemer/ferret/
 COMMENT=	Text search engine library written for Ruby
 LICENSE=	mit
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

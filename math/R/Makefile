@@ -15,6 +15,8 @@ NOT_FOR_PLATFORM=	NetBSD-1.[0-4]*-alpha NetBSD-1.5-alpha \
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
+USE_GCC_RUNTIME=	yes
+
 BUILD_TARGET=		all info
 INSTALL_TARGET=		install install-info
 TEST_TARGET=		check

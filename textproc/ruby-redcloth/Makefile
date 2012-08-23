@@ -9,5 +9,7 @@ HOMEPAGE=	http://redcloth.org/
 COMMENT=	Textile library for Ruby
 LICENSE=	mit
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

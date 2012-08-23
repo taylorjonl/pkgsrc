@@ -12,6 +12,7 @@ HOMEPAGE=	http://www.spread.org/
 COMMENT=	Group communication system providing a number of messaging services
 
 WRKSRC=		${WRKDIR}/${DISTNAME}
+USE_GCC_RUNTIME=yes
 USE_TOOLS+=	perl
 GNU_CONFIGURE=	YES
 CONFIGURE_ARGS+=	--includedir=${PREFIX:Q}/include/spread

@@ -12,5 +12,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-rack>=1.2<2:../../www/ruby-rack
 
 CONFLICTS+=	ruby[1-9][0-9][0-9]-puma-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

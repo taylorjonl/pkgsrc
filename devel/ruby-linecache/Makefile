@@ -12,5 +12,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-rbx-require-relative>=0.0.5:../../devel/ruby-rbx-req
 
 RUBY_VERSION_SUPPORTED= 18
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -10,6 +10,8 @@ LICENSE=	mit
 
 CONFLICTS+=	ruby[1-9][0-9][0-9]-nokogiri-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../textproc/libxml2/buildlink3.mk"
 .include "../../textproc/libxslt/buildlink3.mk"
 .include "../../lang/ruby/gem.mk"

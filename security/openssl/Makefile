@@ -18,6 +18,8 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 BUILD_DEPENDS+=	p5-Perl4-CoreLibs-[0-9]*:../../devel/p5-Perl4-CoreLibs
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../mk/bsd.prefs.mk"
 .include "../../mk/compiler.mk"
 

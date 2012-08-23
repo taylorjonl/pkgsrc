@@ -10,6 +10,7 @@ HOMEPAGE=	http://www.xvid.org/
 COMMENT=	ISO MPEG-4 compliant video codec
 LICENSE=	gnu-gpl-v2
 
+USE_GCC_RUNTIME=yes
 USE_TOOLS+=	gmake
 
 .include "../../mk/bsd.prefs.mk"

@@ -19,6 +19,8 @@ LICENSE=		gnu-gpl-v2
 .include "../../net/nagios-base/Makefile.common"
 .include "options.mk"
 
+USE_GCC_RUNTIME=	yes
+
 CONFIGURE_ARGS+=	--with-gd-lib=${PREFIX}/lib
 CONFIGURE_ARGS+=	--with-gd-inc=${PREFIX}/include
 CONFIGURE_ARGS+=	--enable-embedded-perl

@@ -19,6 +19,7 @@ CONFLICTS=	${RUBY_PKGPREFIX}-dbm-[0-9]* \
 		${RUBY_PKGPREFIX}-openssl-[0-9]* \
 		${RUBY_PKGPREFIX}-tcltk-[0-9]*
 
+USE_GCC_RUNTIME=yes
 USE_LANGUAGES=	c
 USE_TOOLS+=	pax yacc
 GNU_CONFIGURE=	yes

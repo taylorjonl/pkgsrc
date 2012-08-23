@@ -13,6 +13,8 @@ LICENSE=	gnu-gpl-v2
 # manual page conflicts.
 CONFLICTS+=	ruby[1-9][0-9]-eruby-*
 
+USE_GCC_RUNTIME=	yes
+
 # Need to update encoding processing.
 RUBY_VERSION_SUPPORTED= 18
 

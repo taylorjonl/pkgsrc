@@ -14,5 +14,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-eventmachine>=0.12.6:../../devel/ruby-eventmachine
 
 CONFLICTS+=	ruby[1-9][0-9]-thin-[0-9]* thin-[0-9]*
 
+USE_GCC_RUNTIME=	yes
+
 .include "../../lang/ruby/gem.mk"
 .include "../../mk/bsd.pkg.mk"

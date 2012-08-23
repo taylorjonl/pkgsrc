@@ -41,6 +41,7 @@ DISTINFO_FILE?=		${.CURDIR}/../postgresql84/distinfo
 COMMON_FILESDIR?=	${.CURDIR}/../postgresql84/files
 PATCHDIR?=		${.CURDIR}/../postgresql84/patches
 
+USE_GCC_RUNTIME=	yes
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		bison gmake lex msgfmt
 PKG_SYSCONFSUBDIR=	postgresql

@@ -10,6 +10,8 @@ HOMEPAGE=		http://fcgi.rubyforge.org/wiki/wiki.pl
 COMMENT=		FastCGI interface for Ruby
 LICENSE=		gnu-gpl-v2 OR ruby-license
 
+USE_GCC_RUNTIME=	yes
+
 CONFIGURE_ARGS+=	--with-fcgi-dir=${BUILDLINK_PREFIX.fcgi:Q}
 
 .include "../../lang/ruby/gem.mk"

@@ -15,6 +15,9 @@ INSTALLATION_DIRS=	lib share/examples/ffmpeg share/doc/ffmpeg
 CONF_FILES+=	${PREFIX}/share/examples/ffmpeg/ffserver.conf \
 		${PKG_SYSCONFDIR}/ffserver.conf
 
+# Needs to come before bsd.prefs.mk or compiler.mk, USE_LIBTOOL is set too late.
+USE_GCC_RUNTIME=	yes
+
 .include "../../mk/bsd.prefs.mk"
 
 .if !empty(USE_CROSS_COMPILE:M[yY][eE][sS])
