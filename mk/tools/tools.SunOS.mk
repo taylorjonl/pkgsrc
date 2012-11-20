@@ -5,7 +5,7 @@
 # We bootstrap a pdksh shell on this platform.
 
 TOOLS_PLATFORM.[?=		[			# shell builtin
-.if exists(/usr/bin/gawk)
+.if exists(/usr/bin/gawk) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.awk?=		/usr/bin/gawk
 .else
 TOOLS_PLATFORM.awk?=		/usr/bin/nawk
@@ -14,7 +14,7 @@ TOOLS_PLATFORM.basename?=	/usr/bin/basename
 .if exists(/bin/bash)
 TOOLS_PLATFORM.bash?=		/bin/bash
 .endif
-.if exists(/usr/bin/bison)
+.if exists(/usr/bin/bison) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.bison?=		/usr/bin/bison
 TOOLS_PLATFORM.bison-yacc?=	/usr/bin/bison -y
 .elif exists(/usr/sfw/bison)
@@ -81,31 +81,31 @@ TOOLS_PLATFORM.find?=		/usr/gnu/bin/find
 .else
 TOOLS_PLATFORM.find?=		/usr/bin/find
 .endif
-.if exists(/usr/bin/flex)
+.if exists(/usr/bin/flex) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.flex?=		/usr/bin/flex
 TOOLS_PLATFORM.lex?=		/usr/bin/flex
 .elif exists(/usr/sfw/bin/flex)
 TOOLS_PLATFORM.flex?=		/usr/sfw/bin/flex
 TOOLS_PLATFORM.lex?=		/usr/sfw/bin/flex
 .endif
-.if exists(/usr/bin/gawk)
+.if exists(/usr/bin/gawk) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.gawk?=		/usr/bin/gawk
 .endif
-.if exists(/usr/bin/gm4)
+.if exists(/usr/bin/gm4) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.gm4?=		/usr/bin/gm4
 .endif
-.if exists(/usr/bin/gmake)
+.if exists(/usr/bin/gmake) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.gmake?=		/usr/bin/gmake
 .elif exists(/usr/sfw/bin/gmake)
 TOOLS_PLATFORM.gmake?=		/usr/sfw/bin/gmake
 .endif
-.if exists(/usr/bin/groff)
+.if exists(/usr/bin/groff) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.groff?=		/usr/bin/groff
 .endif
-.if exists(/usr/bin/gsed)
+.if exists(/usr/bin/gsed) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.gsed?=		/usr/bin/gsed
 .endif
-.if exists(/usr/bin/gsoelim)
+.if exists(/usr/bin/gsoelim) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.gsoelim?=	/usr/bin/gsoelim
 .endif
 .if exists(/usr/bin/gtar)
@@ -138,7 +138,7 @@ TOOLS_PLATFORM.ln?=		/usr/bin/ln
 TOOLS_PLATFORM.ls?=		/usr/bin/ls
 TOOLS_PLATFORM.m4?=		/usr/ccs/bin/m4
 TOOLS_PLATFORM.mail?=		/usr/bin/mailx
-.if exists(/usr/bin/makeinfo)
+.if exists(/usr/bin/makeinfo) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.makeinfo?=	/usr/bin/makeinfo
 .elif exists(/usr/sfw/bin/makeinfo)
 TOOLS_PLATFORM.makeinfo?=	/usr/sfw/bin/makeinfo
@@ -164,7 +164,7 @@ TOOLS_PLATFORM.openssl?=	/usr/bin/openssl
 #TOOLS_PLATFORM.perl?=		/usr/bin/perl
 #TOOLS_PLATFORM.pod2man?=	/usr/perl5/bin/pod2man
 #.endif
-.if ${OS_VERSION} == "5.11" && exists(/usr/bin/pkg-config)
+.if ${OS_VERSION} == "5.11" && exists(/usr/bin/pkg-config) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.pkg-config?=	/usr/bin/pkg-config
 .endif
 TOOLS_PLATFORM.printf?=		/bin/printf
@@ -176,7 +176,7 @@ TOOLS_PLATFORM.readelf?=	/usr/sfw/bin/greadelf
 .endif
 TOOLS_PLATFORM.rm?=		/usr/bin/rm
 TOOLS_PLATFORM.rmdir?=		/usr/bin/rmdir
-.if exists(/usr/bin/gsdiff)
+.if exists(/usr/bin/gsdiff) && ${LOCALBASE} != "/usr"
 TOOLS_PLATFORM.sdiff?=		/usr/bin/gsdiff
 .else
 TOOLS_PLATFORM.sdiff?=		/usr/bin/sdiff

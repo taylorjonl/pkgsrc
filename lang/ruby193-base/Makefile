@@ -42,6 +42,7 @@ LIBS.SunOS+=	-lm
 .endif
 
 .if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=	DLDFLAGS="-L/system/usr/lib -Wl,-R/system/usr/lib"
 CONFIGURE_ENV+=	OBJCOPY=:
 CONFIGURE_ENV+=	ac_cv_prog_PKG_CONFIG=""
 .endif
