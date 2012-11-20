@@ -94,9 +94,9 @@ PKG_TOOLS_BIN?=		${LOCALBASE}/sbin
 .if ${MACHINE_ARCH} == "x86_64"
 LIBABISUFFIX=		/amd64
 .endif
-_OPSYS_SYSTEM_RPATH?=	/lib${LIBABISUFFIX}:/usr/lib${LIBABISUFFIX}
-_OPSYS_LIB_DIRS?=	/lib${LIBABISUFFIX} /usr/lib${LIBABISUFFIX}
-_OPSYS_INCLUDE_DIRS?=	/usr/include
+_OPSYS_SYSTEM_RPATH?=	/system/lib${LIBABISUFFIX}:/system/usr/lib${LIBABISUFFIX}
+_OPSYS_LIB_DIRS?=	/system/lib${LIBABISUFFIX} /system/usr/lib${LIBABISUFFIX}
+_OPSYS_INCLUDE_DIRS?=	/system/usr/include
 
 # Enable shlibs checks if readelf is set, not available by default.
 _OPSYS_CAN_CHECK_SHLIBS=	no

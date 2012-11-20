@@ -19,7 +19,7 @@ BUILTIN_FIND_GREP.H_DB=	^\#define.*HASHVERSION.*2$$
 ###
 .if !defined(IS_BUILTIN.db1)
 IS_BUILTIN.db1=	no
-.  if empty(H_DB:M${LOCALBASE}/*) && exists(${H_DB})
+.  if exists(${H_DB})
 IS_BUILTIN.db1=	yes
 .  endif
 .endif

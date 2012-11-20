@@ -15,7 +15,7 @@ BUILTIN_FIND_GREP.H_TERM:=	tigetstr
 ###
 .if !defined(IS_BUILTIN.terminfo)
 IS_BUILTIN.terminfo=	no
-.  if empty(H_TERM:M__nonexistent__) && empty(H_TERM:M${LOCALBASE}/*)
+.  if empty(H_TERM:M__nonexistent__)
 .    if !empty(BUILTIN_LIB_FOUND.terminfo:M[yY[eE][sS]) || \
         !empty(BUILTIN_LIB_FOUND.curses:M[yY][eE][sS]) || \
         !empty(BUILTIN_LIB_FOUND.tinfo:M[yY][eE][sS])
@@ -48,7 +48,7 @@ MAKEVARS+=	USE_BUILTIN.terminfo
 # (2) If <term.h> exists and libcurses exists, then it's "curses".
 # (3) If <term.h> exists and lib{curses,terminfo,tinfo} don't, then it's "c".
 #
-.if empty(H_TERM:M__nonexistent__) && empty(H_TERM:M${LOCALBASE}/*)
+.if empty(H_TERM:M__nonexistent__)
 .  if !empty(BUILTIN_LIB_FOUND.terminfo:M[yY][eE][sS])
 BUILTIN_LIBNAME.terminfo=	terminfo
 .  elif !empty(BUILTIN_LIB_FOUND.tinfo:M[yY][eE][sS])

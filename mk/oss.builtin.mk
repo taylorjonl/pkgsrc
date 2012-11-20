@@ -15,7 +15,7 @@ BUILTIN_FIND_HEADERS.H_SOUNDCARD=	soundcard.h		\
 ###
 .if !defined(IS_BUILTIN.oss)
 IS_BUILTIN.oss=	no
-.  if empty(H_SOUNDCARD:M${LOCALBASE}/*) && empty(H_SOUNDCARD:M__nonexistent__)
+.  if empty(H_SOUNDCARD:M__nonexistent__)
 IS_BUILTIN.oss=	yes
 .  endif
 .endif

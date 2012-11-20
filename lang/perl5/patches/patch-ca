@@ -6,6 +6,15 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
 
 --- Configure.orig	2014-05-26 13:34:18.000000000 +0000
 +++ Configure
+@@ -1341,7 +1341,7 @@
+ loclibpth="$loclibpth /opt/gnu/lib /usr/GNU/lib /opt/GNU/lib"
+ 
+ : general looking path for locating libraries
+-glibpth="/lib /usr/lib $xlibpth"
++glibpth="/lib /usr/lib /system/usr/lib $xlibpth"
+ glibpth="$glibpth /usr/ccs/lib /usr/ucblib /usr/local/lib"
+ test -f /usr/shlib/libc.so && glibpth="/usr/shlib $glibpth"
+ test -f /shlib/libc.so     && glibpth="/shlib $glibpth"
 @@ -3372,13 +3372,14 @@ EOM
  			osvers="$3"
  			;;

@@ -42,7 +42,7 @@ BUILTIN_FIND_GREP.H_CURSES_MVWCHGAT=	mvwchgat
 ###
 .if !defined(IS_BUILTIN.curses)
 IS_BUILTIN.curses=	no
-.  if empty(H_CURSES:M${LOCALBASE}/*) && exists(${H_CURSES})
+.  if exists(${H_CURSES})
 IS_BUILTIN.curses=	yes
 .  endif
 .endif

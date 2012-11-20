@@ -44,6 +44,7 @@ LIBS.SunOS+=	-B static -lsunmath -B dynamic -lm
 LDFLAGS.SunOS+=	-L${SUNWSPROBASE}/lib ${COMPILER_RPATH_FLAG}${SUNWSPROBASE}/lib
 CONFIGURE_ENV+=	LDSHARED="${CC} -G"
 .else
+CONFIGURE_ENV+=	DLDFLAGS="-L/system/usr/lib -Wl,-R/system/usr/lib"
 LIBS.SunOS+=	-lm
 .endif
 
