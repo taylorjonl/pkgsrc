@@ -7,6 +7,17 @@
 #
 # User-settable variables:
 #
+# PKGINSTALL_IGNORE_UIDGID
+#	Whether or not to treat the specific uid/gid provided by the package as
+#	simply advisory.  In the case where either the user/group already
+#	exists but the uid/gid does not match, or the uid/gid is already taken
+#	by a different user:
+#
+#	* "yes" will add the user/group if necessary with an unspecified uid/gid
+#	* "no" will not add the user/group and fail the install.
+#
+#	Default value: no
+#
 # PKGINSTALL_VERBOSE
 #	A list of scriptlets that will be verbose and output a message
 #	noting the actions taken.
@@ -20,6 +31,7 @@
 
 _VARGROUPS+=		pkginstall
 _USER_VARS.pkginstall= \
+	PKGINSTALL_IGNORE_UIDGID \
 	PKGINSTALL_VERBOSE \
 	PKG_CREATE_USERGROUP \
 	PKG_CONFIG PKG_CONFIG_PERMS \
@@ -1004,6 +1016,9 @@ FILES_SUBST+=		PKG_CONFIG_PERMS=${PKG_CONFIG_PERMS:Q}
 FILES_SUBST+=		PKG_RCD_SCRIPTS=${PKG_RCD_SCRIPTS:Q}
 FILES_SUBST+=		PKG_REGISTER_SHELLS=${PKG_REGISTER_SHELLS:Q}
 FILES_SUBST+=		PKG_UPDATE_FONTS_DB=${PKG_UPDATE_FONTS_DB:Q}
+
+PKGINSTALL_IGNORE_UIDGID?=	no
+FILES_SUBST+=			PKGINSTALL_IGNORE_UIDGID=${PKGINSTALL_IGNORE_UIDGID:Q}
 
 .if defined(PKG_DEVELOPER) && ${PKG_DEVELOPER} != "no"
 PKGINSTALL_VERBOSE?=	all
