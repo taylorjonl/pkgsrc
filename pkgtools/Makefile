@@ -3,6 +3,7 @@
 
 COMMENT=	Tools for use in the packages collection
 
+SUBDIR+=	abiexec
 SUBDIR+=	autoswc
 SUBDIR+=	binpatch
 SUBDIR+=	bootstrap-extras
