@@ -20,19 +20,25 @@ WRKSRC=			${WRKDIR}/${DISTNAME}/srclib
 BUILD_DIRS=		apr apr-util
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ENV+=		LIBS=${LIBS:M*:Q}
 LIBS.SunOS+=		-lnsl
 
 INSTALLATION_DIRS+=	include/apr-0/arch/unix
+MULTIARCH_DIRS.lib=	lib libexec
 
 APR_CONFIGURE_ARGS= \
 		--prefix=${PREFIX} \
+		--bindir=${PREFIX}/bin${BINARCHSUFFIX} \
+		--libdir=${PREFIX}/lib${LIBARCHSUFFIX} \
 		--with-devrandom=/dev/urandom \
-		--with-installbuilddir=${PREFIX}/libexec/apr
+		--with-installbuilddir=${PREFIX}/libexec${LIBARCHSUFFIX}/apr
 
 APU_CONFIGURE_ARGS= \
 		--prefix=${PREFIX} \
+		--bindir=${PREFIX}/bin${BINARCHSUFFIX} \
+		--libdir=${PREFIX}/lib${LIBARCHSUFFIX} \
 		--with-apr=${WRKSRC}/apr \
 		--with-expat=${BUILDLINK_PREFIX.expat} \
 		--without-gdbm
@@ -45,11 +51,15 @@ SUBST_CLASSES+=		conf
 SUBST_STAGE.conf=	pre-configure
 SUBST_FILES.conf=	apr/config.layout apr-util/config.layout
 SUBST_SED.conf=		-e "s,@PREFIX@,${PREFIX},g"
+SUBST_SED.conf+=	-e "s,@BINARCHSUFFIX@,${BINARCHSUFFIX},g"
+SUBST_SED.conf+=	-e "s,@LIBARCHSUFFIX@,${LIBARCHSUFFIX},g"
 SUBST_MESSAGE.conf=	Fixing hardcoded paths.
 
 .if !empty(MACHINE_PLATFORM:MDarwin-9.*-*)
 APR_CONFIGURE_ARGS+=	--without-sendfile
 .endif
+
+CHECK_INTERPRETER_SKIP=	lib/*.exp
 
 TEST_TARGET=		check
 
@@ -60,8 +70,8 @@ do-configure:
 		${APU_CONFIGURE_ARGS}
 
 post-install:
-	${RM} ${DESTDIR}${PREFIX}/libexec/apr/libtool
-	${INSTALL_SCRIPT} ${PKG_LIBTOOL} ${DESTDIR}${PREFIX}/libexec/apr/libtool
+	${RM} ${DESTDIR}${PREFIX}/libexec${LIBARCHSUFFIX}/apr/libtool
+	${INSTALL_SCRIPT} ${PKG_LIBTOOL} ${DESTDIR}${PREFIX}/libexec${LIBARCHSUFFIX}/apr/libtool
 	${INSTALL_DATA} ${WRKSRC}/apr/include/arch/*.h ${DESTDIR}${PREFIX}/include/apr-0/arch
 	${INSTALL_DATA} ${WRKSRC}/apr/include/arch/unix/*.h ${DESTDIR}${PREFIX}/include/apr-0/arch/unix/
 	${CHMOD} ${SHAREMODE} ${DESTDIR}${PREFIX}/include/apr-0/*.h

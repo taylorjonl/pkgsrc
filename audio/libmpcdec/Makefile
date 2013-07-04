@@ -13,6 +13,7 @@ COMMENT=	Portable Musepack decoder library
 GNU_CONFIGURE=	yes
 USE_LANGUAGES=	c c++
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 
 INSTALLATION_DIRS+=	include/mpcdec
 

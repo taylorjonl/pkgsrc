@@ -55,12 +55,12 @@ SUBST_SED.pgxs+=	-e 's,${WRKDIR}/.wrapper/bin/ld,${LD},'
 SUBST_SED.pgxs+=	-e 's,${WRKDIR}/.wrapper,${PREFIX},'
 SUBST_SED.pgxs+=	-e 's,${WRKSRC},/dev/null,'
 
-INSTALLATION_DIRS+=	lib/postgresql/pgxs
-INSTALLATION_DIRS+=	lib/postgresql/pgxs/config
-INSTALLATION_DIRS+=	lib/postgresql/pgxs/src
-INSTALLATION_DIRS+=	lib/postgresql/pgxs/src/makefiles
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/postgresql/pgxs
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/postgresql/pgxs/config
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/postgresql/pgxs/src
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/postgresql/pgxs/src/makefiles
 
-DEST_PGXS=	${DESTDIR}${PREFIX}/lib/postgresql/pgxs
+DEST_PGXS=	${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/postgresql/pgxs
 PGXS_FILES=	config/install-sh
 PGXS_FILES+=	src/makefiles/pgxs.mk src/Makefile.global
 PGXS_FILES+=	src/Makefile.port src/Makefile.shlib

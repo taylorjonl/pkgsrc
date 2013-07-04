@@ -14,6 +14,7 @@ LICENSE=	modified-bsd
 
 USE_GCC_RUNTIME=	yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--disable-agetty
 CONFIGURE_ARGS+=	--disable-cramfs
@@ -30,6 +31,8 @@ CONFIGURE_ARGS+=	--disable-unshare
 CONFIGURE_ARGS+=	--disable-uuidd
 CONFIGURE_ARGS+=	--disable-wall
 CONFIGURE_ARGS+=	--without-ncurses
+
+CONFIGURE_ENV+=		LIBARCHSUFFIX=${LIBARCHSUFFIX:Q}
 
 PKGCONFIG_OVERRIDE+=	shlibs/uuid/uuid.pc.in
 

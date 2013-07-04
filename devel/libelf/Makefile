@@ -15,6 +15,7 @@ INSTALL_MAKE_FLAGS+=	instroot=${DESTDIR}
 USE_PKGLOCALEDIR=	yes
 GNU_CONFIGURE=		yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		autoconf
 
 pre-configure:

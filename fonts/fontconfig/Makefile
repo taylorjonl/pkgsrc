@@ -13,11 +13,12 @@ COMMENT=	Library for configuring and customizing font access
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		gmake pkg-config
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-default-fonts=${LOCALBASE}/lib/X11/fonts
 CONFIGURE_ARGS+=	--with-expat-includes=${BUILDLINK_PREFIX.expat}/include
-CONFIGURE_ARGS+=	--with-expat-lib=${BUILDLINK_PREFIX.expat}/lib
+CONFIGURE_ARGS+=	--with-expat-lib=${BUILDLINK_PREFIX.expat}/lib${LIBARCHSUFFIX}
 CONFIGURE_ARGS+=	--with-baseconfigdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--with-cache-dir=${VARBASE}/cache/fontconfig
 CONFIGURE_ARGS+=	--enable-docs
