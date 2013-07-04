@@ -20,6 +20,7 @@ LICENSE=	public-domain
 MAKE_JOBS_SAFE=		no
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		gmake
 GNU_CONFIGURE=		yes
 
