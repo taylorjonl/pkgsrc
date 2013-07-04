@@ -16,6 +16,7 @@ CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}js/src/configure
 CHECK_PORTABILITY_SKIP+=${MOZILLA_DIR}configure
 
 USE_GCC_RUNTIME=	yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		gmake perl pax pkg-config
 
 .include "../../mk/bsd.prefs.mk"
@@ -25,7 +26,7 @@ SUBST_CLASSES+=			exec_path
 SUBST_STAGE.exec_path=		pre-configure
 SUBST_MESSAGE.exec_path=	Fixing @executable_path
 SUBST_FILES.exec_path=		nss/coreconf/Darwin.mk
-SUBST_SED.exec_path=		-e 's,@executable_path,${PREFIX}/lib/nss,g'
+SUBST_SED.exec_path=		-e 's,@executable_path,${PREFIX}/lib${LIBARCHSUFFIX}/nss,g'
 .endif
 
 .if ${OPSYS} == "Linux"
@@ -55,7 +56,7 @@ MAKE_ENV+=	BUILD_OPT=1
 #MAKE_ENV+=	OPTIMIZER=${CFLAGS:Q}
 MAKE_ENV+=	INCLUDES=-I${BUILDLINK_PREFIX.nspr}/include/nspr
 MAKE_ENV+=	NSS_USE_SYSTEM_SQLITE=1
-MAKE_ENV+=	EXTRA_SHARED_LIBS="-Wl,-R${BUILDLINK_PREFIX.nspr}/lib/nspr -Wl,-R,${PREFIX}/lib/nss -L${BUILDLINK_PREFIX.nspr}/lib/nspr -lplc4 -lplds4 -lnspr4"
+MAKE_ENV+=	EXTRA_SHARED_LIBS="-Wl,-R${BUILDLINK_PREFIX.nspr}/lib${LIBARCHSUFFIX}/nspr -Wl,-R,${PREFIX}/lib${LIBARCHSUFFIX}/nss -L${BUILDLINK_PREFIX.nspr}/lib${LIBARCHSUFFIX}/nspr -lplc4 -lplds4 -lnspr4"
 
 post-extract:
 	find ${WRKSRC} -type f | xargs ${CHMOD} 644
@@ -64,26 +65,26 @@ post-extract:
 do-build:
 	cd ${WRKSRC}/nss && ${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} all
 
-INSTALLATION_DIRS=	include/nss lib/nss lib/pkgconfig
+INSTALLATION_DIRS=	include/nss lib${LIBARCHSUFFIX}/nss lib${LIBARCHSUFFIX}/pkgconfig
 DIST=	${WRKSRC}/dist
 
 do-install:
 	(cd ${DIST}/public && pax -Lrw . ${DESTDIR}${PREFIX}/include/nss/ )
 	(cd ${DIST}/*_OPT.OBJ/lib && \
-		pax -Lrw *.${SO_SUFFIX} ${DESTDIR}${PREFIX}/lib/nss/ )
+		pax -Lrw *.${SO_SUFFIX} ${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/nss/ )
 	${INSTALL_LIB} ${DIST}/*_OPT.OBJ/lib/libcrmf.a \
-		${DESTDIR}${PREFIX}/lib/nss/
+		${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/nss/
 	set -e; \
 	{ ${ECHO} "Name: NSS"; \
 	  ${ECHO} "Description: Mozilla Network Security Services"; \
 	  ${ECHO} "Version: ${NSS_RELEASE}"; \
 	  ${ECHO} "Requires: nspr >= 4.10.3"; \
 	  ${ECHO} "Cflags: -I${PREFIX}/include/nss/nss -I${PREFIX}/include/nss"; \
-	  ${ECHO} "Libs: -L${PREFIX}/lib/nss" \
-	      "${COMPILER_RPATH_FLAG}${PREFIX}/lib/nss" \
+	  ${ECHO} "Libs: -L${PREFIX}/lib${LIBARCHSUFFIX}/nss" \
+	      "${COMPILER_RPATH_FLAG}${PREFIX}/lib${LIBARCHSUFFIX}/nss" \
 	      "-lnss3 -lsmime3 -lssl3 -lsoftokn3 -lnssutil3" \
 	      ${BUILDLINK_LIBS.pthread:Q}; \
-	} >${DESTDIR}${PREFIX}/lib/pkgconfig/nss.pc
+	} >${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/pkgconfig/nss.pc
 
 # For consistency of libxul.so link in www/firefox.
 BUILDLINK_API_DEPENDS.sqlite3+= sqlite3>=3.8.4.2
