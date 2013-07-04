@@ -62,6 +62,7 @@ usage="Usage: $0 "'
     [ --gzip-binary-kit <tarball> ]
     [ --help ]
     [ --mk-fragment <mk.conf> ]
+    [ --multiarch ]
     [ --pkgdbdir <pkgdbdir> ]
     [ --pkginfodir <pkginfodir> ]
     [ --pkgmandir <pkgmandir> ]
@@ -411,6 +412,7 @@ while [ $# -gt 0 ]; do
 	--compiler)	compiler="$2"; shift ;;
 	--abi=*)	abi=`get_optarg "$1"` ;;
 	--abi)		abi="$2"; shift ;;
+	--multiarch)	multiarch=yes ;;
 	--unprivileged | --ignore-user-check) unprivileged=yes ;;
 	--prefer-pkgsrc=*)
 			prefer_pkgsrc=`get_optarg "$1"` ;;
@@ -965,6 +967,9 @@ if [ -n "$abi" ]; then
 fi
 if [ "$set_machine_arch" = "yes" ]; then
 	echo "MACHINE_ARCH=		$machine_arch" >> ${TARGET_MKCONF}
+fi
+if [ -n "$multiarch" ]; then
+	echo "MULTIARCH=		$multiarch" >> ${TARGET_MKCONF}
 fi
 if [ "$compiler" != "" ]; then
 	echo "PKGSRC_COMPILER=	$compiler" >> ${TARGET_MKCONF}
