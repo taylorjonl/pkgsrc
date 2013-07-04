@@ -14,15 +14,16 @@ LICENSE=	modified-bsd
 
 USE_GCC_RUNTIME=	yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--without-ncurses
+
+CONFIGURE_ENV+=		LIBARCHSUFFIX=${LIBARCHSUFFIX:Q}
 
 PKGCONFIG_OVERRIDE+=	libuuid/uuid.pc.in
 
 BUILD_TARGET=		libuuid.la libuuid/uuid.pc
-INSTALLATION_DIRS+=	include/uuid lib/pkgconfig ${PKGMANDIR}/man3
-CONFIG_SHELL=		bash
-USE_TOOLS+=		bash:build
+INSTALLATION_DIRS+=	include/uuid lib${LIBARCHSUFFIX}/pkgconfig ${PKGMANDIR}/man3
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -32,11 +33,11 @@ BUILDLINK_TRANSFORM+=	rm:-Wl,--version-script=./libuuid/src/libuuid.sym
 
 do-install:
 	${LIBTOOL} --mode=install ${INSTALL_LIB} ${WRKSRC}/libuuid.la \
-		${DESTDIR}${PREFIX}/lib
+		${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}
 	${INSTALL_DATA} ${WRKSRC}/libuuid/src/uuid.h \
 		${DESTDIR}${PREFIX}/include/uuid/uuid.h
 	${INSTALL_DATA} ${WRKSRC}/libuuid/uuid.pc \
-		${DESTDIR}${PREFIX}/lib/pkgconfig/uuid.pc
+		${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/pkgconfig/uuid.pc
 	set -e; for f in ${WRKSRC}/libuuid/man/*.3; do \
 		${INSTALL_MAN} $${f} ${DESTDIR}${PREFIX}/${PKGMANDIR}/man3/; \
 	done
