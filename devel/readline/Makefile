@@ -14,6 +14,7 @@ LICENSE=	gnu-gpl-v3
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 INFO_FILES=		yes
 
