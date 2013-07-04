@@ -19,6 +19,7 @@ USE_TOOLS+=		nroff
 # https://github.com/bagder/curl/issues/555
 USE_TOOLS+=		gmake perl
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-ssl=${BUILDLINK_PREFIX.openssl}
 CONFIGURE_ARGS+=	--with-ca-path=${SSLCERTS}
@@ -40,10 +41,19 @@ PRIVILEGED_STAGES+=	clean
 
 .include "options.mk"
 
+do-install-multiarch-hook:
+	${MKDIR} ${DESTDIR}/${PREFIX}/include/curl/${INCARCHSUFFIX}
+	${MV} ${DESTDIR}/${PREFIX}/include/curl/curlbuild.h		\
+		${DESTDIR}/${PREFIX}/include/curl/${INCARCHSUFFIX}
+
 post-install:
 .for f in MANUAL TheArtOfHttpScripting FAQ
 	${INSTALL_DATA} ${WRKSRC}/docs/${f} ${DESTDIR}${PREFIX}/share/doc/curl/
 .endfor
+.if !empty(MULTIARCH:M[Yy][Ee][Ss])
+	${INSTALL_DATA} ${FILESDIR}/curlbuild.h				\
+		${DESTDIR}/${PREFIX}/include/curl
+.endif
 
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"
