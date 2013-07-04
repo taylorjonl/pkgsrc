@@ -17,6 +17,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 USE_TOOLS+=		pkg-config
 GNU_CONFIGURE=		YES
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 
 PKGCONFIG_OVERRIDE=	libxklavier.pc.in
 

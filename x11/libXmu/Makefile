@@ -12,6 +12,7 @@ COMMENT=		X Miscellaneous Utilities library
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	xmu.pc.in
 PKGCONFIG_OVERRIDE+=	xmuu.pc.in
 GNU_CONFIGURE=		yes
