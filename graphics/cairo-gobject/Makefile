@@ -8,13 +8,13 @@ PKGREVISION=	1
 BUILD_DIRS=	util/cairo-gobject
 INSTALL_DIRS=	util/cairo-gobject
 
-INSTALLATION_DIRS+=	lib/pkgconfig
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/pkgconfig
 
 .include "../../mk/bsd.prefs.mk"
 
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/src/cairo-gobject.pc \
-		${DESTDIR}${PREFIX}/lib/pkgconfig
+		${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/pkgconfig
 
 .include "../../devel/glib2/buildlink3.mk"
 .include "../../graphics/cairo/buildlink3.mk"

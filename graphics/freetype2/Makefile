@@ -16,6 +16,7 @@ LICENSE=	gnu-gpl-v2
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		grep gmake
 GNU_CONFIGURE=		yes
 CONFIGURE_DIRS=		builds/unix
