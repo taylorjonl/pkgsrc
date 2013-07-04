@@ -22,6 +22,7 @@ ONLY_FOR_PLATFORM+=	NetBSD-*-*
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-zlib
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_TOOLS+=		pkg-config
 
 # Harmless on x86; needed by others because the libpciaccess configure
