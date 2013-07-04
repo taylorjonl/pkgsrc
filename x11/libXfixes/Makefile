@@ -15,6 +15,7 @@ CONFLICTS+=		Xfixes-[0-9]*
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		pkg-config
 CONFIGURE_ENV+=		LIB_MAN_SUFFIX=3

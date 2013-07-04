@@ -12,6 +12,7 @@ COMMENT=		Xv Extension library
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	xv.pc.in
 GNU_CONFIGURE=		yes
 USE_TOOLS+=		pkg-config

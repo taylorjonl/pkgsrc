@@ -18,6 +18,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		gmake tbl
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--with-libtool

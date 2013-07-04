@@ -17,6 +17,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
 USE_TOOLS+=		bison flex gm4
+USE_MULTIARCH=		bin lib
 GNU_CONFIGURE=		yes
 
 .include "../../mk/bsd.prefs.mk"

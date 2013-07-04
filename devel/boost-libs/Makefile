@@ -8,7 +8,7 @@ PKGREVISION=		1
 
 .include "../../meta-pkgs/boost/Makefile.common"
 
-INSTALLATION_DIRS+=	lib
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}
 
 BJAM_ARGS+=		--without-python
 PLIST_VARS+=		context log

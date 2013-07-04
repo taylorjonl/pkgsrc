@@ -15,6 +15,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE+=	xproto.pc.in
 USE_LANGUAGES=		c
+USE_MULTIARCH=		lib
 
 post-extract:
 	${MV} ${WRKSRC}/Xos_r.h ${WRKSRC}/Xos_r.h.in
