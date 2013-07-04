@@ -17,6 +17,7 @@ DIST_SUBDIR=		${PKGNAME_NOREV}
 WRKSRC=			${WRKDIR}/BLAS
 USE_LANGUAGES=		c fortran
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 
 # Pass along the major and minor of the version number as the major and
 # minor of the shared library to be built.

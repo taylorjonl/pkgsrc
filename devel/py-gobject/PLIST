@@ -1,7 +1,7 @@
 @comment $NetBSD: PLIST,v 1.15 2012/07/04 18:31:10 prlw1 Exp $
 bin/pygobject-codegen-2.0
 include/pygtk-2.0/pyglib.h
-lib/libpyglib-2.0-python${PYVERSSUFFIX}.la
+lib${LIBARCHSUFFIX}/libpyglib-2.0-python${PYVERSSUFFIX}.la
 ${PYSITELIB}/glib/__init__.py
 ${PYSITELIB}/glib/__init__.pyc
 ${PYSITELIB}/glib/__init__.pyo

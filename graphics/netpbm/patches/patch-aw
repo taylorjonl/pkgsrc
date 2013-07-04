@@ -1,7 +1,7 @@
 $NetBSD: patch-aw,v 1.3 2006/10/03 22:56:51 schwarz Exp $
 
---- lib/Makefile.orig	2006-10-03 20:55:25.000000000 +0200
-+++ lib/Makefile	2006-10-03 20:55:56.000000000 +0200
+--- lib/Makefile.orig	Fri Sep 18 19:04:37 2009
++++ lib/Makefile	Fri Aug  3 13:52:47 2012
 @@ -81,7 +81,7 @@
  $(LIBOBJECTS): %.o: %.c importinc
  # Note that the user may have configured -I options into CFLAGS.
@@ -11,3 +11,28 @@ $NetBSD: patch-aw,v 1.3 2006/10/03 22:56:51 schwarz Exp $
  
  MAJ = $(NETPBM_MAJOR_RELEASE)
  MIN = $(NETPBM_MINOR_RELEASE)
+@@ -205,11 +205,11 @@
+ .PHONY: install.lib
+ ifeq ($(NETPBMLIBTYPE),unixshared)
+ # install a Unix-style shared library
+-install.lib: $(PKGDIR)/lib $(PKGDIR)/link
+-	cd $(PKGDIR)/lib ; rm -f libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).*
++install.lib: $(PKGDIR)/lib$(LIBARCHSUFFIX) $(PKGDIR)/link
++	cd $(PKGDIR)/lib$(LIBARCHSUFFIX) ; rm -f libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).*
+ 	$(INSTALL) -c -m $(INSTALL_PERM_LIBD) \
+-	  libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).$(MIN)  $(PKGDIR)/lib/
+-	cd $(PKGDIR)/lib/ ; \
++	  libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).$(MIN)  $(PKGDIR)/lib$(LIBARCHSUFFIX)
++	cd $(PKGDIR)/lib$(LIBARCHSUFFIX) ; \
+           rm -f libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ); \
+           $(SYMLINK) libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ).$(MIN) $(SONAME)
+ endif
+@@ -257,7 +257,7 @@
+ # install the link-time (.so) links to the runtime libraries
+ 	cd $(PKGDIR)/link ; \
+           rm -f libnetpbm.$(NETPBMLIBSUFFIX); \
+-          $(SYMLINK) ../lib/libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ) \
++          $(SYMLINK) libnetpbm.$(NETPBMLIBSUFFIX).$(MAJ) \
+             libnetpbm.$(NETPBMLIBSUFFIX)
+ endif
+ ifeq ($(NETPBMLIBTYPE),dll)

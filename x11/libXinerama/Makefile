@@ -12,6 +12,7 @@ COMMENT=	X PanoramiX extension library
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 GNU_CONFIGURE=	yes
 USE_TOOLS+=	pkg-config
 

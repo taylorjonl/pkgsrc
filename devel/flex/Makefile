@@ -16,6 +16,7 @@ COMMENT=		Fast clone of lex(1), the lexical scanner generator
 #BUILD_DEPENDS+=		tex-latex-fonts-[0-9]*:../../fonts/tex-latex-fonts
 
 GNU_CONFIGURE=		YES
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		gm4:run makeinfo
 MAKE_JOBS_SAFE=		no
 TEST_TARGET=		check

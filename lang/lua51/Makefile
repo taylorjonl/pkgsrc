@@ -16,6 +16,8 @@ LICENSE=	mit
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 CONFLICTS+=	lua-[0-9]*
 
+USE_MULTIARCH=	bin lib
+
 .include "../../mk/bsd.prefs.mk"
 
 USE_LIBTOOL=	yes
@@ -47,7 +49,7 @@ BUILD_TARGET=	generic
 
 PKGCONFIG_OVERRIDE=	${WRKSRC}/etc/lua.pc
 
-INSTALLATION_DIRS+=	lib/pkgconfig
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}/pkgconfig
 
 SUBST_CLASSES+=		pc-prefix
 SUBST_FILES.pc-prefix+=	${WRKSRC}/etc/lua.pc
@@ -74,7 +76,7 @@ post-install:
 	cd ${WRKSRC}/etc; for f in README *.c *.ico *.lua; do \
 		${INSTALL_DATA} "$$f" ${DESTDIR}${EGDIR}/etc;		\
 	done
-	${INSTALL_DATA} ${WRKSRC}/etc/lua.pc ${DESTDIR}${PREFIX}/lib/pkgconfig
+	${INSTALL_DATA} ${WRKSRC}/etc/lua.pc ${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}/pkgconfig
 
 .include "../../devel/readline/buildlink3.mk"
 .include "../../mk/dlopen.buildlink3.mk"

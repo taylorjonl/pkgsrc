@@ -16,9 +16,10 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LANGUAGES=		c fortran
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 BUILD_TARGET=		lapacklib
 
-INSTALLATION_DIRS=	lib
+INSTALLATION_DIRS=	lib${LIBARCHSUFFIX}
 
 FFLAGS+=		-ffloat-store
 
@@ -35,6 +36,6 @@ do-configure:
 
 do-install:
 	${LIBTOOL} --mode=install ${INSTALL_DATA} ${WRKSRC}/liblapack.la \
-		${DESTDIR}${PREFIX}/lib
+		${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}
 
 .include "../../mk/bsd.pkg.mk"

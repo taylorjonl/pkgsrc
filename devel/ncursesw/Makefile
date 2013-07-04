@@ -11,7 +11,7 @@ DISTINFO_FILE=	${.CURDIR}/../../devel/ncurses/distinfo
 CONFIGURE_ARGS+=	--enable-widec
 
 INSTALLATION_DIRS+=	include/ncursesw
-INSTALLATION_DIRS+=	lib
+INSTALLATION_DIRS+=	lib${LIBARCHSUFFIX}
 
 BUILD_TARGET=	libs
 
@@ -29,8 +29,8 @@ SUBST_SED.includes+=	-e 's,<unctrl\.h>,<ncurses/unctrl\.h>,'
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/include/curses.h ${DESTDIR}${PREFIX}/include/ncursesw/ncurses.h
 	for LIB in form menu ncurses++ ncurses panel; do	\
-		${LIBTOOL} --mode=install ${INSTALL_PROGRAM}	\
-		    ${WRKSRC}/lib/lib$${LIB}w.la ${DESTDIR}${PREFIX}/lib;	\
+		${SETENV} ${MAKE_ENV} ${LIBTOOL} --mode=install ${INSTALL_PROGRAM}	\
+		    ${WRKSRC}/lib/lib$${LIB}w.la ${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX};	\
 	done
 
 BUILDLINK_API_DEPENDS.ncurses+=	ncurses-${NC_VERS}{,nb*}

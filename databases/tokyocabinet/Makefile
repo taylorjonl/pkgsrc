@@ -13,6 +13,7 @@ LICENSE=	gnu-lgpl-v2.1
 GNU_CONFIGURE=	yes
 USE_TOOLS+=	gmake pkg-config
 USE_LANGUAGES=	c99
+USE_MULTIARCH=	lib
 
 PKGCONFIG_OVERRIDE+=	tokyocabinet.pc.in
 

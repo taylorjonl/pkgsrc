@@ -25,10 +25,10 @@ include/tcl/unix/tclUnixPort.h
 include/tcl/unix/tclUnixThrd.h
 include/tclDecls.h
 include/tclPlatDecls.h
-lib/libtcl${SONUM}.a
-lib/libtcl${SONUM}.so
-lib/libtcl${SONUM}.so.1.0
-lib/libtclstub${SONUM}.a
+lib${LIBARCHSUFFIX}/libtcl${SONUM}.a
+lib${LIBARCHSUFFIX}/libtcl${SONUM}.so
+lib${LIBARCHSUFFIX}/libtcl${SONUM}.so.1.0
+lib${LIBARCHSUFFIX}/libtclstub${SONUM}.a
 lib/tcl${BASEVER}/auto.tcl
 lib/tcl${BASEVER}/clock.tcl
 lib/tcl${BASEVER}/encoding/ascii.enc
@@ -259,7 +259,7 @@ lib/tcl${BASEVER}/tcltest2.3/tcltest.tcl
 lib/tcl${BASEVER}/tcltest2.3/pkgIndex.tcl
 lib/tcl${BASEVER}/tm.tcl
 lib/tcl${BASEVER}/word.tcl
-lib/tclConfig.sh
+lib${LIBARCHSUFFIX}/tclConfig.sh
 man/man1/tclsh.1
 man/man3/TCL_MEM_DEBUG.3
 man/man3/Tcl_Access.3

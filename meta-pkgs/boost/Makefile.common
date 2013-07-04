@@ -36,6 +36,7 @@ PATCHDIR=		${.CURDIR}/../../meta-pkgs/boost/patches
 
 USE_TOOLS+=		pax
 USE_LANGUAGES=		c c++
+USE_MULTIARCH=		lib
 GCC_REQD+=		3.2 # if using gcc; ignored otherwise
 
 PLIST_SUBST+=		BOOST_VERSION="${BOOST_VERSION}"
@@ -44,7 +45,7 @@ SUBST_CLASSES+=		prefix
 SUBST_STAGE.prefix=	pre-configure
 SUBST_MESSAGE.prefix=	Fixing prefix.
 SUBST_FILES.prefix=	boostcpp.jam
-SUBST_VARS.prefix=	PREFIX
+SUBST_VARS.prefix=	PREFIX LIBARCHSUFFIX
 
 SUBST_CLASSES+=		darwin
 SUBST_STAGE.darwin=	pre-configure
@@ -92,6 +93,6 @@ do-configure:
 
 boost-install-libs:
 	${INSTALL_LIB_DIR} ${DESTDIR}${PREFIX}/lib
-	cd ${WRKSRC}/stage/lib && pax -rw -p p libboost* ${DESTDIR}${PREFIX}/lib
+	cd ${WRKSRC}/stage/lib && pax -rw -p p libboost* ${DESTDIR}${PREFIX}/lib${LIBARCHSUFFIX}
 
 .endif # ${BOOST_PACKAGE} == "meta-pkg"

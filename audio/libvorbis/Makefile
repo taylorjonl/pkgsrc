@@ -13,6 +13,7 @@ LICENSE=	modified-bsd
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 
 PKGCONFIG_OVERRIDE+=	vorbis.pc.in

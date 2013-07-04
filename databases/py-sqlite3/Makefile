@@ -12,10 +12,12 @@ USE_TOOLS+=		patch
 
 EXTRACT_ELEMENTS=	${PYSUBDIR}/Modules/_sqlite
 
+MULTIARCH_DIRS.lib=	${PYLIB}/lib-dynload
+
 PYDISTUTILSPKG=		yes
 PYTHON_VERSIONS_INCLUDE_3X=	yes
 PY_SETUP_SUBST+= 	SQLITE_PREFIX=${BUILDLINK_PREFIX.sqlite3}
-PYSETUPINSTALLARGS+=	--install-lib ${PREFIX}/${PYLIB}/lib-dynload
+PYSETUPINSTALLARGS+=	--install-lib ${PREFIX}/${PYLIB}/lib-dynload${LIBARCHSUFFIX}
 
 # ignore errors due to missing files (EXTRACT_ELEMENTS!)
 do-patch:

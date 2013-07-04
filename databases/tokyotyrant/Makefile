@@ -12,6 +12,7 @@ COMMENT=	Network interface of Tokyo Cabinet
 LICENSE=	gnu-lgpl-v2.1
 
 GNU_CONFIGURE=	yes
+USE_MULTIARCH=	bin lib
 USE_TOOLS+=	gmake pkg-config
 
 PKGCONFIG_OVERRIDE+=	tokyotyrant.pc.in
