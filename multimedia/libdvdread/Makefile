@@ -13,6 +13,7 @@ LICENSE=	gnu-gpl-v2
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		aclocal autoconf automake autoreconf gmake
 GNU_CONFIGURE=		yes
 

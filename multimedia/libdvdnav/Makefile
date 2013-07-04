@@ -12,6 +12,7 @@ COMMENT=	Library to navigate DVDs
 
 GNU_CONFIGURE=		YES
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		automake autoconf aclocal autoreconf
 
 pre-configure:
