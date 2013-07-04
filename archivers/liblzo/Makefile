@@ -14,6 +14,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 GNU_CONFIGURE=	YES
 USE_LIBTOOL=	YES
+USE_MULTIARCH=	lib
 
 # Don't spuriously detect zlib, as it's not needed for the library.
 BUILDLINK_TRANSFORM+=	rm:-lz
