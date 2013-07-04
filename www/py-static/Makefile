@@ -14,7 +14,9 @@ USE_LANGUAGES=	# none
 PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/static ${DESTDIR}${PREFIX}/bin/static-${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/static ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/static ${DESTDIR}${PREFIX}/bin/static-${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"
