@@ -16,5 +16,6 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 GNU_CONFIGURE=	YES
 USE_LIBTOOL=	YES
+USE_MULTIARCH=	lib
 
 .include "../../mk/bsd.pkg.mk"
