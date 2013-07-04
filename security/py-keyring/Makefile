@@ -22,7 +22,9 @@ post-extract:
 	${RUN} ${CHMOD} go-w ${WRKSRC}/keyring.egg-info/*
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/keyring ${DESTDIR}${PREFIX}/bin/keyring-${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/keyring ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/keyring ${DESTDIR}${PREFIX}/bin/keyring-${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/egg.mk"
