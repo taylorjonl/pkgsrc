@@ -12,8 +12,6 @@ COMMENT=	Spatial database capabilities for PostgreSQL
 
 LICENSE=	gnu-gpl-v2
 
-PGSQL_VERSIONS_ACCEPTED=	91 90 84
-
 DEPENDS+=		postgresql${PGSQL_VERSION}-server>=0:../../databases/postgresql${PGSQL_VERSION}-server
 
 CONFLICTS=		postgis-[0-9]*
