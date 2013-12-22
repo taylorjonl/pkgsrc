@@ -61,6 +61,7 @@ PKG_GROUPS=		${PGGROUP}
 PKG_USERS=		${PGUSER}:${PGGROUP}
 PKG_GECOS.${PGUSER}=	PostgreSQL database administrator
 PKG_HOME.${PGUSER}=	${PGHOME}
+PKG_SHELL.${PGUSER}=	${SH}
 
 RCD_SCRIPTS=		pgsql
 SMF_METHODS=		postgresql
