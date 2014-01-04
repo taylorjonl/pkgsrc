@@ -515,13 +515,20 @@ _INSTALL_FILES_DATAFILE=	${_PKGINSTALL_DIR}/files-data
 _INSTALL_UNPACK_TMPL+=		${_INSTALL_FILES_FILE}
 _INSTALL_DATA_TMPL+=		${_INSTALL_FILES_DATAFILE}
 
+# Only generate init scripts if we are using rc.d
+_INSTALL_RCD_SCRIPTS=	# empty
+
+.if ${INIT_SYSTEM} == "rc.d"
+_INSTALL_RCD_SCRIPTS=	${RCD_SCRIPTS}
+.endif
+
 privileged-install-hook: _pkginstall-postinstall-check
 _pkginstall-postinstall-check: .PHONY
 	${RUN} p="${DESTDIR}${PREFIX}";					\
 	${_FUNC_STRIP_PREFIX};						\
 	canon() { f=`strip_prefix "$$1"`; case $$f in [!/]*) f="$$p/$$f"; esac; echo "$$f"; }; \
 	needargs() { [ $$3 -ge $$2 ] || ${FAIL_MSG} "[bsd.pkginstall.mk] $$1 must have a multiple of $$2 words. Rest: $$4"; }; \
-	set args ${RCD_SCRIPTS}; shift;					\
+	set args ${_INSTALL_RCD_SCRIPTS}; shift;				\
 	while [ $$# -gt 0 ]; do						\
 		egfile=`canon "${RCD_SCRIPTS_EXAMPLEDIR}/$$1"`; shift;	\
 		[ -f "$$egfile" ] || [ -c "$$egfile" ] || ${FAIL_MSG} "RCD_SCRIPT $$egfile does not exist."; \
@@ -554,7 +561,7 @@ _pkginstall-postinstall-check: .PHONY
 ${_INSTALL_FILES_DATAFILE}:
 	${RUN}${MKDIR} ${.TARGET:H}
 	${RUN}${_FUNC_STRIP_PREFIX};					\
-	set -- dummy ${RCD_SCRIPTS}; shift;				\
+	set -- dummy ${_INSTALL_RCD_SCRIPTS}; shift;			\
 	exec 1>>${.TARGET};						\
 	while ${TEST} $$# -gt 0; do					\
 		script="$$1"; shift;					\
@@ -676,7 +683,7 @@ ${_INSTALL_DIRS_DATAFILE}:
 	esac
 	${RUN}								\
 	exec 1>>${.TARGET};						\
-	case ${RCD_SCRIPTS:M*:Q}"" in					\
+	case ${_INSTALL_RCD_SCRIPTS:M*:Q}"" in				\
 	"")	;;							\
 	*)	${ECHO} "# DIR: ${RCD_SCRIPTS_DIR:S/${PREFIX}\///} m" ;; \
 	esac
@@ -1187,7 +1194,7 @@ generate-rcd-scripts:	# do nothing
 post-install: install-rcd-scripts
 install-rcd-scripts:	# do nothing
 
-.for _script_ in ${RCD_SCRIPTS}
+.for _script_ in ${_INSTALL_RCD_SCRIPTS}
 RCD_SCRIPT_SRC.${_script_}?=	${FILESDIR}/${_script_}.sh
 RCD_SCRIPT_WRK.${_script_}?=	${WRKDIR}/${_script_}
 
@@ -1207,6 +1214,8 @@ install-rcd-${_script_}: ${RCD_SCRIPT_WRK.${_script_}}
 			${DESTDIR}${PREFIX}/${RCD_SCRIPTS_EXAMPLEDIR}/${_script_}; \
 	fi
 .  endif
+GENERATE_PLIST+=	${ECHO} ${RCD_SCRIPTS_EXAMPLEDIR}/${_script_};
+PRINT_PLIST_AWK+=	/^${RCD_SCRIPTS_EXAMPLEDIR:S|/|\\/|g}\/${_script_}/ { next; }
 .endfor
 
 _PKGINSTALL_TARGETS+=	acquire-pkginstall-lock

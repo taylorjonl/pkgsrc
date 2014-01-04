@@ -75,4 +75,3 @@ man/man1/splitword.1
 man/man1/wtoc.1
 sbin/cannakill
 sbin/cannaserver
-share/examples/rc.d/canna

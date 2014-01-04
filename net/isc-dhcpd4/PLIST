@@ -10,5 +10,3 @@ man/man5/dhcpd.leases.5
 man/man8/dhcpd.8
 sbin/dhcpd
 share/examples/isc-dhcpd/dhcpd.conf
-share/examples/rc.d/isc_dhcpd
-share/examples/rc.d/isc_dhcpd6

@@ -40,4 +40,3 @@ share/examples/openldap/schema/ppolicy.ldif
 share/examples/openldap/schema/ppolicy.schema
 share/examples/openldap/slapd.conf
 share/examples/openldap/slapd.ldif
-share/examples/rc.d/slapd

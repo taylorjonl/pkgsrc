@@ -4,4 +4,3 @@ man/man8/clamsmtpd.8
 sbin/clamsmtpd
 share/examples/clamsmtp/clamsmtpd.conf
 share/examples/clamsmtp/virus_action.sh
-share/examples/rc.d/clamsmtpd

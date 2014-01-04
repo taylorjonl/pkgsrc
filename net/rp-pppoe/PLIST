@@ -20,6 +20,5 @@ share/doc/${PKGNAME}/LICENSE
 share/doc/${PKGNAME}/README
 share/doc/${PKGNAME}/SERVPOET
 share/doc/${PKGNAME}/pap-secrets
-share/examples/rc.d/pppoe
 share/examples/rp-pppoe/pppoe-server-options
 share/examples/rp-pppoe/pppoe.conf

@@ -7,4 +7,3 @@ share/dircproxy/cronchk.sh
 share/dircproxy/log.pl
 share/dircproxy/privmsg-log.pl
 share/examples/dircproxy/dircproxyrc.sample
-share/examples/rc.d/dircproxy

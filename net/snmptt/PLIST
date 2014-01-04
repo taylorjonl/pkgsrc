@@ -11,5 +11,4 @@ share/doc/html/snmptt/layout1.css
 share/doc/html/snmptt/snmptt.html
 share/doc/html/snmptt/snmpttconvert.html
 share/doc/html/snmptt/snmpttconvertmib.html
-share/examples/rc.d/snmptt
 share/examples/snmptt/snmptt.ini

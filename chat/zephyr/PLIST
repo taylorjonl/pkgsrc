@@ -37,7 +37,6 @@ share/doc/zephyr/NOTES
 share/doc/zephyr/OPERATING
 share/doc/zephyr/README
 share/doc/zephyr/USING
-share/examples/rc.d/zhm
 share/examples/zephyr/default.subscriptions
 share/zephyr/XZwrite
 share/zephyr/xzwrite.bitmap

@@ -10,3 +10,5 @@ SHA1 (patch-ad) = c862658ceba98ac415b0c193fc205c5862ac4970
 SHA1 (patch-af) = d217633ed33c72b6d01a9aeef03f0f5dd33b4336
 SHA1 (patch-ag) = cf4a0040a53c81402e8d15478407bc854af6fb30
 SHA1 (patch-configure) = e5d27c543ca63baa0a11dd0066013bdb79178b13
+SHA1 (patch-etc_clamd.conf) = dc9d648303197d8c94bf669d8c7958c5d8137092
+SHA1 (patch-etc_freshclam.conf) = 5844bbb5337d584ca6f8761f04b81fd6df5a3b92

@@ -199,7 +199,6 @@ share/prewikka/database/sqlite-update-0.9.11.sql
 bin/prewikka-httpd
 sbin/runPrewikka
 share/examples/${PKGBASE}/prewikka.conf
-share/examples/rc.d/prewikka
 share/prewikka/cgi-bin/prewikka.cgi
 share/prewikka/database/mysql-update-0.9.1.sql
 share/prewikka/database/mysql.sql

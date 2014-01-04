@@ -3,4 +3,3 @@ sbin/delegated
 share/doc/delegate/manual.html
 share/doc/delegate/tutorial-en.html
 share/doc/delegate/tutorial-jp.html
-share/examples/rc.d/delegated

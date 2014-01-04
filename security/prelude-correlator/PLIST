@@ -66,5 +66,4 @@ ${PYSITELIB}/${EGG_INFODIR}/top_level.txt
 sbin/run-prelude-correlator
 share/examples/dshield.dat
 share/examples/prelude-correlator.conf
-share/examples/rc.d/preludecorrelator
 share/examples/spamhaus_drop.dat

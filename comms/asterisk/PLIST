@@ -3079,7 +3079,6 @@ share/examples/asterisk/users.conf
 share/examples/asterisk/voicemail.conf
 share/examples/asterisk/vpb.conf
 share/examples/asterisk/xmpp.conf
-share/examples/rc.d/asterisk
 ${PLIST.webvmail}share/httpd/htdocs/_asterisk/animlogo.gif
 ${PLIST.webvmail}share/httpd/htdocs/_asterisk/play.gif
 @pkgdir libdata/asterisk/keys

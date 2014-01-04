@@ -137,4 +137,3 @@ share/examples/prosody/certs/localhost.crt
 share/examples/prosody/certs/localhost.key
 share/examples/prosody/certs/openssl.cnf
 share/examples/prosody/prosody.cfg.lua
-share/examples/rc.d/prosody

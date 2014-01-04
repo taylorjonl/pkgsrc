@@ -68,6 +68,8 @@ TEST_TARGET=		tests
 TEST_MAKE_FLAGS=	ERL_TOP=${WRKSRC}
 REPLACE_PERL+=		make/make_emakefile
 
+SMF_NAME=		epmd
+
 PLIST_SRC=		PLIST
 
 .if exists(${.CURDIR}/PLIST.${OPSYS})

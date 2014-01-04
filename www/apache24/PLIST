@@ -219,7 +219,6 @@ share/examples/httpd/extra/proxy-html.conf
 share/examples/httpd/httpd.conf
 share/examples/httpd/magic
 share/examples/httpd/mime.types
-share/examples/rc.d/apache
 share/httpd/build/config.nice
 share/httpd/build/config_vars.mk
 share/httpd/build/instdso.sh
@@ -508,7 +507,6 @@ share/examples/httpd/extra/proxy-html.conf
 share/examples/httpd/httpd.conf
 share/examples/httpd/magic
 share/examples/httpd/mime.types
-share/examples/rc.d/apache
 share/httpd/build/config.nice
 share/httpd/build/config_vars.mk
 share/httpd/build/instdso.sh

@@ -29,6 +29,7 @@ EGDIR=		${PREFIX}/share/examples/cassandra
 DOCDIR=		${PREFIX}/share/doc/cassandra
 
 RCD_SCRIPTS=		cassandra
+SMF_NAME=		cassandra
 CASSANDRA_USER?=	cassandra
 CASSANDRA_GROUP?=	cassandra
 PKG_GROUPS=		${CASSANDRA_GROUP}

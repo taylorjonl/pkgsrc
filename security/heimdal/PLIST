@@ -1206,7 +1206,3 @@ sbin/kadmin
 sbin/kstash
 sbin/ktutil
 ${PLIST.ldap}share/examples/heimdal/hdb.schema
-share/examples/rc.d/kadmind
-share/examples/rc.d/kcm
-share/examples/rc.d/kdc
-share/examples/rc.d/kpasswdd

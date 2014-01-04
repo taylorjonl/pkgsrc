@@ -32,6 +32,7 @@ REPLACE_PYTHON+= scripts/restricted_from_passwd.py
 PYTHON_SELF_CONFLICT=	yes
 
 RCD_SCRIPTS+=	denyhosts
+SMF_NAME=	denyhosts
 
 post-configure:
 	${RM} ${WRKDIR}/${DISTNAME}/scripts/*.orig

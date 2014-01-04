@@ -295,6 +295,3 @@ share/examples/cfengine/win_dns_client.cf
 share/examples/cfengine/win_emergency.cf
 share/examples/cfengine/win_registry.cf
 share/examples/cfengine/win_schedule.cf
-share/examples/rc.d/cfexecd
-share/examples/rc.d/cfmonitord
-share/examples/rc.d/cfserverd

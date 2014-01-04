@@ -35,7 +35,6 @@ share/examples/gdm/modules/AccessDwellMouseEvents
 share/examples/gdm/modules/AccessKeyMouseEvents
 share/examples/gdm/modules/factory-AccessDwellMouseEvents
 share/examples/gdm/modules/factory-AccessKeyMouseEvents
-share/examples/rc.d/gdm
 share/gdm/BuiltInSessions/custom.desktop
 share/gdm/BuiltInSessions/default.desktop
 share/gdm/applications/gdmflexiserver-xnest.desktop

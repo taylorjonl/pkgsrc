@@ -257,7 +257,6 @@ share/examples/freeradius/snmp.conf
 share/examples/freeradius/sql.conf
 share/examples/freeradius/sqlippool.conf
 share/examples/freeradius/users
-share/examples/rc.d/radiusd
 share/freeradius/dictionary
 share/freeradius/dictionary.3com
 share/freeradius/dictionary.3gpp

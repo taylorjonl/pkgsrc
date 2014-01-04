@@ -267,6 +267,5 @@ sbin/voldump
 sbin/volinfo
 sbin/vos
 sbin/vsys
-share/examples/rc.d/bosserver
 share/openafs/C/afszcm.cat
 @pkgdir lib/openafs

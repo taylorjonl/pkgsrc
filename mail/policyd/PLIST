@@ -7,4 +7,3 @@ share/examples/policyd/DATABASE.mysql
 share/examples/policyd/blacklist_helo.sql
 share/examples/policyd/policyd.conf
 share/examples/policyd/whitelist.sql
-share/examples/rc.d/policyd

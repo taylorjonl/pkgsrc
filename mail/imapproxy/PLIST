@@ -7,4 +7,3 @@ share/doc/imapproxy/README
 share/doc/imapproxy/README.known_issues
 share/doc/imapproxy/README.ssl
 share/examples/imapproxy/imapproxy.conf
-share/examples/rc.d/imapproxy

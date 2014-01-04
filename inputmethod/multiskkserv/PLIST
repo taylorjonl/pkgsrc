@@ -4,4 +4,3 @@ sbin/multiskkserv
 sbin/multiskkserv-ctl
 share/doc/multiskkserv/README
 share/doc/multiskkserv/README.j
-share/examples/rc.d/multiskkserv

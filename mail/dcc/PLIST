@@ -60,6 +60,3 @@ share/examples/dcc/map.txt
 share/examples/dcc/whiteclnt
 share/examples/dcc/whitecommon
 share/examples/dcc/whitelist
-share/examples/rc.d/dccd
-share/examples/rc.d/dccifd
-${PLIST.dccm}share/examples/rc.d/dccm

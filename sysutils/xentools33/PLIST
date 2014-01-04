@@ -502,9 +502,6 @@ sbin/xm
 sbin/xsview
 share/doc/xen/README.blktap
 share/doc/xen/README.xenmon
-share/examples/rc.d/xenbackendd
-share/examples/rc.d/xend
-share/examples/rc.d/xendomains
 share/examples/xen/block
 share/examples/xen/formats
 share/examples/xen/hvm

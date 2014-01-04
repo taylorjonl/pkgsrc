@@ -101,6 +101,7 @@ CONFIGURE_ARGS+=	--enable-ucd-snmp-compatibility
 #
 REQD_DIRS=	${PREFIX}/share/snmp
 RCD_SCRIPTS=	snmpd snmptrapd
+SMF_NAME=	snmp
 
 USE_TOOLS+=		sh:run
 REPLACE_INTERPRETER+=	bash

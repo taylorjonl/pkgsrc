@@ -35,6 +35,9 @@ PKG_HOME.${VRNUSER}=	${VRNDIR}
 PKG_SHELL.${VRNUSER}=	${SH}
 PKG_GECOS.${VRNUSER}=	Varnish daemon user
 
+FILES_SUBST+=		VRNUSER=${VRNUSER}
+FILES_SUBST+=		VRNGROUP=${VRNGROUP}
+
 RCD_SCRIPTS=		varnishd varnishlog varnishncsa
 PYTHON_FOR_BUILD_ONLY=	yes
 

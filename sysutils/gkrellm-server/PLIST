@@ -3,4 +3,3 @@ bin/gkrellmd
 include/gkrellm2/gkrellmd.h
 man/man1/gkrellmd.1
 share/examples/gkrellm-server/gkrellmd.conf
-share/examples/rc.d/gkrellmd

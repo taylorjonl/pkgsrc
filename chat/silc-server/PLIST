@@ -9,7 +9,6 @@ share/doc/silc-server/FAQ
 share/doc/silc-server/INSTALL
 share/doc/silc-server/README
 share/doc/silc-server/TODO
-share/examples/rc.d/silcd
 share/examples/silc-server/README
 share/examples/silc-server/cell_backup.conf
 share/examples/silc-server/cell_router.conf

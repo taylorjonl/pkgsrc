@@ -30,4 +30,3 @@ share/examples/gnugk/sql.ini
 share/examples/gnugk/status.ini
 share/examples/gnugk/unregister_ip.pl
 share/examples/gnugk/vqueue.ini
-share/examples/rc.d/gnugk

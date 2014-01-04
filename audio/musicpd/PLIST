@@ -9,4 +9,3 @@ share/doc/mpd/README
 share/doc/mpd/UPGRADING
 share/doc/mpd/mpdconf.example
 share/examples/mpd/mpd.conf
-share/examples/rc.d/mpd

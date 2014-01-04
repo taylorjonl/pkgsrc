@@ -188,4 +188,3 @@ share/examples/postfix/relocated
 ${PLIST.csasl}share/examples/postfix/smtpd.conf
 share/examples/postfix/transport
 share/examples/postfix/virtual
-share/examples/rc.d/postfix

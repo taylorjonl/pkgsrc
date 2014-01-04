@@ -22,6 +22,7 @@ CONFIGURE_ENV+=		am_cv_func_iconv_works=no
 .include "../../mk/bsd.prefs.mk"
 
 RCD_SCRIPTS=		dovecot
+SMF_NAME=		dovecot
 
 DOVECOT_USER?=		dovecot
 DOVECOT_GROUP?=		dovecot

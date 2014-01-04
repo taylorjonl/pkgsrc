@@ -5,4 +5,3 @@ sbin/proxsmtpd
 share/examples/proxsmtp/add_header.sh
 share/examples/proxsmtp/proxsmtpd.conf
 share/examples/proxsmtp/spamassassin.sh
-share/examples/rc.d/proxsmtpd

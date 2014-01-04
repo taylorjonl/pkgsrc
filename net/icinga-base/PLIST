@@ -30,7 +30,6 @@ share/examples/icinga/objects/templates.cfg
 share/examples/icinga/objects/timeperiods.cfg
 share/examples/icinga/objects/windows.cfg
 share/examples/icinga/resource.cfg
-share/examples/rc.d/icinga
 share/icinga/docs/de/about.html
 share/icinga/docs/de/activechecks.html
 share/icinga/docs/de/adaptive.html

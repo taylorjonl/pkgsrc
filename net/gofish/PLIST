@@ -11,4 +11,3 @@ sbin/gopherd
 share/doc/gofish/Configure_GoFish
 share/examples/gofish/gofish-www.conf
 share/examples/gofish/gofish.conf
-share/examples/rc.d/gopherd

@@ -7,4 +7,3 @@ man/man1/vnstatd.1
 ${PLIST.gd}man/man1/vnstati.1
 man/man5/vnstat.conf.5
 share/examples/vnstat.conf
-share/examples/rc.d/vnstatd

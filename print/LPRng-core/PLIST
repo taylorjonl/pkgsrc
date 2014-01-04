@@ -37,4 +37,3 @@ sbin/lprng_index_certs
 share/examples/LPRng/lpd.conf
 share/examples/LPRng/lpd.perms
 share/examples/LPRng/printcap
-share/examples/rc.d/LPRng

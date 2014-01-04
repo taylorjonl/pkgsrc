@@ -60,6 +60,8 @@ PKG_GECOS.${PGUSER}=	PostgreSQL database administrator
 PKG_HOME.${PGUSER}=	${PGHOME}
 
 RCD_SCRIPTS=		pgsql
+SMF_METHODS=		postgresql
+SMF_NAME=		postgresql
 
 .include "../../databases/postgresql84-client/buildlink3.mk"
 .include "../../security/openssl/buildlink3.mk"

@@ -2,4 +2,3 @@
 bin/daapd
 man/man8/daapd.8
 share/examples/daapd/daapd.conf
-share/examples/rc.d/daapd

@@ -48,4 +48,3 @@ share/doc/bacula/VERIFYING
 share/doc/bacula/technotes
 share/examples/bacula/bacula-fd.conf
 share/examples/bacula/bconsole.conf
-share/examples/rc.d/bacula-fd

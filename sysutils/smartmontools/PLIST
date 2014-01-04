@@ -19,7 +19,6 @@ share/doc/smartmontools/examplescripts/Example2
 share/doc/smartmontools/examplescripts/Example3
 share/doc/smartmontools/examplescripts/Example4
 share/doc/smartmontools/examplescripts/README
-share/examples/rc.d/smartd
 share/examples/smartmontools/smartd.conf
 share/examples/smartmontools/smartd_warning.sh
 share/smartmontools/drivedb.h

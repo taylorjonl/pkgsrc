@@ -136,5 +136,4 @@ share/examples/arla/ThisCell
 share/examples/arla/arla.conf
 share/examples/arla/fstab
 share/examples/arla/lkm.conf
-share/examples/rc.d/arlad
 share/gnats/stacken

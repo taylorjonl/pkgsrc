@@ -6,4 +6,3 @@ man/man1/memcached.1
 share/doc/memcached/protocol.txt
 share/doc/memcached/readme.txt
 share/doc/memcached/threads.txt
-share/examples/rc.d/memcached

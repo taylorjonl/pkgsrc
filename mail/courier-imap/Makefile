@@ -52,6 +52,7 @@ CONF_FILES_PERMS+=	${EGDIR}/${_file_}				\
 			${COURIER_FILE_PERMS}
 .endfor
 RCD_SCRIPTS=		courierimap courierimaps courierpop courierpops
+SMF_METHODS=		courier-imap
 
 SUBST_CLASSES+=		courier
 SUBST_FILES.courier=	imap/imapd-ssl.dist.in imap/imapd.8.in		\

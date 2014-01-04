@@ -178,8 +178,6 @@ sbin/xenperf
 sbin/xensv
 sbin/xfrd
 sbin/xm
-share/examples/rc.d/xend
-share/examples/rc.d/xendomains
 share/examples/xen/block-enbd
 share/examples/xen/block-file
 share/examples/xen/network

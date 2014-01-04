@@ -41,6 +41,3 @@ share/doc/dbus/diagram.svg
 share/doc/dbus/system-activation.txt
 share/examples/dbus/session.conf
 share/examples/dbus/system.conf
-share/examples/rc.d/dbus
-${PLIST.linux}share/examples/rc.d/messagebus.redhat
-${PLIST.linux}share/examples/rc.d/rc.messagebus.slackware

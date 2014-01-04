@@ -3,4 +3,3 @@ bin/mu-conference
 share/examples/jabberd/mu-conference.sql
 share/examples/jabberd/muc.xml
 share/examples/jabberd/style.css
-share/examples/rc.d/muc

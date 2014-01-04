@@ -10,4 +10,3 @@ lib/jabberd/xdb_file.so
 sbin/jabberd
 share/examples/jabberd/jabber.xml
 share/examples/jabberd/platform-settings
-share/examples/rc.d/jabberd

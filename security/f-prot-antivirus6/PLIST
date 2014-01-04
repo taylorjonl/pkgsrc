@@ -72,7 +72,5 @@ share/doc/f-prot/html/Helpfiles_v6/test_inst.html
 share/doc/f-prot/html/Helpfiles_v6/todo.txt
 share/doc/f-prot/html/Helpfiles_v6/updater.html
 ${EGDIR}/f-prot.conf
-${PLIST.fpscand}share/examples/rc.d/fpscand
-${PLIST.scanmail}share/examples/rc.d/scanmail
 ${PLIST.license}${EGDIR}/license.key
 ${DATADIR}/antivir.def

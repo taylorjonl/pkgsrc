@@ -3,7 +3,6 @@ bin/wdm
 bin/wdmLogin
 man/man1/wdm.1
 man/man1/wdmLogin.1
-share/examples/rc.d/wdm
 share/examples/wdm/GiveConsole
 share/examples/wdm/TakeConsole
 share/examples/wdm/Xaccess

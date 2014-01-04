@@ -27,7 +27,6 @@ sbin/syslog-ng-ctl
 share/doc/${PKGBASE}/INSTALL
 share/doc/${PKGBASE}/README
 share/doc/${PKGBASE}/syslog-ng.conf.doc
-share/examples/rc.d/syslogng
 share/examples/syslog-ng/modules.conf
 share/examples/syslog-ng/scl.conf
 share/examples/syslog-ng/syslog-ng.conf

@@ -25,6 +25,3 @@ share/examples/courier/esmtpd-ssl.dist
 share/examples/courier/esmtpd.cnf
 share/examples/courier/esmtpd.dist
 share/examples/courier/module.esmtp
-share/examples/rc.d/courieresmtp
-share/examples/rc.d/courieresmtpmsa
-share/examples/rc.d/courieresmtps

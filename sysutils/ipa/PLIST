@@ -15,4 +15,3 @@ man/ru/man5/ipastat.conf.5
 man/ru/man8/ipa.8
 man/ru/man8/ipactl.8
 man/ru/man8/ipastat.8
-share/examples/rc.d/ipa

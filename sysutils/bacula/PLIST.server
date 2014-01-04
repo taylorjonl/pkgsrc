@@ -31,6 +31,3 @@ sbin/bwild
 sbin/dbcheck
 share/examples/bacula/bacula-dir.conf
 share/examples/bacula/bacula-sd.conf
-share/examples/rc.d/bacula
-share/examples/rc.d/bacula-dir
-share/examples/rc.d/bacula-sd

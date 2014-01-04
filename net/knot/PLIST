@@ -12,5 +12,4 @@ sbin/knotc
 sbin/knotd
 share/examples/knot/example.com.zone
 share/examples/knot/knot.sample.conf
-share/examples/rc.d/knot
 @pkgdir etc/knot

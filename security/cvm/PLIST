@@ -34,4 +34,3 @@ lib/libcvm-sql.la
 lib/libcvm-udp.la
 lib/libcvm-v1client.la
 lib/libcvm-v2client.la
-share/examples/rc.d/cvm

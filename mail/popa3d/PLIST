@@ -4,6 +4,5 @@ sbin/popa3d
 share/doc/popa3d/DESIGN
 share/doc/popa3d/INSTALL
 share/doc/popa3d/LICENSE
-share/examples/rc.d/popa3d
 @comment empty dir to chroot to
 @pkgdir share/empty

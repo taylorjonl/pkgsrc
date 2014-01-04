@@ -4,4 +4,3 @@ bin/dynipclient
 man/man1/dynipadmin.1
 man/man1/dynipclient.1
 share/examples/dynipclient/dynip.cfg
-share/examples/rc.d/dynipclient

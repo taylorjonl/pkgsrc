@@ -2,4 +2,3 @@
 bin/cygaudiofile-0.dll
 bin/cygesd-0.dll
 emul/cygwin/bin/esd.exe
-share/examples/rc.d/cygwin_esd

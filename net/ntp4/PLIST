@@ -208,5 +208,3 @@ share/examples/ntp4/grundoon.conf
 share/examples/ntp4/malarky.conf
 share/examples/ntp4/pogo.conf
 share/examples/ntp4/rackety.conf
-share/examples/rc.d/ntpd
-share/examples/rc.d/ntpdate

@@ -26,5 +26,3 @@ share/doc/pure-ftpd/README.MySQL
 share/doc/pure-ftpd/README.PGSQL
 share/doc/pure-ftpd/README.TLS
 share/doc/pure-ftpd/README.Virtual-Users
-share/examples/rc.d/pure_ftpd
-share/examples/rc.d/pure_uploadscript

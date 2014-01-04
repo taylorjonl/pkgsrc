@@ -377,4 +377,3 @@ ${SHAREDIR}/bounce_invalid_confirmation.txt
 ${SHAREDIR}/bounce_missing_pending.txt
 ${SHAREDIR}/confirm_accept.txt
 ${SHAREDIR}/confirm_request.txt
-share/examples/rc.d/tofmipd

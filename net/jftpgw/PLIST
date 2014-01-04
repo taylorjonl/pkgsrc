@@ -2,4 +2,3 @@
 man/man1/jftpgw.1
 sbin/jftpgw
 share/examples/jftpgw/jftpgw.conf
-share/examples/rc.d/jftpgw

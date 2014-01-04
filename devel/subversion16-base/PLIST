@@ -77,7 +77,6 @@ share/doc/subversion16/README
 share/doc/subversion16/cvs-crossover-guide.html
 share/doc/subversion16/lj_article.txt
 share/doc/subversion16/svn-best-practices.html
-share/examples/rc.d/svnserve16
 share/examples/subversion16/backup/hot-backup.py
 share/examples/subversion16/cgi/tweak-log.cgi
 share/examples/subversion16/hook-scripts/commit-access-control.cfg.example

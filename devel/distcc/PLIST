@@ -24,5 +24,4 @@ share/doc/distcc/protocol-2.txt
 share/doc/distcc/reporting-bugs.txt
 share/doc/distcc/status-1.txt
 share/doc/distcc/survey.txt
-share/examples/rc.d/distccd
 @pkgdir share/distcc

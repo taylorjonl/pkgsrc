@@ -2,5 +2,4 @@
 man/man5/swapd.conf.5
 man/man8/swapd.8
 sbin/swapd
-share/examples/rc.d/swapd
 share/examples/swapd/swapd.conf

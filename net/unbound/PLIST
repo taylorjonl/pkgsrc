@@ -45,5 +45,4 @@ sbin/unbound-checkconf
 sbin/unbound-control
 sbin/unbound-control-setup
 sbin/unbound-host
-share/examples/rc.d/unbound
 share/examples/unbound/unbound.conf

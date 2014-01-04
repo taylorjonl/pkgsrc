@@ -21,4 +21,3 @@ share/examples/monit/monit.php
 share/examples/monit/monitrc-gentoo
 share/examples/monit/monitrc.sample
 share/examples/monit/wap.php
-share/examples/rc.d/monit

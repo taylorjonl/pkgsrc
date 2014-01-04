@@ -12,11 +12,6 @@ share/doc/sympa/sample/test/info
 share/doc/sympa/sample/test/message.footer
 share/doc/sympa/sample/test/web_tt2/welcome.tt2
 share/doc/sympa/sample/trusted_applications.conf
-share/examples/rc.d/archived
-share/examples/rc.d/bounced
-share/examples/rc.d/bulk
-share/examples/rc.d/sympa
-share/examples/rc.d/task_manager
 share/examples/sympa/data_structure.version
 share/examples/sympa/sympa.conf
 share/examples/sympa/wwsympa.conf

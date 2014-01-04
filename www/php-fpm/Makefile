@@ -34,6 +34,7 @@ CONFIGURE_ARGS+=	--enable-fpm
 CONFIGURE_ARGS+=	--with-fpm-user=${FPM_USER}
 CONFIGURE_ARGS+=	--with-fpm-group=${FPM_GROUP}
 
+SMF_NAME=		php-fpm
 RCD_SCRIPTS=		php_fpm
 MESSAGE_SUBST+=		CGIDIR=${CGIDIR:Q}
 MESSAGE_SUBST+=		VARBASE=${VARBASE:Q}

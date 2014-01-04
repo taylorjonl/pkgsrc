@@ -3,4 +3,3 @@ man/man8/pound.8
 man/man8/poundctl.8
 sbin/pound
 sbin/poundctl
-share/examples/rc.d/pound

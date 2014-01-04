@@ -18,7 +18,6 @@ bin/zmwatch.pl
 bin/zmx10.pl
 ${ZM_HTTPD_CGIBIN}/nph-zms
 ${ZM_HTTPD_CGIBIN}/zms
-share/examples/rc.d/zoneminder
 share/examples/zoneminder/apache/zoneminder.conf
 share/examples/zoneminder/config/zm.conf
 share/zoneminder/db/zm_create.sql

@@ -76,7 +76,6 @@ man/man1/yaws.1
 man/man5/yaws.conf.5
 man/man5/yaws_api.5
 man/man5/yaws_soap_lib.5
-share/examples/rc.d/yaws
 share/examples/yaws/yaws.conf
 share/yaws/www/END
 share/yaws/www/END2

@@ -25,7 +25,6 @@ share/doc/icecast/listener_auth3.jpg
 share/doc/icecast/masterslave.png
 share/doc/icecast/relay.png
 share/examples/icecast/icecast.xml
-share/examples/rc.d/icecast
 share/icecast/admin/listclients.xsl
 share/icecast/admin/listmounts.xsl
 share/icecast/admin/manageauth.xsl

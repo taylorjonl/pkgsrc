@@ -132,7 +132,6 @@ sbin/tsitest
 sbin/typetest
 sbin/xferfaxstats
 share/doc/hylafax/COPYRIGHT
-share/examples/rc.d/hylafax
 share/hylafax/config_template/agere-mp-2
 share/hylafax/config_template/agere-mp-21
 share/hylafax/config_template/att-dataport

@@ -3,4 +3,3 @@ ${PKGMANDIR}/man8/rbldnsd.8
 sbin/rbldnsd
 share/doc/rbldnsd/NEWS
 share/doc/rbldnsd/README.user
-share/examples/rc.d/rbldnsd

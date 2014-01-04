@@ -37,5 +37,4 @@ ${GEM_LIBDIR}/test/test_stomp_frame.rb
 ${GEM_LIBDIR}/test/test_topic_manager.rb
 ${GEM_LIBDIR}/test_todo/test_stomp_server.rb
 ${GEM_HOME}/specifications/${GEM_NAME}.gemspec
-share/examples/rc.d/stompserver
 share/examples/stompserver/stompserver.conf

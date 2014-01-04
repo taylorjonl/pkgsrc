@@ -30,7 +30,6 @@ lib/virtuoso/hosting/creolewiki.la
 ${PLIST.im}lib/virtuoso/hosting/im.la
 lib/virtuoso/hosting/mediawiki.la
 lib/virtuoso/hosting/wikiv.la
-share/examples/rc.d/virtuoso
 share/virtuoso/doc/AUTHORS
 share/virtuoso/doc/COPYING
 share/virtuoso/doc/CREDITS

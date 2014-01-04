@@ -1087,7 +1087,5 @@ man/man1/salt-run.1
 man/man1/salt-syndic.1
 man/man1/salt.1
 man/man7/salt.7
-share/examples/rc.d/salt_master
-share/examples/rc.d/salt_minion
 share/examples/salt/master
 share/examples/salt/minion

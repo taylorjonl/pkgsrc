@@ -121,7 +121,6 @@ share/examples/ircd-hybrid/example.conf
 share/examples/ircd-hybrid/example.conf.quick
 share/examples/ircd-hybrid/example.efnet.conf
 share/examples/ircd-hybrid/simple.conf
-share/examples/rc.d/ircd-hybrid
 share/ircd-hybrid/help/opers/accept
 share/ircd-hybrid/help/opers/admin
 share/ircd-hybrid/help/opers/away

@@ -11,5 +11,4 @@ man/man8/whoson.8
 man/man8/whosond.8
 sbin/whoson
 sbin/whosond
-share/examples/rc.d/whosond
 share/examples/whoson/whoson.conf

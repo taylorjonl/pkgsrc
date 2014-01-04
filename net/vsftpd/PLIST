@@ -11,5 +11,4 @@ share/doc/vsftpd/SECURITY/IMPLEMENTATION
 share/doc/vsftpd/SECURITY/OVERVIEW
 share/doc/vsftpd/SECURITY/TRUST
 share/doc/vsftpd/TUNING
-share/examples/rc.d/vsftpd
 share/examples/vsftpd/vsftpd.conf.default

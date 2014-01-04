@@ -12,7 +12,6 @@ sbin/makeweb
 sbin/syslogtocern
 sbin/thtpasswd
 sbin/thttpd
-share/examples/rc.d/thttpd
 share/examples/thttpd.conf
 share/thttpd/index.html
 share/thttpd/sitedrivenby.gif

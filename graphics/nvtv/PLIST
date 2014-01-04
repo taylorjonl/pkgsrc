@@ -9,4 +9,3 @@ share/doc/nvtv/USAGE
 share/doc/nvtv/chips.txt
 share/doc/nvtv/overview.txt
 share/doc/nvtv/timing.txt
-share/examples/rc.d/nvtvd

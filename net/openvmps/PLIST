@@ -2,4 +2,3 @@
 bin/vmpsd
 man/man1/vmpsd.1
 share/examples/openvmps/vlan.db
-share/examples/rc.d/vmpsd

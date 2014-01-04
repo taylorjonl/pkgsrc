@@ -83,7 +83,6 @@ share/doc/screws/tcpwin
 share/doc/screws/verbose
 share/doc/screws/virtual-hosts
 share/doc/screws/wrt54g.txt
-share/examples/rc.d/screws
 share/examples/screws/default.conf
 share/examples/screws/screws.conf
 share/screws/hsml-inc/include.pl.html

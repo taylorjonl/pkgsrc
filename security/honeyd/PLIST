@@ -41,4 +41,3 @@ share/examples/honeyd/webserver/htmltmpl.py
 share/examples/honeyd/webserver/server.py
 share/examples/honeyd/webserver/support.py
 share/examples/honeyd/xprobe2.conf
-share/examples/rc.d/honeyd
