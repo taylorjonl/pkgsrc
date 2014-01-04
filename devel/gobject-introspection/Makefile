@@ -15,6 +15,7 @@ DEPENDS+=	${PYPKGPREFIX}-cElementTree-[0-9]*:../../textproc/py-cElementTree
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	bin lib
 USE_TOOLS+=	pkg-config flex bison gmake
 GMAKE_REQD=	3.81
 

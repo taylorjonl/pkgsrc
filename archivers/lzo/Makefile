@@ -13,6 +13,7 @@ LICENSE=	gnu-gpl-v2
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 TEST_TARGET=		test
 

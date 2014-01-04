@@ -17,6 +17,7 @@ LICENSE=	gnu-gpl-v2 AND gnu-lgpl-v2.1
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_PKGLOCALEDIR=	yes
 GNU_CONFIGURE=		yes
 MAKE_ENV+=		LC_ALL="C"

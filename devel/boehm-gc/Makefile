@@ -16,6 +16,7 @@ WRKSRC=		${WRKDIR}/${DISTNAME:C/[a-z]$//}
 USE_TOOLS+=		gmake
 USE_LANGUAGES=		c c++
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		YES
 CONFIGURE_ARGS+=	--enable-cplusplus
 CONFIGURE_ARGS+=	--datadir=${PREFIX}/share/doc

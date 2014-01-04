@@ -11,6 +11,7 @@ COMMENT=	Adaptive Multi-Rate speech codec libraries
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 USE_LANGUAGES=	c c++
 

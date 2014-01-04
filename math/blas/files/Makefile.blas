@@ -1,5 +1,5 @@
 prefix=	${PREFIX}
-libdir=	$(prefix)/lib
+libdir=	$(prefix)/lib${LIBARCHSUFFIX}
 
 OBJS=	caxpy.o ccopy.o cdotc.o cdotu.o cgbmv.o cgemm.o cgemv.o cgerc.o	\
 	cgeru.o chbmv.o chemm.o chemv.o cher.o cher2.o cher2k.o cherk.o \

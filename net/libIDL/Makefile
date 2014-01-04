@@ -13,6 +13,7 @@ LICENSE=	gnu-lgpl-v2
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_TOOLS+=		bison flex pkg-config
 PKGCONFIG_OVERRIDE=	libIDL-2.0.pc.in
 GNU_CONFIGURE=		yes

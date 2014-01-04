@@ -16,6 +16,7 @@ SUBDIR+=	distbb
 SUBDIR+=	genrpm
 SUBDIR+=	gensolpkg
 SUBDIR+=	gnome-packagekit
+SUBDIR+=	isaexec
 SUBDIR+=	libkver
 SUBDIR+=	libnbcompat
 SUBDIR+=	lintpkgsrc

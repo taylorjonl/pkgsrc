@@ -17,6 +17,7 @@ DIST_SUBDIR=		libdrm-2.4.47-rerelease
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		pkg-config
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	libdrm.pc.in
 GNU_CONFIGURE=		yes
 

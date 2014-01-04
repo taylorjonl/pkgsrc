@@ -16,6 +16,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 GNU_CONFIGURE=		YES
 USE_LIBTOOL=		YES
+USE_MULTIARCH=		lib
 USE_TOOLS+=		pkg-config
 PKGCONFIG_OVERRIDE=	xft.pc.in
 

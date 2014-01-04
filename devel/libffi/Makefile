@@ -13,6 +13,7 @@ LICENSE=	mit
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--includedir=${PREFIX}/include
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 USE_TOOLS+=	pkg-config
 USE_LANGUAGES=	c c++
 INFO_FILES=	yes
