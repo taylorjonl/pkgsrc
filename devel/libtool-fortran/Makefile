@@ -70,7 +70,9 @@ INSTALLATION_DIRS+=	bin
 .PHONY: fix-libtool
 fix-libtool:
 	cd ${WRKSRC}; for f in libtool; do				\
-		${SED}	-e "s,-L${BUILDLINK_DIR}/lib,," $$f > $$f.new;	\
+		${SED}  -e "s,-L${BUILDLINK_DIR}/lib *,,"		\
+			-e "s,${BUILDLINK_DIR}/lib *,,"			\
+			$$f > $$f.new;					\
 		if [ -x $$f ]; then ${CHMOD} +x $$f.new; fi;		\
 		${MV} -f $$f.new $$f;					\
 	done
