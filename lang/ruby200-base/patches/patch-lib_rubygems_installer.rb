@@ -31,7 +31,7 @@ $NetBSD: patch-lib_rubygems_installer.rb,v 1.1.2.1 2013/12/01 11:47:59 tron Exp 
      # (or use) a new bin dir under the gem_home.
 -    @bin_dir             = options[:bin_dir] || Gem.bindir(gem_home)
 +    @bin_dir             = options[:bin_dir] || Gem.bindir(gem_home, @install_root)
-+    if not @install_root.empty?
++    unless @install_root.nil? or @install_root == ""
 +      @bin_dir = File.join(@install_root, @bin_dir)
 +    end
      @development         = options[:development]
