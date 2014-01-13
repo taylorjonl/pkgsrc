@@ -2,8 +2,8 @@ $NetBSD$
 
 Multiarch support.
 
---- Modules/getpath.c.orig	2012-04-11 06:54:07.000000000 +0000
-+++ Modules/getpath.c	2012-12-13 15:09:29.380392481 +0000
+--- Modules/getpath.c.orig	2013-11-17 07:23:01.000000000 +0000
++++ Modules/getpath.c
 @@ -123,7 +123,7 @@
  
  #ifndef PYTHONPATH
@@ -13,16 +13,16 @@ Multiarch support.
  #endif
  
  #ifndef LANDMARK
-@@ -339,7 +339,7 @@
-         else
+@@ -397,7 +397,7 @@ search_for_exec_prefix(wchar_t *argv0_pa
              wcsncpy(exec_prefix, home, MAXPATHLEN);
+         exec_prefix[MAXPATHLEN] = L'\0';
          joinpath(exec_prefix, lib_python);
 -        joinpath(exec_prefix, L"lib-dynload");
 +        joinpath(exec_prefix, L"lib-dynload@LIBARCHSUFFIX@");
          return 1;
      }
  
-@@ -380,7 +380,7 @@
+@@ -440,7 +440,7 @@ search_for_exec_prefix(wchar_t *argv0_pa
      do {
          n = wcslen(exec_prefix);
          joinpath(exec_prefix, lib_python);
@@ -31,16 +31,16 @@ Multiarch support.
          if (isdir(exec_prefix))
              return 1;
          exec_prefix[n] = L'\0';
-@@ -390,7 +390,7 @@
-     /* Look at configure's EXEC_PREFIX */
+@@ -451,7 +451,7 @@ search_for_exec_prefix(wchar_t *argv0_pa
      wcsncpy(exec_prefix, _exec_prefix, MAXPATHLEN);
+     exec_prefix[MAXPATHLEN] = L'\0';
      joinpath(exec_prefix, lib_python);
 -    joinpath(exec_prefix, L"lib-dynload");
 +    joinpath(exec_prefix, L"lib-dynload@LIBARCHSUFFIX@");
      if (isdir(exec_prefix))
          return 1;
  
-@@ -414,6 +414,7 @@
+@@ -475,6 +475,7 @@ calculate_path(void)
      wchar_t *prog = Py_GetProgramName();
      wchar_t argv0_path[MAXPATHLEN+1];
      wchar_t zip_path[MAXPATHLEN+1];
@@ -48,7 +48,7 @@ Multiarch support.
      int pfound, efound; /* 1 if found; -1 if found build directory */
      wchar_t *buf;
      size_t bufsz;
-@@ -593,7 +594,7 @@
+@@ -695,7 +696,7 @@ calculate_path(void)
              fprintf(stderr,
                  "Could not find platform dependent libraries <exec_prefix>\n");
          wcsncpy(exec_prefix, _exec_prefix, MAXPATHLEN);
@@ -57,7 +57,7 @@ Multiarch support.
      }
      /* If we found EXEC_PREFIX do *not* reduce it!  (Yet.) */
  
-@@ -710,6 +711,11 @@
+@@ -812,6 +813,11 @@ calculate_path(void)
          reduce(exec_prefix);
          reduce(exec_prefix);
          reduce(exec_prefix);
