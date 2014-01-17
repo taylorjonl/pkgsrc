@@ -23,7 +23,7 @@ Fix installation mess via https://bugzilla.redhat.com/show_bug.cgi?id=1031312.
    set(3P_LIBRARY_OUTPUT_PATH      "${OpenCV_BINARY_DIR}/3rdparty/lib${LIB_SUFFIX}")
    set(OPENCV_LIB_INSTALL_PATH     lib${LIB_SUFFIX})
    set(OPENCV_3P_LIB_INSTALL_PATH  share/OpenCV/3rdparty/${OPENCV_LIB_INSTALL_PATH})
-+  set(OPENCV_CONFIG_INSTALL_PATH  lib${LIB_SUFFIX}/OpenCV)
++  set(OPENCV_CONFIG_INSTALL_PATH  lib${LIB_SUFFIX}/cmake/opencv)
    set(OPENCV_INCLUDE_INSTALL_PATH include)
 -
 -  math(EXPR SIZEOF_VOID_P_BITS "8 * ${CMAKE_SIZEOF_VOID_P}")
