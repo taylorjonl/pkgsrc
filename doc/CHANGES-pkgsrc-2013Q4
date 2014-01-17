@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.8 2014/01/10 18:01:34 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.13 2014/01/16 11:14:49 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q4 branch:
@@ -33,3 +33,21 @@ Pullup ticket #4290 - requested by tron
 net/cacti: security update
 Pullup ticket #4293 - requested by tron
 security/openssl: security update
+Pullup ticket #4294 - requested by taca
+net/bind96: security update
+Pullup ticket #4295 - requested by taca
+net/bind98: security update
+Pullup ticket #4296 - requested by taca
+net/bind99: security update
+Pullup ticket #4297 - requested by obache
+net/mikutter: bug fix update
+Pullup ticket #4298 - requested by drochner
+graphics/graphviz: security patch
+Pullup ticket #4300 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4301 - requested by ryoon
+devel/nss: security update
+Pullup ticket #4302 - requested by jperkin
+graphics/graphviz: build fix
+Pullup ticket #4303 - requested by obache
+emulators/suse131_x11: security update
