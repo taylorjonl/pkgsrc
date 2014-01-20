@@ -63,6 +63,7 @@ CONFIGURE_ARGS+=	--disable-mmx
 CONFIGURE_ARGS+=	--disable-mmx2
 CONFIGURE_ARGS+=	--disable-sse
 CONFIGURE_ARGS+=	--disable-ssse3
+CONFIGURE_ARGS+=	--disable-asm		# XXX: -fomit-frame-pointer
 .else
 CONFIGURE_ARGS+=	--enable-runtime-cpudetect
 .endif
