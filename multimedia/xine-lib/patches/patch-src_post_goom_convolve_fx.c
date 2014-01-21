@@ -1,37 +1,17 @@
 $NetBSD: patch-src_post_goom_convolve_fx.c,v 1.1 2012/09/20 15:33:40 jperkin Exp $
 
-Re-arrange inline asm to resolve 'error: can't find a register' failures.
+Solaris cannot handle this MMX section, failing with:
 
---- src/post/goom/convolve_fx.c.orig	2009-11-30 21:29:12.000000000 +0000
-+++ src/post/goom/convolve_fx.c
-@@ -173,7 +173,10 @@ static void create_output_with_brightnes
-     {
-       __asm__ __volatile__
-         (
--         "\n\t movd  %1, %%mm0"  /* mm0 = src */
-+         "\n\t movd  %0, %%mm0"  /* mm0 = src */
-+         ::"g"  (src[i].val));
-+      __asm__ __volatile__
-+        (
-          "\n\t paddd %%mm4, %%mm2"   /* [ ytex | xtex ] += [ -s | s ] */
-          "\n\t movd  %%esi, %%mm5"   /* save esi into mm5 */
-          "\n\t movq  %%mm2, %%mm3"
-@@ -191,7 +194,7 @@ static void create_output_with_brightnes
-          "\n\t xorl  %%ecx, %%ecx"
-          "\n\t movb  (%%eax,%%esi), %%cl"
+ error: can't find a register in class GENERAL_REGS while reloading 'asm'.
+
+--- src/post/goom/convolve_fx.c.orig	2012-09-20 15:19:11.848384461 +0000
++++ src/post/goom/convolve_fx.c	2012-09-20 15:19:24.654150136 +0000
+@@ -151,7 +151,7 @@
+     ytex = yprime + yi + CONV_MOTIF_W * 0x10000 / 2;
+     yprime += c;
  
--         "\n\t movl  %2, %%eax"
-+         "\n\t movl  %1, %%eax"
-          "\n\t movd  %%mm5, %%esi"    /* restore esi from mm5 */
-          "\n\t movd  (%%eax,%%ecx,4), %%mm1" /* mm1 = [0|0|0|iff2] */
- 
-@@ -205,8 +208,7 @@ static void create_output_with_brightnes
-          "\n\t packuswb  %%mm7, %%mm0"
-          "\n\t movd      %%mm0, %0"
-          : "=g" (dest[i].val)
--         : "g"  (src[i].val)
--         , "g"(&ifftab[0])
-+         : "g"(&ifftab[0])
-          : "eax","ecx");
- 
-       i++;
+-#if defined(HAVE_MMX) && ! defined(ARCH_X86_64)
++#if defined(HAVE_MMX) && ! defined(ARCH_X86_64) && !defined(__sun)
+ /* This code uses 32-bit registers eax,ecx,esi */
+     __asm__ __volatile__
+       ("\n\t pxor  %%mm7,  %%mm7"  /* mm7 = 0   */
