@@ -6,6 +6,7 @@ Size (mplayer/MPlayer-1.1.1.tar.xz) = 11202492 bytes
 SHA1 (patch-aa) = da461823d0731624de964323ab630f6e295be7b7
 SHA1 (patch-ae) = 286f5ac075ea4123a1a6276f97e02a4dda9b3e67
 SHA1 (patch-an) = a1d16ce7a4ff5a2071a7bac1b6836dc197b849e4
+SHA1 (patch-ffmpeg_libavutil_x86__cpu.h) = 6a81e91465732f475968a5c4d7db514473988a90
 SHA1 (patch-libao2_ao_sun.c) = ce7042b394b9b8c051597c734b70290c8bf0a8d5
 SHA1 (patch-libmpdemux_demux__gif.c) = 2e760d89cd05c8249be83fc79b410d282af796db
 SHA1 (patch-libvo_vo__gif89a.c) = 7127f03a420551f82f29772de4f986f4ff10cb32
