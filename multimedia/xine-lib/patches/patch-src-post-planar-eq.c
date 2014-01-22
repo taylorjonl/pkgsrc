@@ -1,8 +1,19 @@
 $NetBSD: patch-src-post-planar-eq.c,v 1.1 2011/09/04 14:34:52 joerg Exp $
 
---- src/post/planar/eq.c.orig	2011-08-30 13:13:46.000000000 +0000
+Disable MMX assembly sections, currently incompatible with -fomit-frame-pointer
+
+--- src/post/planar/eq.c.orig	2013-09-18 10:04:54.000000000 +0000
 +++ src/post/planar/eq.c
-@@ -138,9 +138,11 @@ typedef struct eq_parameters_s {
+@@ -31,7 +31,7 @@
+ #include <pthread.h>
+ 
+ 
+-#if defined(ARCH_X86) || defined(ARCH_X86_64)
++#if 0
+ static void process_MMX(unsigned char *dest, int dstride, unsigned char *src, int sstride,
+ 		    int w, int h, int brightness, int contrast)
+ {
+@@ -138,9 +142,11 @@ typedef struct eq_parameters_s {
   * description of params struct
   */
  START_PARAM_DESCR( eq_parameters_t )
@@ -16,3 +27,12 @@ $NetBSD: patch-src-post-planar-eq.c,v 1.1 2011/09/04 14:34:52 joerg Exp $
              "contrast" )
  END_PARAM_DESCR( param_descr )
  
+@@ -259,7 +265,7 @@ static post_plugin_t *eq_open_plugin(pos
+   }
+ 
+   process = process_C;
+-#if defined(ARCH_X86) || defined(ARCH_X86_64)
++#if 0
+   if( xine_mm_accel() & MM_ACCEL_X86_MMX )
+     process = process_MMX;
+ #endif
