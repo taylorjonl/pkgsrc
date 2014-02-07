@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.20 2013/09/09 13:39:10 fhajny Exp $
+# $NetBSD: Makefile,v 1.22 2014/01/02 17:10:22 fhajny Exp $
 #
 
-DISTNAME=		apache-couchdb-1.4.0
+DISTNAME=		apache-couchdb-1.5.0
 PKGNAME=		${DISTNAME:S/apache-//}
 CATEGORIES=		databases
 MASTER_SITES=		${MASTER_SITE_APACHE:=couchdb/source/${PKGVERSION_NOREV}/}
@@ -73,9 +73,8 @@ SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Setting standard paths
 SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths+=	configure bin/couchdb.tpl.in
-SUBST_SED.paths=	-e 's,@EGDIR@,${COUCH_EGDIR},g'
-SUBST_SED.paths+=	-e 's,@RUNDIR@,${COUCH_RUNDIR},g'
-SUBST_SED.paths+=	-e 's,@ERLANG_PREFIX@,${BUILDLINK_PREFIX.erlang},g'
+SUBST_VARS.paths=	COUCH_EGDIR COUCH_DBDIR COUCH_LOGDIR COUCH_RUNDIR
+SUBST_SED.paths=	-e 's,@ERLANG_PREFIX@,${BUILDLINK_PREFIX.erlang},g'
 
 # This works around libtool abuse installing "couchspawnkillable". Will
 # hopefully get fixed properly upstream.
