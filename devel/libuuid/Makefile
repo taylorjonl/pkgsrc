@@ -1,17 +1,16 @@
-# $NetBSD: Makefile,v 1.4 2012/10/31 11:17:23 asau Exp $
+# $NetBSD: Makefile,v 1.6 2014/02/12 11:44:58 fhajny Exp $
 
 DISTNAME=	util-linux-2.19.1
 PKGNAME=	${DISTNAME:S/util-linux/libuuid/}
+PKGREVISION=	1
 CATEGORIES=	devel
-MASTER_SITES=	http://www.kernel.org/pub/linux/utils/util-linux-ng/v2.19/
+MASTER_SITES=	http://www.kernel.org/pub/linux/utils/util-linux/v2.19/
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://kernel.org/~kzak/util-linux-ng/
 COMMENT=	Generate unique identifiers for objects
 LICENSE=	modified-bsd
-
-CONFLICTS=	ossp-uuid-[0-9]* # libuuid.* uuid.pc uuid.3
 
 USE_LIBTOOL=		yes
 GNU_CONFIGURE=		yes
