@@ -2,8 +2,8 @@
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.dbmail
 PKG_SUPPORTED_OPTIONS=	ldap sieve
-PKG_OPTIONS_REQUIRED_GROUPS=	sql
-PKG_OPTIONS_GROUP.sql=	mysql pgsql sqlite
+PKG_OPTIONS_NONEMPTY_SETS=	sql
+PKG_OPTIONS_SET.sql=	mysql pgsql sqlite
 PKG_SUGGESTED_OPTIONS=	mysql sieve
 
 .include "../../mk/bsd.options.mk"
