@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.13 2014/01/16 11:14:49 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2013Q4,v 1.1.2.31 2014/02/18 11:34:39 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2013Q4 branch:
@@ -51,3 +51,56 @@ Pullup ticket #4302 - requested by jperkin
 graphics/graphviz: build fix
 Pullup ticket #4303 - requested by obache
 emulators/suse131_x11: security update
+Pullup ticket #4305 - requested by obache
+inputmethod/ibus-chewing: security update
+Pullup ticket #4306 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4307 - requested by obache
+emulators/suse131_libpng: security update
+Pullup ticket #4299 - requested by tron
+Build fix for "ngrep" for GNU make 4.0.
+Pullup ticket #4308 - requested by schnoebe
+print/hplip: security update
+Pullup ticket #4309 - requested by obache
+emulators/suse131_qt4: security update
+Pullup ticket #4310 - requested by taca
+www/drupal6: security update
+Pullup ticket #4311 - requested by taca
+www/drupal7: security update
+Pullup ticket #4312 - requested by taca
+www/contao211: security update
+www/contao32: security update
+Pullup ticket #4313 - requested by pettai
+net/bind98: build fix
+Pullup ticket #4314 - requested by obache
+graphics/cogl: bug fix patch
+Pullup ticket #4315 - requested by obache
+emulators/dosbox: build fix
+Pullup ticket #4316 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4317 - requested by drochner
+textproc/libyaml: security update
+Pullup ticket #4318 - requested by sborrill
+www/squid3: bug fix update
+Pullup ticket #4319 - requested by tron
+lang/python27: security fix
+Pullup ticket #4320 - requested by obache
+lang/python33: security patch
+Pullup ticket #4321 - requested by pettai
+security/py-denyhosts: security patch
+Pullup ticket #4322 - requested by taca
+www/contao211: security update
+Pullup ticket #4323 - requested by taca
+www/contao32: security update
+Pullup ticket #4325 - requested by taca
+www/contao211: security update
+Pullup ticket #4326 - requested by taca
+www/contao32: security update
+Pullup ticket #4327 - requested by drochner
+lang/python26: security patch
+Pullup ticket #4324 - requested by tron
+mail/thunderbird: security update
+Pullup ticket #4328 - requested by bouyer
+graphics/glew: build fix
+Pullup ticket #4329 - requested by drochner
+sysutils/xentools41: security patch
