@@ -1,9 +1,9 @@
-$NetBSD$
+$NetBSD: patch-etc_clamd.conf.sample,v 1.1 2014/03/11 14:34:40 jperkin Exp $
 
 Make this useable out of the box.
 
---- etc/clamd.conf.orig	2013-04-17 15:25:09.000000000 +0000
-+++ etc/clamd.conf
+--- etc/clamd.conf.sample.orig	2013-04-17 15:25:09.000000000 +0000
++++ etc/clamd.conf.sample
 @@ -5,7 +5,7 @@
  
  
