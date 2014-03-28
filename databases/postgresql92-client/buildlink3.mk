@@ -6,7 +6,7 @@ BUILDLINK_TREE+=	postgresql92-client
 POSTGRESQL92_CLIENT_BUILDLINK3_MK:=
 
 BUILDLINK_API_DEPENDS.postgresql92-client+=	postgresql92-client>=9.2.0
-BUILDLINK_ABI_DEPENDS.postgresql92-client+=	postgresql92-client>=9.2.2nb2
+BUILDLINK_ABI_DEPENDS.postgresql92-client+=	postgresql92-client>=9.2.6nb1
 BUILDLINK_PKGSRCDIR.postgresql92-client?=	../../databases/postgresql92-client
 
 # This variable contains the libraries need to link most clients.

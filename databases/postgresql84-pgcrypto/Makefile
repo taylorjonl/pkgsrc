@@ -15,4 +15,5 @@ REQD_DIRS+=		share/doc/postgresql/contrib
 REQD_DIRS+=		share/postgresql/contrib
 
 .include "../../databases/postgresql84-client/buildlink3.mk"
+.include "../../devel/zlib/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
