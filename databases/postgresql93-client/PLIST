@@ -716,6 +716,7 @@ share/locale/zh_CN/LC_MESSAGES/ecpg-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/ecpglib6-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/initdb-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/libpq5-9.3.mo
+share/locale/zh_CN/LC_MESSAGES/pg_basebackup-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/pg_config-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/pg_controldata-9.3.mo
 share/locale/zh_CN/LC_MESSAGES/pg_ctl-9.3.mo
