@@ -31,3 +31,5 @@ SHA1 (patch-doc_ssl_SSL__set__session.pod) = e4d8442f4fc827520ca20f108050fcd6314
 SHA1 (patch-doc_ssl_SSL__shutdown.pod) = 21682f3385a66ba8f0ebd11bb9bb3c6198352783
 SHA1 (patch-doc_ssl_SSL__write.pod) = 67efd6d0de0a0db34c18c62e4a939c0ea49442ca
 SHA1 (patch-engines_ccgost_Makefile) = 08999f0f40969883482ad9ffc1aa9959ed7d402c
+SHA1 (patch-ssl_d1__both.c) = b9489cbffb0ddaf3ddd63bc414b223a3f815ba7e
+SHA1 (patch-ssl_t1__lib.c) = 259741a4004a1cc39805501f8a237779e6cdb93b

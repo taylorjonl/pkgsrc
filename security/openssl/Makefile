@@ -2,6 +2,7 @@
 
 DISTNAME=	openssl-1.0.1f
 MASTER_SITES=	http://ftp.openssl.org/source/
+PKGREVISION=	1
 SVR4_PKGNAME=	ossl
 CATEGORIES=	security
 
