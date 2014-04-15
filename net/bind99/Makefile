@@ -17,6 +17,8 @@ MAKE_JOBS_SAFE=	no
 
 BIND_VERSION=	9.9.5
 
+USE_MULTIARCH=		lib
+
 .include "../../mk/bsd.prefs.mk"
 
 BUILD_DEFS+=	BIND_DIR VARBASE

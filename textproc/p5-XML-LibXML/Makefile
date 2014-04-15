@@ -21,6 +21,7 @@ CONFLICTS+=	p5-XML-LibXML-Common-[0-9]*
 # includes XML::LibXML::XPathContext module
 CONFLICTS+=	p5-XML-LibXML-XPathContext-[0-9]*
 
+USE_MULTIARCH=		lib
 MAKE_ENV+=		SKIP_SAX_INSTALL=1 # Must be done in the INSTALL script
 MAKE_PARAMS+=		INC="-I${LOCALBASE}/include/libxml2"
 PERL5_PACKLIST=		auto/XML/LibXML/.packlist

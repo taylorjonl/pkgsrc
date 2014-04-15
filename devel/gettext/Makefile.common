@@ -19,4 +19,5 @@ CONFLICTS=	gettext<=0.10.35
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes

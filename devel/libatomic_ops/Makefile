@@ -16,6 +16,7 @@ WRKSRC=		${WRKDIR}/libatomic_ops
 GNU_CONFIGURE=	yes
 USE_TOOLS+=	gmake automake autoconf autoreconf
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	lib
 TEST_TARGET=	check
 
 INSTALL_MAKE_FLAGS=	pkgdatadir=${PKGDOCDIR:Q}
