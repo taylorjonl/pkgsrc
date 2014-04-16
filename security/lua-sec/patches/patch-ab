@@ -19,7 +19,7 @@ Pass proper libs for SunOS.
 -CC=gcc
 -LD=$(MYENV) gcc
 +SOL_CFLAGS=-O2 -fpic $(WARN) $(INCDIR) $(DEFS)
-+SOL_LDFLAGS=-O -G -fpic $(LIBDIR)
++SOL_LDFLAGS=-O -shared -fpic $(LIBDIR)
 +
 +CC?=gcc
 +LD=$(MYENV) $(CC)
