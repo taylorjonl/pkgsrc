@@ -31,6 +31,7 @@ GCC_REQD+=	4.4
 .include "../../devel/libthrift/buildlink3.mk"
 
 CONFIGURE_ARGS+=	CPPFLAGS="-I${BUILDLINK_PREFIX.libthrift}/include/thrift -I${BUILDLINK_PREFIX.boost-headers}/include/boost"
+CONFIGURE_ARGS+=	--disable-64bit
 MAKE_ENV+=		AM_DEFAULT_VERBOSITY=1
 
 .include "../../mk/compiler.mk"
