@@ -8,7 +8,8 @@
 # MYSQL_VERSION_DEFAULT
 #	The preferred MySQL version.
 #
-#	Possible: 73-cluster 56 55 51 percona56 percona55 percona55-cluster
+#	Possible: 73-cluster 56 55 51 percona56 percona55
+#		  percona55-cluster percona56-cluster
 #	Default: 55
 #
 # === Package-settable variables ===
@@ -29,7 +30,8 @@
 # MYSQL_PKG_PREFIX
 # 	The package name prefix for the selected version.
 #
-# 	Possible: mysql73-cluster mysql56 mysql55 mysql51 mysql5 percona56 percona55 percona55-cluster
+# 	Possible: mysql73-cluster mysql56 mysql55 mysql51 mysql5
+# 		  percona56 percona55 percona55-cluster percona56-cluster
 #
 
 .if !defined(MYSQL_VERSION_MK)
@@ -50,7 +52,8 @@ BUILD_DEFS_EFFECTS+=		MYSQL_VERSION MYSQL_PKG_PREFIX
 MYSQL_VERSIONS_ACCEPTED?=	${_PKG_MYSQLS}
 
 # The available MySQL packages:
-_PKG_MYSQLS=			57-cluster 56 55 51 percona56 percona55 percona55-cluster
+_PKG_MYSQLS=			57-cluster 56 55 51 percona56 percona55
+_PKG_MYSQLS+=			percona55-cluster percona56-cluster
 
 _MYSQL_PKGBASE.57-cluster=	mysql-cluster-7.3.*
 _MYSQL_PKGSRCDIR.57-cluster=	../../joyent/mysql73-cluster
@@ -79,6 +82,10 @@ _MYSQL_PKG_PREFIX.percona55=	percona55
 _MYSQL_PKGBASE.percona55-cluster=	percona-cluster-5.5.*
 _MYSQL_PKGSRCDIR.percona55-cluster=	../../joyent/percona55-cluster
 _MYSQL_PKG_PREFIX.percona55-cluster=	percona55-cluster
+
+_MYSQL_PKGBASE.percona56-cluster=	percona-cluster-5.6.*
+_MYSQL_PKGSRCDIR.percona56-cluster=	../../joyent/percona56-cluster
+_MYSQL_PKG_PREFIX.percona56-cluster=	percona56-cluster
 
 #
 # Sanity checks
