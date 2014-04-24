@@ -20,6 +20,8 @@ CONF_FILES=		${EGDIR}/dsh.conf ${PKG_SYSCONFDIR}/dsh.conf
 
 INSTALL_MAKE_FLAGS=	sysconfdir=${EGDIR}
 
+LIBS+=			-liconv -lintl
+
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../devel/libdshconfig/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
