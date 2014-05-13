@@ -4,31 +4,28 @@
   <service name="@SMF_PREFIX@/@SMF_NAME@" type="service" version="1">
     <create_default_instance enabled="false" />
     <single_instance />
-    <dependency name='network' grouping='require_all' restart_on='error' type='service'>
-      <service_fmri value='svc:/milestone/network:default' />
+    <dependency name="network" grouping="require_all" restart_on="error" type="service">
+      <service_fmri value="svc:/milestone/network:default" />
     </dependency>
-    <dependency name='filesystem-local' grouping='require_all' restart_on='none' type='service'>
-      <service_fmri value='svc:/system/filesystem/local:default' />
+    <dependency name="filesystem" grouping="require_all" restart_on="error" type="service">
+      <service_fmri value="svc:/system/filesystem/local" />
     </dependency>
-    <method_context project='nginx'>
-      <method_environment>
-        <envvar name="LD_PRELOAD_32" value="/usr/lib/extendedFILE.so.1" />
-      </method_environment>
+    <method_context working_directory="@PGHOME@">
+      <method_credential user="@PGUSER@" group="@PGGROUP@" />
     </method_context>
-    <exec_method type="method" name="start" exec="@PREFIX@/sbin/nginx -c %{config_file}" timeout_seconds="60" />
+    <exec_method type="method" name="start" exec="@PREFIX@/bin/pgbouncer -d %{config_file}" timeout_seconds="60" />
     <exec_method type="method" name="stop" exec=":kill" timeout_seconds="60" />
-    <exec_method type="method" name="refresh" exec=":kill -HUP" timeout_seconds="60" />
     <property_group name="startd" type="framework">
       <propval name="duration" type="astring" value="contract" />
       <propval name="ignore_error" type="astring" value="core,signal" />
     </property_group>
     <property_group name="application" type="application">
-      <propval name="config_file" type="astring" value="@PKG_SYSCONFDIR@/nginx.conf" />
+      <propval name="config_file" type="astring" value="@PKG_SYSCONFDIR@/pgbouncer.ini" />
     </property_group>
     <stability value="Evolving" />
     <template>
       <common_name>
-        <loctext xml:lang="C">Nginx HTTP daemon</loctext>
+        <loctext xml:lang="C">PgBouncer daemon</loctext>
       </common_name>
     </template>
   </service>
