@@ -13,7 +13,7 @@
     <dependency name='config-file' grouping='require_all' restart_on='refresh' type='path'>
       <service_fmri value='file://localhost@PKG_SYSCONFDIR@/httpd.conf'/>
     </dependency>
-    <method_context>
+    <method_context project='www'>
       <method_environment>
         <envvar name="LD_PRELOAD_32" value="/usr/lib/extendedFILE.so.1" />
       </method_environment>
