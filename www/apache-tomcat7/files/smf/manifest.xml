@@ -10,7 +10,7 @@
     <dependency name="filesystem" grouping="require_all" restart_on="error" type="service">
       <service_fmri value="svc:/system/filesystem/local" />
     </dependency>
-    <method_context working_directory="@TOMCAT_HOME@/logs">
+    <method_context working_directory="@TOMCAT_HOME@/logs" project="tomcat">
       <method_credential user="@TOMCAT_USER@" group="@TOMCAT_GROUP@" privileges="basic,net_privaddr" />
       <method_environment>
         <envvar name="JAVA_HOME" value="@JAVA_HOME@" />
