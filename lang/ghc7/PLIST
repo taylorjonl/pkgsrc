@@ -2691,7 +2691,7 @@ lib/${PKGNAME}/libHSrts_thr_l.a
 lib/${PKGNAME}/libHSrts_thr_p.a
 lib/${PKGNAME}/libffi.so
 lib/${PKGNAME}/libffi.so.6
-lib/${PKGNAME}/libffi.so.6.0
+lib/${PKGNAME}/libffi.so.6.0.0
 lib/${PKGNAME}/old-locale-1.0.0.5/HSold-locale-1.0.0.5.o
 lib/${PKGNAME}/old-locale-1.0.0.5/System/Locale.dyn_hi
 lib/${PKGNAME}/old-locale-1.0.0.5/System/Locale.hi

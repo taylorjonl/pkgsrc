@@ -31,7 +31,7 @@ BOOT_ARCHIVE:=	${PKGNAME}-boot-x86_64-unknown-linux.tar.xz
 BOOT_ARCHIVE:=	${PKGNAME}-boot-x86_64-unknown-netbsd.tar.xz
 
 .elif !empty(MACHINE_PLATFORM:MSunOS-5.11-i386)
-BOOT_ARCHIVE:=  ${PKGNAME}-boot-i386-unknown-solaris2.tar.gz
+BOOT_ARCHIVE:=  ${PKGNAME}-boot-i386-unknown-solaris2.tar.xz
 
 .elif !empty(MACHINE_PLATFORM:MSunOS-5.11-x86_64)
 BOOT_ARCHIVE:=  ${PKGNAME}-boot-x86_64-unknown-solaris2.tar.xz
@@ -40,7 +40,7 @@ BOOT_ARCHIVE:=  ${PKGNAME}-boot-x86_64-unknown-solaris2.tar.xz
 PKG_FAIL_REASON+=	"internal error: unsupported platform"
 .endif
 
-BOOT_TARBALL=	${BOOT_ARCHIVE:C/\.xz$//:C/\.gz$//}
+BOOT_TARBALL=	${BOOT_ARCHIVE:C/\.xz$//}
 
 
 
@@ -98,7 +98,7 @@ pre-bootstrap:
 ${WRKDIR}/lndir:
 	@${PHASE_MSG} "Building lndir(1) to duplicate the source tree."
 	cd ${WRKSRC:Q}/utils/lndir && \
-		${CC:Q} lndir.c -o ${.TARGET}
+		${PKG_CC:Q} lndir.c -o ${.TARGET}
 
 ${WRKDIR}/stamp-lndir-boot: ${WRKDIR}/lndir
 	@${PHASE_MSG} "Duplicating the source tree for bootstrapping ${PKGNAME_NOREV}"
