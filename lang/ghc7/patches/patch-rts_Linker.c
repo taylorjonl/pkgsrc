@@ -1,4 +1,4 @@
-$NetBSD: patch-rts_Linker.c,v 1.1 2013/12/12 12:47:17 obache Exp $
+$NetBSD: patch-rts_Linker.c,v 1.2 2014/05/21 16:07:59 jperkin Exp $
 
 Support 64-bit x86 SunOS.
 
