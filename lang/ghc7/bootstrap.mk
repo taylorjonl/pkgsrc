@@ -1,4 +1,4 @@
-# $NetBSD: bootstrap.mk,v 1.9 2014/02/05 06:38:05 obache Exp $
+# $NetBSD: bootstrap.mk,v 1.10 2014/05/21 16:07:59 jperkin Exp $
 # -----------------------------------------------------------------------------
 # Select a bindist of bootstrapping compiler based on a per-platform
 # basis.
