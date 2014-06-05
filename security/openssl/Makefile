@@ -1,14 +1,14 @@
-# $NetBSD: Makefile,v 1.182.2.1 2014/01/10 18:00:39 spz Exp $
+# $NetBSD: Makefile,v 1.193 2014/06/05 12:16:06 wiz Exp $
 
-DISTNAME=	openssl-1.0.1f
+DISTNAME=	openssl-1.0.1h
 MASTER_SITES=	http://ftp.openssl.org/source/
-PKGREVISION=	1
 SVR4_PKGNAME=	ossl
 CATEGORIES=	security
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.openssl.org/
 COMMENT=	Secure Socket Layer and cryptographic library
+LICENSE=	openssl
 
 CONFLICTS=	SSLeay-[0-9]* ssleay-[0-9]*
 
@@ -16,12 +16,13 @@ CRYPTO=		yes
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
-BUILD_DEPENDS+=	p5-Perl4-CoreLibs-[0-9]*:../../devel/p5-Perl4-CoreLibs
+BUILD_DEPENDS+=	{p5-Perl4-CoreLibs-[0-9]*,perl<5.16}:../../devel/p5-Perl4-CoreLibs
+
+USE_GCC_RUNTIME=	yes
 
 .include "../../mk/bsd.prefs.mk"
 .include "../../mk/compiler.mk"
 
-EXTRACT_USING=		gtar
 USE_TOOLS+=		fgrep gmake perl
 TEST_TARGET=		tests
 MAKE_JOBS_SAFE=		no
@@ -112,8 +113,6 @@ CONFIGURE_ARGS+=	hpux-parisc-${CC}
 CONFIGURE_ARGS+=	hpux-ia64-${CC}
 .    endif
 .  endif
-.elif ${OPSYS} == "Cygwin"
-USE_PLIST_SHLIB=	no
 .elif ${OPSYS} == "Linux"
 .  if ${MACHINE_ARCH} == "powerpc64"
 CONFIGURE_SCRIPT=	./Configure
@@ -125,6 +124,9 @@ CONFIGURE_ARGS+=	linux-ppc64
 
 CONFIGURE_ARGS+=	${CFLAGS} ${LDFLAGS}
 CONFIGURE_ENV+=		PERL=${PERL5:Q}
+
+PKGCONFIG_OVERRIDE+=		libcrypto.pc libssl.pc openssl.pc
+PKGCONFIG_OVERRIDE_STAGE=	post-build
 
 PLIST_SRC+=		${PKGDIR}/PLIST.common
 USE_PLIST_SHLIB?=	yes

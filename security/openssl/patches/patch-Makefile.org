@@ -1,6 +1,8 @@
-$NetBSD: patch-af,v 1.26 2013/10/02 19:59:31 joerg Exp $
+$NetBSD: patch-Makefile.org,v 1.2 2014/05/13 02:23:11 rodent Exp $
 
---- Makefile.org.orig	2013-02-11 15:26:04.000000000 +0000
+Adjust build procedure.
+
+--- Makefile.org.orig	Mon Mar 17 16:14:20 2014
 +++ Makefile.org
 @@ -28,6 +28,7 @@ INSTALLTOP=/usr/local/ssl
  
@@ -27,7 +29,7 @@ $NetBSD: patch-af,v 1.26 2013/10/02 19:59:31 joerg Exp $
  SHARED_LDFLAGS=
  
  GENERAL=        Makefile
-@@ -537,7 +539,7 @@ dist:
+@@ -538,7 +540,7 @@ dist:   
  dist_pem_h:
  	(cd crypto/pem; $(MAKE) -e $(BUILDENV) pem.h; $(MAKE) clean)
  
@@ -36,7 +38,7 @@ $NetBSD: patch-af,v 1.26 2013/10/02 19:59:31 joerg Exp $
  
  install_sw:
  	@$(PERL) $(TOP)/util/mkdir-p.pl $(INSTALL_PREFIX)$(INSTALLTOP)/bin \
-@@ -642,41 +644,56 @@ install_docs:
+@@ -643,41 +645,56 @@ install_docs:
  	@pod2man="`cd ./util; ./pod2mantest $(PERL)`"; \
  	here="`pwd`"; \
  	filecase=; \

@@ -1,6 +1,8 @@
-$NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
+$NetBSD: patch-config,v 1.2 2014/05/13 02:23:11 rodent Exp $
 
---- config.orig	2013-02-11 15:26:04.000000000 +0000
+Adjust config procedure.
+
+--- config.orig	Mon Mar 17 16:14:20 2014
 +++ config
 @@ -49,6 +49,7 @@ done
  # First get uname entries that we use below
@@ -10,7 +12,7 @@ $NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
  [ "$RELEASE" ] || RELEASE=`(uname -r) 2>/dev/null` || RELEASE="unknown"
  [ "$SYSTEM" ] || SYSTEM=`(uname -s) 2>/dev/null`  || SYSTEM="unknown"
  [ "$BUILD" ] || VERSION=`(uname -v) 2>/dev/null` || VERSION="unknown"
-@@ -162,6 +163,10 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${
+@@ -162,6 +163,10 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${MACHINE}" in
  	echo "mips4-sgi-irix64"; exit 0
  	;;
  
@@ -21,7 +23,7 @@ $NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
      Linux:[2-9].*)
  	echo "${MACHINE}-whatever-linux2"; exit 0
  	;;
-@@ -170,6 +175,10 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${
+@@ -170,6 +175,10 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${MACHINE}" in
  	echo "${MACHINE}-whatever-linux1"; exit 0
  	;;
  
@@ -32,7 +34,7 @@ $NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
      GNU*)
  	echo "hurd-x86"; exit 0;
  	;;
-@@ -218,12 +227,12 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${
+@@ -218,15 +227,15 @@ case "${SYSTEM}:${RELEASE}:${VERSION}:${MACHINE}" in
  	echo "${MACHINE}-whatever-freebsd"; exit 0
  	;;
  
@@ -47,7 +49,11 @@ $NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
 +	echo "${MACHINE_ARCH}-whatever-netbsd"; exit 0
  	;;
  
-     OpenBSD:*)
+-    OpenBSD:*)
++    OpenBSD:*|MirBSD:*)
+ 	echo "${MACHINE}-whatever-openbsd"; exit 0
+ 	;;
+ 
 @@ -728,12 +737,19 @@ case "$GUESSOS" in
  	;;
    *-*-sunos4)		OUT="sunos-$CC" ;;
@@ -68,12 +74,12 @@ $NetBSD: patch-aa,v 1.26 2013/07/26 11:27:02 ryoon Exp $
    *86*-*-*bsd*)		# mimic ld behaviour when it's looking for libc...
  			if [ -L /usr/lib/libc.so ]; then	# [Free|Net]BSD
  			    libc=/usr/lib/libc.so
-@@ -747,6 +763,8 @@ case "$GUESSOS" in
+@@ -746,6 +762,8 @@ case "$GUESSOS" in
+ 			*)	OUT="BSD-x86"; options="$options no-sse2" ;;
  			esac ;;
    *-*-*bsd*)		OUT="BSD-generic32" ;;
- 
-+  *-*-interix)		OUT="Interix" ;;
 +
++  *-*-interix)		OUT="Interix" ;;
+ 
    *-*-osf)		OUT="osf1-alpha-cc" ;;
    *-*-tru64)		OUT="tru64-alpha-cc" ;;
-   *-*-[Uu]nix[Ww]are7)
