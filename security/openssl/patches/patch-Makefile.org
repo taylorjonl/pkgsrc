@@ -1,8 +1,8 @@
-$NetBSD: patch-Makefile.org,v 1.1.2.2 2014/04/08 10:09:26 tron Exp $
+$NetBSD: patch-Makefile.org,v 1.2 2014/05/13 02:23:11 rodent Exp $
 
 Adjust build procedure.
 
---- Makefile.org.orig	2013-02-11 15:26:04.000000000 +0000
+--- Makefile.org.orig	Mon Mar 17 16:14:20 2014
 +++ Makefile.org
 @@ -28,6 +28,7 @@ INSTALLTOP=/usr/local/ssl
  
@@ -29,7 +29,7 @@ Adjust build procedure.
  SHARED_LDFLAGS=
  
  GENERAL=        Makefile
-@@ -537,10 +539,10 @@ dist:   
+@@ -538,10 +540,10 @@ dist:   
  dist_pem_h:
  	(cd crypto/pem; $(MAKE) -e $(BUILDENV) pem.h; $(MAKE) clean)
  
@@ -55,7 +55,7 @@ Adjust build procedure.
  					cp $$i $(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/$$i.new; \
  					chmod 644 $(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/$$i.new; \
  					mv -f $(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/$$i.new $(INSTALL_PREFIX)$(INSTALLTOP)/$(LIBDIR)/$$i; \
-@@ -642,41 +644,56 @@ install_docs:
+@@ -643,41 +645,56 @@ install_docs:
  	@pod2man="`cd ./util; ./pod2mantest $(PERL)`"; \
  	here="`pwd`"; \
  	filecase=; \
