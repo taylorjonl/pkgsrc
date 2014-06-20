@@ -12,6 +12,4 @@ SHA1 (patch-crypto_bn_bn__prime.pl) = c07e8ccba319e4260af46e714c3be56f70579fa6
 SHA1 (patch-crypto_des_Makefile) = 31d772eb8c80b577b9cd05337262ddfad297d9b1
 SHA1 (patch-crypto_dso_dso__dlfcn.c) = 065a8254d9c93b17d300a4be9b9a35a919e8b364
 SHA1 (patch-engines_ccgost_Makefile) = 8834074c74abab604ef1ba7959750c22c0ffb6e7
-SHA1 (patch-ssl_d1__both.c) = b9489cbffb0ddaf3ddd63bc414b223a3f815ba7e
-SHA1 (patch-ssl_t1__lib.c) = 259741a4004a1cc39805501f8a237779e6cdb93b
 SHA1 (patch-tools_Makefile) = 6e7324d01c0cd5e290085fe8124315bcac8cf198
