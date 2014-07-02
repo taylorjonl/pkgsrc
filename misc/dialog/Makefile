@@ -15,18 +15,19 @@ LICENSE=	gnu-lgpl-v2.1
 GNU_CONFIGURE=	yes
 MAKE_FILE=	makefile
 USE_LIBTOOL=	yes
+USE_MULTIARCH=	bin lib
 CONFIGURE_ARGS+=	--with-libtool
 
 INCOMPAT_CURSES=	NetBSD-1.5*-* NetBSD-1.6[-_.]*-* NetBSD-1.6[A-P]-*
 
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
-INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+INSTALLATION_DIRS=	bin${BINARCHSUFFIX} ${PKGMANDIR}/man1
 
 SUBST_CLASSES+=		rpath
 SUBST_FILES.rpath=	dialog-config.in
 SUBST_MESSAGE.rpath=	Fixing rpath in dialog-config
-SUBST_SED.rpath=	-e 's;-L\(.\);${_COMPILER_RPATH_FLAG}\1\{exec_prefix\}/lib -L\1;'
+SUBST_SED.rpath=	-e 's;-L\(.\);${_COMPILER_RPATH_FLAG}\1\{libdir\}${LIBARCHSUFFIX} -L\1;'
 SUBST_STAGE.rpath=	pre-configure
 
 .include "../../mk/curses.buildlink3.mk"

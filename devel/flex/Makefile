@@ -17,6 +17,7 @@ LICENSE=	2-clause-bsd
 #BUILD_DEPENDS+=	tex-latex-fonts-[0-9]*:../../fonts/tex-latex-fonts
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		bin lib
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gm4:run makeinfo
 GNU_CONFIGURE=		yes

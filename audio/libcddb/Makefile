@@ -14,6 +14,7 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_PKGLOCALEDIR=	yes
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	libcddb.pc.in
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--without-cdio

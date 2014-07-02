@@ -17,14 +17,15 @@ PKG_INSTALLATION_TYPES=	overwrite pkgviews
 USE_TOOLS+=	bash:run gmake lex pax perl
 USE_FEATURES=	snprintf
 USE_GCC_RUNTIME=yes
+USE_MULTIARCH=	lib
 
 INSTALL_TARGET=	install-dev install-run
 MAKE_ENV+=	INSTALL=${INSTALL:Q} STRIPFLAG=${_STRIPFLAG_INSTALL:Q} \
-		pkgdir=${STAGEDIR:Q} MACHINE=${MACHINE:Q}
+		pkgdir=${STAGEDIR:Q} MACHINE=${MACHINE:Q} LIBARCHSUFFIX=${LIBARCHSUFFIX:Q}
 MAKE_FILE=	GNUmakefile
 REPLACE_PERL+=	editor/ppmfade editor/ppmshadow editor/pnmquant \
 		generator/ppmrainbow manweb editor/pnmflip editor/ppmquant
-STAGEDIR=	${WRKDIR}/staging
+STAGEDIR=	${WRKDIR}/staging-${ABI}
 
 LIBS.SunOS+=	-lsocket -lnsl
 MAKE_ENV+=	NETWORKLD=${LIBS:Q}
@@ -85,7 +86,7 @@ pre-install:
 
 post-install:
 	cd ${STAGEDIR} && 					\
-	${MV} link/* lib && 					\
+	${MV} link/* lib${LIBARCHSUFFIX} && 			\
 	${RM} -rf link man/web && 				\
 	${MKDIR} share &&					\
 	${MV} misc share/netpbm && 				\

@@ -16,6 +16,7 @@ USE_PKGLOCALEDIR=	yes
 USE_LIBTOOL=		yes
 USE_TOOLS+=		gmake perl:run pkg-config
 USE_LANGUAGES=		c c++
+USE_MULTIARCH=		lib
 PKGCONFIG_OVERRIDE+=	libcdio.pc.in
 PKGCONFIG_OVERRIDE+=	libcdio++.pc.in
 PKGCONFIG_OVERRIDE+=	libcdio_cdda.pc.in

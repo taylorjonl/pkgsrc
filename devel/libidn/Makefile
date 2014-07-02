@@ -14,6 +14,7 @@ LICENSE=	gnu-gpl-v3 AND gnu-lgpl-v2.1
 PKG_INSTALLATION_TYPES=	overwrite pkgviews
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		makeinfo pkg-config perl:build
 TEXINFO_REQD=		4.7
