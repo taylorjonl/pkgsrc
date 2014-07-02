@@ -18,7 +18,7 @@ PKG_SUGGESTED_OPTIONS=	# empty
 CONFIGURE_ARGS+=	--with-${MODNAME}=shared,mysqlnd
 .else
 EVAL_PREFIX+=		MYSQLDIR=mysql-client
-CONFIGURE_ARGS+=	--with-${MODNAME}=${BUILDLINK_PREFIX.mysql-client}/bin/mysql_config
+CONFIGURE_ARGS+=	--with-${MODNAME}=shared,${BUILDLINK_PREFIX.mysql-client}
 .  include "../../mk/mysql.buildlink3.mk"
 .endif
 

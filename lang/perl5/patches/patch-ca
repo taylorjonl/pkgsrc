@@ -3,6 +3,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
 * Use "uname -r" to get OS version for *BSD.
 * Move $loclibpth to the end of $dlist, instead of the beginning.
 * Several other changes.
+* Disable -fstack-protector on SunOS
 
 --- Configure.orig	2014-05-26 13:34:18.000000000 +0000
 +++ Configure
@@ -86,7 +87,21 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  
  : Which makefile gets called first.  This is used by make depend.
  case "$firstmakefile" in
-@@ -6767,7 +6771,9 @@ rp='Pathname for the site-specific libra
+@@ -5364,11 +5368,13 @@ default|recommended)
+ 	# is to add the flag to the flags passed to the compiler at link time,
+ 	# as that way the compiler can do the right implementation dependant
+ 	# thing. (NWC)
++	if test "X$osname" != "Xsolaris"; then
+ 	case "$gccversion" in
+ 	?*)	set stack-protector -fstack-protector
+ 		eval $checkccflag
+ 		;;
+ 	esac
++	fi
+ 	;;
+ esac
+ 
+@@ -6767,7 +6773,9 @@ rp='Pathname for the site-specific libra
  . ./getfile
  prefixvar=sitelib
  . ./setprefixvar
@@ -97,7 +112,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  
  : Determine list of previous versions to include in @INC
  $cat > getverlist <<EOPL
-@@ -7179,7 +7185,9 @@ case "$vendorprefix" in
+@@ -7179,7 +7187,9 @@ case "$vendorprefix" in
  	vendorlibexp="$ansexp"
  	;;
  esac
@@ -108,7 +123,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  prefixvar=vendorlib
  . ./installprefix
  
-@@ -7656,6 +7664,15 @@ case "$nm_so_opt" in
+@@ -7656,6 +7666,15 @@ case "$nm_so_opt" in
  	;;
  esac
  
@@ -124,7 +139,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  : Figure out where the libc is located
  case "$runnm" in
  true)
-@@ -8240,6 +8257,7 @@ EOM
+@@ -8240,6 +8259,7 @@ EOM
  			  ;;
  		    *linux*|irix*|gnu*)  dflt="-shared $optimize" ;;
  		    next)  dflt='none' ;;
@@ -132,7 +147,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  		    solaris) # See [perl #66604].
  			    # On Solaris 11, gcc -m64 on amd64
  			    # appears not to understand -G.  gcc versions at
-@@ -8549,7 +8567,7 @@ if "$useshrplib"; then
+@@ -8549,7 +8569,7 @@ if "$useshrplib"; then
  		# next doesn't like the default...
  		;;
  	haiku)
@@ -141,7 +156,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  		;;
  	hpux*)
  		# hpux doesn't like the default, either.
-@@ -8558,6 +8576,9 @@ if "$useshrplib"; then
+@@ -8558,6 +8578,9 @@ if "$useshrplib"; then
  	cygwin)
  		# cygwin needs only ldlibpth
  		;;
@@ -151,7 +166,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  	*)
  		tmp_shrpenv="env LD_RUN_PATH=$shrpdir"
  		;;
-@@ -9633,6 +9654,13 @@ esac
+@@ -9633,6 +9656,13 @@ esac
  : Check if we want perlio
  useperlio="$define"
  
@@ -165,7 +180,7 @@ $NetBSD: patch-ca,v 1.21 2014/06/08 23:35:55 joerg Exp $
  : Set the vendorbin variables
  case "$vendorprefix" in
  '')	d_vendorbin="$undef"
-@@ -19366,7 +19394,15 @@ RCAT(Rei,ser)
+@@ -19366,7 +19396,15 @@ RCAT(Rei,ser)
  ACAT(Cir,cus)
  EOCP
  $cppstdin $cppflags $cppminus <cpp_stuff.c >cpp_stuff.out 2>&1
