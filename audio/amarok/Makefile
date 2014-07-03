@@ -39,13 +39,13 @@ SUBST_SED.mysql=	-e s:/opt/mysqle/:${BUILDLINK_PREFIX.mysql-server}:
 .include "options.mk"
 
 .include "../../mk/mysql.buildlink3.mk"
-.if ${_MYSQL_VERSION} == "56"
+.if ${MYSQL_VERSION} == "56"
 .include "../../databases/mysql56-server/buildlink3.mk"
 SUBST_SED.mysql+=	-e s:@@WLR@@:${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.mysql-server}/lib:
-.elif ${_MYSQL_VERSION} == "55"
+.elif ${MYSQL_VERSION} == "55"
 .include "../../databases/mysql55-server/buildlink3.mk"
 SUBST_SED.mysql+=	-e s:@@WLR@@:${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.mysql-server}/lib:
-.elif ${_MYSQL_VERSION} == "51"
+.elif ${MYSQL_VERSION} == "51"
 .include "../../databases/mysql51-server/buildlink3.mk"
 SUBST_SED.mysql+=	-e s:@@WLR@@:${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.mysql-server}/lib/mysql:
 .else
