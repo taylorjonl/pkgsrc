@@ -49,7 +49,7 @@ SUBST_SED.mysql+=	-e s:@@WLR@@:${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.mysql-se
 .include "../../databases/mysql51-server/buildlink3.mk"
 SUBST_SED.mysql+=	-e s:@@WLR@@:${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.mysql-server}/lib/mysql:
 .else
-PKG_FAIL_REASON+=	"Unknown mysql version: ${_MYSQL_VERSION}"
+PKG_FAIL_REASON+=	"Unknown mysql version: ${MYSQL_VERSION}"
 .endif
 
 .include "../../audio/liblastfm/buildlink3.mk"
