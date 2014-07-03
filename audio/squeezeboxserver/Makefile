@@ -67,7 +67,6 @@ LICENSE=	squeezeboxserver-license
 # Database server
 MYSQL_VERSIONS_ACCEPTED=	51
 .include "../../mk/mysql.buildlink3.mk"
-.include "${MYSQL_PKGSRCDIR:S/-client$/-server/}/buildlink3.mk"
 
 # Audio converters
 DEPENDS+=	wavpack-[0-9]*:../../audio/wavpack
