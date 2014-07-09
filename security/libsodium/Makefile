@@ -12,6 +12,8 @@ LICENSE=	isc
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
 
+CONFIGURE_ARGS+=	--disable-ssp
+
 TEST_TARGET=	check
 AUTO_MKDIRS=	yes
 
