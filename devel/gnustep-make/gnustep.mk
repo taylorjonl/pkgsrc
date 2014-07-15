@@ -3,6 +3,8 @@
 .if !defined(GNUSTEP_MK)
 GNUSTEP_MK=		#defined
 
+.include "../../mk/bsd.prefs.mk"
+
 .ifndef GNUSTEP_SKIP_DEFAULT_OPTIONS
 PKG_OPTIONS_VAR?=	PKG_OPTIONS.gnustep
 PKG_SUPPORTED_OPTIONS+=	fragile
