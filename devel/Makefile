@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1932 2014/07/05 19:38:59 rodent Exp $
+# $NetBSD: Makefile,v 1.1935 2014/07/22 08:00:03 manu Exp $
 #
 
 COMMENT=	Development utilities
@@ -547,6 +547,7 @@ SUBDIR+=	msgpack
 SUBDIR+=	nana
 SUBDIR+=	nant
 SUBDIR+=	nasm
+SUBDIR+=	ninja
 SUBDIR+=	nbitools
 SUBDIR+=	nbpatch
 SUBDIR+=	ncc
@@ -956,6 +957,7 @@ SUBDIR+=	p5-IPC-SysV
 SUBDIR+=	p5-IPC-System-Simple
 SUBDIR+=	p5-Import-Into
 SUBDIR+=	p5-Inline
+SUBDIR+=	p5-Inline-C
 SUBDIR+=	p5-InlineX-C2XS
 SUBDIR+=	p5-Internals
 SUBDIR+=	p5-LDAP
@@ -1421,6 +1423,7 @@ SUBDIR+=	pangox-compat
 SUBDIR+=	papaya
 SUBDIR+=	pardiff
 SUBDIR+=	patch
+SUBDIR+=	patchelf
 SUBDIR+=	patchutils
 SUBDIR+=	pcc-libs
 SUBDIR+=	pccts

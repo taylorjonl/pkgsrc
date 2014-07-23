@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1027 2014/07/10 15:37:13 jnemeth Exp $
+# $NetBSD: Makefile,v 1.1029 2014/07/22 12:53:33 manu Exp $
 #
 
 COMMENT=	Networking tools
@@ -335,6 +335,7 @@ SUBDIR+=	nagios-plugin-radius
 SUBDIR+=	nagios-plugin-raidctl
 SUBDIR+=	nagios-plugin-snmp
 SUBDIR+=	nagios-plugin-spamd
+SUBDIR+=	nagios-plugin-syncrepl
 SUBDIR+=	nagios-plugins
 SUBDIR+=	nagstamon
 SUBDIR+=	nam
@@ -421,6 +422,7 @@ SUBDIR+=	p5-Net-DNS-Zone-Parser
 SUBDIR+=	p5-Net-DNSServer
 SUBDIR+=	p5-Net-Daemon
 SUBDIR+=	p5-Net-Dev-MIBLoadOrder
+SUBDIR+=	p5-Net-Domain-TLD
 SUBDIR+=	p5-Net-FTPSSL
 SUBDIR+=	p5-Net-Frame
 SUBDIR+=	p5-Net-Frame-Dump

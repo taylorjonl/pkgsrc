@@ -1,13 +1,15 @@
-# $NetBSD: Makefile,v 1.27 2013/09/13 08:49:48 mef Exp $
+# $NetBSD: Makefile,v 1.30 2014/07/21 07:57:20 dbj Exp $
 #
 
 COMMENT=	Wireless communication tools and applications
-
 SUBDIR+=	7plus
+SUBDIR+=	chirp
+SUBDIR+=	codec2
 SUBDIR+=	cwtext
 SUBDIR+=	dpbox
 SUBDIR+=	fl_logbook
 SUBDIR+=	fldigi
+SUBDIR+=	freedv
 SUBDIR+=	gmfsk
 SUBDIR+=	gnuradio-audio-jack
 SUBDIR+=	gnuradio-audio-oss

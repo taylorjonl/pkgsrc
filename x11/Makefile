@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.733 2014/05/26 09:30:48 wiz Exp $
+# $NetBSD: Makefile,v 1.735 2014/07/21 06:53:24 dbj Exp $
 #
 
 COMMENT=	Packages to support the X window system
@@ -24,6 +24,7 @@ SUBDIR+=	beforelight
 SUBDIR+=	bigreqsproto
 SUBDIR+=	bitmap
 SUBDIR+=	blt
+SUBDIR+=	c++-gtk-utils
 SUBDIR+=	clipit
 SUBDIR+=	clisp-gtk2
 SUBDIR+=	clisp-mit-clx
@@ -480,6 +481,7 @@ SUBDIR+=	wxGTK26
 SUBDIR+=	wxGTK26-contrib
 SUBDIR+=	wxGTK28
 SUBDIR+=	wxGTK28-contrib
+SUBDIR+=	wxGTK30
 SUBDIR+=	wxWindows-docs
 SUBDIR+=	wxhaskell
 SUBDIR+=	x11perf

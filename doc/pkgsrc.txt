@@ -117,8 +117,7 @@ I. The pkgsrc user's guide
         7.2. Requirements of a bulk build
         7.3. Running a pbulk-style bulk build
 
-            7.3.1. Preparation
-            7.3.2. Configuration
+            7.3.1. Configuration
 
         7.4. Creating a multiple CD-ROM packages collection
 
@@ -763,8 +762,7 @@ Table of Contents
     7.2. Requirements of a bulk build
     7.3. Running a pbulk-style bulk build
 
-        7.3.1. Preparation
-        7.3.2. Configuration
+        7.3.1. Configuration
 
     7.4. Creating a multiple CD-ROM packages collection
 
@@ -2181,8 +2179,7 @@ Table of Contents
 7.2. Requirements of a bulk build
 7.3. Running a pbulk-style bulk build
 
-    7.3.1. Preparation
-    7.3.2. Configuration
+    7.3.1. Configuration
 
 7.4. Creating a multiple CD-ROM packages collection
 
@@ -2237,8 +2234,7 @@ others must survive a sudden reboot.
 
   * 1 GB for the pkgsrc tree (read-only, remote, permanent)
 
-  * 5 GB for LOCALBASE (read-write, local, temporary for pbulk, permanent for
-    old-bulk)
+  * 5 GB for LOCALBASE (read-write, local, temporary)
 
   * 10 GB for the log files (read-write, remote, permanent)
 
@@ -2253,51 +2249,64 @@ Running a pbulk-style bulk build works roughly as follows:
   * Then, build each of the packages from a clean installation directory using
     the infrastructure.
 
-7.3.1. Preparation
+7.3.1. Configuration
 
-First, you need to create a pkgsrc installation for the pbulk infrastructure.
-No matter on which platform you are (even on NetBSD), you should bootstrap into
-its own directory. Let's take the directory /usr/pbulk or $HOME/pbulk for it.
-This installation will be bootstrapped and all the tools that are required for
-the bulk build will be installed there.
+To simplify configuration we provide helper script mk/pbulk/pbulk.sh.
 
-$ cd /usr/pkgsrc
-$ ./bootstrap/bootstrap --prefix=/usr/pbulk --varbase=/usr/pbulk/var --workdir=/tmp/pbulk-bootstrap
-$ rm -rf /tmp/pbulk-bootstrap
+In order to use it, prepare a clear system (real one, chroot environment, jail,
+zone, virtual machine). Configure network access to fetch distribution files.
+Create user with name "pbulk".
 
-Now the basic environment for the pbulk infrastructure is installed. The
-specific tools are still missing. This is a good time to edit the pkgsrc
-configuration file /usr/pbulk/etc/mk.conf to fit your needs. Typical things you
-might set now are:
+Fetch and extract pkgsrc. Use a command like one of these:
 
-  * PKG_DEVELOPER=yes, to enable many consistency checks,
+# (cd /usr && ftp -o - http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc.tar.gz | tar -zxf-)
+# (cd /usr && fetch -o - http://ftp.netbsd.org/pub/pkgsrc/current/pkgsrc.tar.gz | tar -zxf-)
+# (cd /usr && cvs -Q -z3 -d anoncvs@anoncvs.netbsd.org:/cvsroot get -P pkgsrc)
 
-  * WRKOBJDIR=/tmp/pbulk-outer, to keep /usr/pkgsrc free from any
-    modifications,
+Or any other way that fits (e.g., curl, wget).
 
-  * DISTDIR=/distfiles, to have only one directory in which all distfiles (for
-    the infrastructure and for the actual packages) are downloaded,
+Deploy and configure pbulk tools, e.g.:
 
-  * ACCEPTABLE_LICENSES+=..., to select some licenses additional to the usual
-    Free/Open Source licenses that are acceptable to you,
+# sh pbulk.sh -n # native (NetBSD)
+# sh pbulk.sh -n -c mk.conf.frag # native, apply settings from given mk.conf fragment
+# sh pbulk.sh -nlc mk.conf.frag # native, apply settings, configure for limited build
 
-  * SKIP_LICENSE_CHECK=yes, to bypass the license checks.
+Note
 
-Now you are ready to build the rest of the pbulk infrastructure.
+mk.conf.frag is a fragment of mk.conf that contains settings you want to apply
+to packages you build. For instance,
 
-$ cd pkgtools/pbulk
-$ /usr/pbulk/bin/bmake install
-$ rm -rf /tmp/pbulk-outer
+PKG_DEVELOPER=          yes             # perform more checks
+X11_TYPE=               modular         # use pkgsrc X11
+SKIP_LICENSE_CHECK=     yes             # accept all licences (useful when building all packages)
 
-Now the pbulk infrastructure is built and installed. It still needs to be
-configured, and after some more preparation, we will be able to start the real
-bulk build.
+If configured for limited list, replace the list in /usr/pbulk/etc/pbulk.list
+with your list of packages one per line without empty lines or comments. E.g.:
 
-7.3.2. Configuration
+www/firefox
+mail/thunderbird
+misc/libreoffice4
 
-TODO; see pkgsrc/doc/HOWTO-pbulk for more information.
+At this point you can also review configuration in /usr/pbulk/etc and make
+final amendments, if wanted.
 
-TODO: continue writing
+Start it:
+
+# /usr/pbulk/bin/bulkbuild
+
+After it finishes, you'll have /mnt filled with distribution files, binary
+packages, and reports, plain text summary in /mnt/bulklog/meta/report.txt
+
+Note
+
+The pbulk.sh script does not cover all possible use cases. While being ready to
+run, it serves as a good starting point to understand and build more complex
+setups. The script is kept small enough for better understanding.
+
+Note
+
+The pbulk.sh script supports running unprivileged bulk build and helps
+configuring distributed bulk builds.
 
 7.4. Creating a multiple CD-ROM packages collection
 

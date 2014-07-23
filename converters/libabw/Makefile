@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.6 2014/06/01 04:01:06 ryoon Exp $
+# $NetBSD: Makefile,v 1.8 2014/07/22 11:01:53 wiz Exp $
 
-DISTNAME=	libabw-0.0.2
-PKGREVISION=	1
+DISTNAME=	libabw-0.1.0
 CATEGORIES=	converters
 MASTER_SITES=	http://dev-www.libreoffice.org/src/
 EXTRACT_SUFX=	.tar.bz2
@@ -25,6 +24,7 @@ PKGCONFIG_OVERRIDE+=	libabw.pc.in
 BUILDLINK_TRANSFORM+=	rm:-Werror
 
 .include "../../converters/libwpd/buildlink3.mk"
+.include "../../converters/librevenge/buildlink3.mk"
 .include "../../devel/boost-libs/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../textproc/libxml2/buildlink3.mk"

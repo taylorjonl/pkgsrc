@@ -1,14 +1,13 @@
-# $NetBSD: Makefile,v 1.94 2014/05/29 23:37:12 wiz Exp $
+# $NetBSD: Makefile,v 1.96 2014/07/23 08:58:03 tron Exp $
 
-DISTNAME=	rsync-3.1.0
-PKGREVISION=	2
+DISTNAME=	rsync-3.1.1
 CATEGORIES=	net
 MASTER_SITES=	http://rsync.samba.org/ftp/rsync/ \
 		http://rsync.samba.org/ftp/rsync/old-versions/  \
 		ftp://ftp.sunet.se/pub/unix/admin/rsync/  \
 		ftp://ftp.fu-berlin.de/unix/network/rsync/
 
-OWNER=		tron@NetBSD.org
+MAINTAINER=	tron@NetBSD.org
 HOMEPAGE=	http://rsync.samba.org/
 COMMENT=	Network file distribution/synchronisation utility
 LICENSE=	gnu-gpl-v3

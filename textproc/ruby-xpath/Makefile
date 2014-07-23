@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2 2014/07/05 09:52:45 jperkin Exp $
+# $NetBSD: Makefile,v 1.4 2014/07/16 08:37:21 rodent Exp $
 
 DISTNAME=	xpath-2.0.0
 PKGNAME=	${RUBY_PKGPREFIX}-${DISTNAME}

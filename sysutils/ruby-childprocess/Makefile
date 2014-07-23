@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1 2014/07/04 12:30:02 rodent Exp $
+# $NetBSD: Makefile,v 1.3 2014/07/16 08:37:20 rodent Exp $
 
 DISTNAME=	childprocess-0.5.3
 PKGNAME=	${RUBY_PKGPREFIX}-${DISTNAME}

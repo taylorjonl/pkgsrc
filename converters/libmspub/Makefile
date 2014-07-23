@@ -1,13 +1,12 @@
-# $NetBSD: Makefile,v 1.7 2014/06/01 04:01:06 ryoon Exp $
+# $NetBSD: Makefile,v 1.9 2014/07/22 11:17:44 wiz Exp $
 
-DISTNAME=	libmspub-0.0.6
-PKGREVISION=	4
+DISTNAME=	libmspub-0.1.1
 CATEGORIES=	converters
-MASTER_SITES=	http://dev-www.libreoffice.org/src/
+MASTER_SITES=	http://dev-www.libreoffice.org/src/libmspub/
 EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	jaapb@NetBSD.org
-HOMEPAGE=	http://www.freedesktop.org/wiki/Software/libmspub
+HOMEPAGE=	https://wiki.documentfoundation.org/DLP/Libraries/libmspub
 COMMENT=	Library for importing Microsoft Publisher content
 LICENSE=	mpl-1.1 OR gnu-lgpl-v2 OR gnu-gpl-v2
 
@@ -28,6 +27,7 @@ CXXFLAGS+=	-Wno-error=unknown-pragmas -Wno-error=c++11-extensions
 
 .include "../../converters/libwpd/buildlink3.mk"
 .include "../../converters/libwpg/buildlink3.mk"
+.include "../../converters/librevenge/buildlink3.mk"
 .include "../../devel/boost-libs/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../textproc/icu/buildlink3.mk"

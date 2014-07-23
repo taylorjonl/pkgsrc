@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.782 2014/07/10 16:00:21 jnemeth Exp $
+# $NetBSD: Makefile,v 1.785 2014/07/22 17:17:05 wiz Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
@@ -390,6 +390,7 @@ SUBDIR+=	p5-Lingua-Stem-Snowball-Da
 SUBDIR+=	p5-List-Compare
 SUBDIR+=	p5-Locale-Maketext-Gettext
 SUBDIR+=	p5-Net-Dict
+SUBDIR+=	p5-Net-IDN-Encode
 SUBDIR+=	p5-Number-Format
 SUBDIR+=	p5-Number-Spell
 SUBDIR+=	p5-PDF
@@ -489,6 +490,7 @@ SUBDIR+=	p5-Text-RewriteRules
 SUBDIR+=	p5-Text-Sass
 SUBDIR+=	p5-Text-Shellwords
 SUBDIR+=	p5-Text-SimpleTable
+SUBDIR+=	p5-Text-Soundex
 SUBDIR+=	p5-Text-SpellChecker
 SUBDIR+=	p5-Text-Substitute
 SUBDIR+=	p5-Text-Tabs+Wrap
@@ -774,6 +776,7 @@ SUBDIR+=	texi2html
 SUBDIR+=	texi2roff
 SUBDIR+=	the_silver_searcher
 SUBDIR+=	tinyxml
+SUBDIR+=	tinyxml2
 SUBDIR+=	tokyodystopia
 SUBDIR+=	trang
 SUBDIR+=	troffcvt

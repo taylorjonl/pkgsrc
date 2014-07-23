@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.62 2012/10/02 20:11:39 asau Exp $
+# $NetBSD: Makefile,v 1.64 2014/07/21 08:14:47 enami Exp $
 #
 
-DISTNAME=	Gauche-0.9.3.3
+DISTNAME=	Gauche-0.9.4
 #PKGREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gauche/}
@@ -9,7 +9,7 @@ EXTRACT_SUFX=	.tgz
 
 MAINTAINER=	enami@NetBSD.org
 HOMEPAGE=	http://practical-scheme.net/gauche/
-COMMENT=	R5RS Scheme implementation aimed to be a handy tool for daily works
+COMMENT=	R7RS Scheme implementation aimed to be a handy tool for daily works
 
 DEPENDS+=		slib-[0-9]*:../../devel/slib
 
