@@ -75,7 +75,7 @@ function replace_arch_dirs(type, dirs, skipdirs, suffixvar)
 	}
 	# XXX: Limit to SunOS only
 	if (type == "bin" && matched) {
-		print_entry("@link lib/isaexec " $0)
+		print_entry("@link lib/abiexec " $0)
 	}
 	return matched
 }
@@ -109,7 +109,7 @@ PLIST_MULTIARCH_ENABLED && (/[$][{](BIN|INC|LIB)ARCHSUFFIX[}]/) {
 	if (isalink) {
 		bin = $0
 		gsub(/[$][{]BINARCHSUFFIX[}]/, "", bin)
-		print_entry("@link lib/isaexec " bin)
+		print_entry("@link lib/abiexec " bin)
 	}
 	if (/[$][{]INCARCHSUFFIX[}]/) {
 		gsub(/[$][{]INCARCHSUFFIX[}]/, "")

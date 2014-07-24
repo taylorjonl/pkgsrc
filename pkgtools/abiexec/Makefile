@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	isaexec-1.1
+DISTNAME=	abiexec-1.1
 CATEGORIES=	pkgtools
 MASTER_SITES=	# empty
 DISTFILES=	# empty
@@ -29,10 +29,10 @@ do-extract:
 
 do-build:
 	@(cd ${WRKSRC}; \
-	  ${ECHO} "${CC} ${CFLAGS} isaexec.c -o isaexec"; \
-	  ${CC} ${CFLAGS} isaexec.c -o isaexec)
+	  ${ECHO} "${CC} ${CFLAGS} abiexec.c -o abiexec"; \
+	  ${CC} ${CFLAGS} abiexec.c -o abiexec)
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/isaexec ${DESTDIR}/${PREFIX}/lib/isaexec
+	${INSTALL_PROGRAM} ${WRKSRC}/abiexec ${DESTDIR}/${PREFIX}/lib/abiexec
 
 .include "../../mk/bsd.pkg.mk"

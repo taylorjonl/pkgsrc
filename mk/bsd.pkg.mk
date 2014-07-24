@@ -106,7 +106,7 @@ BINARCHSUFFIX=		${BINARCHSUFFIX.${ABI}}
 INCARCHSUFFIX=		${INCARCHSUFFIX.${ABI}}
 LIBARCHSUFFIX=		${LIBARCHSUFFIX.${ABI}}
 .  if ${OPSYS} == "SunOS" && !empty(USE_MULTIARCH:Mbin)
-DEPENDS+=		isaexec-[0-9]*:../../pkgtools/isaexec
+DEPENDS+=		abiexec-[0-9]*:../../pkgtools/abiexec
 .  endif
 MULTIARCH_DIRS.bin?=	bin sbin
 MULTIARCH_DIRS.lib?=	lib
