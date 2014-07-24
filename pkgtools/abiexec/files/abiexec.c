@@ -103,7 +103,7 @@ main(int argc, char **argv, char **envp)
 			(void) execve(pathname, argv, envp);
 		free(pathname);
 	}
-
+out:
 	(void) fprintf(stderr,
 			gettext("%s: abiexec(\"%s\") failed\n"),
 			argv[0], fname);
