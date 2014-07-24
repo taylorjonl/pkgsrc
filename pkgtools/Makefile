@@ -3,6 +3,7 @@
 
 COMMENT=	Tools for use in the packages collection
 
+SUBDIR+=	abiexec
 SUBDIR+=	autoswc
 SUBDIR+=	binpatch
 SUBDIR+=	bootstrap-extras
@@ -18,7 +19,6 @@ SUBDIR+=	genpkgng
 SUBDIR+=	genrpm
 SUBDIR+=	gensolpkg
 SUBDIR+=	gnome-packagekit
-SUBDIR+=	isaexec
 SUBDIR+=	libkver
 SUBDIR+=	libnbcompat
 SUBDIR+=	lintpkgsrc

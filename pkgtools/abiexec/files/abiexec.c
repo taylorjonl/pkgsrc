@@ -38,6 +38,7 @@ int
 main(int argc, char **argv, char **envp)
 {
 	const char *abi;
+	const char *default_abi = "32";
 	const char *execname;
 	const char *fname;
 	const char *isadir;
@@ -82,37 +83,29 @@ main(int argc, char **argv, char **envp)
 	len = strlen(pathname);
 
 	/*
-	 * If ABI is set, try to find an appropriate executable, else fall
-	 * back to isaexec(3C).
+	 * Search ABI dirs.  If ABI isn't set in the environment, default to
+	 * 32-bit to avoid relying on the isaexec(3C) default which is currently
+	 * 'amd64'.  This ensures a consistent default across abiexec and GCC.
 	 */
-	if ((abi = getenv("ABI")) != NULL) {
-		if ((strcmp(abi, "32") == 0 || strcmp(abi, "i86") == 0)) {
-			isadir = "i86/";
-		} else if ((strcmp(abi, "64") == 0 ||strcmp(abi, "amd64") == 0)) {
-			isadir = "amd64/";
-		}
-		if (isadir) {
-			(void) strcpy(pathname + len, isadir);
-			(void) strcat(pathname + len, fname);
-			if (access(pathname, X_OK) == 0)
-				(void) execve(pathname, argv, envp);
-			free(pathname);
-			goto out;
-		}
+	if ((abi = getenv("ABI")) == NULL)
+		abi = default_abi;
+
+	if ((strcmp(abi, "32") == 0 || strcmp(abi, "i86") == 0)) {
+		isadir = "i86/";
+	} else if ((strcmp(abi, "64") == 0 ||strcmp(abi, "amd64") == 0)) {
+		isadir = "amd64/";
 	}
-	if (isaexec(execname, argv, envp) == -1) {
-		if (errno == ENOENT) {
-			(void) fprintf(stderr,
-					gettext("%s: cannot find/execute \"%s\""
-						" in ISA subdirectories\n"),
-					argv[0], fname);
-			free(pathname);
-			return (1);
-		}
+
+	if (isadir) {
+		(void) strcpy(pathname + len, isadir);
+		(void) strcat(pathname + len, fname);
+		if (access(pathname, X_OK) == 0)
+			(void) execve(pathname, argv, envp);
+		free(pathname);
 	}
 out:
 	(void) fprintf(stderr,
-			gettext("%s: isaexec(\"%s\") failed\n"),
+			gettext("%s: abiexec(\"%s\") failed\n"),
 			argv[0], fname);
 	return (1);
 }
