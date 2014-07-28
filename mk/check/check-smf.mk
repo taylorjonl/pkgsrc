@@ -31,6 +31,7 @@ _check-smf: error-check .PHONY
 			continue;					\
 		fi;							\
 		${SHCOMMENT} "[$$file]";				\
-		${EGREP} '@.*@' "$$file" >/dev/null &&			\
-			${DELAYED_ERROR_MSG} "[check-smf.mk] The SMF file \"${DESTDIR}${PREFIX}/$$file\" contains unexpanded @.*@ substitutions."; \
+		${EGREP} '@.*@' "$$file" >/dev/null 			\
+		    && ${DELAYED_ERROR_MSG} "[check-smf.mk] The SMF file \"${DESTDIR}${PREFIX}/$$file\" contains unexpanded @.*@ substitutions." \
+		    || ${TRUE};						\
 	done
