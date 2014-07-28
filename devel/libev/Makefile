@@ -1,6 +1,7 @@
 # $NetBSD: Makefile,v 1.11 2013/08/28 12:34:59 fhajny Exp $
 
 DISTNAME=	libev-4.15
+PKGREVISION=	1
 CATEGORIES=	devel
 MASTER_SITES=	http://dist.schmorp.de/libev/
 
@@ -15,6 +16,8 @@ USE_LIBTOOL=	yes
 
 GNU_CONFIGURE_LIBSUBDIR=ev
 CONFIGURE_ARGS+=	--includedir=${PREFIX}/include/ev
+
+CFLAGS.SunOS+=	-D_REENTRANT
 
 .include "../../mk/bsd.prefs.mk"
 .include "../../mk/bsd.pkg.mk"
