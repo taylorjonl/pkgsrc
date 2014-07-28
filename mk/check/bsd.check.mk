@@ -31,6 +31,9 @@
 .include "check-perms.mk"
 .include "check-portability.mk"
 .include "check-shlibs.mk"
+.if ${INIT_SYSTEM} == "smf"
+.include "check-smf.mk"
+.endif
 .include "check-stripped.mk"
 .include "check-vulnerable.mk"
 .include "check-wrkref.mk"
