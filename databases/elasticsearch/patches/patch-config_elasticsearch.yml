@@ -31,7 +31,7 @@ Define various paths
  # Path to where plugins are installed:
  #
  #path.plugins: /path/to/plugins
-+path.plugins: @ES_LIBDIR@/elasticsearch/plugins
++path.plugins: @ES_LIBDIR@/plugins
  
  
  #################################### Plugin ###################################
