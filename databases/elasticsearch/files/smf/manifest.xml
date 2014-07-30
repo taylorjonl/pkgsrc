@@ -13,7 +13,7 @@
     <dependent name='elasticsearch' restart_on='none' grouping='optional_all'>
       <service_fmri value='svc:/milestone/multi-user' />
     </dependent>
-    <method_context working_directory='@ES_TMPDIR@'>
+    <method_context working_directory='@ES_TMPDIR@' project='elastic'>
       <method_credential user='@ES_USER@' group='@ES_GROUP@' />
       <method_environment>
         <envvar name='PATH' value='@PREFIX@/bin:@PREFIX@/sbin:/usr/bin:/usr/sbin' />
