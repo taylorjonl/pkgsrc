@@ -21,7 +21,7 @@ MAKE_JOBS_SAFE=	no
 USE_LANGUAGES=		c99
 USE_LIBTOOL=		yes
 USE_MULTIARCH=		bin lib
-USE_TOOLS+=		bison flex
+USE_TOOLS+=		bison flex:run
 PKGCONFIG_OVERRIDE+=	tools/heimdal-gssapi.pc.in
 MAKE_ENV+=		INSTALL_CATPAGES=no
 

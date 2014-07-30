@@ -2,7 +2,7 @@
 
 .include "../../sysutils/collectd/Makefile.common"
 
-PKGREVISION=	1
+PKGREVISION=	2
 COMMENT=	Statistics collection daemon base
 
 RCD_SCRIPTS=	collectd
