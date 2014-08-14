@@ -21,6 +21,8 @@ LICENSE=		gnu-gpl-v2
 
 USE_GCC_RUNTIME=	yes
 
+NAGIOSLOCKDIR?=	/var/run/nagios
+
 CONFIGURE_ARGS+=	--with-gd-lib=${PREFIX}/lib
 CONFIGURE_ARGS+=	--with-gd-inc=${PREFIX}/include
 CONFIGURE_ARGS+=	--enable-embedded-perl
@@ -31,7 +33,7 @@ CONFIGURE_ARGS+=	--with-nagios-group=${NAGIOS_GROUP}
 CONFIGURE_ARGS+=	--with-command-user=${NAGIOS_USER}
 CONFIGURE_ARGS+=	--with-command-group=${NAGIOSCMD_GROUP}
 CONFIGURE_ARGS+=	--with-init-dir=${PREFIX}/share/examples/rc.d
-CONFIGURE_ARGS+=	--with-lockfile=/var/run/nagios/nagios.lock
+CONFIGURE_ARGS+=	--with-lockfile=${NAGIOSLOCKDIR}/nagios.lock
 
 USE_TOOLS+=		mail:run perl
 CONFIGURE_ARGS+=	--with-mail=${TOOLS_PLATFORM.mail:Q}
@@ -41,6 +43,7 @@ SMF_NAME=		nagios
 FILES_SUBST+=		NAGIOS_USER=${NAGIOS_USER}
 FILES_SUBST+=		NAGIOS_GROUP=${NAGIOS_GROUP}
 FILES_SUBST+=		NAGIOSDIR=${NAGIOSDIR}
+FILES_SUBST+=		NAGIOSLOCKDIR=${NAGIOSLOCKDIR}
 
 INSTALL_TARGET=		install install-config
 
@@ -75,6 +78,7 @@ OWN_DIRS_PERMS+=${NAGIOSDIR} ${NAGIOS_USER} ${NAGIOS_GROUP} 0775
 OWN_DIRS_PERMS+=${NAGIOSDIR}/archives ${NAGIOS_USER} ${NAGIOS_GROUP} 0775
 OWN_DIRS_PERMS+=${NAGIOSDIR}/rw ${NAGIOS_USER} ${NAGIOSCMD_GROUP} 0775
 OWN_DIRS_PERMS+=${NAGIOSDIR}/checkresults ${NAGIOS_USER} ${NAGIOSCMD_GROUP} 0775
+OWN_DIRS_PERMS+=${NAGIOSLOCKDIR} ${NAGIOS_USER} ${NAGIOS_GROUP} 0775
 
 SUBST_CLASSES+=		files
 SUBST_STAGE.files=	post-build

@@ -10,7 +10,7 @@
 name="nagios"
 rcvar=$name
 command="@PREFIX@/bin/${name}"
-piddir="/var/run/${name}"
+piddir="@NAGIOSLOCKDIR@"
 pidfile="${piddir}/${name}.lock"
 config="@PKG_SYSCONFDIR@/${name}.cfg"
 
