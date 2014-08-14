@@ -32,7 +32,7 @@ PERL5_USE_PACKLIST?=	yes
 PERL5_PACKLIST_DESTDIR?=	yes
 
 .if defined(PERL5_PACKLIST)
-.  if defined(MULTIARCH) && !empty(MULTIARCH:M[Yy][Ee][Ss]) && !defined(PERL5_PACKLIST_DIR)
+.  if defined(MULTIARCH) && !empty(MULTIARCH:M[Yy][Ee][Ss]) && defined(USE_MULTIARCH) && !empty(USE_MULTIARCH:Mlib) && !defined(PERL5_PACKLIST_DIR)
 PERL5_PACKLIST_DIR_cmd=	for abi in ${MULTIARCH_ABIS}; do ${MAKE} ${MAKE_FLAGS} ABI=$${abi} show-var VARNAME=PERL5_INSTALLVENDORARCH; done
 PERL5_PACKLIST_DIR=	${PERL5_PACKLIST_DIR_cmd:sh}
 .  else
