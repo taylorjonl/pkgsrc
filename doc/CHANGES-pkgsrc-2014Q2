@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2014Q2,v 1.1.2.17 2014/07/27 12:37:44 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2014Q2,v 1.1.2.27 2014/08/25 16:52:00 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2014Q2 branch:
@@ -68,3 +68,45 @@ Pullup ticket #4464 - requested by tron
 databases/phpmyadmin: security update
 Pullup ticket #4465 - requested by dholland
 lang/openjdk7: fix for netbsd-5
+Pullup ticket #4467 - requested by wiz
+net/tor: security update
+Pullup ticket #4468 - requested by obache
+emulators/suse131_mozilla-nss: security update
+Pullup ticket #4469 - requested by tron
+print/xpdf: security update
+Pullup ticket #4470 - requested by tron
+net/wireshark: security update
+Pullup ticket #4471 - requested by obache
+security/openssl: security update
+Pullup ticket #4472 - requested by prlw1
+lang/gcc44: build fix
+Pullup ticket #4473 - requested by wiz
+www/serf: security update
+Pullup ticket #4475 - requested by prlw1
+lang/php53: security update
+Pullup ticket #4476 - requested by taca
+www/drupal7: security update
+Pullup ticket #4477 - requested by taca
+www/drupal6; security update
+Pullup ticket #4478 - requested by wiz
+x11/gnome-desktop3: build fix
+Pullup ticket #4479 - requested by wiz
+security/gpgme: security update
+Pullup ticket #4480 - requested by obache
+graphics/py-Pillow: security update
+Pullup ticket #4481 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4482 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4483 - requested by obache
+emulators/suse131_libtiff: security update
+Pullup ticket #4484 - requested by obache
+emulators/suse131_krb5: security update
+Pullup ticket #4486 - requested by taca
+lang/php54: security update
+Pullup ticket #4487 - requested by tron
+lang/php55: security update
+Pullup ticket #4488 - requested by tron
+lang/ruby200-base: security patch
+Pullup ticket #4489 - requested by tron
+lang/ruby21-base: security patch
