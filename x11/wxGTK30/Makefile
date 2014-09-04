@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.1 2014/07/21 06:53:24 dbj Exp $
+# $NetBSD: Makefile,v 1.4 2014/08/20 07:07:32 dbj Exp $
 #
 
 VERSION=	3.0.1
+PKGREVISION=	2
 DISTNAME=	wxWidgets-${VERSION}
 PKGNAME=	wxGTK30-${VERSION}
 CATEGORIES=	x11
@@ -11,7 +12,9 @@ EXTRACT_SUFX=	.tar.bz2
 MAINTAINER=	dbj@NetBSD.org
 HOMEPAGE=	http://www.wxwidgets.org/
 COMMENT=	GTK-based implementation of the wxWidgets GUI library
-LICENSE=	wxwindows-3.1
+
+# LGPLv2 with additional permission; http://opensource.org/licenses/wxwindows
+LICENSE=        gnu-lgpl-v2
 
 PATCHFILES=		${DISTNAME}-libtool.diff.bz2
 PATCH_SITES=		${MASTER_SITE_LOCAL}
@@ -49,6 +52,13 @@ SUBST_FILES.fix-paths=		configure
 SUBST_SED.fix-paths=		-e 's,/usr/pkg/include,${PREFIX}/include,g'
 SUBST_SED.fix-paths+=		-e 's,@PREFIX@,${PREFIX},g'
 
+.include "../../mk/bsd.prefs.mk"
+
+PLIST_VARS+=		notdarwin
+.if ${OPSYS} != "Darwin"
+PLIST.notdarwin=	yes
+.endif
+
 post-build:
 	set -e; cd ${WRKSRC}/locale; \
 	for lang in *.po; do \
@@ -62,25 +72,26 @@ post-build:
 
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/docs/licence.txt ${DESTDIR}${PREFIX}/${DOCDIR}
+	${INSTALL_DATA} ${WRKSRC}/docs/lgpl.txt ${DESTDIR}${PREFIX}/${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/docs/changes.txt ${DESTDIR}${PREFIX}/${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/docs/readme.txt ${DESTDIR}${PREFIX}/${DOCDIR}
 
+.include "../../graphics/MesaLib/buildlink3.mk"
+.include "../../devel/gettext-lib/buildlink3.mk"
+.include "../../devel/glib2/buildlink3.mk"
+.include "../../devel/zlib/buildlink3.mk"
+.include "../../graphics/cairo/buildlink3.mk"
+.include "../../graphics/glu/buildlink3.mk"
+.include "../../graphics/png/buildlink3.mk"
+.include "../../graphics/tiff/buildlink3.mk"
+.include "../../mk/jpeg.buildlink3.mk"
 .include "../../mk/oss.buildlink3.mk"
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../multimedia/gstreamer0.10/buildlink3.mk"
 .include "../../multimedia/gst-plugins0.10-base/buildlink3.mk"
-#.include "../../devel/GConf/buildlink3.mk"
-.include "../../devel/gettext-lib/buildlink3.mk"
-.include "../../graphics/glu/buildlink3.mk"
-.include "../../devel/glib2/buildlink3.mk"
-.include "../../x11/libXxf86vm/buildlink3.mk"
-.include "../../graphics/MesaLib/buildlink3.mk"
-.include "../../x11/gtk2/buildlink3.mk"
-.include "../../mk/jpeg.buildlink3.mk"
-.include "../../graphics/png/buildlink3.mk"
-.include "../../graphics/tiff/buildlink3.mk"
-.include "../../devel/zlib/buildlink3.mk"
 .include "../../textproc/expat/buildlink3.mk"
-.include "../../graphics/cairo/buildlink3.mk"
+.include "../../x11/gtk2/buildlink3.mk"
+.include "../../x11/libSM/buildlink3.mk"
+.include "../../x11/libXxf86vm/buildlink3.mk"
 
 .include "../../mk/bsd.pkg.mk"

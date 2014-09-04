@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.250 2014/07/17 14:53:46 ryoon Exp $
+# $NetBSD: Makefile,v 1.252 2014/08/13 08:00:00 wiz Exp $
 #
 
 COMMENT=	Fonts
@@ -7,7 +7,6 @@ SUBDIR+=	AnonymousPro
 SUBDIR+=	CamingoCode
 SUBDIR+=	EB-Garamond
 SUBDIR+=	SDL2_ttf
-SUBDIR+=	Symbola-ttf
 SUBDIR+=	TextFonts-ttf
 SUBDIR+=	Xft2
 SUBDIR+=	Xg
@@ -24,9 +23,14 @@ SUBDIR+=	acroread9-korfont
 SUBDIR+=	adobe-cidfonts
 SUBDIR+=	adobe-cmaps
 SUBDIR+=	ae-mono-ttf
+SUBDIR+=	aegean-ttf
+SUBDIR+=	aegyptus-ttf
+SUBDIR+=	akkadian-ttf
 SUBDIR+=	alee-ttf
+SUBDIR+=	anatolian-ttf
 SUBDIR+=	arphic-ttf
 SUBDIR+=	artwiz-fonts
+SUBDIR+=	asea-ttf
 SUBDIR+=	baekmuk-ttf
 SUBDIR+=	bakoma-fonts
 SUBDIR+=	bdftopcf
@@ -179,6 +183,7 @@ SUBDIR+=	sgi-fonts
 SUBDIR+=	sourcecodepro-fonts
 SUBDIR+=	sourcehansans-fonts
 SUBDIR+=	sourcesans-fonts
+SUBDIR+=	symbola-ttf
 SUBDIR+=	t1lib
 SUBDIR+=	t1utils
 SUBDIR+=	takao-fonts-ttf

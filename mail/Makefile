@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.451 2014/07/22 08:29:35 manu Exp $
+# $NetBSD: Makefile,v 1.455 2014/08/09 21:24:34 wiz Exp $
 #
 
 COMMENT=	Electronic mail utilities
@@ -328,9 +328,12 @@ SUBDIR+=	t-prot
 SUBDIR+=	teapop
 SUBDIR+=	thunderbird
 SUBDIR+=	thunderbird-l10n
+SUBDIR+=	thunderbird24
+SUBDIR+=	thunderbird24-l10n
 SUBDIR+=	tmda
 SUBDIR+=	tnef
 SUBDIR+=	tnef2txt
+SUBDIR+=	trojita
 SUBDIR+=	turba
 SUBDIR+=	up-imapproxy
 SUBDIR+=	vm

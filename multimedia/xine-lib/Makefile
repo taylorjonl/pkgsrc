@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.129 2014/06/30 13:41:00 jperkin Exp $
+# $NetBSD: Makefile,v 1.131 2014/08/13 08:23:50 wiz Exp $
 
 .include "Makefile.common"
 
 COMMENT=		Multimedia player library
-PKGREVISION=		3
+PKGREVISION=		5
 
 CONFLICTS+=		xine-xcb-[0-9]*
 

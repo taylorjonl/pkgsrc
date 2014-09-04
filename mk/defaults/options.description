@@ -30,6 +30,7 @@ apache-mpm-event	Use multi-threaded workers in Apache web server.
 apache-mpm-prefork	Use pre-forked workers in Apache web server.
 apache-mpm-worker	Use multiple processes of multi-threaded workers in Apache web server.
 apache-shared-modules	Build all modules as shared for apache22.
+apple-common-crypto	Use Apple's CommonCrypto.
 ares			Use the ares library for asynchronous name resolution.
 aria2-metalink		Enable Metalink support.
 arts			Use the aRts audio daemon.
@@ -239,6 +240,7 @@ gsasl			Enable SASL support with gsasl.
 gsl			Use GNU Scientific Library.
 gssapi			Enable gssapi (Kerberos V) support.
 gstreamer		Enable gstreamer support.
+gstreamer-gstcheck	Enable gstcheck support in gstreamer.
 gtk			Enable support for GTK.
 gtk2			Enable support for GTK2.
 gtk3			Enable support for GTK3.
@@ -260,6 +262,7 @@ id3			Enable id3 tagging support.
 idea			Enable support for the IDEA cryptographic algorithm (possible license+patent problems).
 idn			Internationalized Domain Names (IDN) support.
 ikiwiki-amazon-s3	Enable publishing rendered pages to Amazon S3 servers.
+ikiwiki-highlight	Enable syntax highlighting in code blocks.
 ikiwiki-search		Enable full-text search using xapian.
 ilbc			Enable the use of iLBC (Internet Low Bit Rate Codec).
 imagemagick		Use ImageMagick as imaging library.
@@ -499,6 +502,7 @@ nfdump-sflow		Build sflow collector sfcpad.
 nls			Use native language support.
 nntp			Enable Network News Transport Protocol (NNTP) support.
 nntpcache-pgp		Enable pgp signed nocem support.
+notmuch-emacs		Install emacs support files for notmuch.
 nspluginwrapper		Enable running non native netscape compatible plugins.
 nss			Enable Network Security Services (NSS) support.
 octave			Enable Octave support.
@@ -646,6 +650,13 @@ squid-netfilter		Enable use of transparent proxy with Linux Net Filter.
 squid-pam-helper	Enable use of PAM helper support.
 squid-pf		Enable use of transparent proxy with Packet Filter.
 squid-unlinkd		Enable use of unlinkd.
+sshguard-aix		Select AIX firewall backend for SSHGuard.
+sshguard-hosts		Select host firewall backend for SSHGuard.
+sshguard-ipfilter	Select IPFilter firewall backend for SSHGuard.
+sshguard-ipfw		Select ipfw firewall backend for SSHGuard.
+sshguard-iptables	Select iptables firewall backend for SSHGuard.
+sshguard-null		Select null firewall backend for SSHGuard.
+sshguard-pf		Select PF firewall backend for SSHGuard.
 ssl			Enable SSL support.
 starttls		Enable TLS support.
 static			Allows you to build static libraries.

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.222 2014/07/02 12:18:38 adam Exp $
+# $NetBSD: Makefile,v 1.227 2014/08/11 23:10:51 wiz Exp $
 #
 
 COMMENT=	Multimedia utilities
@@ -9,6 +9,7 @@ SUBDIR+=	adobe-flash-plugin11
 SUBDIR+=	alevt
 SUBDIR+=	audiocd-kio
 SUBDIR+=	avidemux
+SUBDIR+=	bitstream
 SUBDIR+=	bsdav
 SUBDIR+=	ccxstream
 SUBDIR+=	cfourcc
@@ -26,13 +27,13 @@ SUBDIR+=	dvdrip
 SUBDIR+=	dvdstyler
 SUBDIR+=	dvdview
 SUBDIR+=	farsight2
-SUBDIR+=	ffmpeg
 SUBDIR+=	ffmpeg010
+SUBDIR+=	ffmpeg1
 SUBDIR+=	ffmpeg2
 SUBDIR+=	ffmpeg2theora
 SUBDIR+=	ffmpegthumbnailer
 SUBDIR+=	ffmpegthumbs
-SUBDIR+=	ffplay
+SUBDIR+=	ffplay1
 SUBDIR+=	ffplay2
 SUBDIR+=	flashplayer
 SUBDIR+=	fuppes
@@ -96,8 +97,10 @@ SUBDIR+=	libaacs
 SUBDIR+=	libass
 SUBDIR+=	libassetml
 SUBDIR+=	libbdplus
+SUBDIR+=	libbluray
 SUBDIR+=	libdv
 SUBDIR+=	libdv-tools
+SUBDIR+=	libdvbcsa
 SUBDIR+=	libdvbpsi
 SUBDIR+=	libdvbpsi0
 SUBDIR+=	libdvdcss
@@ -160,6 +163,7 @@ SUBDIR+=	php-ming
 SUBDIR+=	pitivi
 SUBDIR+=	pspvc
 SUBDIR+=	py-gstreamer0.10
+SUBDIR+=	py-gstreamer1
 SUBDIR+=	py-ming
 SUBDIR+=	realplayer-codecs
 SUBDIR+=	regionset

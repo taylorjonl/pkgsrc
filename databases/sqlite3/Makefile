@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.80 2014/07/18 11:25:14 ryoon Exp $
+# $NetBSD: Makefile,v 1.82 2014/08/17 08:16:06 adam Exp $
 
-DISTNAME=	sqlite-autoconf-3080500
-PKGNAME=	sqlite3-3.8.5
+DISTNAME=	sqlite-autoconf-3080600
+PKGNAME=	sqlite3-3.8.6
 CATEGORIES=	databases
 MASTER_SITES=	http://www.hwaci.com/sw/sqlite/2014/ \
 		http://www.sqlite.org/2014/
@@ -28,8 +28,9 @@ INSTALLATION_DIRS+=	${PKGMANDIR}/man1
 CFLAGS.NetBSD+=		-DUSE_PREAD
 
 # Darwin < 9 (Mac OS X < 10.5 "Leopard") doesn't have gethostuuid(2)
+# and lacks the zone memory allocator
 .if !empty(MACHINE_PLATFORM:MDarwin-[0-8].*-*)
-CFLAGS+=		-DSQLITE_ENABLE_LOCKING_STYLE=0
+CFLAGS+=		-DSQLITE_ENABLE_LOCKING_STYLE=0 -DSQLITE_WITHOUT_ZONEMALLOC
 .endif
 
 # This define includes the sqlite3_unlock_notify() API in the build.

@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.1 2014/05/24 13:24:32 obache Exp $
+# $NetBSD: Makefile,v 1.3 2014/08/10 02:30:00 obache Exp $
 
-DISTNAME=	ibus-kkc-1.5.20
+DISTNAME=	ibus-kkc-1.5.21
 CATEGORIES=	inputmethod japanese
 MASTER_SITES=	https://bitbucket.org/libkkc/ibus-kkc/downloads/
 
@@ -20,7 +20,6 @@ USE_TOOLS+=		gmake intltool msgfmt pkg-config
 
 FIND_PREFIX:=	SKK_JISYO_DIR=skk-jisyo
 .include "../../mk/find-prefix.mk"
-# ${M4DIR} now contains the installation prefix for the "gm4" package.
 CONFIGURE_ARGS+=	--with-skkdic=${SKK_JISYO_DIR}/share/skk
 
 .include "../../converters/libkkc/buildlink3.mk"

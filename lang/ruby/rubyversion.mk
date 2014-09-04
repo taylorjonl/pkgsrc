@@ -1,4 +1,4 @@
-# $NetBSD: rubyversion.mk,v 1.121 2014/05/21 03:19:57 taca Exp $
+# $NetBSD: rubyversion.mk,v 1.123 2014/08/25 03:25:57 taca Exp $
 #
 
 # This file determines which Ruby version is used as a dependency for
@@ -219,8 +219,9 @@ RUBY21_VERSION=		2.1.2
 
 # patch
 RUBY18_PATCHLEVEL=	pl374
-RUBY193_PATCHLEVEL=	p545
+RUBY193_PATCHLEVEL=	p547
 RUBY200_PATCHLEVEL=	p481
+#RUBY21_PATCHLEVEL=	p95
 
 # current API compatible version; used for version of shared library
 RUBY18_API_VERSION=	1.8.7
@@ -476,7 +477,8 @@ RUBY_SITERIDIR?=	${RUBY_BASERIDIR}/site
 MAKE_ENV+=		RUBY=${RUBY:Q} RUBY_VER=${RUBY_VER:Q} \
 			RUBY_VERSION_DEFAULT=${RUBY_VERSION_DEFAULT:Q}
 
-MAKEFLAGS+=		RUBY_VERSION_DEFAULT=${RUBY_VERSION_DEFAULT:Q}
+MAKEFLAGS+=		RUBY_VER=${RUBY_VER:Q} \
+			RUBY_VERSION_DEFAULT=${RUBY_VERSION_DEFAULT:Q}
 
 #
 # PLIST_VARS for x11/ruby-tk package.

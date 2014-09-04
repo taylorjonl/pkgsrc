@@ -1,4 +1,4 @@
-# $NetBSD: Interix.mk,v 1.71 2013/10/13 10:10:05 wiz Exp $
+# $NetBSD: Interix.mk,v 1.73 2014/08/14 00:21:24 cheusov Exp $
 #
 # Variable definitions for the Interix operating system.
 
@@ -98,7 +98,7 @@ PKGDIRMODE?=		775
 # ROOT_USER might be numeric in the special case of Administrator; canonify it:
 ROOT_CMD?=		${SU} - "$$(id -un ${ROOT_USER})" -c
 ROOT_USER?=		${BINOWN}
-ROOT_GROUP?=		131616 # +Administrators or native language equivalent
+ROOT_GROUP?=		+Administrators # or native language equivalent
 TOUCH_FLAGS?=
 ULIMIT_CMD_datasize?=	ulimit -d `ulimit -H -d`
 ULIMIT_CMD_stacksize?=	ulimit -s `ulimit -H -s`
@@ -146,3 +146,9 @@ CONFIGURE_ENV+=		${GNU_CONFIGURE:Dac_cv_func_hstrerror=yes}
 # check for maximum command line length and set it in configure's environment,
 # to avoid a test required by the libtool script that takes forever.
 _OPSYS_MAX_CMDLEN_CMD=	${ECHO} 262144
+
+#
+# Interix has dlopen(3) and family, they are provided by gcc (Interix-6.1).
+# pkgsrc'c check is broken.
+#
+IS_BUILTIN.dl=		yes

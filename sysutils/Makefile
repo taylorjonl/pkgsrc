@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.609 2014/07/22 08:10:21 manu Exp $
+# $NetBSD: Makefile,v 1.614 2014/08/30 11:04:54 wiedi Exp $
 #
 
 COMMENT=	System utilities
@@ -359,6 +359,7 @@ SUBDIR+=	p5-Parse-Syslog
 SUBDIR+=	p5-Quota
 SUBDIR+=	p5-SSH-Batch
 SUBDIR+=	p5-Server-Starter
+SUBDIR+=	p5-Sys-CPU
 SUBDIR+=	p5-Sys-CpuLoad
 SUBDIR+=	p5-Sys-Filesystem
 SUBDIR+=	p5-Sys-Hostname-Long
@@ -377,8 +378,8 @@ SUBDIR+=	pear-Log
 SUBDIR+=	pflogsumm
 SUBDIR+=	pfstat
 SUBDIR+=	pftop
-SUBDIR+=	pluged
 SUBDIR+=	pidof
+SUBDIR+=	pluged
 SUBDIR+=	polysh
 SUBDIR+=	pscpug
 SUBDIR+=	psftools
@@ -456,6 +457,7 @@ SUBDIR+=	sysgen
 SUBDIR+=	sysinfo
 SUBDIR+=	syslog-ng
 SUBDIR+=	system-tools-backends
+SUBDIR+=	systester
 SUBDIR+=	sysupgrade
 SUBDIR+=	tarsnap
 SUBDIR+=	tcx
@@ -492,6 +494,7 @@ SUBDIR+=	virt-manager
 SUBDIR+=	virtinst
 SUBDIR+=	vobcopy
 SUBDIR+=	vxargs
+SUBDIR+=	watchman
 SUBDIR+=	wbm-apache
 SUBDIR+=	wbm-at
 SUBDIR+=	wbm-bandwidth
@@ -586,5 +589,6 @@ SUBDIR+=	xosview
 SUBDIR+=	xps
 SUBDIR+=	xuvmstat
 SUBDIR+=	zidrav
+SUBDIR+=	znapzend
 
 .include "../mk/misc/category.mk"

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.105 2014/05/29 23:36:35 wiz Exp $
+# $NetBSD: Makefile,v 1.107 2014/08/21 17:50:35 jperkin Exp $
 
 DISTNAME=	wesnoth-1.10.6
-PKGREVISION=	9
+PKGREVISION=	10
 CATEGORIES=	games
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=wesnoth/}
 EXTRACT_SUFX=	.tar.bz2
@@ -65,6 +65,8 @@ PLIST_VARS+=		icons
 .if ${OPSYS} != "Darwin" && ${OPSYS} != "Cygwin"
 PLIST.icons=		yes
 .endif
+
+LDFLAGS.SunOS+=		-lintl -lsocket
 
 BUILDLINK_API_DEPENDS.SDL_mixer+=	SDL_mixer>=1.2.5nb3
 .include "../../audio/SDL_mixer/buildlink3.mk"

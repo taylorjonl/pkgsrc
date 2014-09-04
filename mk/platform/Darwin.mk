@@ -1,4 +1,4 @@
-# $NetBSD: Darwin.mk,v 1.61 2013/12/31 11:13:43 jperkin Exp $
+# $NetBSD: Darwin.mk,v 1.63 2014/08/17 08:32:32 tron Exp $
 #
 # Variable definitions for the Darwin operating system.
 
@@ -16,6 +16,7 @@
 # Lion		10.7.x	11.x.y	4.1 (llvm gcc 4.2.1)
 # Mountain Lion	10.8.x	12.x.y	4.5 (llvm gcc 4.2.1)
 # Mavericks	10.9.x	13.x.y	5 (llvm clang 5.0)
+# Yosemite	10.10.x	14.x.y	? (llvm clang 6.0)
 
 # Tiger (and earlier) use Xfree 4.4.0 (and earlier)
 .if empty(MACHINE_PLATFORM:MDarwin-[0-8].*-*)
@@ -143,6 +144,7 @@ CONFIGURE_ENV+=		ac_cv_func_poll=no
 .endif
 
 # Use "/bin/ksh" for buildlink3 wrapper script to improve build performance.
-.if empty(OS_VERSION:M[0-8].*) && exists(/bin/ksh)
+.if (!empty(OS_VERSION:M9.*) || !empty(OS_VERSION:M1[0-2].*)) && \
+    exists(/bin/ksh)
 WRAPPER_BIN_SH?=	/bin/ksh
 .endif

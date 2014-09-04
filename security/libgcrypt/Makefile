@@ -1,13 +1,14 @@
-# $NetBSD: Makefile,v 1.62 2014/07/18 10:36:28 ryoon Exp $
+# $NetBSD: Makefile,v 1.67 2014/08/29 14:22:59 wiz Exp $
 
-DISTNAME=	libgcrypt-1.6.1
+DISTNAME=	libgcrypt-1.6.2
+PKGREVISION=	2
 CATEGORIES=	security
 MASTER_SITES=	ftp://ftp.gnupg.org/gcrypt/libgcrypt/ \
 		http://gd.tuwien.ac.at/privacy/gnupg/libgcrypt/
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
-HOMEPAGE=	http://directory.fsf.org/project/libgcrypt/
+HOMEPAGE=	https://www.gnu.org/software/libgcrypt/
 COMMENT=	GNU cryptographic library
 LICENSE=	gnu-gpl-v2 AND gnu-lgpl-v2.1
 
@@ -30,6 +31,7 @@ INFO_FILES=		yes # PLIST
 CONFIGURE_ARGS+=	--disable-asm
 .endif
 CONFIGURE_ARGS+=	--disable-aesni-support
+
 
 # SCO OpenServer 5.0.7/3.2 has no socklen_t, but it is defined in pthread.h
 # from builtin GNU pth.

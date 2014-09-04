@@ -1,5 +1,4 @@
-# $NetBSD: Makefile,v 1.56 2014/06/07 12:11:24 wiz Exp $
-#
+# $NetBSD: Makefile,v 1.59 2014/08/28 10:58:18 jperkin Exp $
 
 DISTNAME=		shotwell-0.11.6
 PKGREVISION=		25
@@ -23,13 +22,6 @@ MAKE_ENV+=		VALAC=${VALAC}
 
 REPLACE_SH+=		configure
 
-.include "../../mk/bsd.prefs.mk"
-
-.if ${OPSYS} == "SunOS"
-BUILDLINK_TRANSFORM+=	rm:-export-dynamic
-BUILDLINK_TRANSFORM+=	rm:-Wl,--no-as-needed
-.endif
-
 .include "../../databases/sqlite3/buildlink3.mk"
 .include "../../devel/GConf/buildlink3.mk"
 .include "../../devel/glib2/schemas.mk"
@@ -52,7 +44,7 @@ BUILDLINK_DEPMETHOD.vala= build
 .include "../../sysutils/dbus-glib/buildlink3.mk"
 .include "../../textproc/libxml2/buildlink3.mk"
 .include "../../textproc/json-glib/buildlink3.mk"
-.include "../../www/webkit-gtk/buildlink3.mk"
+.include "../../www/webkit1-gtk/buildlink3.mk"
 .include "../../x11/gtk2/buildlink3.mk"
 .include "../../x11/libunique/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

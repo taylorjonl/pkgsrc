@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1029 2014/07/22 12:53:33 manu Exp $
+# $NetBSD: Makefile,v 1.1035 2014/09/03 07:11:05 he Exp $
 #
 
 COMMENT=	Networking tools
@@ -180,6 +180,7 @@ SUBDIR+=	gst-plugins1-libnice
 SUBDIR+=	gst-plugins1-mms
 SUBDIR+=	gst-plugins1-rtmp
 SUBDIR+=	gst-plugins1-soup
+SUBDIR+=	gst-rtsp-server
 SUBDIR+=	gt-itm
 SUBDIR+=	gtk-gnutella
 SUBDIR+=	gtk-vnc
@@ -490,6 +491,7 @@ SUBDIR+=	p5-Test-TCP
 SUBDIR+=	p5-Umph-Prompt
 SUBDIR+=	p5-WebService-Google-Reader
 SUBDIR+=	p5-X500-DN
+SUBDIR+=	p5-Zabbix-Sender
 SUBDIR+=	p5-eBay-API
 SUBDIR+=	p5-gcap
 SUBDIR+=	p5-grake
@@ -562,14 +564,18 @@ SUBDIR+=	py-gevent
 SUBDIR+=	py-google
 SUBDIR+=	py-hatop
 SUBDIR+=	py-irclib
+SUBDIR+=	py-junos-eznc
 SUBDIR+=	py-kenosis
 SUBDIR+=	py-kombu
 SUBDIR+=	py-libdnet
 SUBDIR+=	py-libpcap
 SUBDIR+=	py-medusa
 SUBDIR+=	py-metar
+SUBDIR+=	py-ncclient
+SUBDIR+=	py-netaddr
 SUBDIR+=	py-netifaces
 SUBDIR+=	py-netlib
+SUBDIR+=	py-netsnmp
 SUBDIR+=	py-omniORBpy
 SUBDIR+=	py-pcap
 SUBDIR+=	py-ptt

@@ -1,12 +1,11 @@
-# $NetBSD: Makefile,v 1.172 2014/07/08 13:14:43 ryoon Exp $
+# $NetBSD: Makefile,v 1.174 2014/07/26 00:16:51 ryoon Exp $
 
 FIREFOX_VER=	${MOZ_BRANCH}${MOZ_BRANCH_MINOR}
-MOZ_BRANCH=	30.0
+MOZ_BRANCH=	31.0
 MOZ_BRANCH_MINOR=
 
 DISTNAME=	firefox-${FIREFOX_VER}.source
 PKGNAME=	firefox-${MOZ_BRANCH}${MOZ_BRANCH_MINOR:S/b/beta/:S/esr//}
-PKGREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	${MASTER_SITE_MOZILLA:=firefox/releases/${FIREFOX_VER}/source/}
 MASTER_SITES+=	${MASTER_SITE_MOZILLA_ALL:=firefox/releases/${FIREFOX_VER}/source/}
@@ -17,7 +16,7 @@ WRKSRC=		${WRKDIR}/mozilla-release
 
 MAINTAINER=	ryoon@NetBSD.org
 HOMEPAGE=	http://www.mozilla.com/en-US/firefox/
-COMMENT=	Web browser with support for extensions (version 30.x)
+COMMENT=	Web browser with support for extensions (version  ${MOZ_BRANCH:C/\..*//})
 LICENSE=	mpl-1.1
 
 MOZILLA_DIR=	# empty

@@ -1,4 +1,4 @@
-# $NetBSD: buildlink3.mk,v 1.1.1.1 2010/08/07 02:13:06 obache Exp $
+# $NetBSD: buildlink3.mk,v 1.3 2014/08/28 11:43:05 obache Exp $
 
 BUILDLINK_TREE+=	ibus-table
 

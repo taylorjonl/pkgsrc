@@ -1,7 +1,8 @@
-# $NetBSD: Makefile,v 1.111 2014/05/29 23:35:33 wiz Exp $
+# $NetBSD: Makefile,v 1.113 2014/08/25 14:27:01 adam Exp $
+#
+# Please, also update databases/ruby-rrdtool
 
-DISTNAME=	rrdtool-1.4.7
-PKGREVISION=	17
+DISTNAME=	rrdtool-1.4.8
 CATEGORIES=	databases graphics net
 MASTER_SITES=	http://oss.oetiker.ch/rrdtool/pub/
 

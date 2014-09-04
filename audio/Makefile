@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.505 2014/05/20 20:01:08 adam Exp $
+# $NetBSD: Makefile,v 1.510 2014/08/26 10:44:45 wiz Exp $
 #
 
 COMMENT=	Audio tools
@@ -169,6 +169,7 @@ SUBDIR+=	gst-plugins0.10-musepack
 SUBDIR+=	gst-plugins0.10-oss
 SUBDIR+=	gst-plugins0.10-pulse
 SUBDIR+=	gst-plugins0.10-sid
+SUBDIR+=	gst-plugins0.10-soundtouch
 SUBDIR+=	gst-plugins0.10-spc
 SUBDIR+=	gst-plugins0.10-speex
 SUBDIR+=	gst-plugins0.10-twolame
@@ -252,6 +253,7 @@ SUBDIR+=	libmusepack
 SUBDIR+=	libmusicbrainz
 SUBDIR+=	libmusicbrainz5
 SUBDIR+=	libofa
+SUBDIR+=	libopenmpt
 SUBDIR+=	libopenspc
 SUBDIR+=	libopus
 SUBDIR+=	libreplaygain
@@ -359,6 +361,7 @@ SUBDIR+=	pavucontrol
 SUBDIR+=	pavumeter
 SUBDIR+=	pd
 SUBDIR+=	picard
+SUBDIR+=	playitslowly
 SUBDIR+=	portaudio
 SUBDIR+=	portaudio-devel
 SUBDIR+=	pulseaudio
@@ -411,7 +414,9 @@ SUBDIR+=	solfege
 SUBDIR+=	sonata
 SUBDIR+=	sound-juicer
 SUBDIR+=	sound-theme-freedesktop
+SUBDIR+=	soundtouch
 SUBDIR+=	sox
+SUBDIR+=	spectro-edit
 SUBDIR+=	speex
 SUBDIR+=	spiralloops
 SUBDIR+=	spiralsynth

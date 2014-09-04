@@ -1,9 +1,8 @@
-# $NetBSD: Makefile,v 1.43 2014/06/09 14:18:08 ryoon Exp $
+# $NetBSD: Makefile,v 1.45 2014/08/12 07:54:07 markd Exp $
 
-DISTNAME=	phonon-4.7.1
-PKGREVISION=	4
+DISTNAME=	phonon-4.7.2
 CATEGORIES=	multimedia
-MASTER_SITES=	${MASTER_SITE_KDE:=phonon/4.7.1/}
+MASTER_SITES=	${MASTER_SITE_KDE:=phonon/4.7.2/}
 EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	markd@NetBSD.org
@@ -15,7 +14,7 @@ LICENSE=	gnu-lgpl-v2.1
 
 BUILD_DEPENDS+=	automoc4>=0.9.83:../../devel/automoc4
 
-USE_TOOLS+=	pkg-config
+USE_TOOLS+=	pkg-config gmake
 USE_LANGUAGES=	c c++
 USE_CMAKE=	yes
 CMAKE_ARG_PATH=	..

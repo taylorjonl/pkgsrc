@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.466 2014/07/05 19:41:18 rodent Exp $
+# $NetBSD: Makefile,v 1.469 2014/08/12 15:56:35 fhajny Exp $
 
 COMMENT=	Databases
 
@@ -63,6 +63,7 @@ SUBDIR+=	libdbi-driver-sqlite3
 SUBDIR+=	libgda
 SUBDIR+=	libgda-mysql
 SUBDIR+=	libgda-postgres
+SUBDIR+=	libmongo-client
 SUBDIR+=	libpqxx
 SUBDIR+=	libpqxx-doc
 SUBDIR+=	lua-sqlite
@@ -156,6 +157,7 @@ SUBDIR+=	p5-DBIx-Connector
 SUBDIR+=	p5-DBIx-ContextualFetch
 SUBDIR+=	p5-DBIx-DBSchema
 SUBDIR+=	p5-DBIx-Datasource
+SUBDIR+=	p5-DBIx-Introspector
 SUBDIR+=	p5-DBIx-Schema
 SUBDIR+=	p5-DBIx-SearchBuilder
 SUBDIR+=	p5-DBM-Deep
@@ -343,6 +345,7 @@ SUBDIR+=	py-pgnotify
 SUBDIR+=	py-postgresql
 SUBDIR+=	py-psycopg2
 SUBDIR+=	py-pymysql
+SUBDIR+=	py-python-rrdtool
 SUBDIR+=	py-python-sql
 SUBDIR+=	py-redis-py
 SUBDIR+=	py-sqlalchemy

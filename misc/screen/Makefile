@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.87 2014/07/05 11:21:29 tron Exp $
+# $NetBSD: Makefile,v 1.89 2014/08/27 16:14:27 richard Exp $
 
-DISTNAME=	screen-4.0.3
-PKGREVISION=	6
+DISTNAME=	screen-4.2.1
+#PKGREVISION=
 CATEGORIES=	misc shells
 MASTER_SITES=	${MASTER_SITE_GNU:=screen/}
 
@@ -35,10 +35,13 @@ SUBST_STAGE.paths=	post-patch
 
 PLIST_VARS+=		terminfo
 
-.if ${OPSYS} == "SunOS" && ${CURSES_DEFAULT} == "curses"
+.if ${OPSYS} == "SunOS"
+CPPFLAGS+=	-D_XOPEN_SOURCE=500
+.  if ${CURSES_DEFAULT} == "curses"
 INSTALLATION_DIRS+=	share/lib/terminfo
 PLIST.terminfo=		yes
 post-install: screen-terminfo
+.  endif
 .endif
 
 .if empty(UNPRIVILEGED:M[Yy][Ee][Ss])

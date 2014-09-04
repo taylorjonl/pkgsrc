@@ -1,14 +1,11 @@
-# $NetBSD: Makefile,v 1.104 2014/05/29 23:37:05 wiz Exp $
+# $NetBSD: Makefile,v 1.107 2014/08/25 14:31:47 adam Exp $
 
-DISTNAME=	net-snmp-5.7.2.1
+.include "Makefile.common"
 PKGREVISION=	1
 CATEGORIES=	net
-MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=net-snmp/}
 
 MAINTAINER=	adam@NetBSD.org
-HOMEPAGE=	http://www.net-snmp.org/
 COMMENT=	Extensible SNMP implementation
-LICENSE=	modified-bsd
 
 CONFLICTS=	ucd-snmp-[0-9]*
 CONFLICTS+=	nocol-[0-9]*	# bin/snmpget bin/snmpwalk
@@ -96,6 +93,14 @@ CONFIGURE_ARGS+=	--with-dummy-values
 #
 CONFIGURE_ARGS+=	--enable-ucd-snmp-compatibility
 
+.if ${OPSYS} == "Darwin"
+CFLAGS+=		-framework ApplicationServices
+CFLAGS+=		-framework CoreFoundation
+CFLAGS+=		-framework CoreServices
+CFLAGS+=		-framework DiskArbitration
+CFLAGS+=		-framework IOKit
+.endif
+
 # Handle ${PREFIX}/share/snmp in the DEINSTALL script since it may contain
 # leftover config files or pidfiles after deinstallation.
 #
@@ -114,6 +119,9 @@ INSTALLATION_DIRS+=	share/examples/net-snmp
 post-extract:
 .if ${OPSYS} == "DragonFly"
 	cp ${FILESDIR}/cpu_dragonfly.c ${WRKSRC}/agent/mibgroup/hardware/cpu/cpu_nlist.c
+# XXX make it build on OS X 10.9 Mavericks; remove on the next update
+.elif ${OPSYS} == "Darwin"
+	ln -s ${WRKSRC}/include/net-snmp/system/darwin12.h ${WRKSRC}/include/net-snmp/system/darwin13.h
 .endif
 
 post-wrapper:

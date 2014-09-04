@@ -1,4 +1,4 @@
-#	$NetBSD: bsd.pkg.mk,v 1.2000 2014/06/02 10:24:05 wiz Exp $
+#	$NetBSD: bsd.pkg.mk,v 1.2002 2014/08/28 22:29:37 riz Exp $
 #
 # This file is in the public domain.
 #
@@ -315,6 +315,12 @@ OVERRIDE_DIRDEPTH?=	2
 #
 .include "alternatives.mk"
 
+# Handle alternative init systems
+#
+.if ${INIT_SYSTEM} == "smf"
+.  include "smf.mk"
+.endif
+
 # Define SMART_MESSAGES in /etc/mk.conf for messages giving the tree
 # of dependencies for building, and the current target.
 _PKGSRC_IN?=		===${SMART_MESSAGES:D> ${.TARGET} [${PKGNAME}${_PKGSRC_DEPS}] ===}
@@ -618,6 +624,7 @@ _ROOT_CMD=	cd ${.CURDIR} &&					\
 			PATH=${_PATH_ORIG:Q}:${SU_CMD_PATH_APPEND:Q}	\
 		${MAKE} ${MAKEFLAGS} _PKGSRC_BARRIER=yes		\
 			PKG_DEBUG_LEVEL=${PKG_DEBUG_LEVEL:Q}		\
+			${USE_CROSS_COMPILE:DUSE_CROSS_COMPILE=${USE_CROSS_COMPILE:Q}}	\
 			su-${.TARGET} ${MAKEFLAGS.su-${.TARGET}}
 
 .PHONY: su-target

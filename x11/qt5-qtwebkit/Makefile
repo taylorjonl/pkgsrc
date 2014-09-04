@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.12 2014/04/23 07:05:32 adam Exp $
+# $NetBSD: Makefile,v 1.17 2014/08/29 15:52:29 wiz Exp $
 
 PKGNAME=	qt5-qtwebkit-${QTVERSION}
+PKGREVISION=	3
 COMMENT=	Qt5 WebView module
 
 .include "../../x11/qt5-qtbase/Makefile.common"
@@ -8,7 +9,7 @@ COMMENT=	Qt5 WebView module
 BUILD_DEPENDS+=		gperf-[0-9]*:../../devel/gperf
 
 USE_LIBTOOL=		yes
-USE_TOOLS+=		bison sed pkg-config
+USE_TOOLS+=		bison flex pkg-config sed
 
 BUILD_DIRS=		qtwebkit
 MAKE_ENV+=		QTDIR=${QTDIR}
@@ -16,6 +17,7 @@ MAKE_ENV+=		QTDIR=${QTDIR}
 INSTALL_ENV+=		INSTALL_ROOT=${DESTDIR}
 INSTALLATION_DIRS+=	lib/pkgconfig
 
+BUILDLINK_TRANSFORM+=	rpath:${WRKSRC}/qtwebkit/lib:${QTDIR}/lib
 QTPKGCONFIGPC=		Qt5WebKit.pc Qt5WebKitWidgets.pc
 
 BROKEN_FILES+=		qt5/lib/pkgconfig/Qt5WebKit.pc \
@@ -47,6 +49,9 @@ post-install:
 .endfor
 
 .include "../../databases/sqlite3/buildlink3.mk"
+.if ${OPSYS} == "Darwin" || ${OPSYS} == "Linux" || ${OPSYS} == "NetBSD"
+.include "../../devel/libexecinfo/buildlink3.mk"
+.endif
 .include "../../fonts/fontconfig/buildlink3.mk"
 .include "../../graphics/libwebp/buildlink3.mk"
 .include "../../graphics/png/buildlink3.mk"

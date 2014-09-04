@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.133 2014/05/03 02:47:56 rodent Exp $
+# $NetBSD: Makefile,v 1.135 2014/08/12 21:23:37 szptvlfn Exp $
 #
 
 COMMENT=	Archivers
@@ -31,6 +31,7 @@ SUBDIR+=	gzrecover
 SUBDIR+=	ha
 SUBDIR+=	heirloom-tar
 SUBDIR+=	hpack
+SUBDIR+=	hs-zlib
 SUBDIR+=	jamjar
 SUBDIR+=	lbrate
 SUBDIR+=	lcab
@@ -42,6 +43,7 @@ SUBDIR+=	liblzo
 SUBDIR+=	libunrar
 SUBDIR+=	libzip
 SUBDIR+=	lrzip
+SUBDIR+=	lz4
 SUBDIR+=	lzip
 SUBDIR+=	lziprecover
 SUBDIR+=	lzma
