@@ -33,4 +33,6 @@ PKGCONFIG_OVERRIDE+=	libpcre16.pc.in
 # needs a stacksize of 5.5mb, default is 2mb
 TEST_TARGET=		test
 
+CHECK_WRKREF_SKIP+=	share/doc/pcre/README share/doc/pcre/html/README.txt
+
 .include "../../mk/bsd.pkg.mk"
