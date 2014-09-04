@@ -16,6 +16,7 @@ installstyle='lib/perl5'
 # Perl embeds the full paths to the following tools in several installed
 # files, so make sure the paths to the ones in ${TOOLS_DIR} aren't used.
 aphostname='@TOOLS_HOSTNAME_CMD@'
+full_ar='ar'
 ln='@TOOLS_LN@'
 lns='@TOOLS_LN@ -s'
 sed='@TOOLS_SED@'
@@ -60,6 +61,12 @@ man3ext='3'
 man3dir='@PERL5_PERLBASE@/@PKGMANDIR@/man3'
 siteman3dir='@PERL5_SITEBASE@/@PKGMANDIR@/man3'
 vendorman3dir='@PERL5_VENDORBASE@/@PKGMANDIR@/man3'
+
+# Set pkgsrc defaults for library and header search paths:
+# nail down the directories in which headers and libraries of
+# locally-installed software may be found.
+loclibpth="@LOCALBASE@/lib"
+locincpth="@LOCALBASE@/include"
 
 # Nail down the needed libraries for each platform here to avoid hidden
 # dependencies.  If this isn't defined, then use the perl defaults for the
