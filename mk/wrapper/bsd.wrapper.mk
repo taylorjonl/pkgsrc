@@ -500,9 +500,13 @@ ${_WRAP_COOKIE.${_wrappee_}}:
 			${WRAPPER_SRCDIR}/cwrapper.conf			\
 			> ${_CWRAPPER_CONF.${_wrappee_}};		\
 		${_WRAP_GEN_TRANSFORM} cwrapper ${_WRAP_TRANSFORM_CMDS}	\
-			>> ${WRAPPER_CONFIG_DIR}/${_wrappee_:tl};	\
+			>> ${_CWRAPPER_CONF.${_wrappee_}};		\
 		;;							\
 	esac
+.    for append_args in ${_WRAP_EXTRA_ARGS.${_wrappee_}}
+	${RUN} ${ECHO} "append=${append_args:Q}"			\
+		>> ${_CWRAPPER_CONF.${_wrappee_}}
+.    endfor
 .  else
 ${_WRAP_COOKIE.${_wrappee_}}:						\
 		${_WRAPPER_SH.${_wrappee_}}				\
