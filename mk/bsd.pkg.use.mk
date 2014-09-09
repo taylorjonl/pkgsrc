@@ -90,6 +90,7 @@ BUILD_DEFS+=		KERBEROS
 ### USE_CWRAPPERS
 
 .if defined(USE_CWRAPPERS) && !empty(USE_CWRAPPERS:M[Yy][Ee][Ss])
+.export WRAPPER_CONFIG_DIR
 ALL_ENV+=		WRAPPER_CONFIG_DIR=${WRAPPER_CONFIG_DIR}
 # Wrappers are installed via pkgtools/cwrappers and may be on a different
 # file system from WRKOBJDIR so we must use symlinks.
