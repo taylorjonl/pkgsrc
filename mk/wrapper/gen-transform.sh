@@ -88,6 +88,10 @@ gen()
         ###############################################################
 	I)
 		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			gen $_action "opt:-I$1:-I$2"
+			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			gen $_action "opt:-I$1:-I$2"
@@ -107,6 +111,10 @@ gen()
         ###############################################################
 	L)
 		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			gen $_action "opt:-L$1:-L$2"
+			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			gen $_action "opt:-L$1:-L$2"
@@ -287,7 +295,7 @@ gen()
 	##############################################################
 	P)
 		case $_action in
-		transform)
+		transform|cwrapper)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			gen $_action "libpath:$1:$2"
 			;;

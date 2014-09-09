@@ -1000,9 +1000,9 @@ _BLNK_TRANSFORM+=	strip-slashdot:
 #
 .for _dir_ in ${_BLNK_PROTECT_DIRS}
 _BLNK_TRANSFORM+=	mangle:${_dir_}:${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
-_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
-_CWRAPPER_TRANSFORM+=	P:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	P:${_dir_}:${_dir_}
 .endfor
 #
 # Transform /usr/lib/../lib* to /usr/lib* so the following transformation
@@ -1020,21 +1020,21 @@ _BLNK_TRANSFORM+=	mangle:/usr/lib/../libx32:/usr/libx32
 #
 .for _dir_ in ${COMPILER_INCLUDE_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-I${_dir_}:-I${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
 .endfor
 .for _dir_ in ${COMPILER_LIB_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-L${_dir_}:-L${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
 .endfor
 #
 # Change any buildlink directories in runtime library search paths into
 # the canonical actual installed paths.
 #
 _BLNK_TRANSFORM+=	rpath:${_BLNK_MANGLE_DIR.${BUILDLINK_DIR}}:${LOCALBASE}
-_CWRAPPER_TRANSFORM+=	R:${BUILDLINK_DIR}:${LOCALBASE}
+_CWRAPPER_TRANSFORM+=	rpath:${BUILDLINK_DIR}:${LOCALBASE}
 .if defined(USE_X11) && ${X11_TYPE} != "modular"
 _BLNK_TRANSFORM+=	rpath:${_BLNK_MANGLE_DIR.${BUILDLINK_X11_DIR}}:${X11BASE}
-_CWRAPPER_TRANSFORM+=	R:${BUILDLINK_X11_DIR}:${X11BASE}
+_CWRAPPER_TRANSFORM+=	rpath:${BUILDLINK_X11_DIR}:${X11BASE}
 .endif
 #
 # Protect some directories that we allow to be specified for the runtime
@@ -1042,7 +1042,7 @@ _CWRAPPER_TRANSFORM+=	R:${BUILDLINK_X11_DIR}:${X11BASE}
 #
 .for _dir_ in ${_BLNK_PASSTHRU_DIRS} ${_BLNK_PASSTHRU_RPATHDIRS}
 _BLNK_TRANSFORM+=	rpath:${_dir_}:${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
 .endfor
 #
 # Protect /usr/lib/* as they're all allowed to be specified for the
@@ -1050,7 +1050,7 @@ _CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
 #
 .for _dir_ in ${SYSTEM_DEFAULT_RPATH:S/:/ /g}
 _BLNK_TRANSFORM+=	sub-rpath:${_dir_}:${_BLNK_MANGLE_DIR.${_dir}}
-_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
 .endfor
 #
 # Change references to ${DEPOTBASE}/<pkg> into ${LOCALBASE} so that
@@ -1141,6 +1141,7 @@ _BLNK_TRANSFORM+=	mangle:${_BLNK_MANGLE_DIR.${_dir_}}:${_dir_}
 .endfor
 
 WRAPPER_TRANSFORM_CMDS+=	${_BLNK_TRANSFORM}
+CWRAPPER_TRANSFORM_CMDS+=	${_CWRAPPER_TRANSFORM}
 
 # Generate wrapper scripts for the compiler tools that sanitize the
 # argument list by converting references to ${LOCALBASE} and ${X11BASE}

@@ -104,10 +104,12 @@ MAKE_ENV+=	WRAPPER_REORDER=yes
 # Remove rpath options if _USE_RPATH is "no".
 .if defined(_USE_RPATH) && !empty(_USE_RPATH:M[nN][oO])
 _WRAP_TRANSFORM_CMDS+=	no-rpath
+_CWRAP_TRANSFORM_CMDS+=	no-rpath
 .endif
 
 # Add any package-specified transformations.
 _WRAP_TRANSFORM_CMDS+=	${WRAPPER_TRANSFORM_CMDS}
+_CWRAP_TRANSFORM_CMDS+=	${CWRAPPER_TRANSFORM_CMDS}
 
 # _WRAP_PATH is the path we embed in the wrapper scripts for subsequent
 # calls to the toolchain.  We don't need to wrap them again because they
@@ -499,13 +501,10 @@ ${_WRAP_COOKIE.${_wrappee_}}:
 		       -e "s|@CWRAPPER_PATH@|${PATH}|g"			\
 			${WRAPPER_SRCDIR}/cwrapper.conf			\
 			> ${_CWRAPPER_CONF.${_wrappee_}};		\
+		${_WRAP_GEN_TRANSFORM} cwrapper ${_CWRAP_TRANSFORM_CMDS} \
+			>> ${_CWRAPPER_CONF.${_wrappee_}};		\
 		;;							\
 	esac
-.    for transform_args in ${_CWRAPPER_TRANSFORM.${_wrappee_}:u}	\
-			   ${_CWRAPPER_TRANSFORM:u}
-	${RUN} ${ECHO} "transform=${transform_args:Q}"			\
-		>> ${_CWRAPPER_CONF.${_wrappee_}}
-.    endfor
 .    for unwrap_args in ${_CWRAPPER_UNWRAP.${_wrappee_}:u}		\
 			   ${_CWRAPPER_UNWRAP:u}
 	${RUN} ${ECHO} "unwrap=${unwrap_args:Q}"			\
