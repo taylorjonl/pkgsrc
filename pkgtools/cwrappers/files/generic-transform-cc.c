@@ -335,9 +335,7 @@ generic_transform_cc(struct arglist *args)
 			    strcmp(rule->src, arg->val) == 0)
 				break;
 		}
-		if (rule == NULL)
-			continue;
-		else {
+		if (rule != NULL) {
 			if (rule->dst == NULL) {
 				argument_unlink(args, &arg);
 				continue;
