@@ -146,6 +146,10 @@ gen()
 	##############################################################
 	libpath)
 		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			$echo "transform=l:$1:$2"
+			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			$echo "s|^$1\(/[^$_sep]*\.la[$_sep]\)|$2\1|g"
@@ -206,6 +210,10 @@ gen()
 	##############################################################
 	opt)
 		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			$echo "transform=opt:$1:$2"
+			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			$echo "s|^$1\([$_sep]\)|$2\1|g"
@@ -312,6 +320,10 @@ gen()
 	##############################################################
 	rm-optarg)
 		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			$echo "transform=rm:$1"
+			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
 			$echo "s|^$1[^$_sep]*\([$_sep]\)|\1|g"

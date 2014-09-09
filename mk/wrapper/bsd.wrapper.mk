@@ -72,6 +72,12 @@ PREPEND_PATH+=		${WRAPPER_BINDIR}
 ###
 .if exists(${_COOKIE.barrier})
 
+.if defined(USE_CWRAPPERS) && !empty(USE_CWRAPPERS:M[Yy][Ee][Ss])
+WRAPPER_USE_SYMLINK=	# defined
+CONFIGURE_ENV+=		WRAPPER_CONFIG_DIR=${WRAPPER_CONFIG_DIR}
+MAKE_ENV+=		WRAPPER_CONFIG_DIR=${WRAPPER_CONFIG_DIR}
+.endif
+
 _WRAPPER_DEBUG?=	no
 CONFIGURE_ENV+=		WRAPPER_DEBUG=${_WRAPPER_DEBUG:Q}
 MAKE_ENV+=		WRAPPER_DEBUG=${_WRAPPER_DEBUG:Q}
@@ -184,6 +190,26 @@ _WRAP_ALIASES.IMAKE=	imake
 _WRAP_ALIASES.LD=	ld
 _WRAP_ALIASES.AR=	ar
 _WRAP_ALIASES.RANLIB=	ranlib
+
+_CWRAPPER_PATH.AR=	${PREFIX}/libexec/cwrappers/ar-wrapper
+_CWRAPPER_PATH.AS=	${PREFIX}/libexec/cwrappers/as-wrapper
+_CWRAPPER_PATH.CC=	${PREFIX}/libexec/cwrappers/cc-wrapper
+_CWRAPPER_PATH.CPP=	${PREFIX}/libexec/cwrappers/cpp-wrapper
+_CWRAPPER_PATH.CXX=	${PREFIX}/libexec/cwrappers/c++-wrapper
+_CWRAPPER_PATH.FC=	${PREFIX}/libexec/cwrappers/f77-wrapper
+_CWRAPPER_PATH.IMAKE=	${PREFIX}/libexec/cwrappers/imake-wrapper
+_CWRAPPER_PATH.LD=	${PREFIX}/libexec/cwrappers/ld-wrapper
+_CWRAPPER_PATH.RANLIB=	${PREFIX}/libexec/cwrappers/ranlib-wrapper
+
+_CWRAPPER_CONF.AR=	${WRAPPER_CONFIG_DIR}/ar
+_CWRAPPER_CONF.AS=	${WRAPPER_CONFIG_DIR}/as
+_CWRAPPER_CONF.CC=	${WRAPPER_CONFIG_DIR}/cc
+_CWRAPPER_CONF.CPP=	${WRAPPER_CONFIG_DIR}/cpp
+_CWRAPPER_CONF.CXX=	${WRAPPER_CONFIG_DIR}/c++
+_CWRAPPER_CONF.FC=	${WRAPPER_CONFIG_DIR}/f77
+_CWRAPPER_CONF.IMAKE=	${WRAPPER_CONFIG_DIR}/imake
+_CWRAPPER_CONF.LD=	${WRAPPER_CONFIG_DIR}/ld
+_CWRAPPER_CONF.RANLIB=	${WRAPPER_CONFIG_DIR}/ranlib
 
 # _WRAP_*.<wrappee> variables represent "template methods" of the main
 # wrapper script.  This allows individual wrappers to be customized to
@@ -432,6 +458,58 @@ _WRAP_COOKIE.${_wrappee_}=	${WRAPPER_DIR}/.wrapper_${_wrappee_}_done
 .for _wrappee_ in ${_WRAPPEES_UNIQUE}
 PKG_${_wrappee_}?=	${${_wrappee_}}
 generate-wrappers: ${_WRAP_COOKIE.${_wrappee_}}
+.  if defined(USE_CWRAPPERS) && !empty(USE_CWRAPPERS:M[Yy][Ee][Ss])
+${_WRAP_COOKIE.${_wrappee_}}:
+	${RUN} 								\
+	wrapper="${WRAPPER_${_wrappee_}:C/^/_asdf_/1:M_asdf_*:S/^_asdf_//}"; \
+	if [ -x "$$wrapper" ]; then ${ECHO_WRAPPER_MSG} "=> $$wrapper already exists. Skipping"; exit 0; fi; \
+	${ECHO_WRAPPER_MSG} "=> Creating ${_wrappee_} wrapper: $$wrapper"; \
+        gen_wrapper=yes;						\
+	wrappee="${PKG_${_wrappee_}:C/^/_asdf_/1:M_asdf_*:S/^_asdf_//}"; \
+	case $$wrappee in						\
+	/*)	;;							\
+	*)	save_IFS="$$IFS";					\
+		IFS=":";						\
+		for dir in $${PATH}; do					\
+			IFS="$$save_IFS";				\
+			case $${dir} in					\
+			*${WRAPPER_DIR}*)				\
+				;;					\
+			*)						\
+				if ${TEST} -f "$${dir}/$$wrappee" -o	\
+					   -h "$${dir}/$$wrappee"; then	\
+					wrappee="$${dir}/$$wrappee";	\
+					break;				\
+				fi;					\
+				;;					\
+			esac;						\
+		done;							\
+		IFS="$$save_IFS";					\
+		if ${TEST} ! -x "$$wrappee"; then			\
+			gen_wrapper=no;					\
+			${ECHO_WRAPPER_MSG} "Warning: unable to generate ${_wrappee_} wrapper script: \`$$wrappee'"; \
+		fi;							\
+		;;							\
+	esac;								\
+	case $$gen_wrapper in						\
+	yes)								\
+		${MKDIR} `${DIRNAME} $$wrapper`;			\
+		${LN} -f${WRAPPER_USE_SYMLINK:Ds}			\
+		      ${_CWRAPPER_PATH.${_wrappee_}}			\
+		      ${WRAPPER_${_wrappee_}};				\
+		${MKDIR} ${WRAPPER_CONFIG_DIR};				\
+		${SED} -e "s|@CWRAPPER_WORKLOG@|${WRKLOG}|g"		\
+		       -e "s|@CWRAPPER_EXEC@|$$wrappee|g"		\
+		       -e "s|@CWRAPPER_WRKSRC@|${WRKSRC}|g"		\
+		       -e "s|@CWRAPPER_DEBUG@|${_WRAPPER_DEBUG}|g"	\
+		       -e "s|@CWRAPPER_PATH@|${PATH}|g"			\
+			${WRAPPER_SRCDIR}/cwrapper.conf			\
+			> ${_CWRAPPER_CONF.${_wrappee_}};		\
+		${_WRAP_GEN_TRANSFORM} cwrapper ${_WRAP_TRANSFORM_CMDS}	\
+			>> ${WRAPPER_CONFIG_DIR}/${_wrappee_:tl};	\
+		;;							\
+	esac
+.  else
 ${_WRAP_COOKIE.${_wrappee_}}:						\
 		${_WRAPPER_SH.${_wrappee_}}				\
 		${_WRAP_ARG_PP.${_wrappee_}}				\
@@ -490,6 +568,7 @@ ${_WRAP_COOKIE.${_wrappee_}}:						\
 		;;							\
 	esac
 	${RUN} ${TOUCH} ${TOUCH_FLAGS} ${.TARGET}
+.  endif
 
 .  for _alias_ in ${_WRAP_ALIASES.${_wrappee_}:S/^/${WRAPPER_BINDIR}\//}
 .    if !target(${_alias_})
