@@ -127,6 +127,14 @@ gen()
 			;;
 		esac
 		;;
+	R)
+		case $_action in
+		cwrapper)
+			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+			$echo "transform=R:$1:$2"
+			;;
+		esac
+		;;
 	###############################################################
 	# l:foo:bar[:baz1...]
 	#	Change "-lfoo" into "-lbar [-lbaz...]"
