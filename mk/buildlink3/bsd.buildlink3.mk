@@ -1020,11 +1020,11 @@ _BLNK_TRANSFORM+=	mangle:/usr/lib/../libx32:/usr/libx32
 #
 .for _dir_ in ${COMPILER_INCLUDE_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-I${_dir_}:-I${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	I:${_dir_}:${_dir_}
 .endfor
 .for _dir_ in ${COMPILER_LIB_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-L${_dir_}:-L${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	L:${_dir_}:${_dir_}
 .endfor
 #
 # Change any buildlink directories in runtime library search paths into
