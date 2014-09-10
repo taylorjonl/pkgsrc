@@ -90,7 +90,7 @@ gen()
 		case $_action in
 		cwrapper)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			gen $_action "opt:-I$1:-I$2"
+			$echo "transform=I:$1:$2"
 			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
@@ -113,7 +113,7 @@ gen()
 		case $_action in
 		cwrapper)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			gen $_action "opt:-L$1:-L$2"
+			$echo "transform=L:$1:$2"
 			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
@@ -156,7 +156,7 @@ gen()
 		case $_action in
 		cwrapper)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "transform=l:$1:$2"
+			$echo "transform=R:$1:$2"
 			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
