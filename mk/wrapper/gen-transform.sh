@@ -156,7 +156,7 @@ gen()
 		case $_action in
 		cwrapper)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "transform=R:$1:$2"
+			$echo "transform=P:$1:$2"
 			;;
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
