@@ -501,7 +501,7 @@ ${_WRAP_COOKIE.${_wrappee_}}:
 		       -e "s|@CWRAPPER_PATH@|${PATH}|g"			\
 			${WRAPPER_SRCDIR}/cwrapper.conf			\
 			> ${_CWRAPPER_CONF.${_wrappee_}};		\
-		${_WRAP_GEN_TRANSFORM} cwrapper ${_CWRAP_TRANSFORM_CMDS} \
+		${_WRAP_GEN_TRANSFORM} cwrapper ${_CWRAP_TRANSFORM_CMDS:u} \
 			>> ${_CWRAPPER_CONF.${_wrappee_}};		\
 		;;							\
 	esac

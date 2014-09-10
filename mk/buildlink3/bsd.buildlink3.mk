@@ -1050,7 +1050,7 @@ _CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
 #
 .for _dir_ in ${SYSTEM_DEFAULT_RPATH:S/:/ /g}
 _BLNK_TRANSFORM+=	sub-rpath:${_dir_}:${_BLNK_MANGLE_DIR.${_dir}}
-_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
+#_CWRAPPER_TRANSFORM+=	R:${_dir_}:${_dir_}
 .endfor
 #
 # Change references to ${DEPOTBASE}/<pkg> into ${LOCALBASE} so that
