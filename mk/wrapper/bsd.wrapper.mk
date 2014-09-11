@@ -187,6 +187,8 @@ _WRAP_ALIASES.LD=	ld
 _WRAP_ALIASES.AR=	ar
 _WRAP_ALIASES.RANLIB=	ranlib
 
+#_CWRAPPER_DEBUG=	# defined
+
 _CWRAPPER_PATH.AR=	${PREFIX}/libexec/cwrappers/ar-wrapper
 _CWRAPPER_PATH.AS=	${PREFIX}/libexec/cwrappers/as-wrapper
 _CWRAPPER_PATH.CC=	${PREFIX}/libexec/cwrappers/cc-wrapper
@@ -497,7 +499,7 @@ ${_WRAP_COOKIE.${_wrappee_}}:
 		${SED} -e "s|@CWRAPPER_WORKLOG@|${WRKLOG}|g"		\
 		       -e "s|@CWRAPPER_EXEC@|$$wrappee|g"		\
 		       -e "s|@CWRAPPER_WRKSRC@|${WRKSRC}|g"		\
-		       -e "s|@CWRAPPER_DEBUG@|${_WRAPPER_DEBUG}|g"	\
+		       -e "s|@CWRAPPER_DEBUG@|${_CWRAPPER_DEBUG:U0:D1}|g" \
 		       -e "s|@CWRAPPER_PATH@|${PATH}|g"			\
 			${WRAPPER_SRCDIR}/cwrapper.conf			\
 			> ${_CWRAPPER_CONF.${_wrappee_}};		\
