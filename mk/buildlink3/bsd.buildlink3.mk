@@ -1038,10 +1038,10 @@ _CWRAPPER_TRANSFORM+=	L:${_arg_}:${_arg_}
 # the canonical actual installed paths.
 #
 _BLNK_TRANSFORM+=	rpath:${_BLNK_MANGLE_DIR.${BUILDLINK_DIR}}:${LOCALBASE}
-_CWRAPPER_TRANSFORM+=	rpath:${BUILDLINK_DIR}:${LOCALBASE}
+_CWRAPPER_TRANSFORM+=	R:${BUILDLINK_DIR}:${LOCALBASE}
 .if defined(USE_X11) && ${X11_TYPE} != "modular"
 _BLNK_TRANSFORM+=	rpath:${_BLNK_MANGLE_DIR.${BUILDLINK_X11_DIR}}:${X11BASE}
-_CWRAPPER_TRANSFORM+=	rpath:${BUILDLINK_X11_DIR}:${X11BASE}
+_CWRAPPER_TRANSFORM+=	R:${BUILDLINK_X11_DIR}:${X11BASE}
 .endif
 #
 # Protect some directories that we allow to be specified for the runtime
