@@ -89,7 +89,9 @@ BUILDLINK_TRANSFORM+=	rm:-Wl,-export-dynamic
 BUILDLINK_TRANSFORM+=	rm:-export-dynamic
 
 # Convert GNU ld flags to native SunOS ld flags where possible.
+.if empty(USE_CWRAPPERS:M[Yy][Ee][Ss])
 BUILDLINK_TRANSFORM+=	opt:-Wl,--rpath:-Wl,-R
+.endif
 
 # Solaris has /usr/include/iconv.h, but it's not GNU iconv, so mark it
 # incompatible.
