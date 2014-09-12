@@ -1034,10 +1034,6 @@ _CWRAPPER_TRANSFORM+=	L:${_arg_}:${_arg_}
 .  endfor
 .endfor
 #
-# XXX: protect imake config for cwrappers, not currently buildlinked
-#
-_CWRAPPER_TRANSFORM+=	I:${X11BASE}/lib/X11/config:${X11BASE}/lib/X11/config
-#
 # Change any buildlink directories in runtime library search paths into
 # the canonical actual installed paths.
 #

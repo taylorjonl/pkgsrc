@@ -1336,6 +1336,8 @@ _TOOLS.x11-imake=	imake mkdirhier xmkmf
 MAKEFLAGS+=		TOOLS_IGNORE.${_t_}=
 .    elif !empty(_TOOLS_USE_PKGSRC.${_t_}:M[yY][eE][sS])
 TOOLS_CREATE+=		${_t_}
+BUILDLINK_DEPMETHOD.xorg-cf-files=	build
+.      include "../../x11/xorg-cf-files/buildlink3.mk"
 .      if !empty(_USE_TOOLS:Mitools)
 TOOLS_DEPENDS.${_t_}?=	nbitools>=6.3nb4:../../devel/nbitools
 TOOLS_FIND_PREFIX+=	TOOLS_PREFIX.${_t_}=nbitools
