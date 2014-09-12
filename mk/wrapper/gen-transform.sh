@@ -141,20 +141,37 @@ gen()
 	###############################################################
 	l)
 		$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
+		case $_action in
+		cwrapper)
+			firstarg=
+			nextarg=":"
+			;;
+		*)
+			firstarg="-l"
+			nextarg=" -l"
+			;;
+		esac
 		tolibs=
-		fromlib="-l$1"; shift
+		fromlib="$firstarg$1"; shift
 		while $test $# -gt 0; do
 			case $1 in
 			"")	;;
 			*)	case $tolibs in
-				"")	tolibs="-l$1" ;;
-				*)	tolibs="$tolibs -l$1" ;;
+				"")	tolibs="$firstarg$1" ;;
+				*)	tolibs="$tolibs$nextarg$1" ;;
 				esac
 				;;
 			esac
 			shift
 		done
-		gen $_action "opt:$fromlib:$tolibs"
+		case $_action in
+		cwrapper)
+			$echo "transform=l:$fromlib:$tolibs"
+			;;
+		*)
+			gen $_action "opt:$fromlib:$tolibs"
+			;;
+		esac
 		;;
 	##############################################################
 	# libpath:src:dst
