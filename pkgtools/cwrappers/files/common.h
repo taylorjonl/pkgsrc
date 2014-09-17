@@ -46,6 +46,7 @@
 #include <nbcompat/stdlib.h>
 #endif
 
+#include <stdint.h>
 #include <stdio.h>
 
 extern const char library_name_chars[];

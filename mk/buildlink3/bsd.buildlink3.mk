@@ -1013,6 +1013,10 @@ _BLNK_TRANSFORM+=	mangle:/usr/lib/../lib64:/usr/lib64
 _BLNK_TRANSFORM+=	mangle:/usr/lib/../lib:/usr/lib
 _BLNK_TRANSFORM+=	mangle:/usr/lib/../lib32:/usr/lib32
 _BLNK_TRANSFORM+=	mangle:/usr/lib/../libx32:/usr/libx32
+.  for _dir_ in lib lib32 lib64 libx32
+_CWRAPPER_TRANSFORM+=	L:/lib/../${_dir_}:/${_dir_}
+_CWRAPPER_TRANSFORM+=	L:/usr/lib/../${_dir_}:/usr/${_dir_}
+.  endfor
 .endif
 #
 # Protect -I/usr/include/* and -L/usr/lib/* from transformations (these

@@ -693,6 +693,9 @@ _GCC_LDFLAGS=	# empty
 _GCC_LDFLAGS+=	-L${_dir_} ${COMPILER_RPATH_FLAG}${_dir_}
 .  endfor
 LDFLAGS+=	${_GCC_LDFLAGS}
+.else
+_GCC_ARCHDIR!=		${DIRNAME} `${_CC} -print-libgcc-file-name 2>/dev/null`
+_CWRAPPER_TRANSFORM+=	L:${_GCC_ARCHDIR}:${_GCC_ARCHDIR}
 .endif
 
 # Point the variables that specify the compiler to the installed
