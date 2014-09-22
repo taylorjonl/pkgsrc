@@ -48,6 +48,16 @@ __RCSID("$NetBSD: mi_vector_hash.c,v 1.1 2014/09/17 12:40:56 joerg Exp $");
 
 #include "common.h"
 
+#ifdef __sun
+#include <sys/byteorder.h>
+#define le32toh(x)	LE_32(x)
+#endif
+
+#ifdef __APPLE__
+#include <libkern/OSByteOrder.h>
+#define le32toh(x)	OSSwapLittleToHostInt32(x)
+#endif
+
 static uint16_t
 my_le16dec(const void *buf)
 {
