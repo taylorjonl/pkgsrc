@@ -103,10 +103,12 @@ process_option(struct processing_option *opt, const char *line, size_t len)
 	if (opt->in_lai && opt->last_opt && opt->last_len == len &&
 	    strncmp(opt->last_opt, line, len) == 0)
 		return;
-	if (len >= 11 && strncmp(line, "-Wl,-rpath,", 11) == 0)
-		return; /* No rpath... */
-	if (len >= 15 && strncmp(line, "-Wl,-rpath-link,", 15) == 0)
-		return; /* Still no rpath... */
+	if (!opt->in_relink) {
+		if (len >= 11 && strncmp(line, "-Wl,-rpath,", 11) == 0)
+			return; /* No rpath... */
+		if (len >= 15 && strncmp(line, "-Wl,-rpath-link,", 15) == 0)
+			return; /* Still no rpath... */
+	}
 	if (len > 2 && strncmp(line, "-D", 2) == 0)
 		return; /* No preprocessor options */
 	if (len > 2 && strncmp(line, "-I", 2) == 0)
