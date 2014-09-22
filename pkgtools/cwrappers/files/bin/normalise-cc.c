@@ -137,8 +137,17 @@ normalise_cc(struct arglist *args)
 		}
 		if (arg->val[0] != '-')
 			continue;
-		if (strcmp(arg->val, "-I") == 0 ||
-		    strcmp(arg->val, "-D") == 0 ||
+		if (strcmp(arg->val, "-I") == 0) {
+			if (arg2 == NULL || arg2->val[0] == '-') {
+				warnx("Missing argument for %s", arg->val);
+				argument_unlink(args, &arg);
+			} else {
+				argument_update(arg, concat(arg->val, arg2->val));
+				argument_unlink(args, &arg2);
+			}
+			continue;
+		}
+		if (strcmp(arg->val, "-D") == 0 ||
 		    strcmp(arg->val, "-L") == 0) {
 			if (arg2 == NULL || arg2->val[0] == '-')
 				errx(255, "Missing argument for %s", arg->val);
