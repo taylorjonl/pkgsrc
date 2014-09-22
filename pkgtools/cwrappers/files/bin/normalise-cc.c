@@ -194,7 +194,19 @@ normalise_cc(struct arglist *args)
 			argument_unlink(args, &arg);
 			continue;
 		}
-		if (strncmp(arg->val, "-Wl,-rpath,", 10) == 0) {
+		if (strncmp(arg->val, "-Wl,--rpath=", 12) == 0) {
+			normalise_path_list(args, arg, "-Wl,-rpath,",
+			    arg->val + 12, 1);
+			argument_unlink(args, &arg);
+			continue;
+		}
+		if (strncmp(arg->val, "-Wl,-rpath=", 11) == 0) {
+			normalise_path_list(args, arg, "-Wl,-rpath,",
+			    arg->val + 11, 1);
+			argument_unlink(args, &arg);
+			continue;
+		}
+		if (strncmp(arg->val, "-Wl,-rpath", 10) == 0) {
 			normalise_path_list(args, arg, "-Wl,-rpath,",
 			    arg->val + 10, 1);
 			argument_unlink(args, &arg);
