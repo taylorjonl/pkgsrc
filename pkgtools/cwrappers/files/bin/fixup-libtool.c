@@ -249,6 +249,9 @@ process_variable(FILE *output, const char *lafile, const char *line,
 	size_t i;
 	const char *command;
 
+	if (line[0] == '\0')
+		return;
+
 	for (i = 0; i < LIBPATH_HASH; ++i)
 		TAILQ_INIT(opt.hashtab + i);
 
