@@ -372,10 +372,12 @@ fixup_libtool_la(const char *lafile, int in_lai)
 	}
 	free(line);
 
-	fclose(fp);
-	if (ferror(fp) || fclose(output) || rename(tmp_name, lafile)) {
+	if (ferror(fp) || fclose(fp) ||
+	    ferror(output) || fclose(output) ||
+	    rename(tmp_name, lafile)) {
+		warn("output processing failed");
 		unlink(tmp_name);
-		err(255, "output processing failed");
+		exit(255);
 	}		
 }
 
