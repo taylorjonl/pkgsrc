@@ -30,7 +30,7 @@ BUILDLINK_INCDIRS.ncurses+=	include/ncurses
 .  if empty(BUILDLINK_TREE:Mncursesw) && empty(PKGPATH:Mdevel/ncursesw)
 BUILDLINK_TRANSFORM+=		l:ncursesw:__nonexistent__
 BUILDLINK_TRANSFORM+=		l:curses:${BUILDLINK_LIBNAME.ncurses}
-.  else
+.  elif !empty(BUILDLINK_TREE:Mncursesw) && empty(PKGPATH:Mdevel/ncursesw)
 BUILDLINK_TRANSFORM+=		l:curses:${BUILDLINK_LIBNAME.ncursesw}
 .  endif
 
