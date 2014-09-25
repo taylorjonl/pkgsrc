@@ -1,16 +1,21 @@
-# $NetBSD: Makefile,v 1.56 2013/02/12 23:31:40 tcort Exp $
+# $NetBSD: Makefile,v 1.67 2014/09/25 21:32:33 jmcneill Exp $
 
-BASH_VERSION=		4.2
+BASH_VERSION=		4.3
+BASH_PATCHLEVEL=	025
 
 DISTNAME=	bash-${BASH_VERSION}
-#PKGNAME=	bash-${BASH_VERSION}.${BASH_PATCHLEVEL}
+PKGNAME=	bash-${BASH_VERSION}.${BASH_PATCHLEVEL}
 PKGREVISION=	2
 CATEGORIES=	shells
 MASTER_SITES=	${MASTER_SITE_GNU:=bash/} \
 		ftp://ftp.cwru.edu/pub/bash/
 
-#PATCH_SITES=	${MASTER_SITES:=bash-4.0-patches/}
-#PATCHFILES+=	bash40-001 bash40-002 bash40-003 bash40-004 bash40-005
+PATCH_SITES=	${MASTER_SITES:=bash-4.3-patches/}
+PATCHFILES+=	bash43-001 bash43-002 bash43-003 bash43-004 bash43-005
+PATCHFILES+=	bash43-006 bash43-007 bash43-008 bash43-009 bash43-010
+PATCHFILES+=	bash43-011 bash43-012 bash43-013 bash43-014 bash43-015
+PATCHFILES+=	bash43-016 bash43-017 bash43-018 bash43-019 bash43-020
+PATCHFILES+=	bash43-021 bash43-022 bash43-023 bash43-024 bash43-025
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.gnu.org/software/bash/bash.html
@@ -79,11 +84,27 @@ CONFIGURE_ARGS+=	--enable-job-control
 .if ${OPSYS} == "Darwin"
 CONFIGURE_ARGS+=		--with-installed-readline
 
-USE_GNU_READLINE=		yes
 BUILDLINK_API_DEPENDS.readline+=	readline>=6.0
-
 .include "../../devel/readline/buildlink3.mk"
 .endif
+
+.if !empty(USE_CROSS_COMPILE:M[yY][eE][sS]) && ${OPSYS} == "NetBSD"
+CONFIGURE_ENV+=		CC_FOR_BUILD=${NATIVE_CC:Q}
+CONFIGURE_ENV+=		ac_cv_c_long_long=yes
+CONFIGURE_ENV+=		ac_cv_c_long_double=yes
+CONFIGURE_ENV+=		bash_cv_type_rlimit=yes
+CONFIGURE_ENV+=		bash_cv_getcwd_malloc=yes
+CONFIGURE_ENV+=		bash_cv_func_sigsetjmp=yes
+CONFIGURE_ENV+=		bash_cv_printf_a_format=yes
+CONFIGURE_ENV+=		bash_cv_job_control_missing=present
+CONFIGURE_ENV+=		bash_cv_sys_named_pipes=present
+CONFIGURE_ENV+=		bash_cv_unusable_rtsigs=no
+CONFIGURE_ENV+=		bash_cv_func_ctype_nonascii=yes
+CONFIGURE_ENV+=		bash_cv_wexitstatus_offset=8
+.endif
+
+pre-configure:
+	${RM} -f ${WRKSRC}/y.tab.c
 
 post-install:
 	${INSTALL_MAN} ${WRKSRC}/doc/bash.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
