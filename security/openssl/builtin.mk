@@ -3,9 +3,13 @@
 BUILTIN_PKG:=	openssl
 
 BUILTIN_FIND_LIBS:=		crypto des ssl
-BUILTIN_FIND_HEADERS_VAR:=	H_OPENSSLCONF H_OPENSSLV
-BUILTIN_FIND_HEADERS.H_OPENSSLCONF=	openssl/opensslconf.h
-BUILTIN_FIND_HEADERS.H_OPENSSLV=	openssl/opensslv.h
+BUILTIN_FIND_FILES_VAR:=	H_OPENSSLCONF H_OPENSSLV
+BUILTIN_FIND_FILES.H_OPENSSLCONF= /usr/include/openssl/opensslconf.h \
+				/usr/sfw/include/openssl/opensslconf.h \
+				/boot/common/include/openssl/opensslconf.h
+BUILTIN_FIND_FILES.H_OPENSSLV= /usr/include/openssl/opensslv.h \
+				/usr/sfw/include/openssl/opensslv.h \
+				/boot/common/include/openssl/opensslv.h
 
 .include "../../mk/buildlink3/bsd.builtin.mk"
 
