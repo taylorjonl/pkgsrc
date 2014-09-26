@@ -33,7 +33,8 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 .include "../../mk/bsd.prefs.mk"
 
 .if ${OPSYS} == "SunOS" && exists(/usr/bin/bash)
-CONFIGURE_ARGS+=	--with-defshell=/usr/bin/bash
+DEPENDS+=		dash-[0-9]*:../../shells/dash
+CONFIGURE_ARGS+=	--with-defshell=${PREFIX}/bin/dash
 .elif ${OPSYS} == "SunOS" || ${OPSYS} == "OSF1" || ${OPSYS} == "IRIX" || ${OPSYS} == "AIX"
 DEPENDS+=		pdksh-[0-9]*:../../shells/pdksh
 CONFIGURE_ARGS+=	--with-defshell=${PREFIX}/bin/pdksh
