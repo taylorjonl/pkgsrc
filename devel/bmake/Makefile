@@ -32,11 +32,17 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 
 .include "../../mk/bsd.prefs.mk"
 
-.if ${OPSYS} == "SunOS" && exists(/usr/bin/bash)
-CONFIGURE_ARGS+=	--with-defshell=/usr/bin/bash
-.elif ${OPSYS} == "SunOS" || ${OPSYS} == "OSF1" || ${OPSYS} == "IRIX" || ${OPSYS} == "AIX"
+# Use the shell we bootstrapped with or the default for this platform.  The
+# pattern matching here isn't ideal but due to the bootstrap workdir there's
+# no way to do a full path match.
+.if !empty(TOOLS_PLATFORM.sh:M?*/bin/dash)
+DEPENDS+=		dash-[0-9]*:../../shells/dash
+CONFIGURE_ARGS+=	--with-defshell=${PREFIX}/bin/dash
+.elif !empty(TOOLS_PLATFORM.sh:M?*/bin/pdksh)
 DEPENDS+=		pdksh-[0-9]*:../../shells/pdksh
 CONFIGURE_ARGS+=	--with-defshell=${PREFIX}/bin/pdksh
+.else
+CONFIGURE_ARGS+=	--with-defshell=${TOOLS_PLATFORM.sh}
 .endif
 .if ${OPSYS} == "Interix"
 MAKE_ENV+=		XDEFS=-DUSE_SELECT

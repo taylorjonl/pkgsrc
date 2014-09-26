@@ -1,0 +1,9 @@
+$NetBSD$
+
+The "manual-*" patch files are used to maintain the pkgsrc version of
+dash.  files/ should contain an unmodified extract of the dash release
+tarball, then these patches are applied on top, with both the modified
+file and its patch committed to pkgsrc.
+
+This ensures all our changes are correctly documented and makes upgrades
+to newer releases easier.

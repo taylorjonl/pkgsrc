@@ -1,0 +1,28 @@
+$NetBSD$
+
+Check for stat64 in sys/stat.h before redefining.
+
+--- configure.orig	2015-11-30 17:52:08.000000000 +0000
++++ configure
+@@ -4663,6 +4663,11 @@ if test "x$ac_cv_func_stat64" = xyes; th
+ 
+ else
+ 
++ac_fn_c_check_decl "$LINENO" "stat64" "ac_cv_have_decl_stat64" "#include <sys/stat.h>
++"
++if test "x$ac_cv_have_decl_stat64" = xyes; then :
++
++else
+ 
+ $as_echo "#define fstat64 fstat" >>confdefs.h
+ 
+@@ -4676,6 +4681,9 @@ $as_echo "#define stat64 stat" >>confdef
+ fi
+ 
+ 
++fi
++
++
+ ac_fn_c_check_func "$LINENO" "open64" "ac_cv_func_open64"
+ if test "x$ac_cv_func_open64" = xyes; then :
+ 
