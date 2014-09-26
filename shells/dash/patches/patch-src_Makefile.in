@@ -1,0 +1,46 @@
+$NetBSD$
+
+Expand rules to avoid gmake-isms.
+
+--- src/Makefile.in.orig	2015-11-30 16:33:12.000000000 +0000
++++ src/Makefile.in
+@@ -691,30 +691,30 @@ uninstall-man: uninstall-man1
+ 
+ 
+ token.h token_vars.h: mktokens
+-	sh $^
++	sh mktokens
+ 
+ builtins.def: builtins.def.in $(top_builddir)/config.h
+-	$(COMPILE) -E -x c -o $@ $<
++	$(COMPILE) -E -x c -o $@ builtins.def.in
+ 
+ builtins.c builtins.h: mkbuiltins builtins.def
+-	sh $^
++	sh mkbuiltins builtins.def
+ 
+ init.c: mkinit $(dash_CFILES)
+-	./$^
++	./mkinit $(dash_CFILES)
+ 
+ nodes.c nodes.h: mknodes nodetypes nodes.c.pat
+-	./$^
++	./mknodes nodetypes nodes.c.pat
+ 
+ syntax.c syntax.h: mksyntax
+-	./$^
++	./mksyntax
+ 
+ signames.c: mksignames
+-	./$^
++	./mksignames
+ 
+ mksyntax: token.h
+ 
+-$(HELPERS): %: %.c
+-	$(COMPILE_FOR_BUILD) -o $@ $<
++$(HELPERS):
++	$(COMPILE_FOR_BUILD) -o $@ $@.c
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
