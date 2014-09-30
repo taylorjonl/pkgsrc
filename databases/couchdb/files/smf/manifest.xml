@@ -13,7 +13,7 @@
     <dependency name='@SMF_NAME@-epmd' grouping='require_all' restart_on='none' type='service'>
       <service_fmri value='svc:/@SMF_PREFIX@/epmd' />
     </dependency>
-    <method_context working_directory="@COUCH_DBDIR@">
+    <method_context working_directory="@COUCH_DBDIR@" project="couchdb">
       <method_credential user="@COUCH_USER@" group="@COUCH_GROUP@" />
       <method_environment>
         <envvar name="PATH" value="@PREFIX@/sbin:@PREFIX@/bin:/sbin:/usr/sbin:/usr/bin" />
