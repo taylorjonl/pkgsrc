@@ -11,4 +11,5 @@ SHA1 (patch-lib-careadlinkat.h) = f236d182e609bf7111c70e83e10806a75a220c29
 SHA1 (patch-lisp_emacs-lisp_find-gc.el) = e1264cd01c67d590e3ca5fa5d3dd55698e1e6de5
 SHA1 (patch-lisp_gnus_gnus-fun.el) = 19fabb133565ab2530eeb488d3383eabfb7748cc
 SHA1 (patch-lisp_net_tramp-sh.el) = e5f5fc41a083ee906c3e56cfdfdbeb491402a5c7
+SHA1 (patch-src_alloc.c) = 6066b78b57575d3e01bf1a9f0716606f4f938824
 SHA1 (patch-src_image.c) = 5b98fbfd012437674533556229ee747000175dfa
