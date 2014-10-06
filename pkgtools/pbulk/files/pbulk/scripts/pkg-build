@@ -41,7 +41,8 @@ fi
 logpkgtime() {
 	stop_time=`date '+%s'`
 	build_time=`expr ${stop_time} - ${start_time}`
-	echo "${pkgname}:${build_time}" >>${loc}/pkgtimes
+	mkdir -p ${packages}/pkgtimes
+	echo "${build_time}" >${packages}/pkgtimes/${pkgname}.pkgtime
 }
 
 cleanup() {
