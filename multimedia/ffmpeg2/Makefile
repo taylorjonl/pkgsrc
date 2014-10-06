@@ -38,6 +38,9 @@ post-install:
 
 .include "../../mk/compiler.mk"
 
+# XXX: Incompatible with our disabling -fomit-frame-pointer
+CONFIGURE_ARGS+=	--disable-asm
+
 # disable asm on i386 for non-gcc and gcc < 4.2
 # no alignment options needed for gcc >= 4.6 on i386
 .if ${MACHINE_ARCH} == "i386"
