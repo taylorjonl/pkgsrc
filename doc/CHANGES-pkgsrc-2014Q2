@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2014Q2,v 1.1.2.13 2014/07/17 22:32:56 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2014Q2,v 1.1.2.39 2014/09/30 17:03:19 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2014Q2 branch:
@@ -56,4 +56,98 @@ Pullup ticket #4457 - requested by taca
 www/drupal6: security update
 Pullup ticket #4458 - requested by obache
 textproc/json-c: bug fix patch
-
+Pullup ticket #4459 - requested by obache
+sysutils/libpciaccess: build fix for dependent packages under NetBSD 5.*
+Pullup ticket #4462 - requested by markd
+x11/kdelibs4: security patch
+Pullup ticket #4460 - requested by obache
+emulators/suse131_libdbus: security update
+Pullup ticket #4461 - requested by tron
+www/apache24: security update
+Pullup ticket #4464 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #4465 - requested by dholland
+lang/openjdk7: fix for netbsd-5
+Pullup ticket #4467 - requested by wiz
+net/tor: security update
+Pullup ticket #4468 - requested by obache
+emulators/suse131_mozilla-nss: security update
+Pullup ticket #4469 - requested by tron
+print/xpdf: security update
+Pullup ticket #4470 - requested by tron
+net/wireshark: security update
+Pullup ticket #4471 - requested by obache
+security/openssl: security update
+Pullup ticket #4472 - requested by prlw1
+lang/gcc44: build fix
+Pullup ticket #4473 - requested by wiz
+www/serf: security update
+Pullup ticket #4475 - requested by prlw1
+lang/php53: security update
+Pullup ticket #4476 - requested by taca
+www/drupal7: security update
+Pullup ticket #4477 - requested by taca
+www/drupal6; security update
+Pullup ticket #4478 - requested by wiz
+x11/gnome-desktop3: build fix
+Pullup ticket #4479 - requested by wiz
+security/gpgme: security update
+Pullup ticket #4480 - requested by obache
+graphics/py-Pillow: security update
+Pullup ticket #4481 - requested by obache
+emulators/suse131_openssl: security update
+Pullup ticket #4482 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4483 - requested by obache
+emulators/suse131_libtiff: security update
+Pullup ticket #4484 - requested by obache
+emulators/suse131_krb5: security update
+Pullup ticket #4486 - requested by taca
+lang/php54: security update
+Pullup ticket #4487 - requested by tron
+lang/php55: security update
+Pullup ticket #4488 - requested by tron
+lang/ruby200-base: security patch
+Pullup ticket #4489 - requested by tron
+lang/ruby21-base: security patch
+Pullup ticket #4474 - requested by tron
+mk/platform/Darwin.mk: build fix
+Pullup ticket #4485 - requested by tron
+lang/perl5: build fix
+Pullup ticket #4490 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #4491 - requested by taca
+www/squid3: security update
+Pullup ticket #4496 - requested by he
+devel/java-subversion: security update
+devel/p5-subversion: security update
+devel/py-subversion: security update
+devel/ruby-subversion: security update
+devel/subversion-base: security update
+www/ap2-subversion: security update
+Pullup ticket #4497 - requested by obache
+emulators/suse131_base: security update
+Pullup ticket #4498 - requested by he
+devel/p5-subversion: security update
+Pullup ticket #4495 - requested by obache
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4499 - requested by morr
+net/haproxy: security update
+Pullup ticket #4494 - requested by rodent
+net/socat: security update
+Pullup ticket #4501 - requested by he
+www/apache22: security update
+Pullup ticket #4500 - requested by tron
+net/wireshark: security update
+Pullup ticket #4502 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #4503 - requested by tron
+shells/bash: security update
+Pullup ticket #4504 - requested by tron
+shells/bash: security patch
+Pullup ticket #4505 - requested by bouyer
+sysutils/xenkernel41: security patch
+Pullup ticket #4506 - requested by bouyer
+sysutils/xenkernel42: security patch
+Pullup ticket #4507 - requested by spz
+lang/perl5: security patch
