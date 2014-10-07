@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.1 2014/07/14 15:30:10 fhajny Exp $
+# $NetBSD: options.mk,v 1.1.2.2 2014/09/13 18:13:24 tron Exp $
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.haproxy
 PKG_SUPPORTED_OPTIONS=	pcre ssl

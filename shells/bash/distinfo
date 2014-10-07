@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.33 2014/09/25 20:28:32 christos Exp $
+$NetBSD: distinfo,v 1.29.4.2 2014/09/25 18:08:56 spz Exp $
 
 SHA1 (bash-4.3.tar.gz) = 45ac3c5727e7262334f4dfadecdf601b39434e84
 RMD160 (bash-4.3.tar.gz) = cd21a9f51ea7780994d4e2c9c7d16d5eb000f845

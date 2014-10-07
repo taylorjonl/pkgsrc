@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.67 2014/09/25 21:32:33 jmcneill Exp $
+# $NetBSD: Makefile,v 1.61.4.2 2014/09/25 18:08:56 spz Exp $
 
 BASH_VERSION=		4.3
 BASH_PATCHLEVEL=	025

@@ -1,4 +1,4 @@
-$NetBSD: patch-standard_h,v 1.1 2014/07/14 15:30:10 fhajny Exp $
+$NetBSD: patch-standard_h,v 1.1.2.2 2014/09/13 18:13:24 tron Exp $
 
 Remove local version of popcount(3), conflicts w/ libc.
 

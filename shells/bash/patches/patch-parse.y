@@ -1,4 +1,4 @@
-$NetBSD: patch-parse.y,v 1.1 2014/09/25 14:02:34 tron Exp $
+$NetBSD: patch-parse.y,v 1.1.2.2 2014/09/25 18:08:56 spz Exp $
 
 Fix for CVE-2014-7169 taken from here:
 
