@@ -71,6 +71,7 @@ SUBST_STAGE.fix-nm=		pre-configure
 SUBST_FILES.fix-nm=		src/runtime/Config.x86-64-sunos
 SUBST_FILES.fix-nm+=		src/runtime/Config.x86-sunos
 SUBST_SED.fix-nm=		-e 's,nm ,/usr/bin/nm ,'
+SUBST_SED.fix-nm+=		-e "s,ggrep ,${EGREP} ,"
 
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)

@@ -63,13 +63,6 @@ SYMLINKS=		bin/gtar ${PKGGNUDIR}bin/tar \
 SYMLINKS+=		libexec/grmt ${PKGGNUDIR}libexec/rmt
 .endif
 
-files/gtar.1: build
-	${ECHO} .\\\" > ${FILESDIR}/gtar.1
-	${ECHO} .\\\" \$$NetBSD\$$ >> ${FILESDIR}/gtar.1
-	help2man --name "The GNU version of the tar archiving utility" \
-		--info-page tar ${WRKSRC}/src/tar | \
-		${SED} '/help2man/d' >> ${FILESDIR}/gtar.1
-
 post-install:
 	${INSTALL_MAN} ${FILESDIR}/gtar.1 \
 		${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/gtar.1
