@@ -1,4 +1,4 @@
-$NetBSD: patch-ac,v 1.1.1.1 2010/11/05 12:00:39 adam Exp $
+$NetBSD: patch-ac,v 1.1.1.1.32.2 2014/10/10 07:42:55 tron Exp $
 
 --- doc/example-config/conf.d/10-ssl.conf.orig	2010-05-24 14:35:40.000000000 +0000
 +++ doc/example-config/conf.d/10-ssl.conf
