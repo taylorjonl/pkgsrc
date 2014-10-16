@@ -1,6 +1,6 @@
 # $NetBSD: Makefile,v 1.197 2014/08/21 15:48:52 wiz Exp $
 
-DISTNAME=	openssl-1.0.1i
+DISTNAME=	openssl-1.0.1j
 MASTER_SITES=	http://ftp.openssl.org/source/
 SVR4_PKGNAME=	ossl
 CATEGORIES=	security
