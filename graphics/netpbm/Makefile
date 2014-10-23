@@ -91,9 +91,7 @@ pre-install:
 
 post-install:
 	cd ${STAGEDIR} && 					\
-	${MKDIR} -p lib${LIBARCHSUFFIX} &&			\
-	${MV} link/* lib${LIBARCHSUFFIX} && 			\
-	${RM} -rf link man/web && 				\
+	${RM} -rf man/web && 					\
 	${MKDIR} share &&					\
 	${MV} misc share/netpbm && 				\
 	${CHOWN} -R ${BINOWN}:${BINGRP} . &&			\
