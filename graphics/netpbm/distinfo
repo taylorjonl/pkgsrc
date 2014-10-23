@@ -6,3 +6,5 @@ Size (netpbm-10.67.05.tar.gz) = 2698862 bytes
 SHA1 (netpbm-docs-r2273.tar.gz) = 2931c87bbb2b3db9ac729f317b46972afeba7fb0
 RMD160 (netpbm-docs-r2273.tar.gz) = 31a0937cc3c650a0cea7b86771faabc86dbdeafb
 Size (netpbm-docs-r2273.tar.gz) = 447100 bytes
+SHA1 (patch-common.mk) = f590cc66e0fe6a07e848b9b46662bca350557bea
+SHA1 (patch-lib_Makefile) = 3f93bd24c53aa1f22aa43545d7ca5422af8e78ca

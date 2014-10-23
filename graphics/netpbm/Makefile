@@ -90,8 +90,7 @@ pre-install:
 
 post-install:
 	cd ${STAGEDIR} && 					\
-	${MV} link/* lib && 					\
-	${RM} -rf link man/web && 				\
+	${RM} -rf man/web && 					\
 	${MKDIR} share &&					\
 	${MV} misc share/netpbm && 				\
 	${CHOWN} -R ${BINOWN}:${BINGRP} . &&			\
