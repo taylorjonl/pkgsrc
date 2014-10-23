@@ -10,4 +10,4 @@ $NetBSD: patch-Makefile.am,v 1.1 2013/07/15 15:14:29 ryoon Exp $
  pkgconfig_DATA = libedit.pc
 +
 +install-data-local:
-+	cd ${DESTDIR}${PREFIX}/include/editline && ln -s readline.h history.h
++	cd ${DESTDIR}${PREFIX}/include/editline && ln -sf readline.h history.h
