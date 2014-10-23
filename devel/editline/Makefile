@@ -13,6 +13,7 @@ LICENSE=		modified-bsd
 
 PKGCONFIG_OVERRIDE+=	libedit.pc.in
 
+USE_MULTIARCH=		lib
 USE_LIBTOOL=		yes
 GNU_CONFIGURE=		yes
 USE_LANGUAGES=		c c++
