@@ -59,6 +59,15 @@ SUBST_FILES.xopen+=	lib/pmfileio.c lib/libpam.c lib/colorname.c
 SUBST_SED.xopen=	-e '/define.*_XOPEN_SOURCE/s/600/500/g'
 .endif
 
+# Fix multiarch installation destination
+# assumes respective patches in place.
+SUBST_CLASSES+=		arch
+SUBST_STAGE.arch=	pre-configure
+SUBST_MESSAGE.arch=	Fixing multiarch target
+SUBST_FILES.arch=	common.mk lib/Makefile
+SUBST_SED.arch=		-e 's, lib , lib$$(LIBARCHSUFFIX) ,'
+SUBST_SED.arch+=	-e 's,$$(PKGDIR)/lib,$$(PKGDIR)/lib$$(LIBARCHSUFFIX),g'
+
 # only used if NEED_RUNTIME_PATH is set, so set it unconditionally
 MAKE_FLAGS+=	NETPBMLIB_RUNTIME_PATH=${PREFIX}
 
