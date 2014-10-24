@@ -12,6 +12,12 @@ NO_BUILD=		yes
 
 .include "../../devel/boost-jam/bjam.mk"
 
+post-configure:
+	{ ${ECHO};                                                              \
+	  ${ECHO} "#if defined(BOOST_HAS_INT128) && !defined(__x86_64__)";      \
+	  ${ECHO} "#undef BOOST_HAS_INT128";                                    \
+	  ${ECHO} "#endif"; } >> ${WRKSRC}/boost/config/user.hpp
+
 do-install: bjam-install
 	${FIND} ${DESTDIR}${PREFIX}/include/boost \
 		-type f -print | ${XARGS} ${CHOWN} ${SHAREOWN}:${SHAREGRP}
