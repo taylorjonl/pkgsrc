@@ -5,6 +5,9 @@ CATEGORIES=	chat
 MASTER_SITES=	http://www.process-one.net/downloads/ejabberd/${PKGVERSION_NOREV}/
 EXTRACT_SUFX=	.tgz
 
+DISTFILES+=	${DEFAULT_DISTFILES} ${DISTNAME}-deps.tar.gz
+SITES.${DISTNAME}-deps.tar.gz=	ftp://ftp.NetBSD.org/pub/NetBSD/misc/fhajny/
+
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.ejabberd.im/
 COMMENT=	Free and Open Source distributed fault-tolerant Jabber server
@@ -82,6 +85,9 @@ SPECIAL_PERMS+=		sbin/ejabberdctl ${ROOT_USER} ${EJABBERD_GROUP} 0750
 
 REPLACE_SH=		ejabberdctl.template tools/captcha.sh
 
+post-extract:
+	${LN} -s ${WRKDIR}/deps ${WRKSRC}/
+
 post-patch:
 	${RM} -f ${WRKSRC}/doc/guide.tex.orig
 
@@ -106,8 +112,6 @@ SUBST_SED.paths+=	-e 's,@DISTNAME@,${DISTNAME},g'
 
 post-configure:
 	cd ${WRKSRC} && ${BUILD_MAKE_CMD} deps
-	${PATCH} -p0 ${WRKSRC}/deps/p1_iconv/rebar.config \
-	  < ${FILESDIR}/deps_p1__iconv_rebar.config.patch
 
 .include "../../converters/libiconv/buildlink3.mk"
 .include "../../devel/zlib/buildlink3.mk"
