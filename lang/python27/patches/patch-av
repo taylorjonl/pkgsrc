@@ -1,12 +1,12 @@
-$NetBSD: patch-av,v 1.1.1.1 2011/02/22 08:52:01 obache Exp $
+$NetBSD: patch-av,v 1.1.1.1.30.1 2014/11/03 14:12:52 tron Exp $
 
 Add a knob (enviroment variable) for disabling installation of egg metadata
 in extensions until we have infrastructure in place for dealing w/ it.
 
 Support multiarch.
 
---- Lib/distutils/command/install.py.orig	Mon Apr  9 23:07:29 2012
-+++ Lib/distutils/command/install.py	Thu Sep 27 12:08:45 2012
+--- Lib/distutils/command/install.py.orig	2014-06-30 02:05:25.000000000 +0000
++++ Lib/distutils/command/install.py
 @@ -41,8 +41,8 @@
  
  INSTALL_SCHEMES = {
@@ -37,7 +37,7 @@ Support multiarch.
                             }
          self.expand_basedirs()
  
-@@ -666,7 +671,8 @@
+@@ -666,7 +671,8 @@ class install (Command):
                      ('install_headers', has_headers),
                      ('install_scripts', has_scripts),
                      ('install_data',    has_data),
