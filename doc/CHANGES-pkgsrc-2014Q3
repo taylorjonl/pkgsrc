@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2014Q3,v 1.1.2.6 2014/10/10 12:44:30 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2014Q3,v 1.1.2.15 2014/11/03 19:44:54 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2014Q3 branch:
@@ -27,4 +27,40 @@ Pullup ticket #4509 - requested by tron
 mail/spamassassin: bug fix
 Pullup ticket #4515 - requested by tron
 databases/phpmyadmin: security update
-
+Pullup ticket #4522 - requested by taca
+www/drupal7: security update
+Pullup ticket #4523 - requested by agc
+sysutils/libvirt: security update
+Pullup ticket #4524 - requested by taca
+lang/php55: security update
+Pullup ticket #4525 - requested by taca
+lang/php54: security update
+Pullup ticket #4526 - requested by taca
+graphics/php-exif: security patch
+lang/php53: security patch
+net/php-xmlrpc: security patch
+Pullup ticket #4527 - requested by taca
+www/typo3_45: security update
+Pullup ticket #4528 - requested by taca
+www/typo3_47: security update
+Pullup ticket #4529 - requested by take
+www/typo3_61: security update
+Pullup ticket #4531 - requested by he
+security/libgpg-error: bug fix patch
+Pullup ticket #4532 - requested by taca
+x11/ruby-tk: bug fix patch
+Pullup ticket #4534 - requested by taca
+lang/ruby200-base: bug fix update
+Pullup ticket #4533 - requested by taca
+lang/ruby193-base: security update
+Pullup ticket #4535 - requested by taca
+lang/ruby21-base: security update
+Pullup ticket #4530 - requested by tron
+databases/phpmyadmin: security update
+Pullup ticket #4536 - requested by spz
+lang/python27: security patch
+Pullup ticket #4538 - requested by drochner
+textproc/libxml2: security update
+textproc/py-libxml2: security update
+Pullup ticket #4539 - requested by drochner
+net/wget: security update

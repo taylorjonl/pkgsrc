@@ -1,10 +1,10 @@
-$NetBSD: patch-au,v 1.6 2013/04/12 09:03:41 adam Exp $
+$NetBSD: patch-au,v 1.6.12.1 2014/11/03 14:12:52 tron Exp $
 
 Fix for unpriviliged build.
 
 http://hg.python.org/cpython/rev/a0f43f4481e0
 
---- Makefile.pre.in.orig	2013-05-12 03:32:49.000000000 +0000
+--- Makefile.pre.in.orig	2014-06-30 02:05:39.000000000 +0000
 +++ Makefile.pre.in
 @@ -120,7 +120,7 @@ SO=		@SO@
  LDSHARED=	@LDSHARED@ $(LDFLAGS)
@@ -15,7 +15,7 @@ http://hg.python.org/cpython/rev/a0f43f4481e0
  
  # Executable suffix (.exe on Windows and Mac OS X)
  EXE=		@EXEEXT@
-@@ -494,7 +494,7 @@ gdbhooks: $(BUILDPYTHON)-gdb.py
+@@ -499,7 +499,7 @@ gdbhooks: $(BUILDPYTHON)-gdb.py
  
  SRC_GDB_HOOKS=$(srcdir)/Tools/gdb/libpython.py
  $(BUILDPYTHON)-gdb.py: $(SRC_GDB_HOOKS)
