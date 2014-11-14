@@ -14,6 +14,12 @@ PKG_APACHE_ACCEPTED=	apache22 apache24
 
 CONFLICTS=	ap-auth-kerb-[0-9]*
 
+.include "../../mk/bsd.prefs.mk"
+
+.if ${OPSYS} == "SunOS"
+USE_BUILTIN.mit-krb5=	no
+.endif
+
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--without-krb4
 CONFIGURE_ARGS+=	--with-apache=${BUILDLINK_PREFIX.apache}
