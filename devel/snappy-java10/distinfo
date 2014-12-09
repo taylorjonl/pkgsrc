@@ -9,5 +9,5 @@ Size (snappy-java10/snappy-java-1.0.5.jar) = 1272779 bytes
 SHA1 (snappy-java10/snappy-java-1.0.5.tar.gz) = 61c9585aa64eba6cec77f9af61f0f5ea6fd418fb
 RMD160 (snappy-java10/snappy-java-1.0.5.tar.gz) = 65cf54742b55f4797dcc560215cca5cae1a11973
 Size (snappy-java10/snappy-java-1.0.5.tar.gz) = 5739368 bytes
-SHA1 (patch-Makefile) = da9cf7b0ff00374f3a45da06880b87bc9a1c729e
-SHA1 (patch-Makefile.common) = 9403c5f8a66f65dcd2b32f90c77d15bb7f196b18
+SHA1 (patch-Makefile) = 1131f36b2b5532a5e84023b072e8a5bf41a9ad81
+SHA1 (patch-Makefile.common) = 83eeaf91c7dbd6ac3c4b3405d53acec9caa260aa
