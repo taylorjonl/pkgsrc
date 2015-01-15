@@ -458,7 +458,7 @@ $NetBSD: patch-ab,v 1.84 2014/09/10 10:44:58 richard Exp $
 +	      # Commands to make compiler produce verbose output that lists
 +	      # what "hidden" libraries, object files and flags are used when
 +	      # linking a shared library.
-+	      output_verbose_link_cmd='$CC -shared $CFLAGS -v conftest.$objext 2>&1 | $GREP -v "^Configured with:" | $GREP "\-L"'
++	      output_verbose_link_cmd=func_echo_all
  
  	      hardcode_libdir_flag_spec_CXX='${wl}-R $wl$libdir'
  	      case $host_os in
