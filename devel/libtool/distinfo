@@ -5,6 +5,6 @@ RMD160 (libtool-2.4.2.tar.gz) = b7153f3f1e1c50d8c04787cafccd4e19af62ec7d
 SHA512 (libtool-2.4.2.tar.gz) = 0e54af7bbec376f943f2b8e4f13631fe5627b099a37a5f0252e12bade76473b0a36a673529d594778064cd8632abdc43d8a20883d66d6b27738861afbb7e211d
 Size (libtool-2.4.2.tar.gz) = 2632347 bytes
 SHA1 (patch-aa) = 8fa167bebf27b7bc3008edd61408a0aede6bdf69
-SHA1 (patch-ab) = 4bf7e3391791a1dda353d4abf3290e4c87be1f9a
+SHA1 (patch-ab) = 71da4342d3916a040e4f21cd06a4a2428dc679c2
 SHA1 (patch-ac) = c0cf65122a9469d0599cc4a35efbf45d5584b57c
 SHA1 (patch-ad) = 48c3832e9205777832ef2a6334033ff6099be8a4
