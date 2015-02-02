@@ -60,6 +60,10 @@ PLIST_VARS+=		notdarwin
 PLIST.notdarwin=	yes
 .endif
 
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ARGS+=	--disable-xlocale
+.endif
+
 post-configure:
 	echo 'install_qadll: install_xmldll' >> ${WRKSRC}/Makefile
 
