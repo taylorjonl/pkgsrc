@@ -12,6 +12,7 @@ LICENSE=		modified-bsd
 
 AUTO_MKDIRS=		yes
 GNU_CONFIGURE=		yes
+USE_FEATURES=		nbcompat
 
 do-extract:
 	@${CP} -R ${FILESDIR} ${WRKSRC}

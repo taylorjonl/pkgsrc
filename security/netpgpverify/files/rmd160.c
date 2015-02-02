@@ -30,7 +30,10 @@
  * ftp://ftp.rsasecurity.com/pub/cryptobytes/crypto3n2.pdf
  */
 
+#include <nbcompat.h>
+#if HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
+#endif
 
 #include <string.h>
 

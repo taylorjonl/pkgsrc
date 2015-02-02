@@ -29,7 +29,10 @@
  * documentation and/or software.
  */
 
+#include <nbcompat.h>
+#if HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
+#endif
 #include <sys/types.h>
 #include <assert.h>
 #include <string.h>

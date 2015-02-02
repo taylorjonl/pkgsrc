@@ -17,7 +17,10 @@
 
 #define SHA1HANDSOFF		/* Copies data before messing with it. */
 
+#include <nbcompat.h>
+#if HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
+#endif
 
 #include <string.h>
 

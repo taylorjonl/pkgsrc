@@ -17,7 +17,7 @@ SSL_SUPPORT=	@ssl_support@
 CC=		@CC@
 CCLD=		$(CC)
 .if empty(BOOTSTRAP)
-LIBS=		-linstall -lfetch @LIBS@
+LIBS=		-linstall -lfetch -lnetpgpverify @LIBS@
 .if !empty(SSL_SUPPORT)
 LIBS+=		-lssl -lcrypto
 .endif
