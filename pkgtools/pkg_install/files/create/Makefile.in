@@ -26,7 +26,7 @@ PROG=		pkg_create
 SSL_SUPPORT=	@ssl_support@
 
 .if empty(BOOTSTRAP)
-LIBS=		-linstall -larchive -lfetch @LIBS@
+LIBS=		-linstall -larchive -lfetch -lnetpgpverify @LIBS@
 .if !empty(SSL_SUPPORT)
 LIBS+=		-lssl -lcrypto
 .endif

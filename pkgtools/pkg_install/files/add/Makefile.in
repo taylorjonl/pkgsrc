@@ -20,7 +20,7 @@ LDFLAGS=	@LDFLAGS@ -L../lib
 
 SSL_SUPPORT=	@ssl_support@
 
-LIBS=		-linstall -larchive -lfetch
+LIBS=		-linstall -larchive -lfetch -lnetpgpverify
 .if !empty(SSL_SUPPORT)
 LIBS+=		-lssl -lcrypto
 .endif
