@@ -400,9 +400,7 @@ int easy_pkcs7_sign(const char *, size_t, char **, size_t *, const char *,
     const char *);
 #endif
 
-int inline_gpg_verify(const char *, size_t, const char *);
-int detached_gpg_verify(const char *, size_t, const char *, size_t,
-    const char *);
+int gpg_verify(const char *, size_t, const char *, const char *, size_t);
 int detached_gpg_sign(const char *, size_t, char **, size_t *, const char *,
     const char *);
 
