@@ -27,7 +27,10 @@
 #ifndef  _RMD160_H
 #define  _RMD160_H
 
+#include <nbcompat.h>
+#if HAVE_SYS_CDEFS_H
 #include <sys/cdefs.h>
+#endif
 #include <sys/types.h>
 
 #include <inttypes.h>

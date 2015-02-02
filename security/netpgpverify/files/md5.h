@@ -32,6 +32,10 @@
 #ifndef _SYS_MD5_H_
 #define _SYS_MD5_H_
 
+#include <nbcompat.h>
+#if HAVE_SYS_CDEFS_H
+#include <sys/cdefs.h>
+#endif
 #include <sys/types.h>
 
 #include <inttypes.h>

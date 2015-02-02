@@ -110,12 +110,7 @@ verify_signature_pkcs7(const char *input)
 static void
 verify_signature(const char *input, size_t input_len)
 {
-	if (gpg_cmd == NULL && certs_pkg_vulnerabilities == NULL)
-		errx(EXIT_FAILURE,
-		    "At least GPG or CERTIFICATE_ANCHOR_PKGVULN "
-		    "must be configured");
-	if (gpg_cmd != NULL)
-		inline_gpg_verify(input, input_len, gpg_keyring_pkgvuln);
+	gpg_verify(input, input_len, gpg_keyring_pkgvuln, NULL, 0);
 	if (certs_pkg_vulnerabilities != NULL)
 		verify_signature_pkcs7(input);
 }
