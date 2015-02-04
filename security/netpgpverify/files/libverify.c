@@ -2436,7 +2436,7 @@ fixup_detached(pgpv_cursor_t *cursor, const char *f)
 	return 1;
 }
 
-/* match the calculated signature against the oen in the signature packet */
+/* match the calculated signature against the one in the signature packet */
 static int
 match_sig(pgpv_cursor_t *cursor, pgpv_signature_t *signature, pgpv_pubkey_t *pubkey, uint8_t *data, size_t size)
 {
@@ -2558,7 +2558,9 @@ fixup_ssh_keyid(pgpv_t *pgp, pgpv_signature_t *signature, const char *hashtype)
 static int
 find_keyid(pgpv_t *pgp, const char *strkeyid, uint8_t *keyid)
 {
-	unsigned	 i;
+	pgpv_primarykey_t *prim;
+	pgpv_signed_subkey_t *subk;
+	unsigned	 i, j;
 	uint8_t		 binkeyid[PGPV_KEYID_LEN];
 	size_t		 off;
 	size_t		 cmp;
@@ -2578,6 +2580,14 @@ find_keyid(pgpv_t *pgp, const char *strkeyid, uint8_t *keyid)
 		if (memcmp(&ARRAY_ELEMENT(pgp->primaries, i).primary.keyid[off], &binkeyid[off], cmp) == 0) {
 			return i;
 		}
+		/* check subkeys */
+		prim = &ARRAY_ELEMENT(pgp->primaries, i);
+		for (j = 0 ; j < ARRAY_COUNT(prim->signed_subkeys) ; j++) {
+			subk = &ARRAY_ELEMENT(prim->signed_subkeys, j);
+			if (memcmp(&ARRAY_ELEMENT(prim->signed_subkeys, j).subkey.keyid[off], &binkeyid[off], cmp) == 0) {
+				return i;
+			}
+		}
 	}
 	return -1;
 }
@@ -2587,14 +2597,31 @@ static int
 match_sig_id(pgpv_cursor_t *cursor, pgpv_signature_t *signature, pgpv_litdata_t *litdata, unsigned primary)
 {
 	pgpv_pubkey_t		*pubkey;
+	pgpv_primarykey_t	*prim;
+	pgpv_signed_subkey_t	*subkey;
+	unsigned		 i;
 	uint8_t			*data;
 	size_t			 insize;
 
-	pubkey = &ARRAY_ELEMENT(cursor->pgp->primaries, primary).primary;
 	cursor->sigtime = signature->birth;
 	/* calc hash on data packet */
 	data = get_literal_data(cursor, litdata, &insize);
-	return match_sig(cursor, signature, pubkey, data, insize);
+
+	/* check the primary key first, if that doesn't match check the subkeys */
+	pubkey = &ARRAY_ELEMENT(cursor->pgp->primaries, primary).primary;
+	if (match_sig(cursor, signature, pubkey, data, insize)) {
+		return 1;
+	} else {
+		prim = &ARRAY_ELEMENT(cursor->pgp->primaries, primary);
+		for (i = 0; i < ARRAY_COUNT(prim->signed_subkeys); i++) {
+			pubkey = &ARRAY_ELEMENT(prim->signed_subkeys, i).subkey;
+			if (match_sig(cursor, signature, pubkey, data, insize)) {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
 }
 
 /* get an element from the found array */
@@ -2665,9 +2692,7 @@ pgpv_verify(pgpv_cursor_t *cursor, pgpv_t *pgp, const void *p, ssize_t size)
 	if (cursor->pgp->ssh) {
 		fixup_ssh_keyid(cursor->pgp, signature, "sha1");
 	}
-	if (ARRAY_COUNT(cursor->pgp->primaries) == 1) {
-		j = 0;
-	} else if ((j = find_keyid(cursor->pgp, NULL, onepass->keyid)) < 0) {
+	if ((j = find_keyid(cursor->pgp, NULL, onepass->keyid)) < 0) {
 		fmt_binary(strkeyid, sizeof(strkeyid), onepass->keyid, (unsigned)sizeof(onepass->keyid));
 		snprintf(cursor->why, sizeof(cursor->why), "Signature key id %s not found ", strkeyid);
 		return 0;
