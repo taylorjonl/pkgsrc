@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.45.8.1 2015/02/05 23:52:36 tron Exp $
+# $NetBSD: Makefile,v 1.46 2015/02/04 08:04:34 spz Exp $
 
 .include "../../devel/libevent/Makefile.common"
 
