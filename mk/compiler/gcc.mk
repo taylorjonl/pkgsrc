@@ -323,6 +323,7 @@ _LANGUAGES.gcc+=	${LANGUAGES.gcc:M${_lang_}}
 
 .if !empty(USE_LANGUAGES:Mc99)
 _WRAP_EXTRA_ARGS.CC+=	-std=gnu99
+CWRAPPERS_APPEND.cc+=	-std=gnu99
 .endif
 
 # GCC has this annoying behaviour where it advocates in a multi-line

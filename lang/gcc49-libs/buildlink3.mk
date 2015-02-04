@@ -34,6 +34,9 @@ ${SPECS_LIBGCC}:
 _WRAP_EXTRA_ARGS.CC+=	-specs=${SPECS_LIBGCC}
 _WRAP_EXTRA_ARGS.CXX+=	-specs=${SPECS_LIBGCC}
 _WRAP_EXTRA_ARGS.FC+=	-specs=${SPECS_LIBGCC}
+CWRAPPERS_APPEND.cc+=	-specs=${SPECS_LIBGCC}
+CWRAPPERS_APPEND.cxx+=	-specs=${SPECS_LIBGCC}
+CWRAPPERS_APPEND.f77+=	-specs=${SPECS_LIBGCC}
 .endif
 
 .include "../../mk/dlopen.buildlink3.mk"
