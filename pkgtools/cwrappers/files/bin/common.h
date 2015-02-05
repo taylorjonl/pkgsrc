@@ -43,6 +43,9 @@ extern char *exec_name;
 extern char *wrksrc;
 extern int debug;
 
+extern int rflag;
+extern int preproc;
+
 TAILQ_HEAD(arglist, argument);
 
 struct argument {
@@ -56,6 +59,7 @@ extern struct argument *prepend_after;
 char	*concat(const char *, const char *);
 char	*concat2(const char *, const char *, size_t);
 void	arglist_from_argc(struct arglist *, int, char **);
+void	arglist_register_globals(struct arglist *);
 void	arglist_apply_config(struct arglist *);
 void	arglist_apply_ldadd(struct arglist *);
 int	command_exec(struct arglist *, int);
@@ -96,6 +100,7 @@ void	init_generic_transform(void);
 void	register_generic_transform(const char *);
 void	generic_transform_cc(struct arglist *);
 
+void	ldadd_ld(struct arglist *);
 void	normalise_ld(struct arglist *);
 void	generic_transform_ld(struct arglist *);
 

@@ -45,6 +45,9 @@ char *exec_name;
 char *wrksrc;
 int debug;
 
+int rflag = 0;
+int preproc = 0;
+
 static struct arglist ldadd_args = TAILQ_HEAD_INITIALIZER(ldadd_args);
 static struct arglist prepend_args = TAILQ_HEAD_INITIALIZER(prepend_args);
 static struct arglist append_args = TAILQ_HEAD_INITIALIZER(append_args);
@@ -150,6 +153,26 @@ arglist_apply_config(struct arglist *args)
 	TAILQ_FOREACH(arg, &append_args, link) {
 		arg2 = argument_copy(arg->val);
 		TAILQ_INSERT_TAIL(args, arg2, link);
+	}
+}
+
+void
+arglist_register_globals(struct arglist *args)
+{
+	struct argument *arg;
+
+	TAILQ_FOREACH(arg, args, link) {
+		if (strcmp(arg->val, "-r")) {
+			rflag = 1;
+			continue;
+		}
+		if (strncmp(arg->val, "-E", 2) ||
+		    strncmp(arg->val, "-M", 2) ||
+		    strcmp(arg->val, "c-header") ||
+		    strcmp(arg->val, "c++-header")) {
+			preproc = 1;
+			continue;
+		}
 	}
 }
 

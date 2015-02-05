@@ -35,11 +35,11 @@
 #include "common.h"
 
 void
-ldadd_cc(struct arglist *args)
+ldadd_ld(struct arglist *args)
 {
 	struct argument *arg;
 
-	if (preproc)
+	if (rflag)
 		return;
 
 	TAILQ_FOREACH(arg, args, link) {
