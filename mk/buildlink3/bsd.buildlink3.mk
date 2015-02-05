@@ -1020,13 +1020,20 @@ _CWRAPPERS_TRANSFORM+=	L:/usr/lib/../libx32:/usr/libx32
 # Protect -I/usr/include/* and -L/usr/lib/* from transformations (these
 # aren't part of the normal header or library search paths).
 #
+# For cwrappers we cannot fnmatch, so we explicitly pass through any sub
+# directories only if they are in BUILDLINK_{CPPFLAGS,LDFLAGS}.
+#
 .for _dir_ in ${COMPILER_INCLUDE_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-I${_dir_}:-I${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPERS_TRANSFORM+=	I:${_dir_}:${_dir_}
+.  for _arg_ in ${BUILDLINK_CPPFLAGS:M-I${_dir_}/*:O:u:C/-I//}
+_CWRAPPERS_TRANSFORM+=	I:${_arg_}:${_arg_}
+.  endfor
 .endfor
 .for _dir_ in ${COMPILER_LIB_DIRS}
 _BLNK_TRANSFORM+=	opt-sub:-L${_dir_}:-L${_BLNK_MANGLE_DIR.${_dir_}}
-_CWRAPPERS_TRANSFORM+=	L:${_dir_}:${_dir_}
+.  for _arg_ in ${BUILDLINK_LDFLAGS:M-L${_dir_}/*:O:u:C/-L//}
+_CWRAPPERS_TRANSFORM+=	L:${_arg_}:${_arg_}
+.  endfor
 .endfor
 #
 # Change any buildlink directories in runtime library search paths into
@@ -1052,7 +1059,9 @@ _CWRAPPERS_TRANSFORM+=	R:${_dir_}:${_dir_}
 #
 .for _dir_ in ${SYSTEM_DEFAULT_RPATH:S/:/ /g}
 _BLNK_TRANSFORM+=	sub-rpath:${_dir_}:${_BLNK_MANGLE_DIR.${_dir}}
-_CWRAPPERS_TRANSFORM+=	R:/usr/lib:/usr/lib
+.  for _arg_ in ${BUILDLINK_LDFLAGS:M${COMPILER_RPATH_FLAG}${_dir_}/*:O:u:C/${COMPILER_RPATH_FLAG}//}
+_CWRAPPERS_TRANSFORM+=	R:${_arg_}:${_arg_}
+.  endfor
 .endfor
 #
 # Change references to ${DEPOTBASE}/<pkg> into ${LOCALBASE} so that

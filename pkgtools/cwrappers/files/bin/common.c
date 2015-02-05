@@ -45,6 +45,7 @@ char *exec_name;
 char *wrksrc;
 int debug;
 
+static struct arglist ldadd_args = TAILQ_HEAD_INITIALIZER(ldadd_args);
 static struct arglist prepend_args = TAILQ_HEAD_INITIALIZER(prepend_args);
 static struct arglist append_args = TAILQ_HEAD_INITIALIZER(append_args);
 struct argument *prepend_after;
@@ -153,6 +154,17 @@ arglist_apply_config(struct arglist *args)
 }
 
 void
+arglist_apply_ldadd(struct arglist *args)
+{
+	struct argument *arg, *arg2;
+
+	TAILQ_FOREACH(arg, &ldadd_args, link) {
+		arg2 = argument_copy(arg->val);
+		TAILQ_INSERT_TAIL(args, arg2, link);
+	}
+}
+
+void
 argument_unlink(struct arglist *args, struct argument **argp)
 {
 	struct argument *arg;
@@ -209,6 +221,11 @@ parse_config(const char *wrapper)
 			free(exec_name);
 			exec_name = xstrdup(line + 5);
 			continue;
+		}
+		if (strncmp(line, "ldadd=", 6) == 0) {
+			struct argument *arg;
+			arg = argument_copy(line + 6);
+			TAILQ_INSERT_TAIL(&ldadd_args, arg, link);
 		}
 		if (strncmp(line, "reorder=", 8) == 0) {
 			register_reorder(line + 8);

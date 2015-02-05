@@ -57,6 +57,7 @@ char	*concat(const char *, const char *);
 char	*concat2(const char *, const char *, size_t);
 void	arglist_from_argc(struct arglist *, int, char **);
 void	arglist_apply_config(struct arglist *);
+void	arglist_apply_ldadd(struct arglist *);
 int	command_exec(struct arglist *, int);
 size_t	wrapper_hash(const char *);
 size_t	wrapper_hash2(const char *, size_t);
@@ -83,6 +84,7 @@ void	*xrealloc(void *, size_t);
 char	*xstrdup(const char *);
 char	*xstrndup(const char *, size_t);
 
+void	ldadd_cc(struct arglist *);
 void	normalise_cc(struct arglist *);
 void	cleanup_cc(struct arglist *args);
 void	transform_cc(struct arglist *args);

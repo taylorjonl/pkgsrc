@@ -127,6 +127,7 @@ main(int argc, char **argv)
 #endif
 
 	arglist_apply_config(&args);
+	ldadd_cc(&args);
 #if defined(WRAPPER_LD)
 	normalise_ld(&args);
 #else

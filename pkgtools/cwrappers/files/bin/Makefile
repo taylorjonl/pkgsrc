@@ -5,7 +5,7 @@ PROGS=	as-wrapper cc-wrapper c++-wrapper cpp-wrapper f77-wrapper \
 
 BINDIR=		${PREFIX}/libexec/cwrappers
 
-LIB_SRCS=	alloc.c cleanup-cc.c common.c reorder-cc.c
+LIB_SRCS=	alloc.c cleanup-cc.c common.c ldadd-cc.c reorder-cc.c
 
 .ifdef NEED_MI_VECTOR_HASH
 LIB_SRCS+=	mi_vector_hash.c
