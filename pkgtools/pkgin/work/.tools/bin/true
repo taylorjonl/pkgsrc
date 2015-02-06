@@ -1,5 +1,0 @@
-#!/bin/sh
-wrapperlog="${TOOLS_WRAPPER_LOG-/work/git/pkgsrc/pkgtools/pkgin/work/.work.log}"
-echo "[*] "/work/git/pkgsrc/pkgtools/pkgin/work/.tools/bin/true" $@" >> $wrapperlog
-echo "<.> true  "$@"" >> $wrapperlog
-true  "$@"
