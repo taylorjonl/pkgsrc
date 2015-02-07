@@ -42,8 +42,11 @@
 #
 # SMF_PROJECT
 #	The name of the SunOS project to be created. Usually set to PKGBASE.
+#	Also can be set outside the package using
 #
-# SMF_PROJECT_ID.<project
+#		SMF_PROJECT.<pkgbase>=<project>
+#
+# SMF_PROJECT_ID.<project>
 # 	Force set the project ID (normally assigned incrementally)
 #
 # SMF_PROJECT_DESC.<project>
