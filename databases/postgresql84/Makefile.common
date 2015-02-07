@@ -37,9 +37,9 @@ CONFLICTS+=	postgresql8[0-35-9]-${module}-[0-9]*
 CONFLICTS+=	postgresql9[0-9]-${module}-[0-9]*
 .endif
 
-DISTINFO_FILE?=		${.CURDIR}/../postgresql84/distinfo
-COMMON_FILESDIR?=	${.CURDIR}/../postgresql84/files
-PATCHDIR?=		${.CURDIR}/../postgresql84/patches
+DISTINFO_FILE?=		${.CURDIR}/../../databases/postgresql84/distinfo
+COMMON_FILESDIR?=	${.CURDIR}/../../databases/postgresql84/files
+PATCHDIR?=		${.CURDIR}/../../databases/postgresql84/patches
 
 USE_GCC_RUNTIME=	yes
 USE_PKGLOCALEDIR=	yes
