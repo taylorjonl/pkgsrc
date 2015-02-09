@@ -22,6 +22,8 @@ GNU_CONFIGURE=		yes
 CONFIGURE_ENV+=		ac_cv_func_fmemopen=no
 .endif
 
+CPPFLAGS.SunOS+=	-D__SOLARIS__=1
+
 .include "../../graphics/giflib/buildlink3.mk"
 .include "../../graphics/libwebp/buildlink3.mk"
 .include "../../graphics/openjpeg/buildlink3.mk"

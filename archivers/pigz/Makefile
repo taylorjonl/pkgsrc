@@ -11,6 +11,7 @@ LICENSE=	modified-bsd
 
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1 share/doc/pigz
 
+USE_LANGUAGES=	c c99
 USE_TOOLS+=	gmake
 BUILD_TARGET=		pigz
 

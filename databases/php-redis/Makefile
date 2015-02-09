@@ -14,7 +14,7 @@ HOMEPAGE=	https://github.com/nicolasff/phpredis
 COMMENT=	PHP extension for Redis
 LICENSE=	php
 
-WRKSRC=		${WRKDIR}/phpredis-${PKGVERSION_NOREV}
+WRKSRC=		${WRKDIR}/phpredis-${PECL_VERSION}
 
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)

@@ -12,6 +12,7 @@ COMMENT=	POSIX library (including curses) for lua
 LICENSE=	mit
 
 GNU_CONFIGURE=	yes
+USE_LANGUAGES=	c c99
 USE_TOOLS+=	perl:build
 USE_LIBTOOL=	yes
 

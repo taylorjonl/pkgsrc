@@ -43,7 +43,7 @@ ldadd_ld(struct arglist *args)
 		return;
 
 	TAILQ_FOREACH(arg, args, link) {
-		if (strcmp(arg->val, "-o")) {
+		if (strcmp(arg->val, "-o") == 0) {
 			arglist_apply_ldadd(args);
 			break;
 		}

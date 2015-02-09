@@ -6,3 +6,4 @@ Size (dbench-4.0.tar.gz) = 2055359 bytes
 SHA1 (patch-aa) = 3e523784ef4d1f2a3d4bd94ee22b29c604e3721a
 SHA1 (patch-ab) = 83e77ea062793e29a0417c1473214e617799c1c1
 SHA1 (patch-ac) = 2f1990b22f047d6b66521c4a25f5aeddc6aa24f8
+SHA1 (patch-dbench.h) = 7c217dc7d4f8cce6b4fa9bb4c4f117a0ec1f6e33

@@ -162,14 +162,15 @@ arglist_register_globals(struct arglist *args)
 	struct argument *arg;
 
 	TAILQ_FOREACH(arg, args, link) {
-		if (strcmp(arg->val, "-r")) {
+		if (strcmp(arg->val, "-r") == 0) {
 			rflag = 1;
 			continue;
 		}
-		if (strncmp(arg->val, "-E", 2) ||
-		    strncmp(arg->val, "-M", 2) ||
-		    strcmp(arg->val, "c-header") ||
-		    strcmp(arg->val, "c++-header")) {
+		if ((strcmp(arg->val, "-E") == 0) ||
+		    (strncmp(arg->val, "-M", 2) == 0) ||
+		    (strcmp(arg->val, "-S") == 0) ||
+		    (strcmp(arg->val, "c-header") == 0) ||
+		    (strcmp(arg->val, "c++-header") == 0)) {
 			preproc = 1;
 			continue;
 		}
