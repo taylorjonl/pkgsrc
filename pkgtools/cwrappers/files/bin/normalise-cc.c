@@ -174,7 +174,8 @@ normalise_cc(struct arglist *args)
 		if (strcmp(arg->val, "-Wl,-R") == 0 ||
 		    strcmp(arg->val, "-Wl,-rpath") == 0 ||
 		    strcmp(arg->val, "-Wl,--rpath") == 0) {
-			if (arg2 == NULL || strncmp(arg2->val, "-Wl,", 4))
+			if (arg2 == NULL || (arg2->val[0] == '-' &&
+			    strncmp(arg2->val, "-Wl,", 4) != 0))
 				errx(255, "Missing argument for %s", arg->val);
 			normalise_path_list(args, arg, "-Wl,-rpath,",
 			    arg2->val + 4, 1);
