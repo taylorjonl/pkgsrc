@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.62.6.1 2015/02/11 22:06:23 tron Exp $
+# $NetBSD: Makefile,v 1.63 2015/02/11 15:11:48 is Exp $
 
 DISTNAME=		otp_src_${DIST_VERSION_MAJOR}${DIST_VERSION_MINOR:D-${DIST_VERSION_MINOR}}
 PKGREVISION=		3
