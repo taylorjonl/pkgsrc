@@ -39,13 +39,12 @@ ldadd_cc(struct arglist *args)
 {
 	struct argument *arg;
 
-	if (preproc)
-		return;
-
-	TAILQ_FOREACH(arg, args, link) {
-		if (strcmp(arg->val, "-o") == 0) {
-			arglist_apply_ldadd(args);
-			break;
+	if (linking) {
+		TAILQ_FOREACH(arg, args, link) {
+			if (strcmp(arg->val, "-o") == 0) {
+				arglist_apply_ldadd(args);
+				break;
+			}
 		}
 	}
 }

@@ -44,7 +44,7 @@ extern char *wrksrc;
 extern int debug;
 
 extern int rflag;
-extern int preproc;
+extern int linking;
 
 TAILQ_HEAD(arglist, argument);
 

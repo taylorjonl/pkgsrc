@@ -46,7 +46,7 @@ char *wrksrc;
 int debug;
 
 int rflag = 0;
-int preproc = 0;
+int linking = 1;
 
 static struct arglist ldadd_args = TAILQ_HEAD_INITIALIZER(ldadd_args);
 static struct arglist prepend_args = TAILQ_HEAD_INITIALIZER(prepend_args);
@@ -166,12 +166,14 @@ arglist_register_globals(struct arglist *args)
 			rflag = 1;
 			continue;
 		}
-		if ((strcmp(arg->val, "-E") == 0) ||
-		    (strncmp(arg->val, "-M", 2) == 0) ||
+		if ((strcmp(arg->val, "-c") == 0) ||
+		    (strcmp(arg->val, "-E") == 0) ||
 		    (strcmp(arg->val, "-S") == 0) ||
+		    (strcmp(arg->val, "-xc-header") == 0) ||
+		    (strcmp(arg->val, "-xc++-header") == 0) ||
 		    (strcmp(arg->val, "c-header") == 0) ||
 		    (strcmp(arg->val, "c++-header") == 0)) {
-			preproc = 1;
+			linking = 0;
 			continue;
 		}
 	}
