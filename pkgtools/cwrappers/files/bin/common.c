@@ -168,6 +168,7 @@ arglist_register_globals(struct arglist *args)
 		}
 		if ((strcmp(arg->val, "-c") == 0) ||
 		    (strcmp(arg->val, "-E") == 0) ||
+		    (strncmp(arg->val, "-M", 2) == 0) ||
 		    (strcmp(arg->val, "-S") == 0) ||
 		    (strcmp(arg->val, "-xc-header") == 0) ||
 		    (strcmp(arg->val, "-xc++-header") == 0) ||
