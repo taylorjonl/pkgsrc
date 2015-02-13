@@ -2,6 +2,7 @@
 
 DISTNAME=	bind-${BIND_VERSION}
 PKGNAME=	${DISTNAME:S/-P/pl/}
+PKGREVISION=	1
 CATEGORIES=	net
 MASTER_SITES=	ftp://ftp.isc.org/isc/bind9/${BIND_VERSION}/ \
 		http://ftp.belnet.be/pub/mirror/ftp.isc.org/isc/bind9/${BIND_VERSION}/
@@ -28,7 +29,7 @@ GNU_CONFIGURE=		yes
 #CONFIG_SHELL=		sh -x
 
 CONFIGURE_ARGS+=	--with-libtool
-CONFIGURE_ARGS+=	--sysconfdir=/etc
+CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
 CONFIGURE_ARGS+=	--disable-openssl-version-check
 CONFIGURE_ARGS+=	--with-openssl=${SSLBASE:Q}
@@ -69,12 +70,17 @@ RCD_SCRIPTS=		lwresd named9
 SMF_METHODS=		named
 
 INSTALLATION_DIRS+=	${DOCDIR} share/doc/bind9/arm
+INSTALLATION_DIRS+=	share/examples/bind9
+
+CONF_FILES+=		share/examples/bind9/named.conf ${PKG_SYSCONFDIR}/named.conf
 
 post-install:
 .for f in ${DOCS}
 	${INSTALL_DATA} ${WRKSRC}/${f} ${DOCDIR}
 .endfor
 	${INSTALL_DATA} ${WRKSRC}/doc/arm/*.html ${DOCDIR}/arm
+	${INSTALL_DATA} ${FILESDIR}/named.conf ${DESTDIR}${PREFIX}/share/examples/bind9
+	${RM} -f ${DESTDIR}${PKG_SYSCONFDIR}/bind.keys
 
 .include "../../security/openssl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
