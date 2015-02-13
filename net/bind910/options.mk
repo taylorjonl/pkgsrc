@@ -2,6 +2,7 @@
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.bind910
 PKG_SUPPORTED_OPTIONS=	bind-dig-sigchase bind-xml-statistics-server
+PKG_SUPPORTED_OPTIONS+=	bind-json-statistics-server
 PKG_SUPPORTED_OPTIONS+=	inet6 threads readline mysql pgsql ldap dlz-filesystem
 PKG_SUPPORTED_OPTIONS+=	rrl
 PKG_SUGGESTED_OPTIONS+=	readline
@@ -66,6 +67,16 @@ CONFIGURE_ARGS+=	--enable-rrl
 CONFIGURE_ARGS+=	--with-libxml2
 .else
 CONFIGURE_ARGS+=	--without-libxml2
+.endif
+
+###
+### The statistics server in bind910 and later supports json
+###
+.if !empty(PKG_OPTIONS:Mbind-json-statistics-server)
+.include "../../textproc/json-c/buildlink3.mk"
+CONFIGURE_ARGS+=	--with-libjson
+.else
+CONFIGURE_ARGS+=	--without-libjson
 .endif
 
 ###
