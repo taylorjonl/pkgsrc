@@ -47,8 +47,8 @@ INIT_SYSTEM?=		smf
 KRB5_DEFAULT?=		mit-krb5
 
 # Builtin defaults which make sense for this platform.
+_OPSYS_PREFER.getopt?=		native
 _OPSYS_PREFER.libexecinfo?=	native
-_OPSYS_PREFER.mit-krb5?=	native
 _OPSYS_PREFER.openssl?=		pkgsrc
 _OPSYS_PREFER.solaris-pam?=	native
 
