@@ -1,0 +1,14 @@
+$NetBSD$
+
+Ensure we only build a static archive.
+
+--- util/ss/Makefile.in.orig	2013-11-06 20:52:23.000000000 +0000
++++ util/ss/Makefile.in
+@@ -13,6 +13,7 @@ TOP=$(BUILDTOP)
+ LIBBASE=ss
+ LIBMAJOR=1
+ LIBMINOR=0
++LALIB_EXPFLAGS=-static
+ RELDIR=../util/ss
+ 
+ STOBJLISTS=OBJS.ST
