@@ -3,30 +3,47 @@ $NetBSD: patch-solaris_quagga.init.in,v 1.1 2015/01/25 22:14:05 fhajny Exp $
 Fix SMF method based on the manifest we provide.
 --- solaris/quagga.init.in.orig	2014-08-25 16:56:53.000000000 +0000
 +++ solaris/quagga.init.in
-@@ -156,16 +156,16 @@ routeadm_zebra_enable () {
- 	enable_zebra=`/usr/bin/svcprop -p \
- 		routing/enable_zebra $SMF_FMRI 2> /dev/null`
- 	if [ "$enable_zebra" != "false" ]; then
+@@ -146,31 +146,6 @@ routeadm_daemon_args () {
+ 	echo ${args}
+ }
+ 
+-# certain daemons need zebra
+-routeadm_zebra_enable () {
+-
+-	if [ "$DAEMON" = "zebra" ]; then
+-		return
+-	fi
+-	
+-	enable_zebra=`/usr/bin/svcprop -p \
+-		routing/enable_zebra $SMF_FMRI 2> /dev/null`
+-	if [ "$enable_zebra" != "false" ]; then
 -		zenabled=`/usr/bin/svcprop -p general/enabled zebra:quagga`
 -		zenabledt=`/usr/bin/svcprop -p general_ovr/enabled zebra:quagga`
-+		zenabled=`/usr/bin/svcprop -p general/enabled quagga:zebra`
-+		zenabledt=`/usr/bin/svcprop -p general_ovr/enabled quagga:zebra`
- 		if [ "$zenabled" = "true" -o "$zenabledt" = "true" ]; then
+-		if [ "$zenabled" = "true" -o "$zenabledt" = "true" ]; then
 -			/usr/sbin/svcadm disable zebra:quagga
 -			/usr/sbin/svcadm enable -st zebra:quagga
-+			/usr/sbin/svcadm disable quagga:zebra
-+			/usr/sbin/svcadm enable -st quagga:zebra
- 		else
+-		else
 -			/usr/sbin/svcadm enable -st zebra:quagga 
-+			/usr/sbin/svcadm enable -st quagga:zebra 
- 		fi
- 		if [ "$?" != "0" ]; then
+-		fi
+-		if [ "$?" != "0" ]; then
 -			echo "Could not enable zebra:quagga"
-+			echo "Could not enable quagga:zebra"
- 			exit $SMF_EXIT_ERR_FATAL
- 		fi
- 	fi
-@@ -255,7 +255,8 @@ else
+-			exit $SMF_EXIT_ERR_FATAL
+-		fi
+-	fi
+-}
+-
+ # Include smf functions, if available. If not, define smf_present to indicate
+ # there is no SMF. Should allow this script to work pre-S10.
+ if [ -f "$SMFINCLUDE" ] ; then
+@@ -247,7 +222,6 @@ esac
+ if [ smf_present -a -f "$ROUTEADMINCLUDE" ]; then
+ 	handle_routeadm_upgrade $DAEMON;
+ 	DAEMON_ARGS=`routeadm_daemon_args`;
+-	routeadm_zebra_enable $DAEMON;
+ else
+ 	if [ $# -gt 0 ] ; then
+ 		shift
+@@ -255,7 +229,8 @@ else
  	fi
  fi
  
