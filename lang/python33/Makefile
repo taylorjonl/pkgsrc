@@ -36,6 +36,8 @@ MULTIARCH_DIRS.lib=    # empty, manually set in PLIST
 NO_MULTIARCH_LIBDIR=   # defined, manually set
 CHECK_INTERPRETER=no   # $PREFIX/bin/python2.7 not created until pkg_add
 
+MAKE_JOBS_SAFE=		no
+
 PTHREAD_OPTS+=	require
 .include "../../mk/pthread.buildlink3.mk"
 
