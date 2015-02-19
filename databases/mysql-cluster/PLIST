@@ -71,7 +71,7 @@ bin/resolveip
 include/mysql/big_endian.h
 include/mysql/byte_order_generic.h
 include/mysql/byte_order_generic_x86.h
-include/mysql/byte_order_generic_${MACHINE_ARCH}.h
+include/mysql/byte_order_generic_x86_64.h
 include/mysql/decimal.h
 include/mysql/errmsg.h
 include/mysql/keycache.h
