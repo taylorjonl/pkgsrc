@@ -68,6 +68,15 @@ SSL fixes as per https://github.com/bumptech/stud/pull/130.
              shutdown_proxy(ps, SHUTDOWN_SSL);
          }
      }
+@@ -1312,7 +1335,7 @@ static void handle_accept(struct ev_loop
+             break;
+ 
+         default:
+-            assert(errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN);
++            assert(errno == EINTR || errno == EWOULDBLOCK || errno == EAGAIN || errno == ECONNABORTED);
+             break;
+         }
+         return;
 @@ -1751,24 +1774,16 @@ void daemonize () {
          exit(0);
      }
