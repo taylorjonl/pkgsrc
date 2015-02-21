@@ -17,8 +17,6 @@ COMMENT=	MIT Kerberos 5 authentication system
 
 MAKE_JOBS_SAFE=		no
 
-#WRKSRC=		${WRKDIR}/${DISTNAME}-${ABI}/src
-
 CONFIGURE_DIRS=	src
 BUILD_TARGET=	generate-files-mac all
 
@@ -52,8 +50,8 @@ CONFIGURE_ARGS+=	--enable-pkgsrc-libtool
 MAKE_ENV+=		ROOT_USER=${ROOT_USER}
 LIBS.SunOS=		-lrt
 
-PATCH_ARGS=		-d ${WRKDIR}/${DISTNAME}-${ABI}/src -p0
-PATCH_DIST_ARGS=	-d ${WRKDIR}/${DISTNAME}-${ABI} -p1
+PATCH_ARGS=		-d ${WRKSRC}/src -p0
+PATCH_DIST_ARGS=	-d ${WRKSRC} -p1
 
 INFO_FILES=		YES
 
@@ -85,7 +83,7 @@ pre-configure:
 
 post-install:
 	@${ECHO} "=> Installing info files";				\
-	cd ${WRKDIR}/${DISTNAME}-${ABI}/doc;				\
+	cd ${WRKSRC}/doc;						\
 	for f in *.info *.info-[0-9]*; do				\
 		${TEST} ! -f "$$f" ||					\
 		${INSTALL_MAN} "$$f" ${DESTDIR}${PREFIX}/${PKGINFODIR};	\
