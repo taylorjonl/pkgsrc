@@ -70,6 +70,7 @@ SUBST_STAGE.fix-nm=		pre-configure
 SUBST_FILES.fix-nm=		src/runtime/Config.x86-64-sunos
 SUBST_FILES.fix-nm+=		src/runtime/Config.x86-sunos
 SUBST_SED.fix-nm=		-e 's,nm ,/usr/bin/nm ,'
+SUBST_SED.fix-nm+=		-e 's,ggrep,grep,'
 
 .if !empty(MACHINE_PLATFORM:MSunOS-*-i386)
 SBCL_ARCH_ARGS=		"--arch=x86"
