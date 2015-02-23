@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2014Q4,v 1.1.2.13 2015/01/27 19:49:09 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2014Q4,v 1.1.2.26 2015/02/21 12:58:14 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2014Q4 branch:
@@ -39,3 +39,55 @@ Pullup ticket #4598 - requested by taca
 lang/php55: security update
 Pullup ticket #4599 - requested by taca
 lang/php56: security update
+Pullup ticket #4600 - requested by wiz
+mail/dovecot: build fix
+Pullup ticket #4601 - requested by taca
+mail/roundcube: security update
+Pullup ticket #4602 - requested by snj
+shells/zsh: bug fix patch
+Pullup ticket #4603 - requested by dholland
+lang/smalltalk: build fix
+Pullup ticket #4604 - requested by sp
+devel/libevent: security update
+devel/py-libevent-rpcgen: security update
+Pullup ticket #4606 - requested by wiz
+x11/modular-xorg-server: security patch
+Pullup ticket #4607 - requested by is
+lang/erlang: build fix
+Pullup ticket #4608 - requested by tnn
+archivers/cabextract: security update
+Pullup ticket #4612 - requested by spz
+security/sudo: security update
+Pullup ticket #4609 - requested by taca
+www/contao32: security update
+Pullup ticket #4610 - requested by taca
+www/contao34: security update
+Pullup ticket #4611 - requested by taca
+www/contao33: security patch
+Pullup ticket #4613 - requested by tnn
+multimedia/ffmpeg2: security update
+Pullup ticket #4614 - requested by tnn
+multimedia/ffmpeg1: security update
+Pullup ticket #4616 - requested by sevan
+devel/patch: security update
+Pullup ticket #4617 - requested by sevan
+lang/php54: security patch
+lang/php55: security patch
+Pullup ticket #4618 - requested by sevan
+lang/php56: security patch
+Pullup ticket #4621 - requested by taca
+net/bind99: security update
+Pullup ticket #4622 - requested by taca
+net/bind910: security update
+Pullup ticket #4624 - requested by taca
+graphics/jasper: security patch
+Pullup ticket #4619 - requested by taca
+sysutils/ruby-facter: security update
+Pullup ticket #4620 - requested by taca
+lang/ruby18-base: security patch
+Pullup ticket #4626 - requested by tnn
+devel/patch: build fix
+Pullup ticket #4623 - requested by taca
+www/squid3: security update
+Pullup ticket #4627 - requested by taca
+www/typo3_45: security update

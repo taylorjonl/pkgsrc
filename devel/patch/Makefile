@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.40 2014/10/09 14:06:30 wiz Exp $
+# $NetBSD: Makefile,v 1.40.2.2 2015/02/20 19:55:43 tron Exp $
 
-DISTNAME=	patch-2.7.1
+DISTNAME=	patch-2.7.4
 CATEGORIES=	devel
 MASTER_SITES=   ${MASTER_SITE_GNU:=patch/}
 EXTRACT_SUFX=	.tar.xz
@@ -16,17 +16,16 @@ USE_TOOLS+=		awk
 .include "../../mk/bsd.prefs.mk"
 
 CONFIGURE_ARGS+=	--program-prefix=g
+CONFIGURE_ENV+=		ac_cv_func_setmode_dos=no	# Fix for Interix (and old bsd?)
 
 INSTALLATION_DIRS=	${PKGGNUDIR}bin ${PKGGNUDIR}${PKGMANDIR}/man1
 
 do-patch:
-	${MV} ${WRKSRC}/src/pch.c ${WRKSRC}/src/pch.c.orig
-	${AWK} '/#include <pch.h>/{print $$0 "\n#include <sys/param.h>";next;}\
-		/^#if HAVE_SETMODE_DOS/					\
-		{gsub(/^#if HAVE_SETMODE_DOS/,"#if defined(HAVE_SETMODE_DOS) \\&\\& !(defined(BSD) \\&\\& BSD >= 199306) \\&\\& !defined(__INTERIX)");print $$0; next; } \
-		{print $$0;}'						\
-		< ${WRKSRC}/src/pch.c.orig 					\
-		> ${WRKSRC}/src/pch.c
+.for stdhdr in sys/param.h sys/stat.h string.h
+	echo "#ifdef HAVE_${stdhdr:tu:C,[/.],_,g}" >> ${WRKSRC}/config.hin
+	echo "#include <${stdhdr}>" >> ${WRKSRC}/config.hin
+	echo "#endif" >> ${WRKSRC}/config.hin
+.endfor
 
 SYMLINKS	= bin/gpatch ${PKGGNUDIR}bin/patch \
 		man/man1/gpatch.1 ${PKGGNUDIR}${PKGMANDIR}/man1/patch.1
