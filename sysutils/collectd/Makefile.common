@@ -66,6 +66,8 @@ CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
 CONFIGURE_ARGS+=	--with-ltdl-lib=${BUILDLINK_PREFIX.libltdl}/lib
 CONFIGURE_ARGS+=	--with-ltdl-include=${BUILDLINK_PREFIX.libltdl}/include
 
+CPPFLAGS.SunOS+=	-DSOLARIS2=${OS_VERSION:C/5.//}
+
 .include "../../mk/compiler.mk"
 .if !empty(PKGSRC_COMPILER:Mclang)
 CFLAGS+=	-Wno-error=tautological-pointer-compare
