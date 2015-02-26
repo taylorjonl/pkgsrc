@@ -152,6 +152,20 @@ if [ `@ID@ -u` -ne 0 ]; then
 	run_install=run_direct
 fi
 
+# Attempt to move the pre-build status file into place.  If we're successful
+# we are the first build and we can now log the remaining details.
+ret=`mv ${loc}/status.pre-build ${loc}/status 2>/dev/null; echo $?`
+if [ ${ret} -eq 0 ]; then
+	@PREFIX@/libexec/pbulk/client-clean
+	opsys=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=OPSYS`
+	opver=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=OS_VERSION`
+	platform=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=MACHINE_ARCH`
+	compiler=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=PKGSRC_COMPILER`
+
+	echo "COMPILER=${compiler}" >> ${loc}/status
+	echo "PLATFORM=${opsys} ${opver}/${platform}" >> ${loc}/status
+fi
+
 ${pkg_up_to_date_script} ${pkgname} ${dependencies} && exit 0
 
 # Ensure we start with a clean passwd/group.
@@ -166,19 +180,6 @@ done
 set -e
 
 @PREFIX@/libexec/pbulk/client-clean
-
-# Attempt to move the pre-build status file into place.  If we're successful
-# we are the first build and we can now log the remaining details.
-ret=`mv ${loc}/status.pre-build ${loc}/status 2>/dev/null; echo $?`
-if [ ${ret} -eq 0 ]; then
-	opsys=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=OPSYS`
-	opver=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=OS_VERSION`
-	platform=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=MACHINE_ARCH`
-	compiler=`cd ${pkgsrc}/pkgtools/pkg_install && ${make} show-var VARNAME=PKGSRC_COMPILER`
-
-	echo "COMPILER=${compiler}" >> ${loc}/status
-	echo "PLATFORM=${opsys} ${opver}/${platform}" >> ${loc}/status
-fi
 
 # Create the output directory and clean it up
 rm -rf ${bulklog}/${pkgname}
