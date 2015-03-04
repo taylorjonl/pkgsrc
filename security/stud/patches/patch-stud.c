@@ -1,7 +1,8 @@
-$NetBSD$
+$NetBSD: patch-stud.c,v 1.4 2015/03/04 12:04:30 jperkin Exp $
 
-SunOS fixes as per https://github.com/bumptech/stud/pull/71.
-SSL fixes as per https://github.com/bumptech/stud/pull/130.
+SunOS fixes as per https://github.com/bumptech/stud/pull/71
+SSL fixes as per https://github.com/bumptech/stud/pull/130
+TLS fixes as per https://github.com/bumptech/stud/pull/138
 
 --- stud.c.orig	2012-08-10 23:40:19.000000000 +0000
 +++ stud.c
@@ -37,7 +38,28 @@ SSL fixes as per https://github.com/bumptech/stud/pull/130.
      if(setsockopt(fd, SOL_TCP, TCP_KEEPIDLE, &optval, optlen) < 0) {
          ERR("Error setting TCP_KEEPIDLE on client socket: %s", strerror(errno));
      }
-@@ -889,6 +897,13 @@ static void shutdown_proxy(proxystate *p
+@@ -598,16 +606,14 @@ SSL_CTX *make_ctx(const char *pemfile) {
+ #endif
+ 
+     if (CONFIG->ETYPE == ENC_TLS) {
+-        ctx = SSL_CTX_new((CONFIG->PMODE == SSL_CLIENT) ?
+-                TLSv1_client_method() : TLSv1_server_method());
+-    } else if (CONFIG->ETYPE == ENC_SSL) {
+-        ctx = SSL_CTX_new((CONFIG->PMODE == SSL_CLIENT) ?
+-                SSLv23_client_method() : SSLv23_server_method());
+-    } else {
++        ssloptions |= SSL_OP_NO_SSLv3;
++    } else if (CONFIG->ETYPE != ENC_SSL) {
+         assert(CONFIG->ETYPE == ENC_TLS || CONFIG->ETYPE == ENC_SSL);
+         return NULL; // Won't happen, but gcc was complaining
+     }
+ 
++    ctx = SSL_CTX_new((CONFIG->PMODE == SSL_CLIENT) ?
++            SSLv23_client_method() : SSLv23_server_method());
+     SSL_CTX_set_options(ctx, ssloptions);
+     SSL_CTX_set_info_callback(ctx, info_callback);
+ 
+@@ -889,6 +895,13 @@ static void shutdown_proxy(proxystate *p
          close(ps->fd_up);
          close(ps->fd_down);
  
@@ -51,7 +73,7 @@ SSL fixes as per https://github.com/bumptech/stud/pull/130.
          SSL_set_shutdown(ps->ssl, SSL_SENT_SHUTDOWN);
          SSL_free(ps->ssl);
  
-@@ -1197,7 +1212,15 @@ static void client_handshake(struct ev_l
+@@ -1197,7 +1210,15 @@ static void client_handshake(struct ev_l
              shutdown_proxy(ps, SHUTDOWN_SSL);
          }
          else {
@@ -68,7 +90,7 @@ SSL fixes as per https://github.com/bumptech/stud/pull/130.
              shutdown_proxy(ps, SHUTDOWN_SSL);
          }
      }
-@@ -1312,7 +1335,7 @@ static void handle_accept(struct ev_loop
+@@ -1312,7 +1333,7 @@ static void handle_accept(struct ev_loop
              break;
  
          default:
@@ -77,7 +99,7 @@ SSL fixes as per https://github.com/bumptech/stud/pull/130.
              break;
          }
          return;
-@@ -1751,24 +1774,16 @@ void daemonize () {
+@@ -1751,24 +1772,16 @@ void daemonize () {
          exit(0);
      }
  
