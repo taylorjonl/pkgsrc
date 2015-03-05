@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.11 2014/10/21 17:05:54 wiedi Exp $
+# $NetBSD: Makefile,v 1.13 2015/03/04 16:39:41 wiedi Exp $
 
-DISTNAME=	spiped-1.4.2
+DISTNAME=	spiped-1.5.0
 CATEGORIES=	net security
 MASTER_SITES=	http://www.tarsnap.com/spiped/
 EXTRACT_SUFX=	.tgz
@@ -9,6 +9,7 @@ MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.tarsnap.com/spiped/
 COMMENT=	Tool for creating symmetrically encrypted and authenticated pipes
 LICENSE=	2-clause-bsd
+USE_LANGUAGES=	c99
 
 MAKE_FLAGS+=	BINDIR=${DESTDIR}${PREFIX}/bin
 MAKE_FLAGS+=	MAN1DIR=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
