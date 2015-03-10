@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.14 2014/12/13 15:14:26 fhajny Exp $
+@comment $NetBSD: PLIST,v 1.18 2015/03/10 13:11:36 jperkin Exp $
 bin/go
 bin/gofmt
 go/AUTHORS
@@ -515,7 +515,7 @@ go/pkg/${GO_PLATFORM}/regexp.a
 go/pkg/${GO_PLATFORM}/regexp/syntax.a
 go/pkg/${GO_PLATFORM}/runtime.a
 go/pkg/${GO_PLATFORM}/runtime.h
-${PLIST.cgo}go/pkg/${GO_PLATFORM}/runtime/cgo.a
+go/pkg/${GO_PLATFORM}/runtime/cgo.a
 go/pkg/${GO_PLATFORM}/runtime/debug.a
 go/pkg/${GO_PLATFORM}/runtime/pprof.a
 go/pkg/${GO_PLATFORM}/runtime/race.a
@@ -537,10 +537,10 @@ go/pkg/${GO_PLATFORM}/time.a
 go/pkg/${GO_PLATFORM}/unicode.a
 go/pkg/${GO_PLATFORM}/unicode/utf16.a
 go/pkg/${GO_PLATFORM}/unicode/utf8.a
-go/pkg/tool/${GO_PLATFORM}/${GO_COMPILER}a
-go/pkg/tool/${GO_PLATFORM}/${GO_COMPILER}c
-go/pkg/tool/${GO_PLATFORM}/${GO_COMPILER}g
-go/pkg/tool/${GO_PLATFORM}/${GO_COMPILER}l
+go/pkg/tool/${GO_PLATFORM}/${GOCHAR}a
+go/pkg/tool/${GO_PLATFORM}/${GOCHAR}c
+go/pkg/tool/${GO_PLATFORM}/${GOCHAR}g
+go/pkg/tool/${GO_PLATFORM}/${GOCHAR}l
 go/pkg/tool/${GO_PLATFORM}/addr2line
 go/pkg/tool/${GO_PLATFORM}/cgo
 go/pkg/tool/${GO_PLATFORM}/dist
@@ -2570,6 +2570,7 @@ go/src/runtime/cgo/gcc_netbsd_arm.c
 go/src/runtime/cgo/gcc_openbsd_386.c
 go/src/runtime/cgo/gcc_openbsd_amd64.c
 go/src/runtime/cgo/gcc_setenv.c
+go/src/runtime/cgo/gcc_solaris_amd64.c
 go/src/runtime/cgo/gcc_util.c
 go/src/runtime/cgo/gcc_windows_386.c
 go/src/runtime/cgo/gcc_windows_amd64.c
@@ -4325,6 +4326,13 @@ go/test/fixedbugs/issue8947.go
 go/test/fixedbugs/issue8961.go
 go/test/fixedbugs/issue9006.go
 go/test/fixedbugs/issue9110.go
+go/test/fixedbugs/issue9321.go
+go/test/fixedbugs/issue9432.go
+go/test/fixedbugs/issue9537.dir/a.go
+go/test/fixedbugs/issue9537.dir/b.go
+go/test/fixedbugs/issue9537.go
+go/test/fixedbugs/issue9604.go
+go/test/fixedbugs/issue9634.go
 go/test/float_lit.go
 go/test/float_lit2.go
 go/test/float_lit3.go
