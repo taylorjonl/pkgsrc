@@ -12,7 +12,6 @@
 # distnfo with the details of the suhosin patch as well.
 
 PHP_VERSION_REQD=	53
-PHP_BASE_VERS=		${PHP53_VERSION}
 
 .include "../../lang/php/common.mk"
 
