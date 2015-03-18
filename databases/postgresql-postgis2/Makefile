@@ -24,7 +24,7 @@ CONFLICTS=		postgis-[0-9]*
 # gmake complains about adding + to parent rule
 MAKE_JOBS_SAFE=		no
 
-PGSQL_VERSIONS_ACCEPTED=	90 91 92 93
+PGSQL_VERSIONS_ACCEPTED=	90 91 92 93 94
 
 USE_GCC_RUNTIME=	yes
 USE_LANGUAGES=		c c++ c99
