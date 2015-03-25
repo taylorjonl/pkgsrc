@@ -7,4 +7,4 @@ SHA1 (patch-Makefile.am) = c8e6c2f4c7ce8264c2b4dcad6445248264a8fa9e
 SHA1 (patch-Makefile.in) = e71671670abd24440fc9ce783b0c6be8adf6c27c
 SHA1 (patch-aa) = 43803d05d1da91440f6619b321c3e1ff4fcb8e2f
 SHA1 (patch-ab) = a870c803752bca12550da73d19ee0e675b5e576d
-SHA1 (patch-configure) = 2e283a79362edc90d08c73edece4a9ec8df51e6e
+SHA1 (patch-configure) = ed8eb42ac23cc0d76388e1b9b2670c1f2a84c0ac
