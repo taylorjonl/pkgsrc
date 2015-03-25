@@ -10,6 +10,13 @@ CONFLICTS=		mysql*-{client,server}-[0-9]*
 UNWRAP_FILES+=		scripts/mysql_config
 INFO_FILES=		yes
 
+PKG_GROUPS=		${MYSQL_GROUP}
+PKG_USERS=		${MYSQL_USER}:${MYSQL_GROUP}
+
+PKG_GECOS.${MYSQL_USER}=	MySQL database administrator
+PKG_HOME.${MYSQL_USER}=		${MYSQL_DATADIR}
+PKG_SHELL.${MYSQL_USER}=	${SH}
+
 RCD_SCRIPTS=		mysqld ndbd ndbmtd ndb_mgmd
 SMF_NAME=		mysql-cluster
 SMF_METHODS=		mysqld ndbd
