@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.193.2.1 2014/08/09 20:43:14 spz Exp $
+# $NetBSD: Makefile,v 1.200.2.1 2015/01/11 19:52:04 tron Exp $
 
-DISTNAME=	openssl-1.0.1j
+DISTNAME=	openssl-1.0.1m
 MASTER_SITES=	http://ftp.openssl.org/source/
-SVR4_PKGNAME=	ossl
 CATEGORIES=	security
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -91,6 +90,21 @@ SUBST_FILES.dl=		Makefile apps/Makefile crypto/Makefile \
 			crypto/pkcs7/Makefile test/Makefile
 SUBST_SED.dl=		-e 's,^EX_LIBS=,EX_LIBS=${DL_LDFLAGS:Q} ,g'
 
+.elif ${OPSYS} == "AIX"
+CONFIGURE_SCRIPT=      ./Configure
+.if defined(ABI) && ${ABI} == "64"
+.if !empty(CC_VERSION:Mgcc*)
+CONFIGURE_ARGS+=       aix64-gcc
+.else
+CONFIGURE_ARGS+=       aix64-cc
+.endif
+.else
+.if !empty(CC_VERSION:Mgcc*)
+CONFIGURE_ARGS+=       aix-gcc
+.else
+CONFIGURE_ARGS+=       aix-cc
+.endif
+.endif
 .elif ${OPSYS} == "Interix"
 
 SUBST_CLASSES+=		soname
@@ -120,6 +134,9 @@ CONFIGURE_ARGS+=	hpux-ia64-${CC}
 CONFIGURE_SCRIPT=	./Configure
 CONFIGURE_ARGS+=	linux-ppc64
 .  endif
+.elif ${OS_VARIANT} == "SCOOSR5"
+# SIGILL in _sha1_block_data_order_ssse3().
+CONFIGURE_ARGS+=	no-sse2
 .endif
 
 .include "../../security/openssl/options.mk"
