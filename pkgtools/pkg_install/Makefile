@@ -214,8 +214,8 @@ pre-configure:
 		${MAKE_PROGRAM} ${MAKE_FLAGS} ${BUILD_MAKE_FLAGS}	\
 			-f ${MAKE_FILE} depend all
 	cd ${WRKDIR}/netpgpverify &&					\
-	${CP} Makefile.lib.in Makefile.in && ./configure &&		\
-	${SETENV} ${MAKE_ENV} ${BSD_MAKE_ENV}				\
+	${SED} -e '/zlib/d' Makefile.lib.in >Makefile.in &&		\
+	./configure && ${SETENV} ${MAKE_ENV} ${BSD_MAKE_ENV}		\
 		${MAKE_PROGRAM} ${MAKE_FLAGS} ${BUILD_MAKE_FLAGS}	\
 			-f ${MAKE_FILE} all
 	# netpgp headers conflict with ours, just copy the one we need.
