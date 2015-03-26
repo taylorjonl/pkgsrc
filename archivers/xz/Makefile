@@ -14,6 +14,7 @@ LICENSE=	public-domain AND gnu-gpl-v2
 .include "options.mk"
 
 USE_LIBTOOL=		yes
+USE_MULTIARCH=		lib
 GNU_CONFIGURE=		yes
 PKGCONFIG_OVERRIDE=	src/liblzma/liblzma.pc.in
 
