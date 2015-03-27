@@ -670,15 +670,6 @@ _GCC_ARCHDIR!=		\
 	else								\
 		${ECHO} "_GCC_ARCHDIR_not_found";			\
 	fi
-.  if empty(_GCC_ARCHDIR:M*not_found*)
-.    if defined(MABIFLAG) && !empty(MABIFLAG)
-_GCC_PREFIX:=		${_GCC_ARCHDIR:H:H:H:H:H}/
-_GCC_SUBPREFIX:=	${_GCC_ARCHDIR:H:H:H:H:H:T}/
-.    else
-_GCC_PREFIX:=		${_GCC_ARCHDIR:H:H:H:H}/
-_GCC_SUBPREFIX:=	${_GCC_ARCHDIR:H:H:H:H:T}/
-.    endif
-.  endif
 _GCC_LIBDIRS=	${_GCC_ARCHDIR}
 .  if empty(USE_PKGSRC_GCC_RUNTIME:M[Yy][Ee][Ss])
 _GCC_LIBDIRS+=	${_GCC_PREFIX}lib${LIBABISUFFIX}
