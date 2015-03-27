@@ -16,6 +16,7 @@ DEPENDS+=	${PYPKGPREFIX}-lxml>3:../../textproc/py-lxml
 DEPENDS+=	${PYPKGPREFIX}-yaml-[0-9]*:../../textproc/py-yaml
 DEPENDS+=	${PYPKGPREFIX}-biplist-[0-9]*:../../textproc/py-biplist
 
+PYTHON_VERSIONS_INCOMPATIBLE=	26
 PYTHON_VERSIONED_DEPENDENCIES=	dateutil
 
 USE_LANGUAGES=	# none
