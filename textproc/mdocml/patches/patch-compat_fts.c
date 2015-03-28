@@ -1,4 +1,4 @@
-$NetBSD: patch-compat_fts.c,v 1.3 2015/03/19 08:29:40 tron Exp $
+$NetBSD: patch-compat_fts.c,v 1.5 2015/03/26 19:59:53 sevan Exp $
 
 Fix build under Solaris 10.
 
