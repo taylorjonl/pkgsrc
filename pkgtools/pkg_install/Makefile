@@ -128,6 +128,7 @@ FILESDIR.bzip2?=	${.CURDIR}/../../archivers/bzip2/files
 FILESDIR.libarchive?=	${.CURDIR}/../../archivers/libarchive/files
 FILESDIR.zlib?=		${.CURDIR}/../../devel/zlib/files
 FILESDIR.libfetch?=	${.CURDIR}/../../net/libfetch/files
+FILESDIR.netpgpverify?=	${.CURDIR}/../../security/netpgpverify/files
 
 .if empty(USE_BUILTIN.bzip2:M[yY][eE][sS])
 CPPFLAGS+=	-I${WRKDIR}/bzip2
@@ -174,6 +175,7 @@ pre-configure: config-guess-override config-sub-override
 .endif
 CPPFLAGS+=	-I${WRKDIR}/libfetch
 LDFLAGS+=	-L${WRKDIR}/libfetch
+LDFLAGS+=	-L${WRKDIR}/netpgpverify
 
 CONFIGURE_ENV+=	LIBS=${LIBS:Q}
 
@@ -189,6 +191,7 @@ do-extract:
 	@${CP} -R ${FILESDIR.libarchive} ${WRKDIR}/libarchive
 .endif
 	@${CP} -R ${FILESDIR.libfetch} ${WRKDIR}/libfetch
+	@${CP} -R ${FILESDIR.netpgpverify} ${WRKDIR}/netpgpverify
 
 pre-configure:
 .if empty(USE_BUILTIN.bzip2:M[yY][eE][sS])
@@ -210,7 +213,13 @@ pre-configure:
 	cd ${WRKDIR}/libfetch && ${SETENV} ${MAKE_ENV} ${BSD_MAKE_ENV}	\
 		${MAKE_PROGRAM} ${MAKE_FLAGS} ${BUILD_MAKE_FLAGS}	\
 			-f ${MAKE_FILE} depend all
-
+	cd ${WRKDIR}/netpgpverify &&					\
+	${SED} -e '/zlib/d' Makefile.lib.in >Makefile.in &&		\
+	./configure && ${SETENV} ${MAKE_ENV} ${BSD_MAKE_ENV}		\
+		${MAKE_PROGRAM} ${MAKE_FLAGS} ${BUILD_MAKE_FLAGS}	\
+			-f ${MAKE_FILE} all
+	# netpgp headers conflict with ours, just copy the one we need.
+	${CP} ${WRKDIR}/netpgpverify/verify.h ${WRKSRC}/lib
 
 # XXX Reverse the order that update does things since
 # XXX we need pkg_delete built before we can deinstall.
