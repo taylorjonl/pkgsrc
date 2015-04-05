@@ -30,5 +30,6 @@ CFLAGS.Linux+=	-D_GNU_SOURCE=1
 
 do-extract:
 	${CP} -R ${FILESDIR}/bin ${WRKSRC}
+	${TOUCH} ${WRKSRC}/transform-gcc.c
 
 .include "../../mk/bsd.pkg.mk"
