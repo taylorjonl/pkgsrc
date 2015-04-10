@@ -2,15 +2,6 @@ $NetBSD: patch-configure,v 1.2.8.1 2013/08/25 17:26:38 tron Exp $
 
 --- configure.orig	2013-08-14 06:04:57.000000000 +0000
 +++ configure
-@@ -20689,7 +20689,7 @@ _ACEOF
-   cat>>Makefile.objects<<EOF
- 
- $ac_bdir$ac_hdrobj: $abs_srcdir/$ac_provsrc
--	dtrace -h -C -s $ac_srcdir$ac_provsrc -o \$@ && \$(SED) -ibak 's,PHP_,DTRACE_,g' \$@
-+	dtrace -h -C -s $ac_srcdir$ac_provsrc -o \$@ && \$(SED) 's,PHP_,DTRACE_,g' \$@ > \$@.tmp && mv \$@.tmp \$@
- 
- \$(PHP_DTRACE_OBJS): $ac_bdir$ac_hdrobj
- 
 @@ -23476,7 +23476,7 @@ fi
      if test "$found_openssl" = "no"; then
  
