@@ -29,8 +29,9 @@
  * SUCH DAMAGE.
  */
 
+#include <nbcompat.h>
 #include <sys/stat.h>
-#include <err.h>
+#include <nbcompat/err.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

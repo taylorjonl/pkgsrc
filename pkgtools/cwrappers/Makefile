@@ -24,7 +24,8 @@ CFLAGS+=	-DLINKER_RPATH_FLAG=\"${LINKER_RPATH_FLAG}\"
 .if ${OPSYS} != "NetBSD" || !empty(MACHINE_PLATFORM:MNetBSD-[0-5].*)
 MAKE_ENV+=	NEED_MI_VECTOR_HASH=1
 .endif
-.if !empty(MACHINE_PLATFORM:MDarwin-9.*) || !empty(MACHINE_PLATFORM:MDarwin-10.*)
+.if !empty(MACHINE_PLATFORM:MDarwin-9.*) || !empty(MACHINE_PLATFORM:MDarwin-10.*) \
+ || !empty(MACHINE_PLATFORM:MSunOS-5.[0-9]-*)
 MAKE_ENV+=	NEED_GETLINE=1
 .endif
 

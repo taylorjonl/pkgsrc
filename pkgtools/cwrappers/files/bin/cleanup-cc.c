@@ -30,7 +30,8 @@
  */
 
 
-#include <err.h>
+#include <nbcompat.h>
+#include <nbcompat/err.h>
 #include <stdlib.h>
 #include <string.h>
 #include "common.h"

@@ -31,8 +31,9 @@
  * SUCH DAMAGE.
  */
 
+#include <nbcompat.h>
 #include <sys/wait.h>
-#include <err.h>
+#include <nbcompat/err.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>

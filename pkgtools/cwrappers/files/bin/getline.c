@@ -26,7 +26,7 @@ getline(char **lineptr, size_t *len, FILE *fp)
 		eos = *lineptr + *len - 1;
 
 		while (iter < eos) {
-			ch = getc_unlocked(fp);
+			ch = getc(fp);
 			if (ch == -1)
 				break;
 			*iter++ = ch;
