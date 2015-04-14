@@ -269,7 +269,7 @@ process_variable(FILE *output, const char *lafile, const char *line,
 	if (in_relink) {
 		command = strchr(line, ';');
 		if (command == NULL)
-			errx(255, "Unrecognizable relink format");
+			goto out;
 		++command;
 		fwrite(line, command - line, 1, output);
 		fprintf(output, " %s", exec_path);
@@ -303,7 +303,7 @@ process_variable(FILE *output, const char *lafile, const char *line,
 			break;
 		process_option(&opt, line, len, in_relink);
 	}
-
+out:
 	for (i = 0; i < LIBPATH_HASH; ++i) {
 		while ((arg = TAILQ_FIRST(opt.hashtab + i)) != NULL)
 			argument_unlink(opt.hashtab + i, &arg);
