@@ -43,24 +43,35 @@ normalise_ld(struct arglist *args)
 	TAILQ_FOREACH_SAFE(arg, args, link, arg2) {
 		if (arg->val[0] != '-')
 			continue;
+		/*
+		 * Strip leading "-Wl,".
+		 */
 		if (strncmp(arg->val, "-Wl,", 4) == 0)
 			argument_update(arg, xstrdup(arg->val + 4));
+		/*
+		 * Check for valid "-L" arguments.
+		 */
 		if (strcmp(arg->val, "-L") == 0) {
 			if (arg2 == NULL || arg2->val[0] == '-')
 				errx(255, "Missing argument for %s", arg->val);
 			argument_update(arg, concat(arg->val, arg2->val));
 			continue;
 		}
+		/*
+		 * Convert all rpath flags to canonical LINKER_RPATH_FLAG
+		 * based on target platform and check for valid arguments.
+		 */
 		if (strcmp(arg->val, "-R") == 0 ||
+		    strcmp(arg->val, "-rpath") == 0 ||
 		    strcmp(arg->val, "--rpath") == 0) {
 			if (arg2 == NULL || arg2->val[0] == '-')
 				errx(255, "Missing argument for %s", arg->val);
-			argument_update(arg, xstrdup("-rpath"));
+			argument_update(arg, xstrdup(LINKER_RPATH_FLAG));
 			continue;
 		}
 		if (strncmp(arg->val, "-R", 2) == 0) {
 			argument_update(arg, xstrdup(arg->val + 2));
-			arg3 = argument_copy("-rpath");
+			arg3 = argument_copy(LINKER_RPATH_FLAG);
 			TAILQ_INSERT_BEFORE(arg, arg3, link);
 			continue;
 		}

@@ -12,8 +12,9 @@ Transformations done in this phase:
 3. Arguments of the form "-L foo" are converted to the single argument
 form "-Lfoo".
 
-7. Arguments of the form "-Rfoo", "-R foo" or "--rpath foo" are converted
-to the form "-rpath foo".
+7. Arguments of the form "-Rfoo", "-rpath foo" or "--rpath foo" are converted
+to the form "LINKER_RPATH_FLAG foo" where LINKER_RPATH_FLAG is a
+platform-specific string provided from pkgsrc infrastructure.
 
 8. Full path names that end up in
 "/lib([a-zA-Z0-9_-])*\.s[ol](\.[0-9][^/]*)$ are replaced by "-Ldir -l\1"

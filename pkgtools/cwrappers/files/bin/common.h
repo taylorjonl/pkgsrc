@@ -44,6 +44,14 @@ extern char *exec_name;
 extern char *wrksrc;
 extern int debug;
 
+#ifndef COMPILER_RPATH_FLAG
+#define COMPILER_RPATH_FLAG	"-Wl,-rpath,"
+#endif
+
+#ifndef LINKER_RPATH_FLAG
+#define LINKER_RPATH_FLAG	"-rpath"
+#endif
+
 TAILQ_HEAD(arglist, argument);
 
 struct argument {

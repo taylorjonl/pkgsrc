@@ -320,6 +320,9 @@ generic_transform_cc(struct arglist *args)
 	char *transformed;
 	int rpath_mode;
 	size_t i, len;
+#if !defined(WRAPPER_LD)
+	size_t rflaglen = strlen(COMPILER_RPATH_FLAG);
+#endif
 
 	TAILQ_FOREACH_SAFE(arg, args, link, arg2) {
 		len = strlen(arg->val);
@@ -368,10 +371,10 @@ generic_transform_cc(struct arglist *args)
 			opt_arg = NULL;
 		}
 #if !defined(WRAPPER_LD)
-		else if (strncmp(arg->val, "-Wl,-rpath,", 11) == 0) {
-			len -= 11;
-			prefix = "-Wl,-rpath,";
-			path = arg->val + 11;
+		else if (strncmp(arg->val, COMPILER_RPATH_FLAG, rflaglen) == 0) {
+			len -= rflaglen;
+			prefix = COMPILER_RPATH_FLAG;
+			path = arg->val + rflaglen;
 			ruleset = &rpath_rules;
 			opt_arg = NULL;
 			rpath_mode = 1;
@@ -384,7 +387,7 @@ generic_transform_cc(struct arglist *args)
 			rpath_mode = 1;
 		}
 #else
-		else if (strcmp(arg->val, "-rpath") == 0 ||
+		else if (strcmp(arg->val, LINKER_RPATH_FLAG) == 0 ||
 			 strcmp(arg->val, "-rpath-link") == 0) {
 			opt_arg = arg;
 			arg = arg2;

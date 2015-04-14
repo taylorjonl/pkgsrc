@@ -173,7 +173,7 @@ normalise_cc(struct arglist *args)
 		if (strcmp(arg->val, "-R") == 0) {
 			if (arg2 == NULL || arg2->val[0] == '-')
 				errx(255, "Missing argument for %s", arg->val);
-			normalise_path_list(args, arg, "-Wl,-rpath,",
+			normalise_path_list(args, arg, COMPILER_RPATH_FLAG,
 			    arg2->val, 1);
 			argument_unlink(args, &arg);
 			argument_unlink(args, &arg2);
@@ -184,26 +184,26 @@ normalise_cc(struct arglist *args)
 		    strcmp(arg->val, "-Wl,--rpath") == 0) {
 			if (arg2 == NULL || strncmp(arg2->val, "-Wl,", 4))
 				errx(255, "Missing argument for %s", arg->val);
-			normalise_path_list(args, arg, "-Wl,-rpath,",
+			normalise_path_list(args, arg, COMPILER_RPATH_FLAG,
 			    arg2->val + 4, 1);
 			argument_unlink(args, &arg);
 			argument_unlink(args, &arg2);
 			continue;
 		}
 		if (strncmp(arg->val, "-Wl,-R", 6) == 0) {
-			normalise_path_list(args, arg, "-Wl,-rpath,",
+			normalise_path_list(args, arg, COMPILER_RPATH_FLAG,
 			    arg->val + 6, 1);
 			argument_unlink(args, &arg);
 			continue;
 		}
 		if (strncmp(arg->val, "-R", 2) == 0) {
-			normalise_path_list(args, arg, "-Wl,-rpath,",
+			normalise_path_list(args, arg, COMPILER_RPATH_FLAG,
 			    arg->val + 2, 1);
 			argument_unlink(args, &arg);
 			continue;
 		}
 		if (strncmp(arg->val, "-Wl,-rpath,", 10) == 0) {
-			normalise_path_list(args, arg, "-Wl,-rpath,",
+			normalise_path_list(args, arg, COMPILER_RPATH_FLAG,
 			    arg->val + 10, 1);
 			argument_unlink(args, &arg);
 			continue;

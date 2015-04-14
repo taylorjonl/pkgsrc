@@ -42,6 +42,7 @@ cleanup_cc(struct arglist *args)
 {
 	struct argument *arg, *arg2, *arg3;
 	struct arglist hashtab[CLEANUP_HASH];
+	size_t rflaglen = strlen(COMPILER_RPATH_FLAG);
 	size_t i;
 
 	for (i = 0; i < CLEANUP_HASH; ++i)
@@ -50,20 +51,31 @@ cleanup_cc(struct arglist *args)
 	TAILQ_FOREACH_SAFE(arg, args, link, arg2) {
 		if (arg->val[0] != '-')
 			continue;
-		if (strncmp(arg->val, "-Wl,-rpath,", 11) == 0) {
-			if (arg->val[11] == '/')
-				continue;
+		/*
+		 * Remove relative rpaths.  Note that we have to specifically
+		 * check for -L as Darwin uses it as its COMPILER_RPATH_FLAG,
+		 * and we clearly must allow relative paths for it.
+		 */
+		if (strncmp(arg->val, COMPILER_RPATH_FLAG, rflaglen) == 0 &&
+		    strncmp(arg->val, "-L", 2) != 0 &&
+		    arg->val[rflaglen] != '/') {
 			argument_unlink(args, &arg);
 			continue;
 		}
+		/*
+		 * Remove duplicate adjacent -l arguments.
+		 */
 		if (arg2 != NULL && strncmp(arg->val, "-l", 2) == 0 &&
 		    strcmp(arg->val, arg2->val) == 0) {
 			argument_unlink(args, &arg);
 			continue;
 		}
+		/*
+		 * XXX: prune duplicates, does any re-ordering?
+		 */
 		if (strncmp(arg->val, "-I", 2) == 0 ||
 		    strncmp(arg->val, "-L", 2) == 0 ||
-		    strncmp(arg->val, "-Wl,-rpath,", 11) == 0 ||
+		    strncmp(arg->val, COMPILER_RPATH_FLAG, rflaglen) == 0 ||
 		    strncmp(arg->val, "-Wl,-rpath-link,", 15) == 0) {
 			i = wrapper_hash(arg->val) & (CLEANUP_HASH - 1);
 			TAILQ_FOREACH(arg3, hashtab + i, tmp_link) {
