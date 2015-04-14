@@ -23,7 +23,11 @@ TEST_TARGET=	test
 .endif
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/pygmentize ${DESTDIR}${PREFIX}/bin/pygmentize${PYVERSSUFFIX}
+	@if [ -f ${DESTDIR}${PREFIX}/bin/pygmentize ]; then \
+		${MV} ${DESTDIR}${PREFIX}/bin/pygmentize \
+			${DESTDIR}${PREFIX}/bin/pygmentize${PYVERSSUFFIX}; \
+	fi
+
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"
