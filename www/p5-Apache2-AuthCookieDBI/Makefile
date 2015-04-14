@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.13 2014/11/23 07:06:28 mef Exp $
+# $NetBSD: Makefile,v 1.13.4.2 2015/04/07 08:04:20 he Exp $
 #
 
 DISTNAME=	Apache2-AuthCookieDBI-2.17
