@@ -1,3 +1,4 @@
+
 # $NetBSD: Makefile,v 1.12 2015/03/01 15:09:07 wiz Exp $
 
 DISTNAME=	keyring-5.3
@@ -17,7 +18,9 @@ REPLACE_PYTHON+=	keyring/cli.py
 PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/keyring ${DESTDIR}${PREFIX}/bin/keyring-${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/keyring ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/keyring ${DESTDIR}${PREFIX}/bin/keyring-${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/application.mk"
 .include "../../lang/python/egg.mk"

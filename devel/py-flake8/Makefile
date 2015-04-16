@@ -18,7 +18,9 @@ DEPENDS+=	${PYPKGPREFIX}-pep8-[0-9]*:../../devel/py-pep8
 PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/flake8 ${DESTDIR}${PREFIX}/bin/flake8-${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/flake8 ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/flake8 ${DESTDIR}${PREFIX}/bin/flake8-${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/egg.mk"
 .include "../../mk/bsd.pkg.mk"
