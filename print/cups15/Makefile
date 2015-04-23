@@ -69,7 +69,8 @@ CONFIGURE_ENV+=		DSOFLAGS=${LDFLAGS:M*:Q}
 
 .if ${OPSYS} == "SunOS"
 LIBS_SSP =		-lssp_nonshared -lssp
-CONFIGURE_ENV+=	LIBS_SSP=${LIBS_SSP:M*:Q}
+CONFIGURE_ENV+=		LIBS_SSP=${LIBS_SSP:M*:Q}
+CONFIGURE_ENV+=		ac_cv_func_epoll_create=no
 .endif
 LIBS+=			${BUILDLINK_LDADD.iconv}
 

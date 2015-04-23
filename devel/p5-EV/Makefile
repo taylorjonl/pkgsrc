@@ -17,8 +17,8 @@ PERL5_PACKLIST=	auto/EV/.packlist
 
 OPSYSVARS+=	MAKE_ENV
 
-# Explicitly disable inotify on SunOS, assumes Linux statfs.
-MAKE_ENV.SunOS+=	EV_INOTIFY=0
+# Explicitly disable epoll and inotify on SunOS, assumes Linux statfs.
+MAKE_ENV.SunOS+=	EV_EPOLL=0 EV_INOTIFY=0
 
 .include "../../lang/perl5/module.mk"
 .include "../../mk/bsd.pkg.mk"

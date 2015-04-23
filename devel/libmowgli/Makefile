@@ -18,4 +18,8 @@ USE_TOOLS+=	pkg-config
 
 PKGCONFIG_OVERRIDE+=	libmowgli.pc.in
 
+OPSYSVARS+=	CONFIGURE_ENV
+
+CONFIGURE_ENV.SunOS+=	ac_cv_func_epoll_ctl=no
+
 .include "../../mk/bsd.pkg.mk"

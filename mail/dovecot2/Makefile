@@ -21,6 +21,10 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--with-ssldir=${SSLDIR}
 CONFIGURE_ENV+=		am_cv_func_iconv_works=no
 
+OPSYSVARS+=	CONFIGURE_ENV
+
+CONFIGURE_ENV.SunOS+=	ac_cv_func_inotify_init=no
+
 .include "../../mk/bsd.prefs.mk"
 
 RCD_SCRIPTS=		dovecot
