@@ -27,6 +27,10 @@ CPPFLAGS.SunOS+=	-D__EXTENSIONS__
 
 .include "../../mk/bsd.prefs.mk"
 
+.if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=		ac_cv_func_epoll_ctl=no
+.endif
+
 .if !empty(MACHINE_PLATFORM:MHPUX-11.11-*)
 CONFIGURE_ENV+=		ac_cv_func_strtoll=yes
 CPPFLAGS+=		-Dstrtoll=__strtoll

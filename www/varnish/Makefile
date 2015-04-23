@@ -53,6 +53,7 @@ CONFIGURE_ARGS+=	--with-rst2html=${PREFIX}/bin/rst2html-${PYVERSSUFFIX}.py
 .include "../../mk/bsd.prefs.mk"
 
 .if ${OPSYS} == "SunOS"
+CONFIGURE_ENV+=	ac_cv_func_epoll_ctl=no
 .  if ${PKGSRC_COMPILER} == "sunpro"
 CONFIGURE_ENV+=	VCC_CC="cc ${_COMPILER_ABI_FLAG.${ABI}} -Kpic -G -o %o %s"
 .  else

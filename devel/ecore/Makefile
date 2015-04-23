@@ -16,9 +16,13 @@ GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
 USE_TOOLS+=	pkg-config
 
+OPSYSVARS+=	CONFIGURE_ARGS
+
 CONFIGURE_ARGS+=	--disable-ecore-directfb \
 			--enable-ecore-desktop \
 			--disable-ecore-evas-sdl
+CONFIGURE_ARGS.SunOS+=	--disable-epoll
+CONFIGURE_ARGS.SunOS+=	--disable-inotify
 
 INSTALLATION_DIRS=	share/doc/ecore
 

@@ -19,6 +19,9 @@ PLIST_VARS+=		klog solaris
 
 .if ${OPSYS} == "SunOS"
 CONFIGURE_ARGS+=	--enable-imsolaris --disable-klog
+CONFIGURE_ENV+=		ac_cv_func_epoll_create=no
+CONFIGURE_ENV+=		ac_cv_func_epoll_create1=no
+CONFIGURE_ENV+=		ac_cv_func_inotify_init=no
 PLIST.solaris=		yes
 RSYSLOG_SYSMOD=		imsolaris
 .else
