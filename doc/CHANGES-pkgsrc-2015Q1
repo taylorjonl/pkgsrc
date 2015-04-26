@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.14 2015/04/22 22:55:10 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.18 2015/04/26 08:47:38 tron Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2015Q1 branch:
@@ -53,3 +53,17 @@ Pullup ticket #4680 - requested by taca
 lang/php56: security update
 Pullup ticket #4681 - requested by joerg
 graphics/p5-PerlMagick: bug fix patch
+Pullup ticket #4654 - requested by dsainty
+security/zoneminder: security update
+Pullup ticket #4683 - requested by joerg
+editors/p5-Wx-Scintilla: linker fix patch
+Pullup ticket #4682 - requested by hiramatsu
+inputmethod/librime: build fix
+Pullup ticket #4670 - requested by joerg
+devel/rsltc: build fix
+Pullup ticket #4684 - requested by taca
+lang/ruby200-base: security update
+Pullup ticket #4685 - requested by taca
+lang/ruby21-base: security update
+Pullup ticket #4686 - requested by taca
+lang/ruby22-base: security update
