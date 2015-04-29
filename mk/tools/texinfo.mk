@@ -70,6 +70,7 @@ _TOOLS_USE_PKGSRC.makeinfo!=						\
 .      endif
 .    endfor
 .  endif
+MAKEFLAGS+=	_TOOLS_USE_PKGSRC.makeinfo=${_TOOLS_USE_PKGSRC.makeinfo}
 MAKEVARS+=	_TOOLS_USE_PKGSRC.makeinfo
 .endif
 
