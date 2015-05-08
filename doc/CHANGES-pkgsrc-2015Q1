@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.18 2015/04/26 08:47:38 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.27 2015/05/03 06:26:35 hiramatsu Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2015Q1 branch:
@@ -67,3 +67,42 @@ Pullup ticket #4685 - requested by taca
 lang/ruby21-base: security update
 Pullup ticket #4686 - requested by taca
 lang/ruby22-base: security update
+Pullup ticket #4687 - requested by joerg
+comms/java-rxtx: build fix
+Pullup ticket #4688 - requested by joerg
+print/pdf2djvu: build fix
+Pullup ticket #4689 - requested by dholland
+net/socat: build fix
+Pullup ticket #4700 - requested by manu
+sysutils/coreutils: build fix
+Pullup ticket #4701 - requested by manu
+devel/gnustep-objc: build fix
+Pullup ticket #4702 - requested by manu
+devel/gnustep-make: build fix
+Pullup ticket #4706 - requested by roy
+net/dnsmasq: security patch
+Pullup ticket #4696 - requested by spz
+textproc/libxml2: security patch
+Pullup ticket #4697 - requested by spz
+x11/xlockmore: security update
+x11/xlockmore-lite: security update
+Pullup ticket #4698 - requested by spz
+sysutils/xenkernel41: security patch
+sysutils/xenkernel42: security patch
+sysutils/xenkernel45: security patch
+Pullup ticket #4699 - requested by spz
+sysutils/xenkernel45: security patch
+Pullup ticket #4703 - requested by spz
+databases/gnats: security update
+Pullup ticket #4705 - requested by spz
+www/curl: security update
+Pullup ticket #4690 - requested by joerg
+sysutils/dvdisaster: build fix
+Pullup ticket #4691 - requested by joerg
+multimedia/libmpeg3: build fix
+Pullup ticket #4692 - requested by joerg
+print/hplip: build fix
+Pullup ticket #4693 - requested by joerg
+print/hpijs: build fix
+Pullup ticket #4694 - requested by joerg
+emulators/bochs: build fix

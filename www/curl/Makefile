@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.147 2015/04/22 14:35:21 jperkin Exp $
+# $NetBSD: Makefile,v 1.146.2.1 2015/04/29 21:25:22 tron Exp $
 
 DISTNAME=	curl-7.42.0
 CATEGORIES=	www
