@@ -77,7 +77,7 @@ SUBST_MESSAGE.conf=	Fixing configuration files.
 .if !empty(RUBY_SUFFIX)
 CONFIGURE_ARGS+= --program-suffix=${RUBY_SUFFIX}
 CONFIGURE_ARGS+= --with-soname=${RUBY_NAME}
-CONFIGURE_ARGS+= --with-ruby-version=${RUBY_VERSION}
+CONFIGURE_ARGS+= --with-ruby-version=${RUBY_VER_DIR}
 CONFIGURE_ARGS+= --with-ruby-pc="ruby-${RUBY_VERSION}.pc"
 .endif
 
