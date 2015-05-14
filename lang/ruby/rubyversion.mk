@@ -1,4 +1,4 @@
-# $NetBSD: rubyversion.mk,v 1.130 2014/11/15 14:42:20 taca Exp $
+# $NetBSD: rubyversion.mk,v 1.138.2.2 2015/04/26 08:36:34 tron Exp $
 #
 
 # This file determines which Ruby version is used as a dependency for
@@ -223,13 +223,13 @@ RUBY_VERSION_REQD?= ${PKGNAME_REQD:C/ruby([0-9][0-9]+)-.*/\1/}
 RUBY18_VERSION=		1.8.7
 RUBY193_VERSION=	1.9.3
 RUBY200_VERSION=	2.0.0
-RUBY21_VERSION=		2.1.5
+RUBY21_VERSION=		2.1.6
 
 # patch
 RUBY18_PATCHLEVEL=	pl374
 RUBY193_PATCHLEVEL=	p551
-RUBY200_PATCHLEVEL=	p598
-#RUBY21_PATCHLEVEL=	p273
+RUBY200_PATCHLEVEL=	p645
+#RUBY21_PATCHLEVEL=	p336
 
 # current API compatible version; used for version of shared library
 RUBY18_API_VERSION=	1.8.7
@@ -307,6 +307,7 @@ RUBY_RDOC_VERSION=	4.1.0
 RUBY_RAKE_VERSION=	10.1.0
 RUBY_JSON_VERSION=	1.8.1
 
+RUBY_SUFFIX=	${_RUBY_VER_MAJOR}${_RUBY_VER_MINOR}
 .else
 PKG_FAIL_REASON+= "Unknown Ruby version specified: ${RUBY_VER}."
 .endif
@@ -352,8 +353,12 @@ RUBY_PKGPREFIX?=	${RUBY_NAME}
 
 .if ${RUBY_VER} == "18"
 RUBY_VER_DIR=		${_RUBY_VER_MAJOR}.${_RUBY_VER_MINOR}
-.else
+.else 
+. if ${RUBY_VER} == "193" || ${RUBY_VER} == "200"
 RUBY_VER_DIR=		${RUBY_VERSION}
+. else
+RUBY_VER_DIR=		${RUBY_API_VERSION}
+. endif
 .endif
 
 .if empty(RUBY_NOVERSION:M[nN][oO])

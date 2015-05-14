@@ -3,7 +3,7 @@
 #
 # We can't omit PKGNAME here to handle PKG_OPTIONS.
 #
-PKGNAME=		php-${PHP_BASE_VERS}
+PKGNAME=		php-${PHP_VERSION}
 PKGREVISION=		1
 CATEGORIES=		lang
 
