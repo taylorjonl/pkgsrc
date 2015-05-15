@@ -195,7 +195,7 @@ DEPENDS+=	${RUBY_PKGPREFIX}-rubygems>=${RUBYGEMS_REQD}:../../misc/rubygems
 
 .if !empty(RUBY_GEMS_VERSION)
 .if ${_RUBYGEMS_MAJOR} >= 2 && ${_RUBYGEMS_MINORS} >= 2
-GEM_EXTSDIR=	${GEM_HOME}/extensions/${RUBY_ARCH}/${RUBY_VERSION}/${GEM_NAME}
+GEM_EXTSDIR=	${GEM_HOME}/extensions/${RUBY_ARCH}/${RUBY_VER_DIR}/${GEM_NAME}
 .endif
 .endif
 
