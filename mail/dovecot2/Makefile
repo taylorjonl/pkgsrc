@@ -27,6 +27,12 @@ OPSYSVARS+=	CONFIGURE_ARGS CONFIGURE_ENV
 CONFIGURE_ARGS.SunOS+=	--with-ioloop=poll
 CONFIGURE_ENV.SunOS+=	ac_cv_func_inotify_init=no
 
+OPSYSVARS+=	CONFIGURE_ARGS CONFIGURE_ENV
+
+# Explicitly disable epoll and inotify on illumos, they are provided for Linux compat only.
+CONFIGURE_ARGS.SunOS+=	--with-ioloop=poll
+CONFIGURE_ENV.SunOS+=	ac_cv_func_inotify_init=no
+
 .include "../../mk/bsd.prefs.mk"
 
 RCD_SCRIPTS=		dovecot
