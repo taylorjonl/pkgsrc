@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.41.2.1 2015/02/19 19:45:02 tron Exp $
+# $NetBSD: Makefile,v 1.43 2015/02/26 10:14:10 taca Exp $
 
 DISTNAME=	bind-${BIND_VERSION}
 PKGNAME=	${DISTNAME:S/-P/pl/}
@@ -14,7 +14,7 @@ CONFLICTS+=	host-[0-9]*
 
 MAKE_JOBS_SAFE=	no
 
-BIND_VERSION=	9.9.6-P2
+BIND_VERSION=	9.9.7
 
 USE_MULTIARCH=		lib
 
