@@ -20,9 +20,10 @@ CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--with-ssldir=${SSLDIR}
 
-OPSYSVARS+=	CONFIGURE_ENV
+OPSYSVARS+=	CONFIGURE_ARGS CONFIGURE_ENV
 
-# Explicitly disable inotify on illumos, it is provided for Linux compat only.
+# Explicitly disable epoll and inotify on illumos, they are provided for Linux compat only.
+CONFIGURE_ARGS.SunOS+=	--with-ioloop=poll
 CONFIGURE_ENV.SunOS+=	ac_cv_func_inotify_init=no
 
 .include "../../mk/bsd.prefs.mk"
