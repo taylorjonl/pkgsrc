@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.27 2015/05/03 06:26:35 hiramatsu Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.38 2015/05/17 11:50:43 bsiegert Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2015Q1 branch:
@@ -106,3 +106,31 @@ Pullup ticket #4693 - requested by joerg
 print/hpijs: build fix
 Pullup ticket #4694 - requested by joerg
 emulators/bochs: build fix
+Pullup ticket #4695 - requested by joerg
+devel/tavrasm: build fix
+Pullup ticket #4707 - requested by joerg
+pkgtools/libnbcompat: build fix
+Pullup ticket #4709 - requested by agc
+pkgtools/pkg_install: bug fix update
+Pullup ticket #4711 - requested by taca
+www/squid3: security update
+Pullup ticket #4712 - requested by kim
+audio/icecast: security update
+Pullup ticket #4713 - requested by hiramatsu
+x11/xproto: packaging fix
+Pullup ticket #4708 - requested by wiz
+x11/sessreg: build fix
+Pullup ticket #4714 - requested by taca
+mail/dovecot2: security fix
+Pullup ticket #4717 - requested by tron
+net/wireshark: security fix
+Pullup ticket #4718 - requested by joerg
+math/cln: build fix
+Pullup ticket #4719 - requested by sevan
+security/openssh: security fix
+Pullup ticket #4710 - requested by bsiegert
+databases/sqlite3: security update
+Pullup ticket #4715 - requested by sevan
+archivers/libarchive: security patch
+Pullup ticket #4667 - requested by joerg
+audio/pulseaudio: build fix
