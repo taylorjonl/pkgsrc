@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.20.2.1 2015/03/01 14:26:41 tron Exp $
+# $NetBSD: Makefile,v 1.24 2015/05/20 21:15:26 bouyer Exp $
 
-DISTNAME=	clamav-0.98.6
+DISTNAME=	clamav-${CLAMAV_VERSION}
+#PKGREVISION=	2
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=clamav/}
 
@@ -32,8 +33,6 @@ CONFIGURE_ARGS+=	--disable-zlib-vcheck
 CHECK_PORTABILITY_SKIP=	contrib/* unit_tests/* win32/*
 
 .include "../../mk/bsd.prefs.mk"
-
-PLIST_SRC+=		${PKGDIR}/PLIST
 
 .if ${OPSYS} == "NetBSD" && !empty(OS_VERSION:M1.*)
 CONFIGURE_ARGS+=	--disable-readdir-r
@@ -82,6 +81,7 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/etc/${i}.sample ${DESTDIR}${EGDIR}/${i}
 .endfor
 
+.include "Makefile.common"
 .include "../../archivers/bzip2/buildlink3.mk"
 .include "../../devel/libltdl/buildlink3.mk"
 .include "../../devel/ncurses/buildlink3.mk"
