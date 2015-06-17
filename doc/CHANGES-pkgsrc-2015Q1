@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.43 2015/05/31 13:27:57 tron Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q1,v 1.1.2.51 2015/06/15 19:28:15 bsiegert Exp $
 
 Changes to the packages collection and infrastructure on the
 pkgsrc-2015Q1 branch:
@@ -154,3 +154,31 @@ Pullup ticket #4720 - requested by taca
 lang/ruby193-base: build fix
 Pullup ticket #4734 - requested by bsiegert
 sysutils/file: security patch
+Pullup ticket #4721 - requested by taca
+lang/ruby21-base: build fix
+Pullup ticket #4722 - requested by taca
+lang/ruby22-base: build fix
+Pullup ticket #4736 - requested by manu
+comms/asterisk18: security update
+Pullup ticket #4739 - requested by taca
+www/contao32: security update
+Pullup ticket #4740 - requested by taca
+www/contao34: security patch
+Pullup ticket #4743 - requested by khorben
+sysutils/xenkernel45: security patch
+Pullup ticket #4744 - requested by khorben
+sysutils/xentools45: security patch
+Pullup ticket #4745 - requested by khorben
+sysutils/xenkernel42: security patch
+Pullup ticket #4746 - requested by khorben
+sysutils/xentools42: security patch
+Pullup ticket #4747 - requested by tron
+security/openssl: security update
+Pullup ticket #4741 - requested by tron
+security/gnutls: build fix
+Pullup ticket #4748 - requested by taca
+lang/php55: security update
+Pullup ticket #4749 - requested by taca
+lang/php56: security update
+Pullup ticket #4723 - requested by taca
+textproc/ruby-redcarpet: security fix
