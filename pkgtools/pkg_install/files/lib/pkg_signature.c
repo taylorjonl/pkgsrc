@@ -366,8 +366,8 @@ pkg_verify_signature(const char *archive_name, struct archive **archive,
 			free(state);
 			goto no_valid_signature;
 		}
-		has_sig = !detached_gpg_verify(hash_file, hash_len,
-		    signature_file, signature_len, gpg_keyring_verify);
+		has_sig = !gpg_verify(hash_file, hash_len, gpg_keyring_verify,
+		    signature_file, signature_len);
 
 		free(signature_file);
 	} else {
