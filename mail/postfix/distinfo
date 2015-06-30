@@ -6,4 +6,5 @@ Size (postfix-2.11.5.tar.gz) = 4036256 bytes
 SHA1 (patch-aa) = 6f7dc14d53e914e9cb72752fb3941c569cd2e8f9
 SHA1 (patch-ag) = 2f96a679e7f0c2e36615f5e7993ab96296303a10
 SHA1 (patch-ai) = 01fe261dccd3119a99703fbf2a0c5247efe476ba
+SHA1 (patch-conf_postfix-script) = 1af581da990a9ccea107ff75273bca4bc175f54c
 SHA1 (patch-src_dns_dns__lookup.c) = 9c26686e5abd9aee36f042440e5f6a6ffca3df4a
