@@ -1,4 +1,4 @@
-$NetBSD: distinfo,v 1.46 2015/06/30 07:38:08 nils Exp $
+$NetBSD: distinfo,v 1.45.2.1 2015/07/01 17:37:47 tron Exp $
 
 SHA1 (array-var-nginx-module-0.03.tar.gz) = b2666aa3c092060fcd3931a6d45798a5745c1ad6
 RMD160 (array-var-nginx-module-0.03.tar.gz) = 171c2d9bd02d7a7ede9f87ab348ef035cea14aec
