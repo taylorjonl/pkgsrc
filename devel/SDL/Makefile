@@ -31,6 +31,11 @@ NASMFLAGS_a.out=	-f aoutb
 CONFIGURE_ARGS+=	--disable-nasm
 .endif
 
+# Inline assembly causes crashes with LLVM.
+.if !empty(MACHINE_PLATFORM:MDarwin-1[3-9]*)
+CONFIGURE_ARGS+=	--disable-assembly
+.endif
+
 CONFIGURE_ENV+=		NASMFLAGS="${NASMFLAGS_${OBJECT_FMT}}"
 MAKE_ENV+=		NASMFLAGS="${NASMFLAGS_${OBJECT_FMT}}"
 
