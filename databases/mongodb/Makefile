@@ -15,8 +15,6 @@ USE_LANGUAGES=	c c++
 
 BUILD_DEPENDS+=	scons-[0-9]*:../../devel/scons
 
-GCC_REQD+=	4.8.2
-
 SCONS_BIN=	${PREFIX}/bin/scons
 SCONS_ARGS=	${_MAKE_JOBS}
 SCONS_ARGS+=	--c++11=on
@@ -31,6 +29,8 @@ SCONS_ARGS+=	--js-engine=v8-3.25
 SCONS_ARGS+=	--variant-dir=pkgsrc
 
 .include "../../mk/bsd.prefs.mk"
+
+GCC_REQD+=	4.8.2
 
 .if ${MACHINE_ARCH} == "x86_64"
 SCONS_ARGS+=	--64
