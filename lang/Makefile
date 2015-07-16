@@ -132,6 +132,7 @@ SUBDIR+=	open-cobol-ce
 SUBDIR+=	opencobol
 SUBDIR+=	openjdk7
 SUBDIR+=	openjdk7-bin
+SUBDIR+=	openjdk8
 SUBDIR+=	opensource-cobol
 SUBDIR+=	ossp-js
 SUBDIR+=	p2c
