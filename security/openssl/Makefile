@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.210 2015/07/09 13:37:56 wiz Exp $
+# $NetBSD: Makefile,v 1.209.2.1 2015/07/12 10:48:58 tron Exp $
 
 DISTNAME=	openssl-1.0.2d
 CATEGORIES=	security
