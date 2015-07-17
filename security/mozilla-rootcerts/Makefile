@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.15 2014/09/06 08:03:00 wiz Exp $
+# $NetBSD: Makefile,v 1.18 2015/04/18 20:11:35 dholland Exp $
 
 DISTNAME=	mozilla-rootcerts-1.0.${CERTDATA_DATE}
 PKGREVISION=	1
 CATEGORIES=	security
-MASTER_SITES=	${MASTER_SITE_LOCAL}
+MASTER_SITES=	-https://hg.mozilla.org/mozilla-central/raw-file/7f6a55544bb3/security/nss/lib/ckfw/builtins/certdata.txt
 DISTFILES=	${CERTDATA}
 EXTRACT_SUFX=	# empty
 
@@ -14,7 +14,7 @@ LICENSE=	mpl-2.0
 
 USE_TOOLS=	awk:run echo:run expr:run ln:run ls:run openssl:run rm:run mkdir:run
 
-CERTDATA_DATE=	20140820
+CERTDATA_DATE=	20141117
 CERTDATA=	certdata-${CERTDATA_DATE}.txt
 
 WRKSRC=		${WRKDIR}
@@ -34,7 +34,7 @@ SUBST_CLASSES=		paths
 SUBST_MESSAGE.paths=	Replacing hard-coded paths.
 SUBST_STAGE.paths=	post-configure
 SUBST_FILES.paths=	mozilla-rootcerts.sh
-SUBST_VARS.paths=	AWK ECHO EXPR LN LS RM DATADIR MKDIR SSLDIR
+SUBST_VARS.paths=	AWK ECHO EXPR LN LOCALBASE LS RM DATADIR MKDIR SSLDIR
 SUBST_SED.paths=	-e 's,@OPENSSL@,${TOOLS_PATH.openssl},g'
 
 INSTALLATION_DIRS=	sbin ${DATADIR}
