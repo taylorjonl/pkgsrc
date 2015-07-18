@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.66 2015/04/28 14:34:20 fhajny Exp $
+# $NetBSD: Makefile,v 1.68 2015/07/18 08:55:16 fhajny Exp $
 
 DISTNAME=		otp_src_${DIST_VERSION_MAJOR}.${DIST_VERSION_MINOR}
 PKGNAME=		${DISTNAME:S/otp_src_/erlang-/}
@@ -44,7 +44,7 @@ MAKE_ENV+=		DESTDIR=${DESTDIR}
 
 REPLACE_INTERPRETER+=	escript
 REPLACE.escript.old=	.*escript
-REPLACE.escript.new=	${LOCALBASE}/bin/escript
+REPLACE.escript.new=	${PREFIX}/bin/escript
 REPLACE_FILES.escript=	\
 	lib/diameter/bin/diameterc \
 	lib/erl_docgen/priv/bin/codeline_preprocessing.escript \
