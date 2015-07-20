@@ -23,6 +23,9 @@ MASTER_SITE_GNU+=       \
 	ftp://ftp.lip6.fr/pub/gnu/ \
 	http://gd.tuwien.ac.at/gnu/gnusrc/
 
+MASTER_SITE_GITHUB+=    \
+	https://github.com/
+
 MASTER_SITE_GNUSTEP+=   \
 	ftp://ftp.gnustep.org/pub/gnustep/
 

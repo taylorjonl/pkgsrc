@@ -96,7 +96,11 @@ MAINTAINER?=		pkgsrc-users@NetBSD.org
 .endif
 PKGWILDCARD?=		${PKGBASE}-[0-9]*
 TOOL_DEPENDS?=		# empty
+.if defined(GITHUB_TAG)
+WRKSRC?=		${WRKDIR}/${GITHUB_PROJECT}-${GITHUB_TAG:C/^v//}
+.else
 WRKSRC?=		${WRKDIR}/${DISTNAME:U${PKGNAME_NOREV}}
+.endif
 
 # Multi-architecture support
 .if !empty(MULTIARCH:M[Yy][Ee][Ss]) && defined(USE_MULTIARCH)
