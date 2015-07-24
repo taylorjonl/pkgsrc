@@ -1,3 +1,53 @@
-$NetBSD: CHANGES-pkgsrc-2015Q2,v 1.1.2.1 2015/06/29 09:23:22 wiz Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q2,v 1.1.2.12 2015/07/22 20:16:43 tron Exp $
 
 Changes to the packages collection and infrastructure on the 2015Q2 branch:
+
+Pullup ticket #4756 - requested by nils
+www/nginx: build fix
+Pullup ticket #4755 - requested by joerg
+Lang/tcl: crash fixes
+Pullup ticket #4758 - requested by joerg
+net/p5-DNS-LDNS: build fix
+Pullup ticket #4757 - requested by wiz
+print/cups-filters: security update
+Pullup ticket #4760 - requested by bsiegert
+mail/isync: bug fix patch
+Pullup ticket #4761 - requested by joerg
+textproc/latex2html: bug fix patch
+Pullup ticket #4764 - requested by taca
+net/ntp4: security update
+Pullup ticket #4767 - requested by he
+textproc/libxml2: security patch
+Pullup ticket #4768 - requested by taca
+net/bind99: security update
+Pullup ticket #4769 - requested by taca
+net/bind910: security update
+Pullup ticket #4770 - requested by wiz
+security/openssl: security update
+Pullup ticket #4765 - requested by taca
+www/typo3_62: security update
+Pullup ticket #4771 - requested by taca
+security/openssh: security update
+Pullup ticket #4772 - requested by taca
+lang/php54: security update
+Pullup ticket #4773 - requested by taca
+lang/php55: security update
+Pullup ticket #4774 - requested by taca
+lang/php56: security update
+Pullup ticket #4762 - requested by joerg
+textproc/p5-Text-Microformat: build fix
+Pullup ticket #4763 - requested by joerg
+devel/p5-Test-Approx: build fix
+Pullup ticket #4766 - requested by taca
+www/geeklog: security patch
+Pullup ticket #4776 - requested by manu
+databases/mysql56-client: bug fix patch
+databases/mysql56-server: bug fix patch
+Pullup ticket #4777 - requested by taca
+www/squid3: security update
+Pullup ticket #4778 - requested by taca
+mail/fml4: bug fix patch
+Pullup ticket #4779 - requested by taca
+www/apache24: security update
+Pullup ticket #4780 - requested by taca
+mail/postfix: security update
