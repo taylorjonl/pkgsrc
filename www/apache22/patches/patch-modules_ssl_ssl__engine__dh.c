@@ -1,5 +1,7 @@
 --- modules/ssl/ssl_engine_dh.c.orig	2006-07-12 03:38:44 UTC
 +++ modules/ssl/ssl_engine_dh.c
+--- modules/ssl/ssl_engine_dh.c.orig	2006-07-12 03:38:44.000000000 +0000
++++ modules/ssl/ssl_engine_dh.c
 @@ -102,12 +102,12 @@ DH *ssl_dh_GetTmpParam(int nKeyLen)
  {
      DH *dh;
@@ -52,11 +54,11 @@
  #   generate C source from DH params
  my $dhsource = '';
 -open(FP, "openssl dh -noout -C -in dh512.pem | indent | expand |") || die;
-+open(FP, "openssl dh -noout -C -in dh2048.pem | indent | expand |") || die;
++open(FP, "openssl dh -noout -C -in dh2048.pem | expand |") || die;
  $dhsource .= $_ while (<FP>);
  close(FP);
 -open(FP, "openssl dh -noout -C -in dh1024.pem | indent | expand |") || die;
-+open(FP, "openssl dh -noout -C -in dh3072.pem | indent | expand |") || die;
++open(FP, "openssl dh -noout -C -in dh3072.pem | expand |") || die;
  $dhsource .= $_ while (<FP>);
  close(FP);
  $dhsource =~ s|(DH\s+\*get_dh)(\d+)[^}]*\n}|static $1$2(void)

@@ -16,5 +16,5 @@ SHA1 (patch-aw) = ca53d67beeb2c2c4d9adb04d3d79e24a8c427fd4
 SHA1 (patch-docs_man_apxs.8) = 70797ea73ae6379492971bec1106a8427ae7fdaa
 SHA1 (patch-lock.c) = 770ca03f1cb4421879bd5baa5a7c30cc91acb6e1
 SHA1 (patch-modules_proxy_mod_proxy_connect.c) = b2b5d0242a92c7bf20b14c16d8cd3abae42f3746
-SHA1 (patch-modules_ssl_ssl__engine__dh.c) = fc37a639ecfbade0cf8a4fc684d7ec3b92949897
+SHA1 (patch-modules_ssl_ssl__engine__dh.c) = e04bb60fb19c1137e40378814c8ef7c5221042de
 SHA1 (patch-repos.c) = 0e0361b91d4b0fe6c7c55a12fdfd2e6aacc710e1
