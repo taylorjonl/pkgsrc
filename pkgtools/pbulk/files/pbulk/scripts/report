@@ -116,6 +116,7 @@ echo "Uploading report..."
 		tmpdir="/var/tmp/pbulk-rsync-$$"
 		mtarfile="/${MANTA_USER}/stor/${report_subject_prefix}-${build_start_dir}.tar.gz"
 		mdir="${report_manta_target}/${build_start_dir}"
+		set +e
 		${rsync} -rn --exclude-from=- --out-format='%n' . ${tmpdir} \
 		    | grep -v '/$' | @TAR@ -cz -T - 2>/dev/null \
 		    | mput -q ${mtarfile}
@@ -123,6 +124,7 @@ echo "Uploading report..."
 		    | mjob create -qo -m gzcat \
 			-m "muntar -f \$MANTA_INPUT_FILE ${mdir}"
 		mrm ${mtarfile}
+		set -e
 	else
 		${rsync} --exclude-from=- ${report_rsync_args} . ${report_rsync_target}/${build_start_dir}
 	fi
