@@ -35,7 +35,7 @@ CWRAPPERS_ALIASES.ld=		ld
 CWRAPPERS_ALIASES.libtool=	libtool
 CWRAPPERS_ALIASES.shlibtool=	shlibtool
 
-CWRAPPERS_WRAPPEE.as=		${AS:Ufalse}
+CWRAPPERS_WRAPPEE.as=		${TOOLS_PATH.as:Ufalse}
 CWRAPPERS_WRAPPEE.cxx=		${PKG_CXX:Ufalse}
 CWRAPPERS_WRAPPEE.cc=		${PKG_CC:Ufalse}
 CWRAPPERS_WRAPPEE.cpp=		${PKG_CPP:Ufalse}
