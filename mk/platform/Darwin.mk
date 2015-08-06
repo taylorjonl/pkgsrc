@@ -139,7 +139,7 @@ _OPSYS_WHOLE_ARCHIVE_FLAG=	-Wl,--whole-archive
 _OPSYS_NO_WHOLE_ARCHIVE_FLAG=	-Wl,--no-whole-archive
 .endif
 
-_OPSYS_CAN_CHECK_SHLIBS=	no # can't use readelf in check/bsd.check-vars.mk
+_OPSYS_CAN_CHECK_SHLIBS=	yes # check shared libraries using otool(1)
 
 _STRIPFLAG_CC?=		${_INSTALL_UNSTRIPPED:D:U-Wl,-x} # cc(1) option to strip
 _STRIPFLAG_INSTALL?=	${_INSTALL_UNSTRIPPED:D:U-s}	# install(1) option to strip
