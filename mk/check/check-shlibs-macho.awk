@@ -69,36 +69,34 @@ function check_pkg(DSO, pkg, found) {
 }
 
 function checkshlib(DSO, needed, rpath, found, dso_rath, got_rpath, nrpath) {
-	cmd = "otool -XL " shquote(DSO) " 2> /dev/null"
+	cmd = "otool -XL " shquote(DSO) " 2>/dev/null"
 	while ((cmd | getline) > 0) {
 		needed[$1] = ""
 	}
 	close(cmd)
+	if (cross_destdir)
+		ndirs = split(":" cross_destdir ":" destdir, check_dirs, ":")
+	else
+		ndirs = split(":" destdir, check_dirs, ":")
 	for (lib in needed) {
 		if (lib == wrkdir ||
 		    substr(lib, 1, length(wrkdir) + 1) == wrkdir "/") {
 			print DSO ": path relative to WRKDIR"
+			break
 		}
-			libfile = cross_destdir lib
-			if (!(libfile in libcache)) {
+		found = 0
+		for (i = 1; i <= ndirs; i++) {
+			libfile = check_dirs[i] lib
+			if (!(libfile in libcache))
 				libcache[libfile] = system("test -f " shquote(libfile))
-			}
 			if (!libcache[libfile]) {
-				check_pkg(lib)
 				found = 1
+				check_pkg(lib)
 				break
 			}
-			libfile = destdir lib
-			if (!(libfile in libcache)) {
-				libcache[libfile] = system("test -f " shquote(libfile))
-			}
-			if (!libcache[libfile]) {
-				check_pkg(lib)
-				found = 1
-				break
-			}
+		}
 		if (found == 0)
-			print DSO ": missing library: " lib;
+			print DSO ": missing library: " lib
 	}
 	delete needed
 }
