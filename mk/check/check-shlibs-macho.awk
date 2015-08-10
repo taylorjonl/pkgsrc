@@ -2,12 +2,12 @@
 
 #
 # Read a list of potential Mach-O binaries from stdin.
-# For each, check the list of required shared libraries and ensure that
-# each of them can be found correctly, and check that the resolved DSO
-# belongs to a full dependency.
+# For each, check the list of required DSOs and ensure that each of them can
+# be found correctly, and check that any pkgsrc-installed DSOs belong to a
+# full dependency.
 #
 
-function shquote(IN, out) {
+function shquote(IN,	out) {
 	out = IN;
 	gsub("\\\\", "\\\\", out);
 	gsub("\\\n", "\\n", out);
@@ -37,13 +37,13 @@ function shquote(IN, out) {
 	return out;
 }
 
-function check_pkg(DSO, pkg, found) {
+function check_pkg(DSO, 	pkg, found) {
 	if (destdir == "")
 		return 0
 	if (DSO in pkgcache) {
 		pkg = pkgcache[DSO]
 	} else {
-		cmd = pkg_info_cmd " -Fe " shquote(DSO) " 2> /dev/null"
+		cmd = pkg_info_cmd " -Fe " shquote(DSO) " 2>/dev/null"
 		if ((cmd | getline pkg) < 0) {
 			close(cmd)
 			return 0
@@ -68,37 +68,42 @@ function check_pkg(DSO, pkg, found) {
 	close(depends_file)
 }
 
-function checkshlib(DSO, needed, rpath, found, dso_rath, got_rpath, nrpath) {
+function checkshlib(DSO,	needed, found) {
 	cmd = "otool -XL " shquote(DSO) " 2>/dev/null"
 	while ((cmd | getline) > 0) {
 		needed[$1] = ""
 	}
 	close(cmd)
-	if (cross_destdir)
-		ndirs = split(":" cross_destdir ":" destdir, check_dirs, ":")
-	else
-		ndirs = split(":" destdir, check_dirs, ":")
+	ndirs = split(cross_destdir ":" destdir, check_dirs, ":")
 	for (lib in needed) {
+		#
+		# Ensure we don't have any WRKDIR references.
+		#
 		if (lib == wrkdir ||
 		    substr(lib, 1, length(wrkdir) + 1) == wrkdir "/") {
 			print DSO ": path relative to WRKDIR"
 			break
 		}
-		found = 0
+		#
+		# Check destination dirs for library existence.  If found in a
+		# system path (cross_destdir is somewhat confusing but if set
+		# it points to the populated cross destdir, otherwise we are
+		# checking '/') then check_pkg() ensures it is a runtime dep.
+		#
 		for (i = 1; i <= ndirs; i++) {
 			libfile = check_dirs[i] lib
 			if (!(libfile in libcache))
-				libcache[libfile] = system("test -f " shquote(libfile))
-			if (!libcache[libfile]) {
-				found = 1
+				libcache[libfile] = system("test -f " \
+							   shquote(libfile))
+			if (libcache[libfile] == 0) {
 				check_pkg(lib)
+				found = 1
 				break
 			}
 		}
 		if (found == 0)
 			print DSO ": missing library: " lib
 	}
-	delete needed
 }
 
 BEGIN {
