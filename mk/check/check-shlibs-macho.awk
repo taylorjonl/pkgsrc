@@ -81,7 +81,7 @@ function checkshlib(DSO,	needed, found) {
 		#
 		if (lib == wrkdir ||
 		    substr(lib, 1, length(wrkdir) + 1) == wrkdir "/") {
-			print DSO ": path relative to WRKDIR"
+			print DSO ": path relative to WRKDIR: " lib
 			break
 		}
 		#
