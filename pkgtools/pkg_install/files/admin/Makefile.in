@@ -28,7 +28,7 @@ PROG=		pkg_admin
 SCRIPTS=	audit-packages download-vulnerability-list
 
 .if empty(BOOTSTRAP)
-LIBS=		-linstall -larchive -lfetch
+LIBS=		-linstall -larchive -lfetch -lnetpgpverify
 .if !empty(SSL_SUPPORT)
 LIBS+=		-lssl -lcrypto
 CFLAGS+=	-DHAVE_SSL
