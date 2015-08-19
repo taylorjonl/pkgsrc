@@ -1,5 +1,7 @@
 $NetBSD: patch-src_xz_Makefile.in,v 1.1 2015/01/06 22:57:58 joerg Exp $
 
+Ensure the system liblzma is not picked up first.
+
 --- src/xz/Makefile.in.orig	2015-01-06 21:53:59.000000000 +0000
 +++ src/xz/Makefile.in
 @@ -163,7 +163,7 @@ am__v_CC_1 = 
