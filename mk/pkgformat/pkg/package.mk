@@ -1,26 +1,25 @@
 # $NetBSD: package.mk,v 1.10 2015/04/21 17:01:56 joerg Exp $
 
-.if defined(PKG_SUFX)
-WARNINGS+=		"PKG_SUFX is deprecated, please use PKG_COMPRESSION"
-.  if ${PKG_SUFX} == ".tgz"
-PKG_COMPRESSION=	gzip
-.  elif ${PKG_SUFX} == ".tbz"
-PKG_COMPRESSION=	bzip2
-.  else
-WARNINGS+=		"Unsupported value for PKG_SUFX"
-.  endif
+.if ${PKG_COMPRESSION} == "gzip"
+PKG_SUFX=		.tgz
+.elif ${PKG_COMPRESSION} == "bzip2"
+PKG_SUFX=		.tbz
+.elif ${PKG_COMPRESSION} == "xz"
+PKG_SUFX=		.txz
+.else
+PKG_FAIL_REASON+=	"Unsupported value '${PKG_COMPRESSION}' for PKG_COMPRESSION"
 .endif
-PKG_SUFX?=		.tgz
+
+.if !empty(SIGN_PACKAGES)
+SIGNED_SUFFIX?=		.pkg
+.else
+SIGNED_SUFFIX?=		${PKG_SUFX}
+.endif
+
 FILEBASE?=		${PKGBASE}
-PKGFILE?=		${PKGREPOSITORY}/${FILEBASE}-${PKGVERSION}${PKG_SUFX}
-.if ${_USE_DESTDIR} == "no"
-. if !empty(SIGN_PACKAGES:Mgpg)
-STAGE_PKGFILE?=		${WRKDIR}/.packages/${FILEBASE}-${PKGVERSION}${PKG_SUFX}
-. elif !empty(SIGN_PACKAGES:Mx509)
-STAGE_PKGFILE?=		${WRKDIR}/.packages/${FILEBASE}-${PKGVERSION}${PKG_SUFX}
-. else
+PKGFILE?=		${PKGREPOSITORY}/${FILEBASE}-${PKGVERSION}${SIGNED_SUFFIX}
+.if ${_USE_DESTDIR} == "no" && empty(SIGN_PACKAGES)
 STAGE_PKGFILE?=		${PKGFILE}
-. endif
 .else
 STAGE_PKGFILE?=		${WRKDIR}/.packages/${FILEBASE}-${PKGVERSION}${PKG_SUFX}
 .endif
