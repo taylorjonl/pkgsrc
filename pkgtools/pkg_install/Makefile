@@ -108,6 +108,7 @@ BUILDLINK_API_DEPENDS.libarchive+=	libarchive>=2.8.0
 
 .include "../../archivers/bzip2/builtin.mk"
 .include "../../archivers/libarchive/builtin.mk"
+.include "../../archivers/xz/builtin.mk"
 .include "../../devel/zlib/builtin.mk"
 .include "../../security/openssl/builtin.mk"
 
@@ -120,18 +121,24 @@ CONFIGURE_ARGS+=	--with-ssl
 .endif
 
 .if empty(USE_BUILTIN.bzip2:M[yY][eE][sS]) || \
-    empty(USE_BUILTIN.zlib:M[yY][eE][sS])
+    empty(USE_BUILTIN.zlib:M[yY][eE][sS]) || \
+    empty(USE_BUILTIN.xz:M[yY][eE][sS])
 USE_BUILTIN.libarchive=	no
 .endif
 
 FILESDIR.bzip2?=	${.CURDIR}/../../archivers/bzip2/files
 FILESDIR.libarchive?=	${.CURDIR}/../../archivers/libarchive/files
+FILESDIR.xz?=		${.CURDIR}/../../archivers/xz/files
 FILESDIR.zlib?=		${.CURDIR}/../../devel/zlib/files
 FILESDIR.libfetch?=	${.CURDIR}/../../net/libfetch/files
 
 .if empty(USE_BUILTIN.bzip2:M[yY][eE][sS])
 CPPFLAGS+=	-I${WRKDIR}/bzip2
 LDFLAGS+=	-L${WRKDIR}/bzip2
+.endif
+.if empty(USE_BUILTIN.xz:M[yY][eE][sS])
+CPPFLAGS+=	-I${WRKDIR}/xz/src/liblzma/api
+LDFLAGS+=	-L${WRKDIR}/xz/src/liblzma/.libs
 .endif
 .if empty(USE_BUILTIN.zlib:M[yY][eE][sS])
 CPPFLAGS+=	-I${WRKDIR}/zlib
@@ -187,6 +194,9 @@ do-extract:
 .if empty(USE_BUILTIN.zlib:M[yY][eE][sS])
 	@${CP} -R ${FILESDIR.zlib} ${WRKDIR}/zlib
 .endif
+.if empty(USE_BUILTIN.xz:M[yY][eE][sS])
+	@${CP} -R ${FILESDIR.xz} ${WRKDIR}/xz
+.endif
 .if empty(USE_BUILTIN.libarchive:M[yY][eE][sS])
 	@${CP} -R ${FILESDIR.libarchive} ${WRKDIR}/libarchive
 .endif
@@ -198,6 +208,16 @@ pre-configure:
 .endif
 .if empty(USE_BUILTIN.zlib:M[yY][eE][sS])
 	cd ${WRKDIR}/zlib && ${BUILD_MAKE_CMD} libz.a
+.endif
+.if empty(USE_BUILTIN.xz:M[yY][eE][sS])
+	cd ${WRKDIR}/xz && ${SETENV} ${_CONFIGURE_SCRIPT_ENV}		\
+		${CONFIG_SHELL} ${CONFIG_SHELL_FLAGS} ./configure	\
+		--enable-encoders=lzma1,lzma2 --disable-xz		\
+		--enable-decoders=lzma1,lzma2 --disable-xzdec		\
+		--disable-lzmainfo --disable-lzma-links --disable-doc	\
+		--disable-scripts --disable-shared ${XZ_CONFIGURE_ARGS}
+	cd ${WRKDIR}/xz/src/liblzma && ${BUILD_MAKE_CMD}
+
 .endif
 .if empty(USE_BUILTIN.libarchive:M[yY][eE][sS])
 	cd ${WRKDIR}/libarchive && ${SETENV} ${_CONFIGURE_SCRIPT_ENV}	\

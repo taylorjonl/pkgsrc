@@ -245,6 +245,9 @@ make_dist(const char *pkg, const char *suffix, const package_t *plist)
 		else if (strcmp(suffix, "tgz") == 0 ||
 		    strcmp(suffix, "tar.gz") == 0)
 			CompressionType = "gzip";
+		else if (strcmp(suffix, "txz") == 0 ||
+		    strcmp(suffix, "tar.xz") == 0)
+			CompressionType = "xz";
 		else
 			CompressionType = "none";
 	}
