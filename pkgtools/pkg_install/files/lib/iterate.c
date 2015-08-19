@@ -90,8 +90,10 @@ pkg_dir_iter(void *cookie)
 		if (len < 5)
 			continue;
 		if (arg->filter_suffix == 0 ||
+		    memcmp(dp->d_name + len - 4, ".pkg", 4) == 0 ||
 		    memcmp(dp->d_name + len - 4, ".tgz", 4) == 0 ||
-		    memcmp(dp->d_name + len - 4, ".tbz", 4) == 0)
+		    memcmp(dp->d_name + len - 4, ".tbz", 4) == 0 ||
+		    memcmp(dp->d_name + len - 4, ".txz", 4) == 0)
 			return dp->d_name;
 	}
 	return NULL;
@@ -359,8 +361,10 @@ match_best_file(const char *filename, void *cookie)
 
 		len = strlen(filename);
 		if (len < 5 ||
-		    (memcmp(filename + len - 4, ".tgz", 4) != 0 &&
-		     memcmp(filename + len - 4, ".tbz", 4) != 0)) {
+		    (memcmp(filename + len - 4, ".pkg", 4) != 0 &&
+		     memcmp(filename + len - 4, ".tgz", 4) != 0 &&
+		     memcmp(filename + len - 4, ".tbz", 4) != 0 &&
+		     memcmp(filename + len - 4, ".txz", 4) != 0)) {
 			warnx("filename %s does not contain a recognized suffix", filename);
 			return -1;
 		}
@@ -441,8 +445,10 @@ match_file_and_call(const char *filename, void *cookie)
 
 		len = strlen(filename);
 		if (len < 5 ||
-		    (memcmp(filename + len - 4, ".tgz", 4) != 0 &&
-		     memcmp(filename + len - 4, ".tbz", 4) != 0)) {
+		    (memcmp(filename + len - 4, ".pkg", 4) != 0 &&
+		     memcmp(filename + len - 4, ".tgz", 4) != 0 &&
+		     memcmp(filename + len - 4, ".tbz", 4) != 0 &&
+		     memcmp(filename + len - 4, ".txz", 4) != 0)) {
 			warnx("filename %s does not contain a recognized suffix", filename);
 			return -1;
 		}

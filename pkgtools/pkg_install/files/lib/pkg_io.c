@@ -196,8 +196,10 @@ strip_suffix(char *filename)
 	len = strlen(filename);
 	if (len <= 4)
 		return 0;
-	if (strcmp(filename + len - 4, ".tgz") == 0 ||
-	    strcmp(filename + len - 4, ".tbz") == 0) {
+	if (strcmp(filename + len - 4, ".pkg") == 0 ||
+	    strcmp(filename + len - 4, ".tgz") == 0 ||
+	    strcmp(filename + len - 4, ".tbz") == 0 ||
+	    strcmp(filename + len - 4, ".txz") == 0) {
 		filename[len - 4] = '\0';
 		return 1;
 	} else
