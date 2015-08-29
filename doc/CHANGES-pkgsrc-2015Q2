@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q2,v 1.1.2.4 2015/07/04 15:42:30 bsiegert Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q2,v 1.1.2.20 2015/08/25 18:46:15 tron Exp $
 
 Changes to the packages collection and infrastructure on the 2015Q2 branch:
 
@@ -8,3 +8,106 @@ Pullup ticket #4755 - requested by joerg
 Lang/tcl: crash fixes
 Pullup ticket #4758 - requested by joerg
 net/p5-DNS-LDNS: build fix
+Pullup ticket #4757 - requested by wiz
+print/cups-filters: security update
+Pullup ticket #4760 - requested by bsiegert
+mail/isync: bug fix patch
+Pullup ticket #4761 - requested by joerg
+textproc/latex2html: bug fix patch
+Pullup ticket #4764 - requested by taca
+net/ntp4: security update
+Pullup ticket #4767 - requested by he
+textproc/libxml2: security patch
+Pullup ticket #4768 - requested by taca
+net/bind99: security update
+Pullup ticket #4769 - requested by taca
+net/bind910: security update
+Pullup ticket #4770 - requested by wiz
+security/openssl: security update
+Pullup ticket #4765 - requested by taca
+www/typo3_62: security update
+Pullup ticket #4771 - requested by taca
+security/openssh: security update
+Pullup ticket #4772 - requested by taca
+lang/php54: security update
+Pullup ticket #4773 - requested by taca
+lang/php55: security update
+Pullup ticket #4774 - requested by taca
+lang/php56: security update
+Pullup ticket #4762 - requested by joerg
+textproc/p5-Text-Microformat: build fix
+Pullup ticket #4763 - requested by joerg
+devel/p5-Test-Approx: build fix
+Pullup ticket #4766 - requested by taca
+www/geeklog: security patch
+Pullup ticket #4776 - requested by manu
+databases/mysql56-client: bug fix patch
+databases/mysql56-server: bug fix patch
+Pullup ticket #4777 - requested by taca
+www/squid3: security update
+Pullup ticket #4778 - requested by taca
+mail/fml4: bug fix patch
+Pullup ticket #4779 - requested by taca
+www/apache24: security update
+Pullup ticket #4780 - requested by taca
+mail/postfix: security update
+Pullup ticket #4759 - requested by morr
+net/haproxy: security fix
+Pullup ticket #4775 - requested by sevan
+graphics/libwmf: security patch
+Pullup ticket #4781 - requested by bsiegert
+net/gcloud-golang-metadata: build fix
+Pullup ticket #4782 - requested by bsiegert
+net/socat: security update
+Pullup ticket #4783 - requested by he
+multimedia/adobe-flash-plugin11: security update
+Pullup ticket #4784 - requested by taca
+net/bind99: security update
+Pullup ticket #4785 - requested by taca
+net/bind910: security update
+Pullup ticket #4786 - requested by taca
+security/openssh: security patch
+Pullup ticket #4787 - requested by wiz
+emulators/suse131_base: security update
+emulators/suse131_freetype2: security update
+emulators/suse131_glib2: security update
+emulators/suse131_glx: security update
+emulators/suse131_gtk2: security update
+emulators/suse131_krb5: security update
+emulators/suse131_libSDL: security update
+emulators/suse131_libcups: security update
+emulators/suse131_libcurl: security update
+emulators/suse131_libdbus: security update
+emulators/suse131_libidn: security update
+emulators/suse131_libjpeg: security update
+emulators/suse131_libsndfile: security update
+emulators/suse131_libssh: security update
+emulators/suse131_libtiff: security update
+emulators/suse131_locale: security update
+emulators/suse131_mozilla-nspr: security update
+emulators/suse131_mozilla-nss: security update
+emulators/suse131_openssl: security update
+emulators/suse131_qt4: security update
+emulators/suse131_x11: security update
+Pullup ticket #4789 - requested by mrg
+lang/perl5: bug fix patch
+Pullup ticket #4790 - requested by taca
+lang/php54: security update
+Pullup ticket #4791 - requested by taca
+lang/php55: security update
+Pullup ticket #4792 - requested by taca
+lang/php56: security update
+Pullup ticket #4794 - requested by is
+comms/hylafax: build fix
+Pullup ticket #4795 - requested by he
+devel/libidn: security update
+Pullup ticket #4796 - requested by wiz
+security/openssh: security update
+Pullup ticket #4797 - requested by wiz
+sysutils/tarsnap: security update
+Pullup ticket #4800 - requested by manu
+net/netatalk30: build fix
+Pullup ticket #4799 - requested by manu
+databases/openldap-smbk5pwd: build fix
+Pullup ticket #4801 - requested by joerg
+print/tex-tetex: compatibility fix
