@@ -1,11 +1,9 @@
-$NetBSD: distinfo,v 1.13.2.1 2015/04/26 08:36:34 tron Exp $
+$NetBSD: distinfo,v 1.18.2.1 2015/09/03 18:49:44 tron Exp $
 
-SHA1 (ruby-2.1.6.tar.bz2) = 380c3a5fa508fdaa2b227dbc00c56f703fd271d4
-RMD160 (ruby-2.1.6.tar.bz2) = fa473e794ee0df4cd30aebfa70af16840a618c43
-Size (ruby-2.1.6.tar.bz2) = 12011651 bytes
+SHA1 (ruby-2.1.7.tar.bz2) = 9c2d3c73b3d2aed2c8f018d3a27e970846dcf143
+RMD160 (ruby-2.1.7.tar.bz2) = 1fb05a54d255cf3ef3b9933412e935b780ff3258
+Size (ruby-2.1.7.tar.bz2) = 12019706 bytes
 SHA1 (patch-configure) = 3c9f007caddd7155c3f3495f81eabe55b86651a5
-SHA1 (patch-ext_tk_extconf.rb) = fc80ef5a2859736ae85303cfb2fc78ce8bc70fbc
-SHA1 (patch-ext_tk_lib_tk.rb) = 78034ed6fa0f24099ce06a717da2423731b276cb
 SHA1 (patch-ext_tk_lib_tk_autoload.rb) = e8bcb93feae90fd46531a412f6c963a6d5d2c132
 SHA1 (patch-ext_tk_lib_tk_fontchooser.rb) = cb0155332e5f519ada386fae770cd2f879527323
 SHA1 (patch-ext_tk_lib_tk_tk__mac.rb) = 24b9f282558200780adbf93e71edd1aa52d1c82b
@@ -13,7 +11,6 @@ SHA1 (patch-ext_tk_lib_tkextlib_tcllib_validator.rb) = fb0cb5a138c2ae311d368ec44
 SHA1 (patch-ext_tk_lib_tkextlib_tile_treeview.rb) = e31201b5d0f5c333f14b795ac5e670fdb9a250cf
 SHA1 (patch-ext_tk_lib_tkextlib_tkimg_dted.rb) = b0786f50ebab4b5a0ccf916054bc13fbd6820541
 SHA1 (patch-ext_tk_lib_tkextlib_tkimg_raw.rb) = 92a4bc7b995554b9933b1e9f9ce4df87e365bcfb
-SHA1 (patch-ext_tk_tcltklib.c) = 475affcb88a06ac6daf622814a9da5027ca3d34e
 SHA1 (patch-lib_rdoc_ri_driver.rb) = 5bdd3ed6f50a2ea79f643c6bebd7ad0063e79051
 SHA1 (patch-lib_rubygems.rb) = 9d27fa8c96f285461fbb08df7491a0a48ed612e1
 SHA1 (patch-lib_rubygems_commands_setup__command.rb) = 46991d63256d0d3cc2f707fb286d1691331ad40e
