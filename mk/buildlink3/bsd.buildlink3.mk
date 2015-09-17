@@ -280,6 +280,9 @@ ${_depmethod_}+=	${_BLNK_ADD_TO.${_depmethod_}}
 ###
 .if defined(_PKGSRC_BARRIER)
 
+_BLNK_MANGLE_START=	_bUiLdLiNk_
+_BLNK_MANGLE_END=	\#
+
 # Generate default values for:
 #
 # _BLNK_PKG_DBDIR.<pkg>		contains all of the package metadata
@@ -604,6 +607,7 @@ _BLNK_COOKIE.${_pkg_}=		${BUILDLINK_DIR}/.buildlink_${_pkg_}_done
 _BLNK_TARGETS+=			buildlink-${_pkg_}
 _BLNK_TARGETS.${_pkg_}=		buildlink-${_pkg_}-message
 _BLNK_TARGETS.${_pkg_}+=	${_BLNK_COOKIE.${_pkg_}}
+_BLNK_PKG_COOKIES+=		${_BLNK_COOKIE.${_pkg_}}
 _BLNK_TARGETS.${_pkg_}+=	buildlink-${_pkg_}-cookie
 
 .PHONY: buildlink-${_pkg_}
@@ -661,37 +665,26 @@ ${_BLNK_COOKIE.${_pkg_}}:
 	${_BLNK_FILES_CMD.${_pkg_}} |					\
 	while read file; do						\
 		src="${_CROSS_DESTDIR}${BUILDLINK_PREFIX.${_pkg_}}/$$file";		\
-		if [ ! -f "$$src" ]; then					\
-			msg="$$src: not found";				\
-		else							\
-			if [ -z "${BUILDLINK_FNAME_TRANSFORM.${_pkg_}:Q}" ]; then \
-				dest="$$buildlink_dir/$$file";		\
-				msg="$$src";				\
-			else						\
-				dest="$$buildlink_dir/$$file";		\
-				dest=`${ECHO} $$dest | ${SED} ${BUILDLINK_FNAME_TRANSFORM.${_pkg_}}`; \
-				msg="$$src -> $$dest";			\
-			fi;						\
-			dir=`${DIRNAME} "$$dest"`;			\
-			if [ ! -d "$$dir" ]; then			\
-				${MKDIR} "$$dir";			\
-			fi;						\
-			if [ -e "$$dest" ]; then			\
-				${RM} -f "$$dest";			\
+		if [ -f "$$src" ]; then					\
+			dest="$$buildlink_dir/$$file";			\
+			if [ -n "${BUILDLINK_FNAME_TRANSFORM.${_pkg_}:Q}" ]; then \
+				dest=`${ECHO} $$buildlink_dir/$$file | ${SED} ${BUILDLINK_FNAME_TRANSFORM.${_pkg_}}`; \
 			fi;						\
 			case "$$src" in					\
 			*.la)						\
+				dir=`${DIRNAME} "$$dest"`;		\
+				if [ ! -d $$dir ]; then			\
+					${MKDIR} $$dir;			\
+				fi;					\
 				${_BLNK_LT_ARCHIVE_FILTER.${_pkg_}}	\
 					"$$src" > "$$dest";		\
-				msg="$$msg (created)";			\
 				;;					\
 			*)						\
-				${LN} -sf "$$src" "$$dest";		\
+				${ECHO} "link=$${src}${_BLNK_MANGLE_START}$${dest}"; \
 				;;					\
 			esac;						\
 		fi;							\
-		${ECHO} "$$msg" >> ${.TARGET};				\
-	done
+	done >${.TARGET}
 
 # _BLNK_LT_ARCHIVE_FILTER.${_pkg_} is a command-line filter used in
 # the previous target for transforming libtool archives (*.la) to
@@ -774,6 +767,16 @@ _BLNK_LT_ARCHIVE_FILTER_SED_SCRIPT.${_pkg_}+=				\
 	-e "/^libdir=/s,${X11BASE}\(/[^${_BLNK_SEP}]*\),${BUILDLINK_X11_DIR}\\1,g"
 .  endif
 .endfor
+
+.if defined(_BLNK_PKG_COOKIES)
+_BLNK_TARGETS+=	buildlink-generate-links
+
+.PHONY: buildlink-generate-links
+buildlink-generate-links: ${_BLNK_PKG_COOKIES}
+	${RUN} ${CAT} ${_BLNK_PKG_COOKIES} | ${AWK}			\
+	    -vBATCH_COMMANDS_SEP=${_BLNK_MANGLE_START}			\
+	    -f ${PKGSRCDIR}/mk/scripts/batch-commands.awk | ${SH}
+.endif
 
 # Include any BUILDLINK_TARGETS provided in buildlink3.mk files in
 # _BLNK_TARGETS.
@@ -873,8 +876,6 @@ _BLNK_MANGLE_DIRS+=	${LOCALBASE}
 _BLNK_MANGLE_DIRS+=	${X11BASE}
 .endif
 
-_BLNK_MANGLE_START=	_bUiLdLiNk_
-_BLNK_MANGLE_END=	\#
 .for _dir_ in ${_BLNK_MANGLE_DIRS}
 _BLNK_MANGLE_DIR.${_dir_}=	\
 	${_BLNK_MANGLE_START}${_dir_:S/\//_/g}${_BLNK_MANGLE_END}

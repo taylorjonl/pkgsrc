@@ -139,17 +139,21 @@ MKDIR?=         mkdir -p
 # by any arguments specified in TOOLS_ARGS.*, followed by any
 # command-line arguments passed to the wrapper script.
 #
+_TOOLS_MANGLE=	_tOoLs_
+
 .for _t_ in ${TOOLS_CREATE}
 TOOLS_CMD.${_t_}?=		${TOOLS_DIR}/bin/${_t_}
 TOOLS_PATH.${_t_}?=		${FALSE}
 TOOLS_SCRIPT_DFLT.${_t_}=	\
 	${TOOLS_PATH.${_t_}} ${TOOLS_ARGS.${_t_}} "$$@"
+.endfor
 
-override-tools: ${TOOLS_CMD.${_t_}}
-
-${TOOLS_CMD.${_t_}}:
-	${RUN} ${TEST} -d ${.TARGET:H:Q} || ${MKDIR} ${.TARGET:H:Q}
-	${RUN}								\
+override-tools: generate-tools
+generate-tools:
+	${RUN} (							\
+	${TOOLS_CREATE:@_t_@						\
+	${TEST} -d ${TOOLS_CMD.${_t_}:H:Q}				\
+	    || ${MKDIR} ${TOOLS_CMD.${_t_}:H:Q};			\
 	if ${TEST} -n ${TOOLS_SCRIPT.${_t_}:Q}""; then			\
 		create=wrapper;						\
 		script=${TOOLS_SCRIPT.${_t_}:Q};			\
@@ -161,7 +165,7 @@ ${TOOLS_CMD.${_t_}}:
 			case ${TOOLS_PATH.${_t_}:Q}"" in		\
 			/*)	create=symlink ;;			\
 			*)	create=wrapper;				\
-				script=${TOOLS_SCRIPT_DFLT.${_t_}:Q};	\
+				script=${TOOLS_SCRIPT_DFLT.${_t_}:Q};;	\
 			esac;						\
 		fi;							\
 	else								\
@@ -171,24 +175,23 @@ ${TOOLS_CMD.${_t_}}:
 	wrapper)							\
 		{ ${ECHO} '#!'${TOOLS_SHELL:Q};				\
 		  ${ECHO} 'wrapperlog="$${TOOLS_WRAPPER_LOG-'${_TOOLS_WRAP_LOG:Q}'}"'; \
-		  ${ECHO} '${ECHO} "[*] "'${.TARGET:Q}'" $$@" >> $$wrapperlog'; \
-		  ${ECHO} "${ECHO} \"<.> $$script\" >> \$$wrapperlog";	\
+		  ${ECHO} '${ECHO} "[*] "'${TOOLS_CMD.${_t_}:Q}'" $$\@" >> $$wrapperlog'; \
+		  ${ECHO} '${ECHO} "<.> '$$script'" >> $$wrapperlog';	\
 		  ${ECHO} "$$script";					\
-		} > ${.TARGET:Q};					\
-		${CHMOD} +x ${.TARGET:Q};				\
+		} > ${TOOLS_CMD.${_t_}:Q};				\
+		${ECHO} "cmd=${CHMOD} +x${_TOOLS_MANGLE}${TOOLS_CMD.${_t_}}"; \
 		;;							\
 	*)								\
-		${LN} -fs ${TOOLS_PATH.${_t_}:Q} ${.TARGET:Q};	\
+		${ECHO} "link=${TOOLS_PATH.${_t_}}${_TOOLS_MANGLE}${TOOLS_CMD.${_t_}}"; \
 		;;							\
-	esac
-.  for _a_ in ${TOOLS_ALIASES.${_t_}}
-	${RUN}								\
-	${TEST} ${.TARGET:Q} = ${.TARGET:H:Q}/${_a_} ||			\
-		${LN} -fs ${.TARGET:T:Q} ${.TARGET:H:Q}/${_a_}
-.  endfor
-.  if defined(_OPSYS_EXE_SUFFIX) && !empty(_OPSYS_EXE_SUFFIX)
-	${RUN}								\
-	${TEST} ${.TARGET:E:Q} = ${_OPSYS_EXE_SUFFIX:E:Q} ||		\
-		${LN} -fs ${.TARGET:T:Q} ${.TARGET:Q}${_OPSYS_EXE_SUFFIX}
-.  endif
-.endfor
+	esac;								\
+	${TOOLS_ALIASES.${_t_}:@_a_@					\
+		${TEST} ${TOOLS_CMD.${_t_}:Q} = ${TOOLS_CMD.${_t_}:H:Q}/${_a_} || \
+		${ECHO} "link=${TOOLS_CMD.${_t_}:T}${_TOOLS_MANGLE}${TOOLS_CMD.${_t_}:H}/${_a_}"; \
+	@}								\
+	if ${TEST} -n ${_OPSYS_EXE_SUFFIX:Q}""; then 			\
+		${TEST} ${TOOLS_CMD.${_t_}:E:Q} = ${_OPSYS_EXE_SUFFIX:E:Q} || \
+		    ${ECHO} "link=${TOOLS_CMD.${_t_}:T}${_TOOLS_MANGLE}${TOOLS_CMD.${_t_}}${_OPSYS_EXE_SUFFIX}"; \
+	fi;								\
+	@} ) | ${AWK} -vBATCH_COMMANDS_SEP=${_TOOLS_MANGLE}		\
+	    -f ${PKGSRCDIR}/mk/scripts/batch-commands.awk | ${SH}
