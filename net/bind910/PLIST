@@ -124,6 +124,7 @@ include/isc/buffer.h
 include/isc/bufferlist.h
 include/isc/commandline.h
 include/isc/condition.h
+include/isc/counter.h
 include/isc/crc64.h
 include/isc/dir.h
 include/isc/entropy.h
@@ -240,6 +241,7 @@ include/lwres/netdb.h
 include/lwres/platform.h
 include/lwres/result.h
 include/lwres/stdlib.h
+include/lwres/string.h
 include/lwres/version.h
 include/pk11/constants.h
 include/pk11/internal.h
@@ -409,6 +411,9 @@ share/doc/bind9/arm/Bv9ARM.ch07.html
 share/doc/bind9/arm/Bv9ARM.ch08.html
 share/doc/bind9/arm/Bv9ARM.ch09.html
 share/doc/bind9/arm/Bv9ARM.ch10.html
+share/doc/bind9/arm/Bv9ARM.ch11.html
+share/doc/bind9/arm/Bv9ARM.ch12.html
+share/doc/bind9/arm/Bv9ARM.ch13.html
 share/doc/bind9/arm/Bv9ARM.html
 share/doc/bind9/arm/man.arpaname.html
 share/doc/bind9/arm/man.ddns-confgen.html
@@ -437,4 +442,5 @@ share/doc/bind9/arm/man.nsupdate.html
 share/doc/bind9/arm/man.rndc-confgen.html
 share/doc/bind9/arm/man.rndc.conf.html
 share/doc/bind9/arm/man.rndc.html
+share/doc/bind9/arm/notes.html
 share/examples/bind9/named.conf
