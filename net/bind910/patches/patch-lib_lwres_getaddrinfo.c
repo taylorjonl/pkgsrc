@@ -2,11 +2,11 @@ $NetBSD: patch-lib_lwres_getaddrinfo.c,v 1.1.1.1 2014/07/02 02:42:58 jnemeth Exp
 
 * Add fix for KAME based implementation.
 
---- lib/lwres/getaddrinfo.c.orig	2008-11-25 23:47:23.000000000 +0000
+--- lib/lwres/getaddrinfo.c.orig	2015-08-15 00:28:49.000000000 +0000
 +++ lib/lwres/getaddrinfo.c
 @@ -142,6 +142,10 @@
- #include <lwres/netdb.h>
  #include <lwres/stdlib.h>
+ #include <lwres/string.h>
  
 +#ifdef __KAME__
 +#include <net/if.h>
@@ -15,7 +15,7 @@ $NetBSD: patch-lib_lwres_getaddrinfo.c,v 1.1.1.1 2014/07/02 02:42:58 jnemeth Exp
  #define SA(addr)	((struct sockaddr *)(addr))
  #define SIN(addr)	((struct sockaddr_in *)(addr))
  #define SIN6(addr)	((struct sockaddr_in6 *)(addr))
-@@ -366,14 +370,22 @@ lwres_getaddrinfo(const char *hostname, 
+@@ -366,14 +370,22 @@ lwres_getaddrinfo(const char *hostname,
  			p = strchr(ntmp, '%');
  			ep = NULL;
  
