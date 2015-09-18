@@ -191,6 +191,7 @@ SUBDIR+=	nanoblogger-extra
 SUBDIR+=	neon
 SUBDIR+=	netscape
 SUBDIR+=	netsurf
+SUBDIR+=	nghttp2
 SUBDIR+=	nginx
 SUBDIR+=	nginx-devel
 SUBDIR+=	ns-plugger-common
