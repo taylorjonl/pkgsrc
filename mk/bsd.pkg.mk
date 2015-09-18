@@ -780,26 +780,20 @@ PKG_ERROR_HANDLER.${_class_}?=	{					\
 # that are invoked on the same Makefile.
 #
 .for _phase_ in ${_ALL_PHASES}
-${_MAKEVARS_MK.${_phase_}}: ${WRKDIR}
-	${RUN}${RM} -f ${.TARGET}.tmp
 .  for _var_ in ${MAKEVARS:O:u}
 .    if defined(${_var_})
-	${RUN}					\
-	${ECHO} ${_var_}"=	"${${_var_}:Q} >> ${.TARGET}.tmp
+_MAKEVARS.${_phase_}+=	${_var_}
 .    endif
 .  endfor
-	${RUN}					\
-	if ${TEST} -f ${.TARGET}.tmp; then				\
-		( ${ECHO} ".if !defined(_MAKEVARS_MK)";			\
-		  ${ECHO} "_MAKEVARS_MK=	defined";		\
-		  ${ECHO} "";						\
-		  ${CAT} ${.TARGET}.tmp;				\
-		  ${ECHO} "";						\
-		  ${ECHO} ".endif # _MAKEVARS_MK";			\
-		) > ${.TARGET};						\
-		${RM} -f ${.TARGET}.tmp;				\
-	fi
-	${RUN}${TOUCH} ${TOUCH_FLAGS} ${.TARGET}
+${_MAKEVARS_MK.${_phase_}}: ${WRKDIR}
+	${RUN} (							\
+	${ECHO} ".if !defined(_MAKEVARS_MK)";				\
+	${ECHO} "_MAKEVARS_MK=	defined";				\
+	${ECHO} "";							\
+	${_MAKEVARS.${_phase_}:@v@${ECHO} ${v}"=	"${${v}:Q};@}	\
+	${ECHO} "";							\
+	${ECHO} ".endif # _MAKEVARS_MK";				\
+	) > ${.TARGET}
 .endfor
 
 .if make(pbulk-index) || make(pbulk-index-item) || make(pbulk-save-wrkdir)
