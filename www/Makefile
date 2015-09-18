@@ -738,6 +738,7 @@ SUBDIR+=	sitecopy
 SUBDIR+=	snarf
 SUBDIR+=	snownews
 SUBDIR+=	spawn-fcgi
+SUBDIR+=	spdylay
 SUBDIR+=	sqtop
 SUBDIR+=	squid3
 SUBDIR+=	squidGuard
