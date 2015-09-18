@@ -46,6 +46,7 @@ CWRAPPERS_WRAPPEE.imake=	${TOOLS_PATH.imake:Ufalse}
 CWRAPPERS_WRAPPEE.ld=		${LD:Ufalse}
 CWRAPPERS_WRAPPEE.libtool=	${PKG_LIBTOOL:Ufalse}
 CWRAPPERS_WRAPPEE.shlibtool=	${PKG_SHLIBTOOL:Ufalse}
+CWRAPPERS_WRAPPEES=		as cxx cc cpp f77 imake ld libtool shlibtool
 
 # TODO: Find and fix packages depending on the implicit include path.
 CWRAPPERS_APPEND.cc+=		-I${PREFIX}/include
@@ -64,28 +65,37 @@ generate-cwrappers: ${_target_}
 .endfor
 
 generate-cwrappers:
-.for wrappee in as cxx cc cpp f77 imake ld libtool shlibtool
-	${RUN}echo worklog=${WRKLOG:Q} > ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-	${RUN}echo wrksrc=${WRKSRC:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-	${RUN}case ${wrappee} in *libtool) ;; *) echo path=${_PATH_ORIG:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}};; esac
-	${RUN}echo exec_path=${WRAPPER_BINDIR}/${CWRAPPERS_ALIASES.${wrappee}:[1]} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-	${RUN}echo exec=${CWRAPPERS_WRAPPEE.${wrappee}:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-.  for cmd in ${WRAPPER_REORDER_CMDS}
-	${RUN}echo reorder=${cmd:S/^reorder://:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-.  endfor
-.  for cmd in ${CWRAPPERS_TRANSFORM.${wrappee}} ${_CWRAPPERS_TRANSFORM}
-	${RUN}echo transform=${cmd:u:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-.  endfor
-.  for cmd in ${CWRAPPERS_APPEND.${wrappee}:U}
-	${RUN}echo append=${cmd:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-.  endfor
-.  for cmd in ${_CWRAPPERS_UNWRAP}
-	${RUN}echo unwrap=${cmd:Q} >> ${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}}
-.  endfor
-.  for alias in ${CWRAPPERS_ALIASES.${wrappee}}
-	${RUN}ln -s ${CWRAPPERS_SRC_DIR}/${CWRAPPERS_CONFIG.${wrappee}}-wrapper ${WRAPPER_BINDIR}/${alias}
-.  endfor
-.endfor
+	${RUN}								\
+	${CWRAPPERS_WRAPPEES:O:u:@wrappee@				\
+	(								\
+	${ECHO} worklog=${WRKLOG:Q};					\
+	${ECHO} wrksrc=${WRKSRC:Q};					\
+	case ${wrappee} in						\
+	*libtool) ;;							\
+	*)	  ${ECHO} path=${_PATH_ORIG:Q};				\
+	esac;								\
+	${ECHO} exec_path=${WRAPPER_BINDIR}/${CWRAPPERS_ALIASES.${wrappee}:[1]}; \
+	${ECHO} exec=${CWRAPPERS_WRAPPEE.${wrappee}:Q};			\
+	${WRAPPER_REORDER_CMDS:u:@cmd@					\
+		${ECHO} reorder=${cmd:S/^reorder://:Q};			\
+	@}								\
+	${CWRAPPERS_TRANSFORM.${wrappee}:u:@cmd@			\
+		${ECHO} transform=${cmd:Q};				\
+	@}								\
+	${_CWRAPPERS_TRANSFORM:u:@cmd@					\
+		${ECHO} transform=${cmd:Q};				\
+	@}								\
+	${CWRAPPERS_APPEND.${wrappee}:u:@cmd@				\
+		${ECHO} append=${cmd:Q};				\
+	@}								\
+	${_CWRAPPERS_UNWRAP:u:@cmd@					\
+		${ECHO} unwrap=${cmd:Q};				\
+	@}								\
+	) >${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}};	\
+	${CWRAPPERS_ALIASES.${wrappee}:O:u:@alias@			\
+		${LN} -fs ${CWRAPPERS_SRC_DIR}/${CWRAPPERS_CONFIG.${wrappee}}-wrapper ${WRAPPER_BINDIR}/${alias}; \
+	@}								\
+	@}
 
 PREPEND_PATH+=		${WRAPPER_BINDIR}
 
