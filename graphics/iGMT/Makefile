@@ -20,9 +20,6 @@ WRKSRC=			${WRKDIR}/igmt_1.2
 NO_BUILD=		yes
 
 USE_TOOLS+=		gs:run ksh:run
-GMT_PREFIX_DEFAULT=	${LOCALBASE}
-EVAL_PREFIX+=		GMT_PREFIX=GMT
-EVAL_PREFIX+=		TK_PREFIX=tk
 
 REPLACE_KSH=		igmt igmt_helper* img2latlongrd.batch
 
@@ -31,8 +28,8 @@ INSTALLATION_DIRS=	bin
 do-configure:
 	for i in ${WRKSRC}/igmt ${WRKSRC}/igmt_configure.tcl; do	\
 		${SED} -e 's:@PREFIX@:'${PREFIX}':g'			\
-		       -e 's:@GMT_PREFIX@:'${GMT_PREFIX}':g'		\
-		       -e 's:@TK_PREFIX@:'${TK_PREFIX}':g'		\
+		       -e 's:@GMT_PREFIX@:'${LOCALBASE}':g'		\
+		       -e 's:@TK_PREFIX@:'${LOCALBASE}':g'		\
 		$$i > $$i.tmp && ${MV} -f $$i.tmp $$i;			\
 	done
 

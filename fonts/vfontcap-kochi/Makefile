@@ -15,8 +15,6 @@ DEPENDS+=		kochi-ttf-[0-9]*:../../fonts/kochi-ttf
 WRKSRC=			${WRKDIR}
 NO_BUILD=		yes
 
-EVAL_PREFIX+=		KOCHI_TTF_PREFIX=kochi-ttf
-
 VFONTCAPDIR=		share/VFlib/2.24.2
 FILES_SUBST+=		VFONTCAPDIR=${VFONTCAPDIR}
 MESSAGE_SUBST+=		VFONTCAPDIR=${VFONTCAPDIR}
@@ -25,7 +23,7 @@ PLIST_SUBST+=		VFONTCAPDIR=${VFONTCAPDIR}
 INSTALLATION_DIRS=	${VFONTCAPDIR}
 
 do-configure:
-	${SED}	-e "s,@KOCHI_TTF_PREFIX@,${KOCHI_TTF_PREFIX},g"		\
+	${SED}	-e "s,@KOCHI_TTF_PREFIX@,${LOCALBASE},g"		\
 		${FILESDIR}/vfontcap > ${WRKSRC}/vfontcap
 
 do-install:

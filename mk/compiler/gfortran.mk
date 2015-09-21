@@ -68,8 +68,7 @@ _USE_GFORTRAN=	YES
 .endif
 
 .if !empty(_USE_GFORTRAN:M[yY][eE][sS])
-EVAL_PREFIX+=		_GFORTRANBASE=gfortran
-_GFORTRANBASE_DEFAULT=	${LOCALBASE}/gcc48
+_GFORTRANBASE=	${LOCALBASE}/gcc48
 FC=		gfortran
 
 _GFORTRAN_DIR=	${WRKDIR}/.gfortran

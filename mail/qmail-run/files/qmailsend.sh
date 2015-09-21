@@ -12,11 +12,11 @@
 name="qmailsend"
 
 # User-settable rc.conf variables and their default values:
-: ${qmailsend_postenv:="PATH=@QMAIL_PREFIX@/bin:$PATH"}
+: ${qmailsend_postenv:="PATH=@PREFIX@/bin:$PATH"}
 : ${qmailsend_defaultdelivery:="`@HEAD@ -1 @PKG_SYSCONFDIR@/control/defaultdelivery`"}
 : ${qmailsend_log:="YES"}
 : ${qmailsend_logcmd:="logger -t nb${name} -p mail.info"}
-: ${qmailsend_nologcmd:="@DAEMONTOOLS_PREFIX@/bin/multilog -*"}
+: ${qmailsend_nologcmd:="@PREFIX@/bin/multilog -*"}
 
 if [ -f /etc/rc.subr ]; then
 	. /etc/rc.subr
@@ -25,7 +25,7 @@ fi
 rcvar=${name}
 required_files="@PKG_SYSCONFDIR@/control/defaultdelivery"
 required_files="${required_files} @PKG_SYSCONFDIR@/control/me"
-command="@QMAIL_PREFIX@/bin/qmail-send"
+command="@PREFIX@/bin/qmail-send"
 start_precmd="qmailsend_precmd"
 extra_commands="stat pause cont doqueue reload queue alrm flush hup"
 stat_cmd="qmailsend_stat"
@@ -81,14 +81,14 @@ qmailsend_doqueue()
 		return 1
 	fi
 	@ECHO@ "Flushing timeout table and sending ALRM signal to qmail-send."
-	@QMAIL_PREFIX@/bin/qmail-tcpok
+	@PREFIX@/bin/qmail-tcpok
 	kill -ALRM $rc_pid
 }
 
 qmailsend_queue()
 {
-	@QMAIL_PREFIX@/bin/qmail-qstat
-	@QMAIL_PREFIX@/bin/qmail-qread
+	@PREFIX@/bin/qmail-qstat
+	@PREFIX@/bin/qmail-qread
 }
 
 qmailsend_hup()

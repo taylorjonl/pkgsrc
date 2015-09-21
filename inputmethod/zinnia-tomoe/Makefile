@@ -17,9 +17,6 @@ BUILD_DEPENDS+=	zinnia-[0-9]*:../../inputmethod/zinnia
 GNU_CONFIGURE=	yes
 USE_LANGUAGES=	# none
 
-FIND_PREFIX:=	ZINNIA_DIR=zinnia
-.include "../../mk/find-prefix.mk"
-
-CONFIGURE_ARGS+=	--with-zinnia-convert=${ZINNIA_DIR}/bin/zinnia_convert
+CONFIGURE_ARGS+=	--with-zinnia-convert=${LOCALBASE}/bin/zinnia_convert
 
 .include "../../mk/bsd.pkg.mk"

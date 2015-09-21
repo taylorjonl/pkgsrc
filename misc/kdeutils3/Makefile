@@ -14,14 +14,11 @@ MAKE_ENV+=		EXPORT_SYMBOLS_LDFLAGS=${EXPORT_SYMBOLS_LDFLAGS:Q}
 
 DEPENDS+=	gtar-base>=1.13.25:../../archivers/gtar-base
 
-EVAL_PREFIX+=		PREFIX.gtar=gtar
-PREFIX.gtar_DEFAULT=	${LOCALBASE}
-
 SUBST_CLASSES+=		tarexe
 SUBST_STAGE.tarexe=	pre-configure
 SUBST_MESSAGE.tarexe=	Use GNU tar in ark
 SUBST_FILES.tarexe=	ark/ark.kcfg
-SUBST_SED.tarexe=	-e 's:<default>tar</default>:<default>${PREFIX.gtar}/bin/gtar</default>:'
+SUBST_SED.tarexe=	-e 's:<default>tar</default>:<default>${LOCALBASE}/bin/gtar</default>:'
 
 .include "../../mk/bsd.prefs.mk"
 

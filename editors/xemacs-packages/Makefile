@@ -170,8 +170,6 @@ REPLACE_PERL+=		lisp/hyperbole/file-newer
 # Do not depend on Python just for one file
 CHECK_INTERPRETER_SKIP=	${XEPKGDIR}/etc/python-modes/pydoc_lisp.py
 
-.include "../../editors/xemacs/Makefile.pkg"
-
 PRINT_PLIST_AWK+=	{ sub("\\.el$$", ".el$${ELSUFX}") }
 
 .if defined(MANZ)

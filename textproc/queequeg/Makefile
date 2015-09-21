@@ -26,11 +26,8 @@ SUBST_FILES.fix-python+=	Makefile
 SUBST_SED.fix-python+=		-e 's,/usr/bin/env python,${PYTHONBIN},'
 SUBST_SED.fix-python+=		-e 's,python ,${PYTHONBIN} ,'
 
-FIND_PREFIX:=		WORDNETDIR=WordNet
-.include "../../mk/find-prefix.mk"
-
 BUILD_TARGET=		dict
-BUILD_MAKE_FLAGS=	WORDNETDICT=${WORDNETDIR}/dict
+BUILD_MAKE_FLAGS=	WORDNETDICT=${LOCALBASE}/dict
 
 INSTALLATION_DIRS=	bin ${PYSITELIB} dict
 

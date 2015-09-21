@@ -27,8 +27,7 @@ TEX_TEXMF_MK=		# defined
 DEPENDS+=		kpathsea>=3.5.7:../../print/kpathsea
 
 TEX_TEXMF_DIRS?=	${PREFIX}/share/texmf-dist
-EVAL_PREFIX+=		KPATHSEA_PREFIX=kpathsea
-FILES_SUBST+=		MKTEXLSR=${KPATHSEA_PREFIX:Q}/bin/mktexlsr
+FILES_SUBST+=		MKTEXLSR=${LOCALBASE:Q}/bin/mktexlsr
 FILES_SUBST+=		TEXMF_DIRS=${TEX_TEXMF_DIRS:Q}
 .if !empty(TEX_TEXMF_DIRS)
 INSTALL_TEMPLATES+=	../../print/kpathsea/files/texmf-install.tmpl

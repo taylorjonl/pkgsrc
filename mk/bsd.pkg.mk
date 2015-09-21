@@ -422,12 +422,6 @@ _BUILD_DEFS+=		USE_ABI_DEPENDS
 .  endif
 .endif
 
-# Find out the PREFIX of dependencies where the PREFIX is needed at build time.
-.if defined(EVAL_PREFIX)
-FIND_PREFIX:=	${EVAL_PREFIX}
-.  include "find-prefix.mk"
-.endif
-
 .if !defined(_PATH_ORIG)
 _PATH_ORIG:=		${PATH}
 MAKEFLAGS+=		_PATH_ORIG=${_PATH_ORIG:Q}

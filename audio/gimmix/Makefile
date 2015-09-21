@@ -20,7 +20,7 @@ USE_TOOLS+=	intltool gmake msgfmt pkg-config
 # fixes broken symbolic link to /usr/share/intltool/Makefile.in.in
 post-extract:
 	rm -f ${WRKSRC}/po/Makefile.in.in
-	ln -s ${TOOLS_PREFIX.intltool:Q}/share/intltool/Makefile.in.in \
+	ln -s ${LOCALBASE:Q}/share/intltool/Makefile.in.in \
 		${WRKSRC}/po/Makefile.in.in
 
 .include "../../x11/gtk2/buildlink3.mk"

@@ -24,8 +24,7 @@ WRKSRC=		${WRKDIR}/${NSIS_SRC}
 NO_CONFIGURE=	yes
 EXTRACT_OPTS_ZIP=	-qo
 
-EVAL_PREFIX+=	SCONS_PREFIX=scons
-SCONS_BIN=	${SCONS_PREFIX}/bin/scons
+SCONS_BIN=	${LOCALBASE}/bin/scons
 MAKENSIS_BIN=	${PREFIX}/share/nsis/makensis
 
 INSTALLATION_DIRS=	bin share/nsis

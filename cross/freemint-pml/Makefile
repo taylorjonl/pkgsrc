@@ -38,9 +38,6 @@ GNU_CONFIGURE=		yes
 
 GNU_CONFIGURE_PREFIX=	${FREEMINT_PREFIX}
 
-FIND_PREFIX:=		AR_DIR=cross-freemint-binutils
-.include "../../mk/find-prefix.mk"
-
 CFLAGS+=		-fomit-frame-pointer
 
 CROSSDIR=		${DESTDIR}${FREEMINT_PREFIX}/m68k-atari-mint
@@ -54,7 +51,7 @@ CONFIGURE_ARGS+=	--disable-multilib
 MAKE_ENV+=		SHELL=${TOOLS_PATH.bash}
 MAKE_ENV+=		FREEMINT_PREFIX=${FREEMINT_PREFIX}
 MAKE_ENV+=		WRKSRC=${WRKSRC}
-MAKE_ENV+=		ARDIR=${AR_DIR}/cross-freemint/bin
+MAKE_ENV+=		ARDIR=${LOCALBASE}/cross-freemint/bin
 MAKE_ENV+=		DESTDIR=${DESTDIR}
 MAKE_ENV+=		CONFIGURE_DIRS=${CONFIGURE_DIRS}
 INFO_FILES=		yes

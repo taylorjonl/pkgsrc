@@ -14,8 +14,7 @@ TEX_FORMAT_MK=		# defined
 
 DEPENDS+=		tex-tetex>=3.0.27774:../../print/tex-tetex
 
-EVAL_PREFIX+=		TETEX_PREFIX=tex-tetex
-FILES_SUBST+=		FMTUTIL_SYS=${TETEX_PREFIX:Q}/bin/fmtutil-sys
+FILES_SUBST+=		FMTUTIL_SYS=${LOCALBASE:Q}/bin/fmtutil-sys
 FILES_SUBST+=		FORMATS=${TEX_FORMATS:Q}
 FILES_SUBST+=		PRINTF=${PRINTF:Q}
 INSTALL_TEMPLATES+=	../../print/tex-tetex/files/format-install.tmpl

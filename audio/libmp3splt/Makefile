@@ -16,11 +16,8 @@ USE_TOOLS+=		pkg-config
 
 LIBS.SunOS+=		-lresolv
 
-FIND_PREFIX:=   LTDLDIR=libltdl
-.include "../../mk/find-prefix.mk"
-
-CONFIGURE_ARGS+=	--with-ltdl-include=${LTDLDIR}/include
-CONFIGURE_ARGS+=	--with-ltdl-lib=${LTDLDIR}/lib
+CONFIGURE_ARGS+=	--with-ltdl-include=${BUILDLINK_PREFIX.libltdl}/include
+CONFIGURE_ARGS+=	--with-ltdl-lib=${BUILDLINK_PREFIX.libltdl}/lib
 
 .include "../../audio/libid3tag/buildlink3.mk"
 .include "../../audio/libmad/buildlink3.mk"

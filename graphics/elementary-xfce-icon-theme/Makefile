@@ -17,8 +17,7 @@ USE_TOOLS+=	pax
 
 WRKSRC=		${WRKDIR}/elementary-xfce-${GHCOMMIT}
 
-EVAL_PREFIX+=		PREFIX.gtk2=gtk2+
-FILES_SUBST+=		GTK_UPDATE_ICON_CACHE="${PREFIX.gtk2}/bin/gtk-update-icon-cache"
+FILES_SUBST+=		GTK_UPDATE_ICON_CACHE="${LOCALBASE}/bin/gtk-update-icon-cache"
 FILES_SUBST+=		ICON_THEME_DIR="${PREFIX}/share/icons"
 INSTALL_TEMPLATES+=	../../graphics/elementary-xfce-icon-theme/files/icon-cache.tmpl
 DEINSTALL_TEMPLATES+=	../../graphics/elementary-xfce-icon-theme/files/icon-cache.tmpl

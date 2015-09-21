@@ -17,13 +17,10 @@ BUILDLINK_FILES.tcl+=	bin/tclsh*
 BUILDLINK_TRANSFORM+=	l:tcl:tcl86
 BUILDLINK_TRANSFORM+=	l:tcl8.6:tcl86
 
-TCLCONFIG_SH?=		${BUILDLINK_PREFIX.tcl}/lib/tclConfig.sh
-
 _TOOLS_USE_PKGSRC.tclsh=	yes
 
-FIND_PREFIX:=		TOOLS_PREFIX.tclsh=tcl
-.include "../../mk/find-prefix.mk"
-TCLSH=			${TOOLS_PREFIX.tclsh}/bin/tclsh
+TCLCONFIG_SH?=		${BUILDLINK_PREFIX.tcl}/lib/tclConfig.sh
+TCLSH=			${BUILDLINK_PREFIX.tcl}/bin/tclsh
 
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../mk/dlopen.buildlink3.mk"

@@ -67,31 +67,31 @@ generate-cwrappers: ${_target_}
 generate-cwrappers:
 	${RUN}								\
 	${CWRAPPERS_WRAPPEES:O:u:@wrappee@				\
-	(								\
-	${ECHO} worklog=${WRKLOG:Q};					\
-	${ECHO} wrksrc=${WRKSRC:Q};					\
-	case ${wrappee} in						\
-	*libtool) ;;							\
-	*)	  ${ECHO} path=${_PATH_ORIG:Q};				\
-	esac;								\
-	${ECHO} exec_path=${WRAPPER_BINDIR}/${CWRAPPERS_ALIASES.${wrappee}:[1]}; \
-	${ECHO} exec=${CWRAPPERS_WRAPPEE.${wrappee}:Q};			\
-	${WRAPPER_REORDER_CMDS:u:@cmd@					\
+	{								\
+	  ${ECHO} worklog=${WRKLOG:Q};					\
+	  ${ECHO} wrksrc=${WRKSRC:Q};					\
+	  case ${wrappee} in						\
+	  *libtool) ;;							\
+	  *)	  ${ECHO} path=${_PATH_ORIG:Q};				\
+	  esac;								\
+	  ${ECHO} exec_path=${WRAPPER_BINDIR}/${CWRAPPERS_ALIASES.${wrappee}:[1]}; \
+	  ${ECHO} exec=${CWRAPPERS_WRAPPEE.${wrappee}:Q};		\
+	  ${WRAPPER_REORDER_CMDS:u:@cmd@				\
 		${ECHO} reorder=${cmd:S/^reorder://:Q};			\
-	@}								\
-	${CWRAPPERS_TRANSFORM.${wrappee}:u:@cmd@			\
+	  @}								\
+	  ${CWRAPPERS_TRANSFORM.${wrappee}:u:@cmd@			\
 		${ECHO} transform=${cmd:Q};				\
-	@}								\
-	${_CWRAPPERS_TRANSFORM:u:@cmd@					\
+	  @}								\
+	  ${_CWRAPPERS_TRANSFORM:u:@cmd@				\
 		${ECHO} transform=${cmd:Q};				\
-	@}								\
-	${CWRAPPERS_APPEND.${wrappee}:u:@cmd@				\
+	  @}								\
+	  ${CWRAPPERS_APPEND.${wrappee}:u:@cmd@				\
 		${ECHO} append=${cmd:Q};				\
-	@}								\
-	${_CWRAPPERS_UNWRAP:u:@cmd@					\
+	  @}								\
+	  ${_CWRAPPERS_UNWRAP:u:@cmd@					\
 		${ECHO} unwrap=${cmd:Q};				\
-	@}								\
-	) >${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}};	\
+	  @}								\
+	} >${CWRAPPERS_CONFIG_DIR}/${CWRAPPERS_CONFIG.${wrappee}};	\
 	${CWRAPPERS_ALIASES.${wrappee}:O:u:@alias@			\
 		${LN} -fs ${CWRAPPERS_SRC_DIR}/${CWRAPPERS_CONFIG.${wrappee}}-wrapper ${WRAPPER_BINDIR}/${alias}; \
 	@}								\

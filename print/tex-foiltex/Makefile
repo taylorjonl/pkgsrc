@@ -21,8 +21,6 @@ NO_SRC_ON_CDROM=${RESTRICTED}
 
 NO_CONFIGURE=	YES
 
-EVAL_PREFIX+=	LATEX_PREFIX=tex-latex-bin
-
 INSTALLATION_DIRS+=	${PREFIX}/share/texmf-dist/tex/latex/foiltex
 
 .include "../../print/kpathsea/texmf.mk"
@@ -33,7 +31,7 @@ do-extract:
 	done
 
 do-build:
-	cd ${WRKSRC} && ${LATEX_PREFIX}/bin/latex foiltex.ins
+	cd ${WRKSRC} && ${LOCALBASE}/bin/latex foiltex.ins
 
 do-install:
 	cd ${WRKSRC} && for f in foils.* foil*.clo fltfonts.def; do \

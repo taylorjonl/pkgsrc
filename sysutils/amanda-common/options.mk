@@ -30,9 +30,7 @@ CONFIGURE_ARGS+=        --with-ssh-security
 
 .  if !exists(/usr/bin/ssh)
 DEPENDS+=		openssh-[0-9]*:../../security/openssh
-FIND_PREFIX:= 		SSHPREFIX=openssh
-.include "../../mk/find-prefix.mk"
-CONFIGURE_ENV+=		ac_cv_path_SSH=${SSHPREFIX}/bin/ssh
+CONFIGURE_ENV+=		ac_cv_path_SSH=${LOCALBASE}/bin/ssh
 .  endif
 .endif
 

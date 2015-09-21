@@ -20,10 +20,7 @@ SUBST_CLASSES+=		ccgo
 SUBST_STAGE.ccgo=	pre-configure
 SUBST_FILES.ccgo=	game_setup.cc settings.cc
 SUBST_MESSAGE.ccgo=	Fixing paths to gnugo.
-SUBST_SED.ccgo=		-e 's|/usr/games/gnugo|${PREFIX.gnugo}/bin/gnugo|g'
-
-EVAL_PREFIX+=		PREFIX.gnugo
-PREFIX.gnugo_DEFAULT=	${LOCALBASE}
+SUBST_SED.ccgo=		-e 's|/usr/games/gnugo|${LOCALBASE}/bin/gnugo|g'
 
 .include "../../converters/libiconv/buildlink3.mk"
 .include "../../devel/gconfmm/buildlink3.mk"

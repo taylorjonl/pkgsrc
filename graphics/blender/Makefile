@@ -19,9 +19,6 @@ PYTHON_VERSIONS_ACCEPTED=	34 33
 
 BUILD_DEPENDS+=		scons-[0-9]*:../../devel/scons
 
-FIND_PREFIX:=		SCONSDIR=scons
-.include "../../mk/find-prefix.mk"
-
 .include "options.mk"
 
 INSTALLATION_DIRS=	bin share/blender
@@ -74,7 +71,7 @@ do-build:
 # build is done in install phase.
 do-install:
 	cd ${WRKSRC:Q} && ${PKGSRC_SETENV} ${MAKE_ENV}			\
-		${SCONSDIR}/bin/scons ${SCONS_ARGS} ${_MAKE_JOBS}
+		${LOCALBASE}/bin/scons ${SCONS_ARGS} ${_MAKE_JOBS}
 
 CHECK_INTERPRETER_SKIP=	share/blender/${DISTNAME:S/blender-//:C/[a-z]//}/scripts/*.py share/blender/${DISTNAME:S/blender-//:C/[a-z]//}datafiles/*.py \
 			share/blender/${DISTNAME:S/blender-//:C/[a-z]//}/python/lib/python3.3/venv/scripts/posix/pydoc

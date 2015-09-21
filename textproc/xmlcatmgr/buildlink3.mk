@@ -21,9 +21,7 @@ BUILDLINK_API_DEPENDS.xmlcatmgr+=		xmlcatmgr>=2.0beta1
 BUILDLINK_PKGSRCDIR.xmlcatmgr?=		../../textproc/xmlcatmgr
 
 # Location of the xmlcatmgr binary program.
-EVAL_PREFIX+=			XMLCATMGR_PREFIX=xmlcatmgr
-XMLCATMGR_PREFIX_DEFAULT=	${LOCALBASE}
-XMLCATMGR=			${XMLCATMGR_PREFIX}/bin/xmlcatmgr
+XMLCATMGR=		${LOCALBASE}/bin/xmlcatmgr
 
 # System-wide configurable catalogs.
 .if defined(PKG_SYSCONFDIR.xmlcatmgr) && !empty(PKG_SYSCONFDIR.xmlcatmgr)

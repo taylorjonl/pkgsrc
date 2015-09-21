@@ -16,13 +16,10 @@ PLIST_VARS+=	java kde4 gtk3
 USE_JAVA=		yes
 USE_JAVA2=		yes
 BUILD_DEPENDS+=	apache-ant-[0-9]*:../../devel/apache-ant
-FIND_PREFIX:=		ANTDIR=apache-ant
-CONFIGURE_ARGS+=	--with-ant-home=${ANTDIR}
+CONFIGURE_ARGS+=	--with-ant-home=${LOCALBASE}
 
 DEPENDS+=	hsqldb18-[0-9]*:../../databases/hsqldb18
-FIND_PREFIX+=		HSQLDB_SYSDIR=hsqldb18
-CONFIGURE_ARGS+=	--with-hsqldb-jar=${HSQLDB_SYSDIR}/lib/java/hsqldb18/hsqldb.jar
-.include "../../mk/find-prefix.mk"
+CONFIGURE_ARGS+=	--with-hsqldb-jar=${LOCALBASE}/lib/java/hsqldb18/hsqldb.jar
 CONFIGURE_ARGS+=	--enable-ext-wiki-publisher \
 			--with-java \
 			--with-jdk-home=${PKG_JAVA_HOME} \

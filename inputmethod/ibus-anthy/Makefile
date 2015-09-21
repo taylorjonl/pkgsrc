@@ -19,12 +19,9 @@ USE_PKGLOCALEDIR=	yes
 USE_LANGUAGES=		c
 USE_TOOLS+=		pkg-config msgfmt gmake intltool
 
-FIND_PREFIX:=	KASUMI_DIR=kasumi
-.include "../../mk/find-prefix.mk"
-
 CONFIGURE_ARGS+=	--localedir=${PREFIX}/${PKGLOCALEDIR}/locale
-CONFIGURE_ARGS+=	--with-kasumi-exec=${KASUMI_DIR}/bin/kasumi
-CONFIGURE_ARGS+=	--with-kasumi-icon=${KASUMI_DIR}/share/pixmaps/kasumi.png
+CONFIGURE_ARGS+=	--with-kasumi-exec=${LOCALBASE}/bin/kasumi
+CONFIGURE_ARGS+=	--with-kasumi-icon=${LOCALBASE}/share/pixmaps/kasumi.png
 CONFIGURE_ARGS+=	--with-layout=default
 #CONFIGURE_ARGS+=	--enable-pygtk2-anthy
 

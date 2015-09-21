@@ -21,9 +21,6 @@ BUILD_DEPENDS+=	apache-ant-[0-9]*:../../devel/apache-ant
 
 USE_TOOLS+=	pax
 
-FIND_PREFIX:=	ANTDIR=apache-ant
-.include "../../mk/find-prefix.mk"
-
 SUBST_CLASSES+=			fix-omegat
 SUBST_STAGE.fix-omegat=		pre-configure
 SUBST_MESSAGE.fix-omegat=	fixing pathes
@@ -50,7 +47,7 @@ pre-patch:
 do-build:
 	cd ${WRKSRC} \
 	&& env ${MAKE_ENV} \
-		${ANTDIR}/bin/ant jar release
+		${LOCALBASE}/bin/ant jar release
 
 do-install:
 	${INSTALL_DATA} ${WRKSRC}/dist/*txt \

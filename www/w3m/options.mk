@@ -24,9 +24,7 @@ CONFIGURE_ARGS+=	--disable-ipv6
 .if !empty(PKG_OPTIONS:Mmigemo)
 .include "../../lang/ruby/rubyversion.mk"
 DEPENDS+=	${RUBY_PKGPREFIX}-migemo-[0-9]*:../../textproc/migemo
-FIND_PREFIX:=	MIGEMODIR=${RUBY_PKGPREFIX}-migemo
-.include "../../mk/find-prefix.mk"
-CONFIGURE_ARGS+=	--with-migemo="${MIGEMODIR}/bin/migemo -t egrep ${MIGEMODIR}/share/migemo/migemo-dict"
+CONFIGURE_ARGS+=	--with-migemo="${LOCALBASE}/bin/migemo -t egrep ${LOCALBASE}/share/migemo/migemo-dict"
 .else
 CONFIGURE_ARGS+=	--without-migemo
 .endif

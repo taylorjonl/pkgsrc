@@ -20,7 +20,6 @@ COMMENT=	Portable scheme interpreter
 DEPENDS+=	slib>=3.1.1:../../devel/slib
 
 WRKSRC=		${WRKDIR}/scm
-EVAL_PREFIX+=	SLIB_PREFIX=slib
 INFO_FILES=	yes
 
 LDFLAGS.SunOS+=	-lsocket -lnsl
@@ -46,7 +45,7 @@ INSTALLATION_DIRS=	${PKGINFODIR} share/scm
 .include "../../mk/readline.buildlink3.mk"
 
 post-extract:
-	${SED} -e "s|@SLIB_PREFIX@|"${SLIB_PREFIX:Q}"|g"		\
+	${SED} -e "s|@SLIB_PREFIX@|"${LOCALBASE:Q}"|g"		\
 		${FILESDIR}/require.scm > ${WRKSRC}/require.scm
 	${SED} -e "s|@PREFIX@|"${PREFIX:Q}"|g"				\
 		-e "s|@COMPILED_INITS@|${COMPILED_INITS:=();}|g"	\

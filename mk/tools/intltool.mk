@@ -53,12 +53,10 @@ DEPENDS+=		${TOOLS_DEPENDS.intltool}
 .    else
 TOOL_DEPENDS+=		${TOOLS_DEPENDS.intltool}
 .    endif
-EVAL_PREFIX+=		TOOLS_PREFIX.intltool=intltool
 .    for _t_ in ${_TOOLS.intltool}
 TOOLS_DEPENDS.${_t_}=	${TOOLS_DEPENDS.intltool}
 TOOLS_CREATE+=		${_t_}
-TOOLS_PREFIX.${_t_}=	${TOOLS_PREFIX.intltool}
-TOOLS_PATH.${_t_}=	${TOOLS_PREFIX.${_t_}}/bin/${_t_}
+TOOLS_PATH.${_t_}=	${LOCALBASE}/bin/${_t_}
 .    endfor
 .  endif
 .else

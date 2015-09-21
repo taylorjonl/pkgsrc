@@ -24,12 +24,9 @@ DOCDIR=		${PREFIX}/share/doc/${PKGBASE}
 CONF_FILES+=	${EGDIR}/rsnapshot.conf.default \
 		${PKG_SYSCONFDIR}/rsnapshot.conf
 
-FIND_PREFIX:=	RSYNCDIR=rsync
-.include "../../mk/find-prefix.mk"
-
 CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
 CONFIGURE_ARGS+=	--with-perl=${PERL5:Q}
-CONFIGURE_ARGS+=	--with-rsync=${RSYNCDIR}/bin/rsync
+CONFIGURE_ARGS+=	--with-rsync=${LOCALBASE}/bin/rsync
 
 INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1 ${DOCDIR} ${EGDIR}
 

@@ -62,9 +62,7 @@ ${WRKDIR}/.altdeinstall: ${ALTERNATIVES_SRC}
 
 PRINT_PLIST_AWK+=	/^libdata\/alternatives\// { next; }
 
-EVAL_PREFIX+=			PREFIX.pkg_alternatives=pkg_alternatives
-PREFIX.alternatives_DEFAULT=	${LOCALBASE}
-PKG_ALTERNATIVES=		${PREFIX.pkg_alternatives}/sbin/pkg_alternatives
+PKG_ALTERNATIVES=	${LOCALBASE}/sbin/pkg_alternatives
 
 INSTALL_TEMPLATES+=	${WRKDIR}/.altinstall
 DEINSTALL_TEMPLATES+=	${WRKDIR}/.altdeinstall

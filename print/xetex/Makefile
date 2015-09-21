@@ -49,13 +49,11 @@ CONFIGURE_DIRS+=	libs/harfbuzz
 CONFIGURE_DIRS+=	libs/xpdf
 CONFIGURE_DIRS+=	texk/web2c
 
-EVAL_PREFIX+=	XDVIPDFMX_PREFIX=xdvipdfmx
-
 SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Setting paths to commands.
 SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths=	texk/web2c/xetexdir/XeTeX_ext.c
-SUBST_SED.paths=	-e 's,@XDVIPDFMX@,${XDVIPDFMX_PREFIX}/bin/xdvipdfmx,g'
+SUBST_SED.paths=	-e 's,@XDVIPDFMX@,${LOCALBASE}/bin/xdvipdfmx,g'
 
 INSTALLATION_DIRS+=	bin
 

@@ -66,8 +66,7 @@ MAKEVARS+=	_TOOLS_USE_PKGSRC.gmake
 
 .if defined(_TOOLS_USE_PKGSRC.gmake) && !empty(_TOOLS_USE_PKGSRC.gmake)
 .  if !empty(_TOOLS_USE_PKGSRC.gmake:M[yY][eE][sS])
-TOOLS_FIND_PREFIX+=	GMAKEDIR=gmake
-TOOLS_PLATFORM.gmake=	${GMAKEDIR}/bin/gmake
+TOOLS_PLATFORM.gmake=	${LOCALBASE}/bin/gmake
 .  endif
 .endif
 

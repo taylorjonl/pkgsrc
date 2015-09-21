@@ -12,9 +12,6 @@ COMMENT=		ANSI C routine library for the solution of sparse linear systems
 
 DEPENDS+=		blas-[0-9]*:../../math/blas
 
-BLAS_PREFIX_DEFAULT=	${LOCALBASE}
-EVAL_PREFIX+=		BLAS_PREFIX=blas
-
 DIST_SUBDIR=		${PKGNAME_NOREV}
 WRKSRC=			${WRKDIR}/SuperLU_3.0
 BUILD_TARGET=		superlulib

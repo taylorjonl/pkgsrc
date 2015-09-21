@@ -12,15 +12,12 @@ UIM_MODULES_MK=	# defined
 
 .if (defined(UIM_MODULES) && !empty(UIM_MODULES)) || defined(_BUILDING_UIM)
 
-.  if defined(_BUILDING_UIM)
-BUILDLINK_PREFIX.uim=	${PREFIX}
-.  else
-EVAL_PREFIX+=	BUILDLINK_PREFIX.uim=uim
-DEPENDS+=	uim-[0-9]*:../../inputmethod/uim
+.  if !defined(_BUILDING_UIM)
+DEPENDS+=		uim-[0-9]*:../../inputmethod/uim
 .  endif
 
-UIM_MODULE_MANAGER=	${BUILDLINK_PREFIX.uim}/bin/uim-module-manager
-UIM_MODULE_LIST_DIR=	${BUILDLINK_PREFIX.uim}/share/uim/pkgsrc
+UIM_MODULE_MANAGER=	${LOCALBASE}/bin/uim-module-manager
+UIM_MODULE_LIST_DIR=	${LOCALBASE}/share/uim/pkgsrc
 
 FILES_SUBST+=		UIM_MODULE_MANAGER=${UIM_MODULE_MANAGER:Q}
 FILES_SUBST+=		UIM_MODULE_LIST_DIR=${UIM_MODULE_LIST_DIR:Q}
@@ -29,7 +26,7 @@ INSTALL_TEMPLATES+=	../../inputmethod/uim/files/modules.tmpl
 DEINSTALL_TEMPLATES+=	../../inputmethod/uim/files/modules.tmpl
 
 GENERATE_PLIST+=	for m in ${UIM_MODULES}; do \
-			echo ${UIM_MODULE_LIST_DIR:S,^${BUILDLINK_PREFIX.uim}/,,}/$${m}; \
+			echo ${UIM_MODULE_LIST_DIR:S,^${LOCALBASE}/,,}/$${m}; \
 			done
 
 post-install: uim-add-module-names

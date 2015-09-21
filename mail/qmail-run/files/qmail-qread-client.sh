@@ -7,4 +7,4 @@
 # From Steinar Haug.
 #
 
-exec @UCSPI_TCP_PREFIX@/bin/tcpclient -RHl0 -- 127.0.0.1 20025 @SH@ -c 'exec @CAT@ <&6'
+exec @PREFIX@/bin/tcpclient -RHl0 -- 127.0.0.1 20025 @SH@ -c 'exec @CAT@ <&6'

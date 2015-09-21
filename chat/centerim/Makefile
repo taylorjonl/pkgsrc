@@ -34,8 +34,7 @@ INCOMPAT_CURSES+=	NetBSD-[0-5].*-* # see PR 29060
 CPPFLAGS+=		-DAUDIO_PLAYER="\"/usr/bin/audioplay\""
 .else
 DEPENDS+=		sox>=12.17.4:../../audio/sox
-EVAL_PREFIX+=		SOX_PREFIX=sox
-CPPFLAGS+=		-DAUDIO_PLAYER="\"${SOX_PREFIX}/bin/play\""
+CPPFLAGS+=		-DAUDIO_PLAYER="\"${LOCALBASE}/bin/play\""
 .endif
 
 .if !empty(MACHINE_ARCH:Msparc64)
