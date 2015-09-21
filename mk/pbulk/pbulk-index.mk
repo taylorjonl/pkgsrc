@@ -100,7 +100,7 @@ pbulk-index:
 			export _PBULK_MULTI_VALUE_${._t.}; \
 			${_PBULK_MULTI_VAR.${._t.}}=$$${._t.}; \
 			export ${_PBULK_MULTI_VAR.${._t.}};@} \
-	${MAKE} pbulk-index-item \
+	${RECURSIVE_MAKE} ${MAKEFLAGS} pbulk-index-item \
 		${_PBULK_MULTI_NEEDED:@._t.@;done@}
 .endif
 
