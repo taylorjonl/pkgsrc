@@ -17,7 +17,6 @@ WRKSRC=		${WRKDIR}/lgrind
 NO_SRC_ON_FTP=	Already in MASTER_SITE_LOCAL
 NO_CONFIGURE=	yes
 
-EVAL_PREFIX+=	LATEX_PREFIX=tex-latex-bin
 MAKE_ENV+=	PKG_LOCALTEXMFPREFIX=${PKG_LOCALTEXMFPREFIX:Q}
 
 .include "../../print/kpathsea/texmf.mk"
@@ -32,8 +31,8 @@ pre-patch:
 		${WRKSRC}/source/Makefile
 
 pre-build:
-	(cd ${WRKSRC} && ${LATEX_PREFIX}/bin/latex lgrind.ins)
-	(cd ${WRKSRC} && ${LATEX_PREFIX}/bin/pdflatex lgrind.dtx)
+	(cd ${WRKSRC} && ${LOCALBASE}/bin/latex lgrind.ins)
+	(cd ${WRKSRC} && ${LOCALBASE}/bin/pdflatex lgrind.dtx)
 	${MV} ${WRKSRC}/source/lgrind.1 ${WRKSRC}/source/lgrind.1.bak
 	${MV} ${WRKSRC}/source/lgrindef.5 ${WRKSRC}/source/lgrindef.5.bak
 	${SED} -e 's,@PREFIX@,${PREFIX},g' \

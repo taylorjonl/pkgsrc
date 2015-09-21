@@ -17,8 +17,7 @@ TEX_HYPHEN_MK=		# defined
 DEPENDS+=		tex-hyphen-base>=2010nb1:../../print/tex-hyphen-base
 DEPENDS+=		tex-tetex>=3.0.27774nb1:../../print/tex-tetex
 
-EVAL_PREFIX+=		TETEX_PREFIX=tex-tetex
-FILES_SUBST+=		FMTUTIL_SYS=${TETEX_PREFIX:Q}/bin/fmtutil-sys
+FILES_SUBST+=		FMTUTIL_SYS=${LOCALBASE}/bin/fmtutil-sys
 FILES_SUBST+=		HYPHEN_DAT=${TEX_HYPHEN_DAT:Q}
 FILES_SUBST+=		HYPHEN_DEF=${TEX_HYPHEN_DEF:Q}
 FILES_SUBST+=		HYPHEN_LUA=${TEX_HYPHEN_LUA:Q}

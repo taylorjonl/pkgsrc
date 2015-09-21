@@ -18,9 +18,7 @@ BUILDLINK_PKGSRCDIR.perl?=	../../lang/perl5
 
 _TOOLS_USE_PKGSRC.perl=	yes
 
-FIND_PREFIX:=	PERLDIR=perl
-.include "../../mk/find-prefix.mk"
-PERL5=		${PERLDIR}/bin/perl
+PERL5=		${LOCALBASE}/bin/perl
 
 pkgbase := perl
 .include "../../mk/pkg-build-options.mk"

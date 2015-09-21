@@ -76,11 +76,9 @@ MESSAGE_SRC=		${.CURDIR}/MESSAGE
 .endif
 
 .if !empty(PKG_OPTIONS:Mpoppler)
-FIND_PREFIX:=	POPPLERDIR=poppler-utils
-.include "../../mk/find-prefix.mk"
 DEPENDS+=	poppler-utils-[0-9]*:../../print/poppler-utils
 CONFIGURE_ARGS+=	--with-pdftops=pdftops
-CONFIGURE_ENV+=		ac_cv_path_CUPS_PDFTOPS=${POPPLERDIR}/bin/pdftops
+CONFIGURE_ENV+=		ac_cv_path_CUPS_PDFTOPS=${LOCALBASE}/bin/pdftops
 .endif
 
 .if !empty(PKG_OPTIONS:Mslp)

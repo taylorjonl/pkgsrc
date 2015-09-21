@@ -8,9 +8,7 @@
 .if !defined(DCONF_DATABASE_MK)
 DCONF_DATABASE_MK=	# defined
 
-EVAL_PREFIX+=	BUILDLINK_PREFIX.dconf=dconf
-
-DCONF=	${BUILDLINK_PREFIX.dconf}/bin/dconf
+DCONF=			${LOCALBASE}/bin/dconf
 
 FILES_SUBST+=		DCONF=${DCONF:Q}
 INSTALL_TEMPLATES+=	../../devel/dconf/files/database.tmpl

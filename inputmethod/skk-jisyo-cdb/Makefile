@@ -22,9 +22,6 @@ SKKJISYO_VERS=	201212
 
 INSTALLATION_DIRS+=	${PREFIX}/share/skk
 
-FIND_PREFIX:=	CDBDIR=tinycdb
-.include "../../mk/find-prefix.mk"
-
 do-build:
 	LC_ALL=C ${AWK} '/^[^;]/ { \
 			s = substr($$0, index($$0, " ") + 1); \
@@ -34,7 +31,7 @@ do-build:
 			print ""; \
 		}' \
 		< ${WRKDIR}/SKK-JISYO.L.${SKKJISYO_VERS} | \
-	${CDBDIR}/bin/cdb -c -t - \
+	${LOCALBASE}/bin/cdb -c -t - \
 		${WRKDIR}/SKK-JISYO.L.${SKKJISYO_VERS}.cdb
 
 

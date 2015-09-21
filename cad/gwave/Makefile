@@ -18,8 +18,7 @@ GNU_CONFIGURE=	YES
 USE_LIBTOOL=	yes
 USE_TOOLS+=	perl pkg-config
 
-EVAL_PREFIX+=	GRAPHDIR=plotutils
-CONFIGURE_ENV+=	GRAPH=${GRAPHDIR}/bin/graph
+CONFIGURE_ENV+=	GRAPH=${BUILDLINK_PREFIX.plotutils}/bin/graph
 
 LDFLAGS.DragonFly=	-lX11
 LDFLAGS.SunOS+=		-lX11

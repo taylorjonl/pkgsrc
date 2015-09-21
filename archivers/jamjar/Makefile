@@ -13,11 +13,10 @@ BUILD_DEPENDS+=	acunia-jam>=1.0:../../devel/acunia-jam
 
 WRKSRC=		${WRKDIR}/jamjar
 
-EVAL_PREFIX+=	ACUNIA_JAM_PREFIX=acunia-jam
 JAM_COMMAND=	\
 	cd ${WRKSRC} &&							\
 		${SETENV} ${MAKE_ENV}					\
-		${ACUNIA_JAM_PREFIX}/bin/jam				\
+		${LOCALBASE}/bin/jam					\
 			-sPREFIX="${DESTDIR}${PREFIX}"			\
 			-sCFLAGS="${CFLAGS}"
 

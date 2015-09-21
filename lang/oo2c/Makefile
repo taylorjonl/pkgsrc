@@ -25,9 +25,6 @@ GNU_CONFIGURE=		yes
 USE_TOOLS+=		gmake perl:run
 USE_LIBTOOL=		yes
 
-EVAL_PREFIX+=		LIBTOOL_PREFIX=libtool-base
-LIBTOOL_PREFIX_DEFAULT=	${LOCALBASE}
-
 TEST_TARGET=		test
 
 INSTALLATION_DIRS=	share/doc/html share/emacs/site-lisp
@@ -42,7 +39,7 @@ SUBST_SED.destdir+=	-e 's,>${PREFIX}/bin<,>${DESTDIR}${PREFIX}/bin<,g'
 SUBST_CLASSES+=		pkg-unwrap
 SUBST_STAGE.pkg-unwrap=	post-install
 SUBST_FILES.pkg-unwrap=	${DESTDIR}${PREFIX}/lib/oo2c/oo2crc.xml
-SUBST_SED.pkg-unwrap=	-e 's,${WRAPPER_DIR},${LIBTOOL_PREFIX},g'
+SUBST_SED.pkg-unwrap=	-e 's,${WRAPPER_DIR},${LOCALBASE},g'
 
 post-install:
 	${LN} -sf ${PREFIX}/lib/oo2c/oocdoc/html ${DESTDIR}${PREFIX}/share/doc/html/oo2c

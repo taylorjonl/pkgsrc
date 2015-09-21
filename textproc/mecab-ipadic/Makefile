@@ -18,8 +18,6 @@ CONFIGURE_ARGS+=	--with-charset=${MECAB_CHARSET:Q}
 
 BUILD_DEFS+=		MECAB_CHARSET
 
-FIND_PREFIX:=	MECABDIR=mecab-base
-.include "../../mk/find-prefix.mk"
-CONFIGURE_ARGS+=	--with-mecab-config=${MECABDIR}/bin/mecab-config
+CONFIGURE_ARGS+=	--with-mecab-config=${LOCALBASE}/bin/mecab-config
 
 .include "../../mk/bsd.pkg.mk"

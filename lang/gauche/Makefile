@@ -15,11 +15,9 @@ DEPENDS+=		slib-[0-9]*:../../devel/slib
 
 .include "options.mk"
 
-EVAL_PREFIX+=		SLIB_PREFIX=slib
-
 MAKE_JOBS_SAFE=		no
 GNU_CONFIGURE=		yes
-CONFIGURE_ARGS+=	--with-slib=${SLIB_PREFIX}/share/slib
+CONFIGURE_ARGS+=	--with-slib=${LOCALBASE}/share/slib
 CONFIGURE_ARGS+=	--enable-threads=pthreads
 CONFIGURE_ARGS+=	--with-iconv=${BUILDLINK_PREFIX.iconv}
 

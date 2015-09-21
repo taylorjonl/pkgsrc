@@ -13,13 +13,10 @@ MANPAGES+=		amplot.8
 
 .include "../../sysutils/amanda-common/Makefile.common"
 
-FIND_PREFIX:=		GNUPLOT_PREFIX=gnuplot
-.include "../../mk/find-prefix.mk"
-
 CONFIGURE_ARGS+=	--without-client
 CONFIGURE_ARGS+=	--without-restore
 CONFIGURE_ARGS+=	--without-amrecover
-CONFIGURE_ENV+=		GNUPLOT="${GNUPLOT_PREFIX}/bin/gnuplot"
+CONFIGURE_ENV+=		GNUPLOT="${LOCALBASE}/bin/gnuplot"
 
 BUILD_DIRS=		amplot
 

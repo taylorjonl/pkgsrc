@@ -51,12 +51,9 @@ APACHE_MODULES?=	${DFLT_APACHE_MODULES}
 
 .include "options.mk"
 
-FIND_PREFIX:=	APRDIR=apr
-.include "../../mk/find-prefix.mk"
-
 # LDAP support
 PLIST_VARS+=		ldap
-.if exists(${APRDIR}/lib/apr-util-1/apr_ldap.la)
+.if exists(${LOCALBASE}/lib/apr-util-1/apr_ldap.la)
 DFLT_APACHE_MODULES+=	ldap authnz_ldap
 PLIST.ldap=		yes
 .endif
@@ -166,7 +163,7 @@ INSTALL_TARGET=		install-conf install
 INSTALL_MAKE_FLAGS+=	sysconfdir="${EGDIR}"
 
 post-install:
-	${LN} -sf ${APRDIR}/libexec/apr/libtool ${DESTDIR}${PREFIX}/share/httpd/build
+	${LN} -sf ${LOCALBASE}/libexec/apr/libtool ${DESTDIR}${PREFIX}/share/httpd/build
 	${LN} -sf ${SBINDIR}/envvars-std ${DESTDIR}${SBINDIR}/envvars
 
 	${INSTALL_SCRIPT} ${WRKDIR}/mkcert ${DESTDIR}${PREFIX}/bin

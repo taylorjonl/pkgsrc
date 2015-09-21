@@ -14,13 +14,10 @@ BUILD_DEPENDS+=	libxslt-[0-9]*:../../textproc/libxslt
 BUILD_DEPENDS+=	docbook-xsl-[0-9]*:../../textproc/docbook-xsl
 DEPENDS+=	${PYPKGPREFIX}-pygments-[0-9]*:../../textproc/py-pygments
 
-FIND_PREFIX:=	DBXSLDIR=docbook-xsl
-.include "../../mk/find-prefix.mk"
-
 USE_LANGUAGES=		c c++
 USE_TOOLS+=		gmake
 BUILD_TARGET=		all man
-BUILD_MAKE_FLAGS+=	DB2MAN=${DBXSLDIR}/share/xsl/docbook/manpages/docbook.xsl
+BUILD_MAKE_FLAGS+=	DB2MAN=${LOCALBASE}/share/xsl/docbook/manpages/docbook.xsl
 # tell cppcheck where its config is
 MAKE_FLAGS+=		CFGDIR=${PREFIX}/share/cppcheck/cfg
 # rules support (needs pcre)

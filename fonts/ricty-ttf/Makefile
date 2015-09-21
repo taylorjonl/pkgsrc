@@ -37,17 +37,13 @@ INSTALL_FONTS=	Ricty-Bold.ttf \
 
 USE_LANGUAGES=	# none
 
-FIND_PREFIX:=	INCONSOLATADIR=inconsolata-ttf
-FIND_PREFIX+=	MIGUDIR=migu-ttf
-.include "../../mk/find-prefix.mk"
-
 do-build:
 	set -e; \
 	cd ${WRKSRC}; \
 	${BASH} ./ricty_generator.sh \
-	${INCONSOLATADIR}/share/fonts/X11/TTF/Inconsolata.otf \
-	${MIGUDIR}/share/fonts/X11/TTF/migu-1m-regular.ttf \
-	${MIGUDIR}/share/fonts/X11/TTF/migu-1m-bold.ttf
+	${LOCALBASE}/share/fonts/X11/TTF/Inconsolata.otf \
+	${LOCALBASE}/share/fonts/X11/TTF/migu-1m-regular.ttf \
+	${LOCALBASE}/share/fonts/X11/TTF/migu-1m-bold.ttf
 
 post-build:
 	set -e; \

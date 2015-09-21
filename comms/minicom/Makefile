@@ -30,14 +30,11 @@ PKG_USERS_VARS=		UUCP_USER
 SPECIAL_PERMS=		${PREFIX}/bin/minicom ${UUCP_USER} ${DIALER_GROUP} 4555
 OWN_DIRS_PERMS=		${PKG_SYSCONFDIR} ${UUCP_USER} ${DIALER_GROUP} 0755
 
-EVAL_PREFIX+=		GKERMIT_PREFIX=gkermit
-EVAL_PREFIX+=		LRZSZ_PREFIX=lrzsz
-
 SUBST_CLASSES+=		minicom
 SUBST_MESSAGE.minicom=	Fixing hardcoded paths.
 SUBST_STAGE.minicom=	post-patch
 SUBST_FILES.minicom=	src/rwconf.c
-SUBST_VARS.minicom=	PREFIX GKERMIT_PREFIX LRZSZ_PREFIX
+SUBST_VARS.minicom=	PREFIX
 
 .include "options.mk"
 

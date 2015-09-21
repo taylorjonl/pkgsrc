@@ -22,13 +22,11 @@ CONFIGURE_ENV+=		GAMEOWN=${GAMES_USER}
 BUILD_TARGET=
 WRKSRC=			${WRKDIR}/${DISTNAME:S/_/-/}
 
-EVAL_PREFIX+=	W3M_PREFIX=w3m
-
 SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Fixing paths.
 SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths=	w3m.el
-SUBST_SED.paths=	-e 's|@W3M@|${W3M_PREFIX}/bin/w3m|g'
+SUBST_SED.paths=	-e 's|@W3M@|${LOCALBASE}/bin/w3m|g'
 
 BUILD_DEFS+=		VARBASE
 BUILD_DEFS+=		GAMEDATAMODE

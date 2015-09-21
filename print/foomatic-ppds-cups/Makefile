@@ -15,8 +15,7 @@ DEPENDS+=	foomatic-ppds-${FOOMATIC_PPDS_VERSION}{,nb[0-9]*}:../../print/foomatic
 
 WRKSRC=		${WRKDIR}
 
-EVAL_PREFIX+=		CUPS_PREFIX=cups
-CUPS_DATADIR=		${CUPS_PREFIX:Q}/share/cups/model
+CUPS_DATADIR=		${LOCALBASE}/share/cups/model
 FILES_SUBST+=		CUPS_DATADIR=${CUPS_DATADIR}
 
 .include "../../mk/bsd.pkg.mk"

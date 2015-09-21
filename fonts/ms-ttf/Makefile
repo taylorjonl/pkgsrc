@@ -26,9 +26,7 @@ NO_CONFIGURE=	yes
 NO_BUILD=	yes
 
 DIST_SUBDIR=	ms-ttf
-EVAL_PREFIX+=	CABEXTRACT_PREFIX=cabextract
-CABEXTRACT_PREFIX_DEFAULT=${LOCALBASE}
-EXTRACT_CMD=	${CABEXTRACT_PREFIX}/bin/cabextract -q $${extract_file}
+EXTRACT_CMD=	${LOCALBASE}/bin/cabextract -q $${extract_file}
 FONTDIR=	${PREFIX}/share/fonts/X11/TTF
 DOCDIR=		${PREFIX}/share/doc/ms-ttf
 FONTS_DIRS.ttf=	${FONTDIR}

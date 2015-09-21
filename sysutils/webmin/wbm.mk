@@ -47,9 +47,8 @@ DEPENDS+=	webmin>=${WBM_VERSION}:../../sysutils/webmin
 DEPENDS+=	wbm-${m}>=${WBM_VERSION}:../../sysutils/wbm-${m}
 .endfor
 
-EVAL_PREFIX+=	PREFIX.webmin=webmin
-WEBMIN_DIR=	${PREFIX.webmin}/share/webmin
-WEBMIN_EGDIR=	${PREFIX.webmin}/share/examples/webmin
+WEBMIN_DIR=	${LOCALBASE}/share/webmin
+WEBMIN_EGDIR=	${LOCALBASE}/share/examples/webmin
 WEBMIN_VARDIR=	${VARBASE}/webmin
 WBM_DIR=	${PREFIX}/share/webmin
 WBM_EGDIR=	${PREFIX}/share/examples/webmin

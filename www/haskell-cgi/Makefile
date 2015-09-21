@@ -14,14 +14,11 @@ NO_SRC_ON_FTP=	Already in MASTER_SITE_LOCAL
 
 NO_BUILD=	yes
 
-HUGS_PREFIX_DEFAULT=	${LOCALBASE}
-EVAL_PREFIX+=	HUGS_PREFIX=hugs
-
 INSTALLATION_DIRS=	share/hugs/lib
 
 do-configure:
 	@for i in ${WRKSRC}/*; do					  \
-	${SED} -e 's:\/soft\/bin\/runhugs:'${HUGS_PREFIX}'/bin/runhugs:g' \
+	${SED} -e 's:\/soft\/bin\/runhugs:'${LOCALBASE}'/bin/runhugs:g' \
 	$$i > $$i.tmp && ${MV} $$i.tmp $$i;				  \
 	done
 

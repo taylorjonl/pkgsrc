@@ -32,9 +32,6 @@ WRKSRC=		${WRKDIR}/${DISTNAME}/texk/xdvik
 CONFIG_GUESS_OVERRIDE+=	${WRKDIR}/${DISTNAME}/build-aux/config.guess
 CONFIG_SUB_OVERRIDE+=	${WRKDIR}/${DISTNAME}/build-aux/config.sub
 
-FIND_PREFIX:=	TEX_XDVI_PREFIX=tex-xdvi
-.include "../../mk/find-prefix.mk"
-
 CONFIGURE_ARGS+=	--with-system-freetype2
 CONFIGURE_ARGS+=	--with-system-kpathsea
 CONFIGURE_ARGS+=	--with-system-zlib \

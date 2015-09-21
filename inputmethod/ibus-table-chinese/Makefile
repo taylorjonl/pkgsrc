@@ -24,10 +24,7 @@ MAKE_JOBS_SAFE=	noo
 # Illegal byte sequence in array30_ExtB.txt
 .if !empty(MACHINE_PLATFORM:MNetBSD-[0-5].*-*)
 BUILD_DEPENDS+=		libiconv-[0-9]*:../../converters/libiconv
-FIND_PREFIX:= ICONV_PREFIX=libiconv
-.include "../../mk/find-prefix.mk"
-
-CMAKE_ARGS+=	-DICONV_CMD:PATH=${ICONV_PREFIX}/bin/iconv
+CMAKE_ARGS+=		-DICONV_CMD:PATH=${LOCALBASE}/bin/iconv
 .endif
 
 .include "../../inputmethod/ibus-table/buildlink3.mk"

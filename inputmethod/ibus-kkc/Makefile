@@ -19,9 +19,7 @@ USE_LANGUAGES=		c c++
 USE_PKGLOCALEDIR=	yes
 USE_TOOLS+=		gmake intltool msgfmt pkg-config
 
-FIND_PREFIX:=	SKK_JISYO_DIR=skk-jisyo
-.include "../../mk/find-prefix.mk"
-CONFIGURE_ARGS+=	--with-skkdic=${SKK_JISYO_DIR}/share/skk
+CONFIGURE_ARGS+=	--with-skkdic=${LOCALBASE}/share/skk
 
 .include "../../converters/libkkc/buildlink3.mk"
 .include "../../inputmethod/ibus/buildlink3.mk"

@@ -48,14 +48,11 @@ SUBST_MESSAGE.perlpath=	Fix perl path.
 SUBST_FILES.perlpath=	languages/perl/perlparser.cpp parts/doxygen/config.cpp
 SUBST_SED.perlpath=	-e s:/usr/bin/perl:${PERL5:Q}:
 
-EVAL_PREFIX+=		QT3DIR=qt3
-EVAL_PREFIX+=		KDELIBDIR=kdelibs
-
 CONFIGURE_ARGS+=	--with-db-includedir=${BDBBASE}/include/${BDB_TYPE}
 CONFIGURE_ARGS+=	--with-db-libdir=${BDBBASE}/lib
 CONFIGURE_ARGS+=	--with-db-lib=${BDB_TYPE}
-CONFIGURE_ARGS+=	--with-qtdoc-dir=${QT3DIR}/qt3/doc/html
-CONFIGURE_ARGS+=	--with-kdelibsdoxy-dir=${KDELIBDIR}/share/doc/kde/HTML/en/kdelibs-apidocs
+CONFIGURE_ARGS+=	--with-qtdoc-dir=${LOCALBASE}/qt3/doc/html
+CONFIGURE_ARGS+=	--with-kdelibsdoxy-dir=${LOCALBASE}/share/doc/kde/HTML/en/kdelibs-apidocs
 
 .include "options.mk"
 

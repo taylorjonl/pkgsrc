@@ -50,14 +50,6 @@ MAKEVARS+=	PKG_SYSCONFDIR.djbdns-run
 .  endif
 .endif
 
-DJBDNS_TOOLS=		daemontools djbdns ucspi-tcp
-
-.for i in ${DJBDNS_TOOLS}
-DJBDNS_TOOL_VAR.${i}=	${i:S/-/_/g:tu}_PREFIX
-EVAL_PREFIX+=		${DJBDNS_TOOL_VAR.${i}}=${i}
-FILES_SUBST+=		${DJBDNS_TOOL_VAR.${i}}=${${DJBDNS_TOOL_VAR.${i}}:Q}
-.endfor
-
 do-install:
 	${INSTALL_DATA} ${FILESDIR}/README.pkgsrc ${DESTDIR}${PREFIX}/share/doc/djbdns-run
 

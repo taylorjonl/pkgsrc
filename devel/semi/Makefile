@@ -26,7 +26,6 @@ BUILD_TARGET=	${BUILD_TARGET.${EMACS_FLAVOR}}
 INSTALL_TARGET=	${INSTALL_TARGET.${EMACS_FLAVOR}}
 MAKEFLAGS=	${MAKEFLAGS.${EMACS_FLAVOR}}
 
-EVAL_PREFIX+=	QKC_PREFIX=qkc
 USE_TOOLS+=	makeinfo
 INFO_FILES=	yes
 
@@ -44,7 +43,7 @@ post-build:
 	@cd ${WRKSRC}; for i in mime-ui-en mime-ui-ja; do		\
 		${RM} -f $${i}.info*;					\
 		${CP} $${i}.texi $${i}.texi.orig;			\
-		${QKC_PREFIX}/bin/qkc -Oeu $${i}.texi.orig >$${i}.texi;	\
+		${LOCALBASE}/bin/qkc -Oeu $${i}.texi.orig >$${i}.texi;	\
 		makeinfo --force --no-validate $${i}.texi;		\
 	done
 
