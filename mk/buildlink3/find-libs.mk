@@ -63,13 +63,8 @@ USE_TOOLS+=	test
 .  if !defined(BUILTIN_LIB_FOUND.${_lib_})
 BUILTIN_LIB_FOUND.${_lib_}=	no
 .    for _path_ in ${COMPILER_LIB_DIRS}
-.      if ${BUILTIN_LIB_FOUND.${_lib_}} == "no"
-BUILTIN_LIB_FOUND.${_lib_}!=    \
-	if ${TEST} "`${ECHO} ${_path_}/lib${_lib_}.*`" != "${_path_}/lib${_lib_}.*"; then \
-		${ECHO} yes;						\
-	else								\
-		${ECHO} no;						\
-	fi
+.      if ${BUILTIN_LIB_FOUND.${_lib_}} == "no" && exists(${_path_}/lib${_lib_}${_OPSYS_SHLIB_SUFFIX})
+BUILTIN_LIB_FOUND.${_lib_}=	yes
 .      endif
 .    endfor
 .  endif

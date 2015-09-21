@@ -37,6 +37,7 @@ _OPSYS_PERL_REQD=		# no base version of perl required
 _OPSYS_PTHREAD_AUTO=	no	# -lpthread needed for pthreads
 _PATCH_CAN_BACKUP=	yes	# native patch(1) can make backups
 _OPSYS_SHLIB_TYPE=	none	# shared lib type
+_OPSYS_SHLIB_SUFFIX=	.so	# shared library extension
 _PATCH_BACKUP_ARG?=	-b -V simple -z	# switch to patch(1) for backup suffix
 
 DEFAULT_SERIAL_DEVICE?=	/dev/modem1

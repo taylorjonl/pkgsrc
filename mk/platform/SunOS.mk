@@ -67,6 +67,7 @@ _OPSYS_HAS_OSSAUDIO=	no		# libossaudio is available
 _OPSYS_PERL_REQD=			# no base version of perl required
 _OPSYS_PTHREAD_AUTO=	no		# -lpthread needed for pthreads
 _OPSYS_SHLIB_TYPE=	ELF		# shared lib type
+_OPSYS_SHLIB_SUFFIX=	.so	# shared library extension
 _OPSYS_MISSING_FEATURES=asprintf
 .if !exists(/usr/include/err.h)
 _OPSYS_MISSING_FEATURES+=err

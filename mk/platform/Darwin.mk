@@ -117,6 +117,7 @@ _OPSYS_PTHREAD_AUTO=	yes	# -lpthread not needed for pthreads
 _OPSYS_LINKER_RPATH_FLAG=	-L	# darwin has no rpath, use -L instead
 _OPSYS_COMPILER_RPATH_FLAG=	-L	# compiler flag to pass rpaths to linker
 _OPSYS_SHLIB_TYPE=	dylib	# shared lib type
+_OPSYS_SHLIB_SUFFIX=	.dylib	# shared library extension
 _PATCH_CAN_BACKUP=	yes	# native patch(1) can make backups
 _PATCH_BACKUP_ARG?=	-V simple -b -z	# switch to patch(1) for backup suffix
 _USE_RPATH=		no	# don't add rpath to LDFLAGS

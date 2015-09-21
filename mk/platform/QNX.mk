@@ -63,6 +63,7 @@ _OPSYS_HAS_OSSAUDIO=	no	# libossaudio is not available
 _OPSYS_PERL_REQD=		# no base version of perl required
 _OPSYS_PTHREAD_AUTO=	yes	# -lpthread not needed for pthreads
 _OPSYS_SHLIB_TYPE=	ELF	# shared lib type
+_OPSYS_SHLIB_SUFFIX=	.so	# shared library extension
 _PATCH_CAN_BACKUP=	yes	# native patch(1) can make backups
 _PATCH_BACKUP_ARG?=	-V simple -b -z 	# switch to patch(1) for backup suffix
 _USE_RPATH=		yes	# add rpath to LDFLAGS
