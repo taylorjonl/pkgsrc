@@ -105,24 +105,27 @@ pbulk-index:
 .endif
 
 pbulk-index-item:
-	@echo "PKGNAME="${PKGNAME:Q}
-	@echo "ALL_DEPENDS="${_ALL_DEPENDS:Q}
-	@echo "PKG_SKIP_REASON="${PKG_SKIP_REASON:Q}
-	@echo "PKG_FAIL_REASON="${PKG_FAIL_REASON:Q}
-	@echo "NO_BIN_ON_FTP="${NO_BIN_ON_FTP:Q}
-	@echo "RESTRICTED="${RESTRICTED:Q}
-	@echo "CATEGORIES="${CATEGORIES:Q}
-	@echo "MAINTAINER="${MAINTAINER:Q}
-	@echo "USE_DESTDIR="${_USE_DESTDIR:Q}
-	@echo "BOOTSTRAP_PKG="${BOOTSTRAP_PKG}
-	@echo "USERGROUP_PHASE="${USERGROUP_PHASE:Q}
-	@echo "SCAN_DEPENDS="${.MAKE.MAKEFILES:Q}
+	${RUN}							\
+	echo "PKGNAME="${PKGNAME:Q};				\
+	echo "ALL_DEPENDS="${_ALL_DEPENDS:Q};			\
+	echo "PKG_SKIP_REASON="${PKG_SKIP_REASON:Q};		\
+	echo "PKG_FAIL_REASON="${PKG_FAIL_REASON:Q};		\
+	echo "NO_BIN_ON_FTP="${NO_BIN_ON_FTP:Q};		\
+	echo "RESTRICTED="${RESTRICTED:Q};			\
+	echo "CATEGORIES="${CATEGORIES:Q};			\
+	echo "MAINTAINER="${MAINTAINER:Q};			\
+	echo "USE_DESTDIR="${_USE_DESTDIR:Q};			\
+	echo "BOOTSTRAP_PKG="${BOOTSTRAP_PKG};			\
+	echo "USERGROUP_PHASE="${USERGROUP_PHASE:Q};		\
+	echo "SCAN_DEPENDS="${.MAKE.MAKEFILES:Q}
 .if defined(_PBULK_MULTI_NEEDED)
-	@printf "MULTI_VERSION="
-.for _t in ${_PBULK_MULTI_NEEDED}
-	@printf " %s=%s" ${_PBULK_MULTI_VAR.${_t}:Q} ${_PBULK_MULTI_VALUE_${_t}:Q}
-.endfor
-	@printf "\n"
+	${RUN}							\
+	printf "MULTI_VERSION=";				\
+	${_PBULK_MULTI_NEEDED:@_t@				\
+		printf " %s=%s" ${_PBULK_MULTI_VAR.${_t}:Q}	\
+			${_PBULK_MULTI_VALUE_${_t}:Q};		\
+	@}							\
+	printf "\n"
 .endif
 
 pbulk-save-wrkdir:
