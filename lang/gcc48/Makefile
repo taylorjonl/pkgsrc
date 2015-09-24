@@ -64,6 +64,9 @@ BOOT_LDFLAGS+=		${LDFLAGS:M-Wl,-syslibroot*}
 # GCC does not understand this option; remove it, or stage build will fail
 BUILDLINK_TRANSFORM+=	rm:-stdlib=libc++
 
+# Ignore fake library missing rpaths.
+CHECK_SHLIBS_SKIP+=     ${GCC_PKGNAME}/lib*/libgcj_bc.so*
+
 ## For target librarys and libjava programs.
 CONFIGURE_ENV+=		LDFLAGS_FOR_TARGET=${LDFLAGS_FOR_TARGET:Q}
 
