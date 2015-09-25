@@ -28,6 +28,9 @@ CHECK_SHLIBS=	no
 ## Depend on exactly ${GCC49_DIST_VERSION}.
 BUILD_DEPENDS+=		${GCC_PKGNAME}-${GCC49_DIST_VERSION}{,nb[0-9]*}:../../lang/gcc49
 
+# Finds libs from gcc49 due to rpath
+CHECK_SHLIBS=	no
+
 .include "../../mk/bsd.prefs.mk"
 
 FIND_PREFIX:=		GCC_PKG_PREFIX=${GCC_PKGNAME}-${GCC49_DIST_VERSION}*

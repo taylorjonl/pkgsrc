@@ -4,4 +4,5 @@ SHA1 (emacs-24.5.tar.gz) = 806e80eefa2ca89d2f8c0917f8b61c5c87af4f2d
 RMD160 (emacs-24.5.tar.gz) = 50a778a959db89b127970c1173dbe351671eb48b
 Size (emacs-24.5.tar.gz) = 59216034 bytes
 SHA1 (patch-gnu_readlinkat.c) = 9252c92290ccf1d4094bbd3972d8309ebf9e57d6
+SHA1 (patch-src_alloc.c) = 089e236641c7a89f20d26fd72f60909cb424c059
 SHA1 (patch-src_inotify.c) = 9dfddb9db39e84f376cad1d5a5a32861e7838cac
