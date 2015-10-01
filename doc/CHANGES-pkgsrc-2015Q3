@@ -1,4 +1,28 @@
-$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.1 2015/09/24 22:18:58 wiz Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.9 2015/09/30 19:42:29 bsiegert Exp $
 
 Changes to the packages collection and infrastructure on the 2015Q3 branch:
 
+Pullup ticket #4816 - requested by agc
+security/netpgpverify: bug fix patch
+security/libnetpgpverify: bug fix patch
+
+Pullup ticket #4817 - requested by dholland
+sysutils/findutils: build fix
+
+Pullup ticket #4815 - requested by ryoon
+www/firefox: build fix
+
+Pullup ticket #4818 - requested by taca
+net/ruby-userstream: correct dependency
+
+Pullup ticket #4820 - requested by ryoon
+emulators/qemu: security fix
+
+Pullup ticket #4824 - requested by bouyer
+www/php-owncloud: documentation fix
+
+Pullup ticket #4825 - requested by tnn
+multimedia/adobe-flash-plugin11: security fix
+
+Pullup ticket #4826 - requested by tnn
+textproc/icu: security fix
