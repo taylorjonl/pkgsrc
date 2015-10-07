@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.9 2015/09/30 19:42:29 bsiegert Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.13 2015/10/06 20:41:27 spz Exp $
 
 Changes to the packages collection and infrastructure on the 2015Q3 branch:
 
@@ -26,3 +26,36 @@ multimedia/adobe-flash-plugin11: security fix
 
 Pullup ticket #4826 - requested by tnn
 textproc/icu: security fix
+
+Pullup ticket #4827 - requested by ryoon
+www/firefox: build fix
+
+Pullup ticket #4828 - requested by bouyer
+www/p5-HTML-StripScripts: build fix
+
+Pullup ticket #4829 - requested by bouyer
+mail/mhonarc: build fix
+
+Pullup ticket #4831 - requested by taca
+lang/php55: security fix
+
+Pullup ticket #4832 - requested by taca
+lang/php56: security fix
+
+Pullup ticket #4819 - requested by bsiegert
+lang/go14: security update
+
+Pullup ticket #4830 - requested by bsiegert
+graphics/exiv2: security update
+graphics/exiv2-organize: dependant update
+
+Pullup ticket #4833 - requested by taca
+mail/postfix-lmdb: build fix
+mail/postfix-mysql: build fix
+mail/postfix-pcre: build fix
+mail/postfix-pgsql: build fix
+mail/postfix-sqlite: build fix
+
+Pullup ticket #4834 - requested by tnn
+misc/pciids: build fix
+
