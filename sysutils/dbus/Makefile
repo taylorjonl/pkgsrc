@@ -107,8 +107,8 @@ BUILD_DEPENDS+=	xmlto-[0-9]*:../../textproc/xmlto
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/doc/introspect.* \
 		${DESTDIR}${PREFIX}/share/doc/dbus/
-	${RM} ${DESTDIR}${PREFIX}/etc/dbus-1/s*.conf
-	${RMDIR} ${DESTDIR}${PREFIX}/etc/dbus-1
+	${RM} -f ${DESTDIR}${PREFIX}/etc/dbus-1/s*.conf
+	${RMDIR} ${DESTDIR}${PREFIX}/etc/dbus-1 || ${TRUE}
 
 .include "../../mk/pthread.buildlink3.mk"
 .include "../../devel/gettext-lib/buildlink3.mk"
