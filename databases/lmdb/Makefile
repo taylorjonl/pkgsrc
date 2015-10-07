@@ -19,6 +19,8 @@ LICENSE=	modified-bsd
 WRKSRC=		${WRKDIR}/mdb-mdb
 BUILD_DIRS=	libraries/liblmdb
 
+USE_GCC_RUNTIME=	yes
+
 SUBST_CLASSES+=			makefile
 SUBST_STAGE.makefile=	pre-configure
 SUBST_MESSAGE.makefile=	Fixing CFLAGS and PREFIX

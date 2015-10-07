@@ -32,5 +32,7 @@ TESSERACT_LANGS=	afr ara aze bel ben bul cat ces chi_sim chi_tra chr \
 DISTFILES+=	tesseract-ocr-3.02.${l}.tar.gz
 .endfor
 
+LIBS.SunOS+=		-lsocket -lnsl
+
 .include "../../graphics/leptonica/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
