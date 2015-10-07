@@ -14,7 +14,7 @@ LICENSE=	gnu-gpl-v2
 DEPENDS+=		dejavu-ttf>=2.26:../../fonts/dejavu-ttf
 
 USE_LIBTOOL=		yes
-USE_TOOLS+=		gmake pkg-config perl msgfmt intltool groff nroff
+USE_TOOLS+=		gmake pkg-config perl msgfmt intltool groff
 GNU_CONFIGURE=		yes
 CONFIGURE_ARGS+=	--enable-shared
 CONFIGURE_ARGS+=	--with-perl-options=${MAKE_PARAMS:Q}
