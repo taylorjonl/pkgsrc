@@ -85,9 +85,9 @@ USE_BUILTIN.iconv=	no
 .endif
 
 # current bootstrap binary kit for SmartOS is built with ncurses5
-.if !empty(MACHINE_PLATFORM:MSunOS-5.11-*) && !empty(OS_VARIANT:U:MSmartOS)
-BUILD_DEPENDS+=	ncurses>=5.0:../../devel/ncurses
-.endif
+#.if !empty(MACHINE_PLATFORM:MSunOS-5.11-*) && !empty(OS_VARIANT:U:MSmartOS)
+#BUILD_DEPENDS+=	ncurses>=5.0:../../devel/ncurses
+#.endif
 
 
 # -----------------------------------------------------------------------------
