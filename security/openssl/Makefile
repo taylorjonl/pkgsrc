@@ -123,6 +123,9 @@ CONFIGURE_ARGS+=	hpux-ia64-${CC}
 .  if ${MACHINE_ARCH} == "powerpc64"
 CONFIGURE_SCRIPT=	./Configure
 CONFIGURE_ARGS+=	linux-ppc64
+.  elif ${MACHINE_ARCH} == "i386"
+CONFIGURE_SCRIPT=	./Configure
+CONFIGURE_ARGS+=	linux-elf
 .  endif
 .elif ${OS_VARIANT} == "SCOOSR5"
 # SIGILL in _sha1_block_data_order_ssse3().
