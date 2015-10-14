@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.22 2014/05/09 07:37:05 wiz Exp $
 
 VERSION=	1.10.0
-PKGREVISION=	2
+PKGREVISION=	3
 DISTNAME=	allmydata-tahoe-${VERSION}
 EGG_NAME=	allmydata_tahoe-${VERSION}
 PKGNAME=	tahoe-lafs-${VERSION}
