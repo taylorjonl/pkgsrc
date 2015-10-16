@@ -226,6 +226,11 @@ rm -rf ${bulklog}/${pkgname}
 mkdir -p ${logpkgdir}
 rm -f ${logpkgdir}/*
 
+# Ensure we log any failures from this script itself, otherwise it is very
+# difficult to debug.
+exec >${logpkgdir}/pkg-build.log 2>&1
+set -x
+
 if [ "$use_destdir" = "destdir" -o "$use_destdir" = "user-destdir" ]; then
 	touch ${logpkgdir}/work.log
 	@CHOWN@ ${unprivileged_user} ${logpkgdir}/work.log
