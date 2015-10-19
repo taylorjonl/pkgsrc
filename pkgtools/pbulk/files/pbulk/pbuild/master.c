@@ -72,6 +72,11 @@ static void	assign_job(void *);
 static void	recv_command(struct build_peer *);
 
 static void
+do_nothing(void *arg)
+{
+}
+
+static void
 kill_peer(void *arg)
 {
 	struct build_peer *peer = arg;
@@ -179,8 +184,12 @@ shutdown_master(void)
 
 	event_del(&listen_event);
 	(void)close(listen_event_socket);
-	LIST_FOREACH(peer, &inactive_peers, peer_link)
-		(void)shutdown(peer->fd, SHUT_RDWR);
+	LIST_FOREACH(peer, &inactive_peers, peer_link) {
+		uint32_t net_build_info_len = htonl(0);
+		(void)memcpy(peer->tmp_buf, &net_build_info_len, 4);
+		deferred_write(peer->fd, peer->tmp_buf, 4, peer, do_nothing,
+		    kill_peer);
+	}
 	tv.tv_sec = 1;
 	tv.tv_usec = 0;
 	event_loopexit(&tv);
@@ -293,7 +302,6 @@ master_mode(const char *master_port, const char *start_script)
 {
 	struct sockaddr_in dst;
 	int fd;
-	int sockopt = 1;
 
 	LIST_INIT(&active_peers);
 	LIST_INIT(&inactive_peers);
@@ -309,9 +317,6 @@ master_mode(const char *master_port, const char *start_script)
 		err(1, "Could not create socket");
 	if (fcntl(fd, F_SETFD, FD_CLOEXEC) == -1)
 		err(1, "Could not set close-on-exec flag");
-	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &sockopt,
-	    sizeof(sockopt)) == -1)
-		err(1, "Could not set SO_REUSEADDR");
 	if (bind(fd, (struct sockaddr *)&dst, sizeof(dst)) == -1)
 		err(1, "Could not bind socket");
 	if (listen(fd, 5) == -1)

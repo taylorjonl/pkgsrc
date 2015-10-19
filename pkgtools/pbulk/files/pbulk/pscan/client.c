@@ -77,6 +77,8 @@ loop:
 	if (recv_bytes != 2)
 		errx(1, "Premature end while reading path length from socket");
 	path_len = ntohs(path_len);
+	if (path_len == 0)
+		exit(0);
 	if (path_len < 3)
 		errx(1, "Invalid path length from master");
 

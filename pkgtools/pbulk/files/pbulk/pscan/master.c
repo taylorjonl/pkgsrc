@@ -40,7 +40,6 @@
 #include <nbcompat/time.h>
 #include <sys/wait.h>
 #include <nbcompat/err.h>
-#include <fcntl.h>
 #include <signal.h>
 #include <fcntl.h>
 #include <nbcompat/stdlib.h>
@@ -71,6 +70,11 @@ struct scan_peer {
 };
 
 static void	assign_job(struct scan_peer *);
+
+static void
+do_nothing(void *arg)
+{
+}
 
 static void
 kill_peer(void *arg)
@@ -157,8 +161,13 @@ shutdown_master(void)
 
 	event_del(&listen_event);
 	(void)close(listen_event_socket);
-	LIST_FOREACH(peer, &inactive_peers, peer_link)
-		(void)shutdown(peer->fd, SHUT_RDWR);
+	LIST_FOREACH(peer, &inactive_peers, peer_link) {
+		uint16_t net_job_len = htons(0);
+		(void)memcpy(peer->tmp_buf, &net_job_len, 2);
+
+		deferred_write(peer->fd, peer->tmp_buf, 2, peer, do_nothing,
+		    kill_peer);
+	}
 	tv.tv_sec = 1;
 	tv.tv_usec = 0;
 	event_loopexit(&tv);
@@ -246,7 +255,6 @@ master_mode(const char *master_port, const char *start_script)
 {
 	struct sockaddr_in dst;
 	int fd;
-	int sockopt = 1;
 
 	LIST_INIT(&active_peers);
 	LIST_INIT(&inactive_peers);
@@ -261,9 +269,6 @@ master_mode(const char *master_port, const char *start_script)
 		err(1, "Could not create socket");	
 	if (fcntl(fd, F_SETFD, FD_CLOEXEC) == -1)
 		err(1, "Could not set close-on-exec flag");
-	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &sockopt,
-	    sizeof(sockopt)) == -1)
-		err(1, "Could not set SO_REUSEADDR");
 	if (bind(fd, (struct sockaddr *)&dst, sizeof(dst)) == -1)
 		err(1, "Could not bind socket");
 	if (listen(fd, 5) == -1)
