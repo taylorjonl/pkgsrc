@@ -68,21 +68,14 @@ TEST_ILLUMOS_3849!=\
 #
 #CFLAGS.SunOS+=		-mimpure-text
 
+BUILDLINK_DEPMETHOD.gcc49=	full
+.  include "../../lang/gcc49/buildlink3.mk"
+
 SUBST_CLASSES+=			fix-paths
 SUBST_STAGE.fix-paths=		pre-configure
 SUBST_MESSAGE.fix-paths=	Fixing absolute gcc paths for SunOS.
 SUBST_FILES.fix-paths=		tools/clang/lib/Driver/Tools.cpp
-.  if defined(_GCC_ARCHDIR)
-SUBST_SED.fix-paths=		-e 's,/usr/gcc/4.5/lib/gcc/,${_GCC_ARCHDIR}/,g'
-.  else
-LIBGCCDIR!=	${CC} -print-libgcc-file-name
-ARCHDIR:=	${LIBGCCDIR:H}
-SUBST_SED.fix-paths=		-e 's,/usr/gcc/4.5/lib/gcc/,${ARCHDIR}/,g'
-.  endif
-SUBST_SED.fix-paths+=		-e '/^.*i386.*getVendorName.*$$/{d;}'
-SUBST_SED.fix-paths+=		-e '/^.*GCCLibPath +=$$/d'
-SUBST_SED.fix-paths+=		-e 's,/4.5.2/amd64/,amd64/,g'
-SUBST_SED.fix-paths+=		-e 's,"as","gas",g'
+SUBST_SED.fix-paths=		-e "s,@GCCLIBPATH@,${LIBGCC_PREFIX}/${GCC_TARGET_MACHINE}/,g"
 .  if exists(/usr/bin/ld)
 SUBST_SED.fix-paths+=		-e 's,getToolChain().GetProgramPath("ld"),"/usr/bin/ld",g'
 .  else
@@ -91,6 +84,12 @@ SUBST_SED.fix-paths+=		-e 's,getToolChain().GetProgramPath("ld"),"/usr/ccs/bin/l
 .  if ${TEST_ILLUMOS_3849}
 SUBST_SED.fix-paths+=		-e 's,^.*cxa_finalize.*$$,		; //cxa_finalize.o,g'
 .  endif
+
+SUBST_CLASSES+=			fix-gccinc
+SUBST_STAGE.fix-gccinc=		pre-configure
+SUBST_FILES.fix-gccinc=		tools/clang/lib/Driver/ToolChains.cpp
+SUBST_FILES.fix-gccinc+=	tools/clang/lib/Frontend/InitHeaderSearch.cpp
+SUBST_SED.fix-gccinc=		-e "s,@GCCINCLUDEPATH@,${LIBGCC_PREFIX}/include/c++,g"
 .endif
 
 # patch NetBSD::GetCXXStdlibType
@@ -110,6 +109,9 @@ post-extract:
 	${ECHO} "int sun_ld_needs_a_symbol=0;" >> ${WRKSRC}/lib/Target/NVPTX/InstPrinter/NVPTXInstPrinter.cpp
 .endif
 	mkdir ${WRKSRC}/${OBJDIR}
+
+pre-configure:
+	${RM} -f ${WRKSRC}/tools/clang/include/clang-c/Makefile.orig
 
 .include "../../devel/zlib/buildlink3.mk"
 .include "../../lang/python/tool.mk"
