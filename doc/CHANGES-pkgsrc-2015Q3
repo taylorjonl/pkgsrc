@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.14 2015/10/08 00:14:17 spz Exp $
+$NetBSD: CHANGES-pkgsrc-2015Q3,v 1.1.2.17 2015/10/26 21:02:54 bsiegert Exp $
 
 Changes to the packages collection and infrastructure on the 2015Q3 branch:
 
@@ -61,4 +61,25 @@ misc/pciids: build fix
 
 Pullup ticket #4835 - requested by leot
 www/webkit-gtk: build fix
+
+Pullup ticket #4839 - requested by gdt
+sysutils/dbus: build fix
+
+Pullup ticket #4840 - requested by mrg
+lang/perl5: fix for sparc
+
+Pullup ticket #4841 - requested by tnn
+multimedia/adobe-flash-plugin11: security update
+
+Pullup ticket #4842 - requested by joerg
+devel/netbsd-iscsi-lib: build fix
+
+Pullup ticket #4843 - requested by joerg
+security/botan-devel: build fix
+
+Pullup ticket #4844 - requested by joerg
+net/unbound: SMF support
+
+Pullup ticket #4845 - requested by taca
+www/drupal7: security fix
 
