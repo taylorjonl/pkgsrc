@@ -40,6 +40,18 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 	exit 1
 fi
 
+if [ -n "${pkg_rsync_min}" ]; then
+	numpkgs=`wc -l < ${loc}/success`
+	if [ ! ${numpkgs} -gt ${pkg_rsync_min} ]; then
+		# If something went wrong with the build, we don't want the
+		# remote packages to be deleted and pkg_summary truncated.
+		echo "WARNING: Number of packages built (${numpkgs}) did not" \
+		    "exceed the minimum threshold (${pkg_rsync_min})."
+		echo "WARNING: Package upload phase will be skipped."
+		exit 0
+	fi
+fi
+
 echo "Uploading packages..."
 cd ${packages}
 {
