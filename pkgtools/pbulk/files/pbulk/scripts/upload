@@ -30,7 +30,7 @@
 # OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-. @PBULK_CONFIG@
+. ${PBULK_CONF:-@PBULK_CONFIG@}
 
 set -e
 
@@ -38,6 +38,18 @@ if [ "${config_version}" != "@PBULK_CONFIG_VERSION@" ]; then
 	echo "Your configuration has version ${config_version}."
 	echo "This version of pbulk expects version @PBULK_CONFIG_VERSION@."
 	exit 1
+fi
+
+if [ -n "${pkg_rsync_min}" ]; then
+	numpkgs=`wc -l < ${loc}/success`
+	if [ ! ${numpkgs} -gt ${pkg_rsync_min} ]; then
+		# If something went wrong with the build, we don't want the
+		# remote packages to be deleted and pkg_summary truncated.
+		echo "WARNING: Number of packages built (${numpkgs}) did not" \
+		    "exceed the minimum threshold (${pkg_rsync_min})."
+		echo "WARNING: Package upload phase will be skipped."
+		exit 0
+	fi
 fi
 
 echo "Uploading packages..."
@@ -48,6 +60,7 @@ cd ${packages}
 	    echo "+ SHA512.bz2"
 	echo "+ All/pkg_summary.bz2"
 	echo "+ All/pkg_summary.gz"
-	${packages_script} ${loc}
+	echo "+ All/pkg_summary.xz"
+	${packages_script} ${loc} ${pkg_sufx}
 	echo "- *"
 } | LC_ALL=C sort | ${rsync} --exclude-from=- ${pkg_rsync_args} . ${pkg_rsync_target}
