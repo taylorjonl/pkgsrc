@@ -2,7 +2,7 @@
 
 .include "dist.mk"
 
-PKGREVISION=	4
+PKGREVISION=	5
 
 PKGNAME=	python26-${PY_DISTVERSION}
 CATEGORIES=	lang python
