@@ -1,9 +1,11 @@
-$NetBSD: patch-aa,v 1.4 2014/12/10 14:50:09 fhajny Exp $
+$NetBSD: patch-aa,v 1.6 2015/06/10 16:24:44 fhajny Exp $
+
+Handle CONF_FILES.
 
 Installation destination for example config file.
---- pdns/Makefile.in.orig	2014-10-30 10:18:39.000000000 +0000
+--- pdns/Makefile.in.orig	2015-03-02 13:17:27.000000000 +0000
 +++ pdns/Makefile.in
-@@ -1627,18 +1627,18 @@ clean-libtool:
+@@ -1632,18 +1632,18 @@ clean-libtool:
  	-rm -rf .libs _libs
  install-sysconfDATA: $(sysconf_DATA)
  	@$(NORMAL_INSTALL)
