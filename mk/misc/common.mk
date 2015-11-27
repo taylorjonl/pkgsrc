@@ -41,7 +41,7 @@ _PKG_DEBUG=		: commands for target ${.TARGET:Q}; set -x;
 _PKG_DEBUG_SCRIPT=	${SH} -x
 .endif
 
-RUN=			${_PKG_SILENT}${_PKG_DEBUG} set -e;
+RUN=			${_PKG_SILENT}${_PKG_DEBUG} ${ALL_ENV}; set -e;
 
 .if make(help)
 .include "../help/help.mk"
