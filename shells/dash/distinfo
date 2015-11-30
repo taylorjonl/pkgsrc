@@ -1,5 +1,0 @@
-$NetBSD$
-
-SHA1 (patch-src_Makefile.in) = 41a741f77be4db6661805daf3b2fcdb623934f07
-SHA1 (patch-src_bltin_printf.c) = cfc9a71a6309ddcf3d51c0c237e9e941bc74a046
-SHA1 (patch-src_mkbuiltins) = 5bc2b277c61f33b9e33a3b97a6b141df4200a144
