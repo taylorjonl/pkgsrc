@@ -1149,7 +1149,7 @@ case "$need_dash" in
 yes)	echo_msg "Bootstrapping dash"
 	copy_src $pkgsrcdir/shells/dash/files dash
 	test -n "$CC" || CC=gcc	# default to gcc if no compiler is specified
-	run_cmd "(cd $wrkdir/dash && env $BSTRAP_ENV MAKE=$bmake $shprog ./configure $configure_quiet_flags --prefix=$prefix --infodir=$infodir --mandir=$mandir --sysconfdir=$sysconfdir --disable-lineno && env MAKE=$bmake $bmake -j$make_jobs)"
+	run_cmd "(cd $wrkdir/dash && env $BSTRAP_ENV MAKE=$bmake $shprog ./configure $configure_quiet_flags --prefix=$prefix --infodir=$infodir --mandir=$mandir --sysconfdir=$sysconfdir && env MAKE=$bmake $bmake -j$make_jobs)"
 	run_cmd "$install_sh -c -o $user -g $group -m 755 $wrkdir/dash/src/dash $wrkdir/bin/dash"
 	echo "TOOLS_PLATFORM.sh?=		$prefix/bin/dash" >> ${TARGET_MKCONF}
 	echo "TOOLS_PLATFORM.sh?=		$wrkdir/bin/dash" >> ${BOOTSTRAP_MKCONF}

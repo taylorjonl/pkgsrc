@@ -15,7 +15,6 @@ LICENSE=	modified-bsd AND gnu-gpl-v2
 BOOTSTRAP_PKG=	yes
 
 GNU_CONFIGURE=		yes
-CONFIGURE_ARGS+=	--disable-lineno # autoconf assumes bash features
 
 PKG_SHELL=		bin/dash
 
