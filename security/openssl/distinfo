@@ -1,8 +1,8 @@
 $NetBSD$
 
-SHA1 (openssl-1.0.1p.tar.gz) = 9d1977cc89242cd11471269ece2ed4650947c046
-RMD160 (openssl-1.0.1p.tar.gz) = b219990b9cca641f6a48c239d58bf4a471a3f52e
-Size (openssl-1.0.1p.tar.gz) = 4560208 bytes
+SHA1 (openssl-1.0.1q.tar.gz) = c65a7bec49b72092d7ebb97a263c496cc1e1d6af
+RMD160 (openssl-1.0.1q.tar.gz) = 27c8bac62be01e5a1fd834f1dabaa2d0a6f09f0f
+Size (openssl-1.0.1q.tar.gz) = 4549898 bytes
 SHA1 (patch-Configure) = 0e5d22f1cac877af7bc60e001580237c446d96c3
 SHA1 (patch-Makefile.org) = be55df602286c7f0265a8c5c3d8edaea13b1d966
 SHA1 (patch-Makefile.shared) = 709283ba4bb4bd568e289fe111b8dea319968328

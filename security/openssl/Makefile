@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.200.2.1 2015/01/11 19:52:04 tron Exp $
 
-DISTNAME=	openssl-1.0.1p
-MASTER_SITES=	http://ftp.openssl.org/source/
+DISTNAME=	openssl-1.0.1q
+MASTER_SITES=	https://www.openssl.org/source/
 CATEGORIES=	security
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -21,6 +21,7 @@ USE_GCC_RUNTIME=	yes
 .include "../../mk/compiler.mk"
 
 USE_TOOLS+=		fgrep gmake perl
+BUILD_TARGET=		depend all
 TEST_TARGET=		tests
 MAKE_JOBS_SAFE=		no
 
