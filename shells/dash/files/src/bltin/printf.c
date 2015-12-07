@@ -247,9 +247,18 @@ conv_escape_str(char *str)
 		 * They start with a \0, and are followed by 0, 1, 2, 
 		 * or 3 octal digits. 
 		 */
-		if (ch >= '1' && ch <= '9') {
-			ch = '\\';
-			--str;
+		if (ch == '0') {
+			unsigned char i;
+			i = 3;
+			ch = 0;
+			do {
+				unsigned k = octtobin(*str);
+				if (k > 7)
+					break;
+				str++;
+				ch <<= 3;
+				ch += k;
+			} while (--i);
 			continue;
 		}
 
