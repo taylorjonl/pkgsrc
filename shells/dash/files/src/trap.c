@@ -116,7 +116,7 @@ trapcmd(int argc, char **argv)
 		}
 		return 0;
 	}
-	if (!ap[1])
+	if ((!ap[1]) || (decode_signal(*ap, 0) >= 0))
 		action = NULL;
 	else
 		action = *ap++;
