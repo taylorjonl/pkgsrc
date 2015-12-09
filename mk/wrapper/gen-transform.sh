@@ -40,7 +40,6 @@ shell_lib="@_WRAP_SHELL_LIB@"
 wrapperlog="${WRAPPER_LOG-@_WRAP_LOG@}"
 debug="${WRAPPER_DEBUG-no}"
 
-echo="@ECHO@"
 test="@TEST@"
 
 . $shell_lib
@@ -138,16 +137,16 @@ gen()
 		case $_action in
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|^$1\(/[^$_sep]*\.la[$_sep]\)|$2\1|g"
-			$echo "s|^$1\(/[^$_sep]*\.la\)$|$2\1|g"
+			printf "s|^$1\(/[^$_sep]*\.la[$_sep]\)|$2\\\1|g\n"
+			printf "s|^$1\(/[^$_sep]*\.la\)$|$2\\\1|g\n"
 			;;
 		untransform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\.la[$_sep]\)|\1$2\2|g"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\.la[$_sep]\)|\1$2\2|g"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\.la\)$|\1$2\2|g"
-			$echo "s|^$1\(/[^$_sep]*\.la[$_sep]\)|$2\1|g"
-			$echo "s|^$1\(/[^$_sep]*\.la\)$|$2\1|g"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\.la[$_sep]\)|\\\1$2\\\2|g\n"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\.la[$_sep]\)|\\\1$2\\\2|g\n"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\.la\)$|\\\1$2\\\2|g\n"
+			printf "s|^$1\(/[^$_sep]*\.la[$_sep]\)|$2\\\1|g\n"
+			printf "s|^$1\(/[^$_sep]*\.la\)$|$2\\\1|g\n"
 			;;
 		esac
 		;;
@@ -198,16 +197,16 @@ gen()
 		case $_action in
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|^$1\([$_sep]\)|$2\1|g"
-			$echo "s|^$1$|$2|g"
+			printf "s|^$1\([$_sep]\)|$2\\\1|g\n"
+			printf "s|^$1$|$2|g\n"
 			;;
 		untransform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|\([$_sep]\)$1\([$_sep]\)|\1$2\2|g"
-			$echo "s|\([$_sep]\)$1\([$_sep]\)|\1$2\2|g"
-			$echo "s|\([$_sep]\)$1$|\1$2|g"
-			$echo "s|^$1\([$_sep]\)|$2\1|g"
-			$echo "s|^$1$|$2|g"
+			printf "s|\([$_sep]\)$1\([$_sep]\)|\\\1$2\\\2|g\n"
+			printf "s|\([$_sep]\)$1\([$_sep]\)|\\\1$2\\\2|g\n"
+			printf "s|\([$_sep]\)$1$|\\\1$2|g\n"
+			printf "s|^$1\([$_sep]\)|$2\\\1|g\n"
+			printf "s|^$1$|$2|g\n"
 			;;
 		esac
 		;;
@@ -228,16 +227,16 @@ gen()
 		case $_action in
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|^$1\(/[^$_sep]*\)$2\([$_sep]\)|$3\1$4|g"
-			$echo "s|^$1\(/[^$_sep]*\)$2$|$3\1$4|g"
+			printf "s|^$1\(/[^$_sep]*\)$2\([$_sep]\)|$3\\\1$4|g\n"
+			printf "s|^$1\(/[^$_sep]*\)$2$|$3\\\1$4|g\n"
 			;;
 		untransform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\)$2\([$_sep]\)|\1$3\2$4\3|g"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\)$2\([$_sep]\)|\1$3\2$4\3|g"
-			$echo "s|\([$_sep]\)$1\(/[^$_sep]*\)$2$|\1$3\2$4|g"
-			$echo "s|^$1\(/[^$_sep]*\)$2\([$_sep]\)|$3\1$4|g"
-			$echo "s|^$1\(/[^$_sep]*\)$2$|$3\1$4|g"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\)$2\([$_sep]\)|\\\1$3\\\2$4\3|g\n"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\)$2\([$_sep]\)|\\\1$3\\\2$4\3|g\n"
+			printf "s|\([$_sep]\)$1\(/[^$_sep]*\)$2$|\\\1$3\\\2$4|g\n"
+			printf "s|^$1\(/[^$_sep]*\)$2\([$_sep]\)|$3\\\1$4|g\n"
+			printf "s|^$1\(/[^$_sep]*\)$2$|$3\\\1$4|g\n"
 			;;
 		esac
 		;;
@@ -283,16 +282,16 @@ gen()
 		case $_action in
 		transform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|^$1[^$_sep]*\([$_sep]\)|\1|g"
-			$echo "s|^$1[^$_sep]*$||g"
+			printf "s|^$1[^$_sep]*\([$_sep]\)|\\\1|g\n"
+			printf "s|^$1[^$_sep]*$||g\n"
 			;;
 		untransform)
 			$debug_log $wrapperlog "   (gen-transform) $_cmd: $@"
-			$echo "s|\([$_sep]\)$1[^$_sep]*\([$_sep]\)|\1\2|g"
-			$echo "s|\([$_sep]\)$1[^$_sep]*\([$_sep]\)|\1\2|g"
-			$echo "s|\([$_sep]\)$1[^$_sep]*$|\1|g"
-			$echo "s|^$1[^$_sep]*\([$_sep]\)|\1|g"
-			$echo "s|^$1[^$_sep]*$||g"
+			printf "s|\([$_sep]\)$1[^$_sep]*\([$_sep]\)|\\\1\\\2|g\n"
+			printf "s|\([$_sep]\)$1[^$_sep]*\([$_sep]\)|\\\1\\\2|g\n"
+			printf "s|\([$_sep]\)$1[^$_sep]*$|\\\1|g\n"
+			printf "s|^$1[^$_sep]*\([$_sep]\)|\\\1|g\n"
+			printf "s|^$1[^$_sep]*$||g\n"
 			;;
 		esac
 		;;
