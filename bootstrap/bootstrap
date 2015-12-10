@@ -827,7 +827,7 @@ SunOS)
 		need_sed=yes
 	fi
 	if [ true ]; then
-		need_dash=yes
+		need_ksh=yes
 	elif [ -x "/usr/bin/bash" ]; then
 		bootstrap_sh=${SH:-/usr/bin/bash}
 		bootstrap_sh_set=set
