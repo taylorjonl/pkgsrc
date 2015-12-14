@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1134 2015/12/05 05:41:36 taca Exp $
+# $NetBSD: Makefile,v 1.1140 2015/12/13 16:27:22 taca Exp $
 #
 
 COMMENT=	Packages related to the World Wide Web
@@ -80,8 +80,8 @@ SUBDIR+=	clearsilver
 SUBDIR+=	clearsilver-base
 SUBDIR+=	clisp-fastcgi
 #SUBDIR+=	contao		# only contains Makefile fragments
-SUBDIR+=	contao32
 SUBDIR+=	contao35
+SUBDIR+=	contao41
 SUBDIR+=	cppcms
 SUBDIR+=	crawl
 SUBDIR+=	cronolog
@@ -205,6 +205,7 @@ SUBDIR+=	ocsigen
 SUBDIR+=	opera
 SUBDIR+=	opera-acroread7
 SUBDIR+=	opera-plugins
+SUBDIR+=	otter-browser
 SUBDIR+=	p5-Alien-GvaScript
 SUBDIR+=	p5-Any-URI-Escape
 SUBDIR+=	p5-AnyEvent-HTTP
@@ -624,6 +625,7 @@ SUBDIR+=	py-gdata
 SUBDIR+=	py-genshi
 SUBDIR+=	py-google-api-python-client
 SUBDIR+=	py-google-api-python-client-py3
+SUBDIR+=	py-graphite-web
 SUBDIR+=	py-gunicorn
 SUBDIR+=	py-http-parser
 SUBDIR+=	py-httpie
@@ -712,6 +714,7 @@ SUBDIR+=	ruby-jsmin
 SUBDIR+=	ruby-liquid
 SUBDIR+=	ruby-mechanize
 SUBDIR+=	ruby-multipart-post
+SUBDIR+=	ruby-mustermann19
 SUBDIR+=	ruby-net-flickr
 SUBDIR+=	ruby-net-http-digest_auth
 SUBDIR+=	ruby-net-http-persistent
@@ -741,6 +744,7 @@ SUBDIR+=	ruby-rack15
 SUBDIR+=	ruby-rails32
 SUBDIR+=	ruby-raindrops
 SUBDIR+=	ruby-rest-client
+SUBDIR+=	ruby-rouge
 SUBDIR+=	ruby-sass
 SUBDIR+=	ruby-sass-rails32
 SUBDIR+=	ruby-selenium-webdriver

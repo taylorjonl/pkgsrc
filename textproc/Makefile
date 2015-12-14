@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.852 2015/11/27 14:01:07 adam Exp $
+# $NetBSD: Makefile,v 1.855 2015/12/13 17:25:03 taca Exp $
 #
 
 COMMENT=	Text processing utilities (does not include desktop publishing)
@@ -221,6 +221,7 @@ SUBDIR+=	heirloom-wc
 SUBDIR+=	helpdeco
 SUBDIR+=	hevea
 SUBDIR+=	highlight
+SUBDIR+=	highway
 SUBDIR+=	hre
 SUBDIR+=	hs-attoparsec
 SUBDIR+=	hs-blaze-html
@@ -353,6 +354,7 @@ SUBDIR+=	makeindexk
 SUBDIR+=	makeztxt
 SUBDIR+=	marisa
 SUBDIR+=	markdown-mode
+SUBDIR+=	markdown2social
 SUBDIR+=	mdoclint
 SUBDIR+=	mdocml
 SUBDIR+=	mecab
@@ -748,7 +750,6 @@ SUBDIR+=	ruby-bluecloth
 SUBDIR+=	ruby-buftok
 SUBDIR+=	ruby-builder
 SUBDIR+=	ruby-cabocha
-SUBDIR+=	ruby-classifier
 SUBDIR+=	ruby-classifier-reborn
 SUBDIR+=	ruby-coderay
 SUBDIR+=	ruby-diff-lcs

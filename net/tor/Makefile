@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.106 2015/12/08 13:19:38 wiz Exp $
+# $NetBSD: Makefile,v 1.108 2015/12/13 21:24:01 wiz Exp $
 
-DISTNAME=		tor-0.2.7.5
+DISTNAME=		tor-0.2.7.6
 CATEGORIES=		net security
 MASTER_SITES=		http://www.torproject.org/dist/
 
@@ -13,6 +13,8 @@ LICENSE=		modified-bsd
 
 USE_LANGUAGES=		c99
 USE_PKGLOCALEDIR=	yes
+# https://trac.torproject.org/projects/tor/ticket/17818
+USE_TOOLS+=		gmake
 GNU_CONFIGURE=		yes
 
 CONFIGURE_ENV+=		CPP=${CPP:Q}
