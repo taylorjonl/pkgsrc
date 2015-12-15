@@ -16,7 +16,9 @@ PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX:Q}
 PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # not yet ported as of 0.8.19
 
 post-install:
-	${MV} ${DESTDIR}${PREFIX}/bin/pychecker ${DESTDIR}${PREFIX}/bin/pychecker${PYVERSSUFFIX}
+	if [ -f ${DESTDIR}${PREFIX}/bin/pychecker ]; then \
+	${MV} ${DESTDIR}${PREFIX}/bin/pychecker ${DESTDIR}${PREFIX}/bin/pychecker${PYVERSSUFFIX}; \
+	fi
 
 .include "../../lang/python/distutils.mk"
 .include "../../mk/bsd.pkg.mk"

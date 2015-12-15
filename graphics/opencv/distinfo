@@ -5,6 +5,7 @@ RMD160 (opencv-3.0.0.zip) = 7b4dff26502e71e6570c2452c35fd03a1982bc7e
 SHA512 (opencv-3.0.0.zip) = 108d0fdcc60b5688ebf61c930fb965ec81f0d3c36bb1797f6cc571fac35331f540773207fd1cb81b12c05c8f4d1af20c4a2452d9f75cd0cae4acd8131be92375
 Size (opencv-3.0.0.zip) = 100980799 bytes
 SHA1 (patch-3rdparty_ippicv_downloader.cmake) = 8d99b26a39aa184a4dfc03e4928ea7b7b62e71d9
+SHA1 (patch-CMakeLists.txt) = 78d7b94552db09d5302de3a405cfd8edbe886bc8
 SHA1 (patch-cmake_OpenCVDetectCXXCompiler.cmake) = 221b0551d0f29d7e79afe3da8a33b1b3a4f7bf20
 SHA1 (patch-modules_core_include_opencv2_core_types_c.h) = 75444e65677be99af8167f9060419d7970a7adaa
 SHA1 (patch-modules_core_src_downhill__simplex.cpp) = 1ad7c2fa126d15050b87785e8eec20dbe796b471
