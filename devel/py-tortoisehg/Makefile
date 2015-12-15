@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.20 2015/10/15 10:37:39 wiz Exp $
+# $NetBSD: Makefile,v 1.24 2015/12/05 21:25:39 adam Exp $
 
-DISTNAME=		tortoisehg-3.5.2
+DISTNAME=		tortoisehg-3.6.1
 PKGNAME=		${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=		devel python
 MASTER_SITES=		http://bitbucket.org/tortoisehg/targz/downloads/
@@ -17,12 +17,7 @@ DEPENDS+=	${PYPKGPREFIX}-iniparse>=0.4:../../textproc/py-iniparse
 DEPENDS+=	${PYPKGPREFIX}-pygments>=1.6:../../textproc/py-pygments
 DEPENDS+=	${PYPKGPREFIX}-mercurial>=2.8.1:../../devel/py-mercurial
 
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # py-iniparse, py-mercurial
-
-pre-configure:
-		${RUN} ${SED} -e 's:@PREFIX@:${PREFIX}:g' \
-			${FILESDIR}/config.py > \
-			${WRKSRC}/tortoisehg/util/config.py
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # py-iniparse, py-mercurial
 
 thg_icon=		/share/pixmaps/tortoisehg/icons/thg_logo.ico
 SUBST_CLASSES+=		df

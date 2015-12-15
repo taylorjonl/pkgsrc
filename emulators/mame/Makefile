@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.48 2015/11/13 14:11:49 wiz Exp $
+# $NetBSD: Makefile,v 1.50 2015/12/05 21:25:41 adam Exp $
 
-DISTNAME=	mame-0.167
+DISTNAME=	mame-0.168
 CATEGORIES=	emulators
 MASTER_SITES=	${MASTER_SITE_GITHUB:=mamedev/}
 GITHUB_TAG=	${DISTNAME:S/-//S/.//}
@@ -83,7 +83,7 @@ MAKE_ENV+=	BIGENDIAN=1
 .endif
 
 PYTHON_FOR_BUILD_ONLY=	yes
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.151
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # not yet ported as of 0.151
 
 pre-build:
 	# problems with mame-specific png.h

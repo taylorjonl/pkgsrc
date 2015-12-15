@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.44 2015/10/10 01:58:18 ryoon Exp $
+# $NetBSD: Makefile,v 1.46 2015/11/25 12:53:09 jperkin Exp $
 
 DISTNAME=	texlive-20150521-source
 PKGNAME=	xetex-0.99992
-PKGREVISION=	3
+PKGREVISION=	4
 CATEGORIES=	print
 MASTER_SITES=	ftp://tug.org/historic/systems/texlive/2015/
 EXTRACT_SUFX=	.tar.xz
@@ -49,13 +49,11 @@ CONFIGURE_DIRS+=	libs/harfbuzz
 CONFIGURE_DIRS+=	libs/xpdf
 CONFIGURE_DIRS+=	texk/web2c
 
-EVAL_PREFIX+=	XDVIPDFMX_PREFIX=xdvipdfmx
-
 SUBST_CLASSES+=		paths
 SUBST_MESSAGE.paths=	Setting paths to commands.
 SUBST_STAGE.paths=	pre-configure
 SUBST_FILES.paths=	texk/web2c/xetexdir/XeTeX_ext.c
-SUBST_SED.paths=	-e 's,@XDVIPDFMX@,${XDVIPDFMX_PREFIX}/bin/xdvipdfmx,g'
+SUBST_SED.paths=	-e 's,@XDVIPDFMX@,${LOCALBASE}/bin/xdvipdfmx,g'
 
 INSTALLATION_DIRS+=	bin
 

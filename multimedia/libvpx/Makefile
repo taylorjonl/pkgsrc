@@ -1,14 +1,13 @@
-# $NetBSD: Makefile,v 1.60 2015/11/08 15:08:00 sevan Exp $
+# $NetBSD: Makefile,v 1.62 2015/11/25 13:00:43 jperkin Exp $
 
-DISTNAME=	libvpx-1.4.0
+DISTNAME=	libvpx-1.5.0
 CATEGORIES=	multimedia
-PKGREVISION=	1
 MASTER_SITES=	${MASTER_SITE_GITHUB:=webmproject/}
 GITHUB_PROJECT=	libvpx
 GITHUB_TAG=	v${PKGVERSION_NOREV}
 
 MAINTAINER=	ryoon@NetBSD.org
-HOMEPAGE=	http://code.google.com/p/webm/
+HOMEPAGE=	https://chromium.googlesource.com/webm/libvpx
 COMMENT=	On2 VP8 library from Google
 LICENSE=	modified-bsd
 
@@ -122,9 +121,7 @@ CONFIGURE_ARGS+=	--disable-runtime-cpu-detect
 # Under Solaris 10 its /usr/xpg4/bin/tr is not sufficient. PR pkg/48508
 .if !empty(MACHINE_PLATFORM:MSunOS-5.10*)
 BUILD_DEPENDS=		coreutils-[0-9]*:../../sysutils/coreutils
-FIND_PREFIX:=		GTRDIR=coreutils
-.include "../../mk/find-prefix.mk"
-TOOLS_PLATFORM.tr=	${GTRDIR}/bin/gtr
+TOOLS_PLATFORM.tr=	${LOCALBASE}/bin/gtr
 .endif
 
 BUILD_TARGET=	# none

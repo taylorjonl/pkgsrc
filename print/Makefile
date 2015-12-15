@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.650 2015/09/12 16:50:00 joerg Exp $
+# $NetBSD: Makefile,v 1.653 2015/12/12 22:46:30 markd Exp $
 #
 
 COMMENT=	Desktop publishing
@@ -303,6 +303,8 @@ SUBDIR+=	tex-bibtopic
 SUBDIR+=	tex-bibtopic-doc
 SUBDIR+=	tex-bibunits
 SUBDIR+=	tex-bibunits-doc
+SUBDIR+=	tex-blkarray
+SUBDIR+=	tex-blkarray-doc
 SUBDIR+=	tex-block
 SUBDIR+=	tex-block-doc
 SUBDIR+=	tex-bold-extra
@@ -765,6 +767,8 @@ SUBDIR+=	tex-marginnote-doc
 SUBDIR+=	tex-math-e-doc
 SUBDIR+=	tex-mathcomp
 SUBDIR+=	tex-mathcomp-doc
+SUBDIR+=	tex-mathdots
+SUBDIR+=	tex-mathdots-doc
 SUBDIR+=	tex-mathtools
 SUBDIR+=	tex-mdframed
 SUBDIR+=	tex-mdframed-doc
@@ -797,6 +801,8 @@ SUBDIR+=	tex-mkpattern
 SUBDIR+=	tex-mkpattern-doc
 SUBDIR+=	tex-mltex
 SUBDIR+=	tex-mltex-doc
+SUBDIR+=	tex-moderncv
+SUBDIR+=	tex-moderncv-doc
 SUBDIR+=	tex-moreverb
 SUBDIR+=	tex-moreverb-doc
 SUBDIR+=	tex-mparhack

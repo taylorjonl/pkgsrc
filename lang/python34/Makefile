@@ -1,8 +1,9 @@
-# $NetBSD: Makefile,v 1.10 2015/09/07 12:02:06 jperkin Exp $
+# $NetBSD: Makefile,v 1.12 2015/12/05 17:12:13 adam Exp $
 
 .include "dist.mk"
 
 PKGNAME=	python34-${PY_DISTVERSION}
+PKGREVISION=	1
 CATEGORIES=	lang python
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -12,8 +13,8 @@ LICENSE=	python-software-foundation
 
 CONFLICTS+=	python-[0-9]*
 
-PLIST_AWK+=	-f ${PKGSRCDIR}/lang/python/plist-python.awk
-PLIST_AWK_ENV+=	PYTHON_SOABI="cpython-34"
+PLIST_AWK+=		-f ${PKGSRCDIR}/lang/python/plist-python.awk
+PLIST_AWK_ENV+=		PYVERS=34
 PRINT_PLIST_AWK+=	/^[^@]/ && /[^\/]+\.py[co]$$/ {
 PRINT_PLIST_AWK+=	gsub(/__pycache__\//, "")
 PRINT_PLIST_AWK+=	gsub(/\.cpython-34/, "")}

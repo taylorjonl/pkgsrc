@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.120 2015/10/15 11:15:12 wiz Exp $
+# $NetBSD: Makefile,v 1.124 2015/12/05 21:25:50 adam Exp $
 
-DISTNAME=	calibre-2.40.0
+DISTNAME=	calibre-2.45.0
 CATEGORIES=	misc
 #MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=calibre/}
 MASTER_SITES=	http://download.calibre-ebook.com/${PKGVERSION_NOREV}/
@@ -40,7 +40,7 @@ USE_LANGUAGES=	c c++
 USE_LIBTOOL=	yes
 USE_TOOLS+=	pkg-config pax
 PYTHON_VERSIONS_ACCEPTED=	27
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not ported as of 2.1.0; also: py-mechanize, py-beautifulsoup, py-imaging, py-netifaces
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # not ported as of 2.1.0; also: py-mechanize, py-beautifulsoup, py-imaging, py-netifaces
 PYDISTUTILSPKG=	yes
 PYSETUPOPTARGS=	# empty
 PYSETUPINSTALLARGS=	--prefix=${PREFIX} --root=${DESTDIR:Q}${PREFIX}

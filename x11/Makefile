@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.777 2015/10/26 19:05:19 adam Exp $
+# $NetBSD: Makefile,v 1.779 2015/12/11 14:04:47 wiz Exp $
 #
 
 COMMENT=	Packages to support the X window system
@@ -289,6 +289,7 @@ SUBDIR+=	libXevie
 SUBDIR+=	libXext
 SUBDIR+=	libXfixes
 SUBDIR+=	libXfont
+SUBDIR+=	libXfont2
 SUBDIR+=	libXft
 SUBDIR+=	libXi
 SUBDIR+=	libXinerama
@@ -563,6 +564,7 @@ SUBDIR+=	xf86-input-penmount
 SUBDIR+=	xf86-input-vmmouse
 SUBDIR+=	xf86-input-void
 SUBDIR+=	xf86-input-ws
+SUBDIR+=	xf86-video-amdgpu
 SUBDIR+=	xf86-video-apm
 SUBDIR+=	xf86-video-ark
 SUBDIR+=	xf86-video-ast

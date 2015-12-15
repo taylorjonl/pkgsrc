@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.563 2015/11/05 08:53:18 wiz Exp $
+# $NetBSD: Makefile,v 1.566 2015/12/11 13:43:36 wiz Exp $
 #
 
 COMMENT=	Security tools
@@ -120,6 +120,7 @@ SUBDIR+=	isakmpd
 SUBDIR+=	jessie
 SUBDIR+=	john
 SUBDIR+=	keepassx
+SUBDIR+=	keepassx0
 SUBDIR+=	keychain
 SUBDIR+=	kgpg
 SUBDIR+=	knc
@@ -252,6 +253,7 @@ SUBDIR+=	p5-Crypt-OpenSSL-Bignum
 SUBDIR+=	p5-Crypt-OpenSSL-DSA
 SUBDIR+=	p5-Crypt-OpenSSL-RSA
 SUBDIR+=	p5-Crypt-OpenSSL-Random
+SUBDIR+=	p5-Crypt-PWSafe3
 SUBDIR+=	p5-Crypt-PasswdMD5
 SUBDIR+=	p5-Crypt-Primes
 SUBDIR+=	p5-Crypt-RC4
@@ -378,6 +380,7 @@ SUBDIR+=	py-lasso
 SUBDIR+=	py-libtaxii
 SUBDIR+=	py-m2crypto
 SUBDIR+=	py-mcrypt
+SUBDIR+=	py-ndg_httpsclient
 SUBDIR+=	py-oauth
 SUBDIR+=	py-oauth2
 SUBDIR+=	py-oauth2client

@@ -1,24 +1,30 @@
-# $NetBSD: Makefile,v 1.11 2015/01/24 23:23:48 adam Exp $
+# $NetBSD: Makefile,v 1.15 2015/12/14 22:58:20 ryoon Exp $
 
-DISTNAME=	psutil-2.1.3
-PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+DISTNAME=	psutil-release-3.3.0
+PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/-release//}
+PKGREVISION=	1
 CATEGORIES=	sysutils
-MASTER_SITES=	https://pypi.python.org/packages/source/p/psutil/
+MASTER_SITES=	${MASTER_SITE_GITHUB:=giampaolo/}
+GITHUB_PROJECT=	psutil
+GITHUB_TAG=	release-${PKGVERSION_NOREV}
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
-HOMEPAGE=	http://code.google.com/p/psutil/
+HOMEPAGE=	https://github.com/giampaolo/psutil
 COMMENT=	Cross-platform process and system utilities module for Python
 LICENSE=	modified-bsd
 
 REPLACE_PYTHON=	psutil/*py
+EGG_NAME=	psutil-${PKGVERSION_NOREV}
 
 .include "../../mk/bsd.prefs.mk"
 
 # facilitate PLIST processing
 .if ${OPSYS} == "Darwin"
 PLIST_SUBST+=	SYSTEM=osx
+.elif !empty(OPSYS:M*BSD)
+PLIST_SUBST+=	SYSTEM=bsd
 .else
-PLIST_SUBST+=	SYSTEM=${OPSYS:tl}
+PLIST_SUBST+=	SYSTEM=${LOWER_OPSYS}
 .endif
 
 .include "../../lang/python/application.mk"

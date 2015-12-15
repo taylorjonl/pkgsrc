@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.5 2015/10/14 20:17:39 ryoon Exp $
+# $NetBSD: Makefile,v 1.7 2015/12/11 12:31:03 ryoon Exp $
 
 GCC_PKGNAME=		gcc5
 .include		"version.mk"
@@ -8,7 +8,6 @@ PKGNAME=	${GCC_PKGNAME}-${GCC5_DIST_VERSION}
 ## When bumping the PKGREVISION of this package the PKGREVISION of
 ## lang/gcc5-libs needs to be bump to be at least 1 more than the
 ## PKGREVISION of this package!
-PKGREVISION=	1
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GNU:=gcc/gcc-${GCC5_DIST_VERSION}/}
 EXTRACT_SUFX=	.tar.bz2
@@ -82,7 +81,12 @@ CONFIGURE_ARGS+=	--enable-languages=${LANGS:Q}
 CONFIGURE_ARGS+=	--enable-shared
 CONFIGURE_ARGS+=	--enable-long-long
 CONFIGURE_ARGS+=	--with-local-prefix=${GCC_PREFIX:Q}
+.if !empty(MACHINE_PLATFORM:MNetBSD-*-*) && ${PKGSRC_USE_SSP:Uno} != "no"
+# on NetBSD with stack protector, use the native SSP code in libc
+CONFIGURE_ARGS+=	--disable-libssp
+.else
 CONFIGURE_ARGS+=	--enable-libssp
+.endif
 CONFIGURE_ARGS+=	--enable-threads=posix
 CONFIGURE_ARGS+=	--with-boot-ldflags=${BOOT_LDFLAGS:Q}
 .if ${OPSYS} == "NetBSD"
@@ -154,7 +158,7 @@ pre-test:
 post-test:
 	${RUN} cd ${WRKSRC} && cd ${OBJDIR} &&		\
 	${SHELL} ${WRKSRC}/contrib/test_summary >${WRKDIR}/test_summary.log
-	@${INFO_MSG} "Test summary are available in ${WRKDIR}/test_summary.log"
+	${INFO_MSG} "Test summary are available in ${WRKDIR}/test_summary.log"
 
 post-install:
 	${TEST} -f ${DESTDIR}${GCC_PREFIX}/bin/cc || \

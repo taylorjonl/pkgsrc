@@ -1,4 +1,4 @@
-# $NetBSD: Makefile.common,v 1.2 2015/07/15 12:58:40 wiz Exp $
+# $NetBSD: Makefile.common,v 1.4 2015/12/12 01:28:15 ryoon Exp $
 # used by mail/thunderbird-enigmail/Makefile
 # used by mail/seamonkey-enigmail/Makefile
 
@@ -16,7 +16,8 @@ USE_TOOLS+=	gmake perl sed unzip zip
 MAKE_JOBS_SAFE=	no
 
 # Minimal requirements are here: https://www.enigmail.net/download/source.php
-DEPENDS+=		gnupg-[0-9]*:../../security/gnupg
+DEPENDS+=		gnupg2-[0-9]*:../../security/gnupg2
+DEPENDS+=		pinentry-gtk2-[0-9]*:../../security/pinentry-gtk2
 
 DISTINFO_FILE=	${.CURDIR}/../../mail/thunderbird-enigmail/distinfo
 PATCHDIR=	${.CURDIR}/../../mail/thunderbird-enigmail/patches
@@ -25,7 +26,7 @@ REPLACE_PERL+=	config/getOsTarget.pl
 REPLACE_PERL+=	util/fixlang.pl
 REPLACE_PERL+=	util/make-lang-xpi.pl
 
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # as of 1.8.2
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # as of 1.8.2
 REPLACE_PYTHON+=	util/checkFiles.py
 REPLACE_PYTHON+=	util/header.py
 REPLACE_PYTHON+=	util/typelib.py

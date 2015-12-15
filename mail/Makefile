@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.470 2015/09/07 09:47:01 fhajny Exp $
+# $NetBSD: Makefile,v 1.472 2015/12/14 13:33:50 jperkin Exp $
 #
 
 COMMENT=	Electronic mail utilities
@@ -30,6 +30,7 @@ SUBDIR+=	claws-mail-bogofilter
 SUBDIR+=	claws-mail-cachesaver
 SUBDIR+=	claws-mail-fetchinfo
 SUBDIR+=	claws-mail-mailmbox
+SUBDIR+=	claws-mail-managesieve
 SUBDIR+=	claws-mail-newmail
 SUBDIR+=	claws-mail-notification
 SUBDIR+=	claws-mail-pgp
@@ -307,6 +308,7 @@ SUBDIR+=	ruby-mail25
 SUBDIR+=	ruby-mailfactory
 SUBDIR+=	ruby-mime-types
 SUBDIR+=	ruby-mime-types1
+SUBDIR+=	ruby-mime-types2
 SUBDIR+=	ruby-tmail
 SUBDIR+=	safecat
 SUBDIR+=	seamonkey-enigmail

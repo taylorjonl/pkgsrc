@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1089 2015/11/04 14:07:27 fhajny Exp $
+# $NetBSD: Makefile,v 1.1093 2015/12/13 00:33:07 kamil Exp $
 #
 
 COMMENT=	Networking tools
@@ -305,6 +305,7 @@ SUBDIR+=	maradns
 SUBDIR+=	mbrowse
 SUBDIR+=	mcast-tools
 SUBDIR+=	md-whois
+SUBDIR+=	megatools
 SUBDIR+=	microdc2
 SUBDIR+=	mikutter
 SUBDIR+=	mimms
@@ -534,6 +535,7 @@ SUBDIR+=	pear-SOAP
 SUBDIR+=	pen
 SUBDIR+=	perlbal
 SUBDIR+=	pfnet
+SUBDIR+=	php-baikal
 SUBDIR+=	php-ftp
 SUBDIR+=	php-geoip
 SUBDIR+=	php-snmp
@@ -578,6 +580,7 @@ SUBDIR+=	py-adns
 SUBDIR+=	py-amqp
 SUBDIR+=	py-apache-libcloud
 SUBDIR+=	py-beanstalkc
+SUBDIR+=	py-bitmessage
 SUBDIR+=	py-boto
 SUBDIR+=	py-caldav
 SUBDIR+=	py-celery
@@ -622,6 +625,7 @@ SUBDIR+=	py-tweepy
 SUBDIR+=	py-twisted
 SUBDIR+=	py-twisted-docs
 SUBDIR+=	py-twython
+SUBDIR+=	py-txamqp
 SUBDIR+=	py-zmq
 SUBDIR+=	py-zsi
 SUBDIR+=	pygopherd

@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.7 2015/10/10 01:58:13 ryoon Exp $
+# $NetBSD: Makefile,v 1.9 2015/12/05 21:25:50 adam Exp $
 
 DISTNAME=	calibre-1.48.0
-PKGREVISION=	10
+PKGREVISION=	11
 CATEGORIES=	misc
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=calibre/}
 EXTRACT_SUFX=	.tar.xz
@@ -44,7 +44,7 @@ EXTRACT_USING=  bsdtar
 USE_LANGUAGES=	c c++
 USE_TOOLS+=	pkg-config pax
 PYTHON_VERSIONS_ACCEPTED=	27
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # py-mechanize, py-beautifulsoup, py-imaging, py-netifaces
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # py-mechanize, py-beautifulsoup, py-imaging, py-netifaces
 PYDISTUTILSPKG=	yes
 PYSETUPOPTARGS=	# empty
 PYSETUPINSTALLARGS=	--prefix=${PREFIX} --root=${DESTDIR:Q}${PREFIX}

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.650 2015/11/04 14:07:27 fhajny Exp $
+# $NetBSD: Makefile,v 1.654 2015/12/13 15:19:03 taca Exp $
 #
 
 COMMENT=	System utilities
@@ -145,6 +145,7 @@ SUBDIR+=	fdupes
 SUBDIR+=	file
 SUBDIR+=	filelight
 SUBDIR+=	filelight-kde3
+SUBDIR+=	findnewest
 SUBDIR+=	findutils
 SUBDIR+=	fix4SA110rev2
 SUBDIR+=	fixelfprot
@@ -158,6 +159,7 @@ SUBDIR+=	ftwin
 SUBDIR+=	gamin
 SUBDIR+=	gcdmaster
 SUBDIR+=	gcombust
+SUBDIR+=	gdmap
 SUBDIR+=	genpasswd
 SUBDIR+=	gentoo
 SUBDIR+=	gfm
@@ -420,6 +422,7 @@ SUBDIR+=	py-notify
 SUBDIR+=	py-notify-python
 SUBDIR+=	py-pefile
 SUBDIR+=	py-psutil
+SUBDIR+=	py-setconf
 SUBDIR+=	py-setproctitle
 SUBDIR+=	py-structlog
 SUBDIR+=	py-syslog-ng
@@ -451,6 +454,7 @@ SUBDIR+=	rtty
 SUBDIR+=	ruby-activesambaldap
 SUBDIR+=	ruby-capistrano-stats
 SUBDIR+=	ruby-chef
+SUBDIR+=	ruby-chef-config
 SUBDIR+=	ruby-chef-zero
 SUBDIR+=	ruby-childprocess
 SUBDIR+=	ruby-directory-watcher

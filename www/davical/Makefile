@@ -1,14 +1,11 @@
-# $NetBSD: Makefile,v 1.23 2015/11/13 12:13:13 hauke Exp $
+# $NetBSD: Makefile,v 1.26 2015/11/20 12:48:36 hauke Exp $
 #
 
 DISTNAME=	davical-${DAVICAL_VERSION}
 DAVICAL_VERSION=1.1.3.1
-#PKGREVISION=	1
+PKGREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	-https://gitlab.com/davical-project/davical/repository/archive.tar.gz?ref=r${DAVICAL_VERSION}
-
-FETCH_USING=		wget
-FETCH_BEFORE_ARGS+=	--no-check-certificate
 
 MAINTAINER=	jym@NetBSD.org
 HOMEPAGE=	http://www.davical.org/
@@ -40,6 +37,8 @@ DEPENDS+=	${PHP_PKG_PREFIX}-pdo_pgsql>=${PHP_BASE_VERS}:../../databases/php-pdo_
 DEPENDS+=	${PHP_PKG_PREFIX}-libawl>=0.53:../../devel/php-libawl
 DEPENDS+=	${PHP_PKG_PREFIX}-calendar>=5.3.18:../../time/php-calendar
 DEPENDS+=	${PHP_PKG_PREFIX}-curl>=5.3.18:../../www/php-curl
+DEPENDS+=	p5-DBI>=1.631:../../databases/p5-DBI
+DEPENDS+=	p5-DBD-postgresql>=3.5:../../databases/p5-DBD-postgresql
 DEPENDS+=	p5-YAML>=0.71:../../textproc/p5-YAML
 DEPENDS+=	pwgen>=2.06:../../sysutils/pwgen
 DEPENDS+=	postgresql${PGSQL_VERSION}-client-[0-9]*:../../databases/postgresql${PGSQL_VERSION}-client

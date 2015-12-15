@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.110 2015/08/17 08:15:40 wiz Exp $
+# $NetBSD: Makefile,v 1.112 2015/11/25 16:42:21 rillig Exp $
 #
 
 COMMENT=	Tools for use in the packages collection
@@ -18,6 +18,7 @@ SUBDIR+=	distbb
 SUBDIR+=	genpkgng
 SUBDIR+=	genrpm
 SUBDIR+=	gensolpkg
+SUBDIR+=	gimme
 SUBDIR+=	gnome-packagekit
 SUBDIR+=	libkver
 SUBDIR+=	libnbcompat
@@ -55,6 +56,7 @@ SUBDIR+=	pkgdiff
 SUBDIR+=	pkgfind
 SUBDIR+=	pkgin
 SUBDIR+=	pkglint
+SUBDIR+=	pkglint4
 SUBDIR+=	pkgse
 SUBDIR+=	pkgsrc-todo
 SUBDIR+=	pkgsurvey

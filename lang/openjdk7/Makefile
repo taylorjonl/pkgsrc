@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.103 2015/11/03 16:41:55 jperkin Exp $
+# $NetBSD: Makefile,v 1.105 2015/12/14 23:05:11 asau Exp $
 
 JDK_MICRO=	80
 DISTNAME=	openjdk-1.7.${JDK_MICRO}-20150609

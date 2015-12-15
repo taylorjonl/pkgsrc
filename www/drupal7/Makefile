@@ -1,6 +1,7 @@
-# $NetBSD: Makefile,v 1.35 2015/10/22 09:59:44 taca Exp $
+# $NetBSD: Makefile,v 1.37 2015/12/13 14:41:32 taca Exp $
 
 DISTNAME=	drupal-7.41
+PKGNAME=	${PHP_PKG_PREFIX}-${DISTNAME}
 CATEGORIES=	www
 MASTER_SITES=	http://ftp.drupal.org/files/projects/
 
@@ -9,8 +10,8 @@ HOMEPAGE=	http://drupal.org/
 COMMENT=	Open source content management system
 LICENSE=	gnu-gpl-v2
 
-DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.2.0:../../graphics/php-gd
-DEPENDS+=	${PHP_PKG_PREFIX}-json>=5.2.0:../../textproc/php-json
+DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.2.5:../../graphics/php-gd
+DEPENDS+=	${PHP_PKG_PREFIX}-json>=5.2.5:../../textproc/php-json
 
 NO_BUILD=	YES
 DRUPAL=		share/drupal

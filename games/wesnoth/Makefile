@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.115 2015/07/23 14:56:45 adam Exp $
+# $NetBSD: Makefile,v 1.117 2015/12/05 21:25:44 adam Exp $
 
-DISTNAME=	wesnoth-1.12.4
+DISTNAME=	wesnoth-1.12.5
 CATEGORIES=	games
 MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=wesnoth/}
 EXTRACT_SUFX=	.tar.bz2
@@ -30,7 +30,7 @@ SUBST_FILES.prefix=	cmake/FindFriBiDi.cmake
 SUBST_MESSAGE.prefix=	Fixing search path.
 SUBST_SED.prefix=	-e 's,/usr/local,${PREFIX},'
 
-PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 1.10.6
+PYTHON_VERSIONS_INCOMPATIBLE=	33 34 35 # not yet ported as of 1.10.6
 REPLACE_PYTHON+=	data/tools/GUI.pyw
 REPLACE_PYTHON+=	data/tools/*.py
 REPLACE_PYTHON+=	data/tools/wesnoth/*.py

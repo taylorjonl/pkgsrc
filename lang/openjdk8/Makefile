@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.24 2015/11/03 17:57:47 tnn Exp $
+# $NetBSD: Makefile,v 1.26 2015/12/14 23:05:11 asau Exp $
 
 DISTNAME=	openjdk-1.8.66-20151103
 PKGNAME=	openjdk8-1.8.66

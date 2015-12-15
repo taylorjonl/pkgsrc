@@ -1,7 +1,7 @@
-$NetBSD: distinfo,v 1.22 2015/11/03 03:32:18 agc Exp $
+$NetBSD: distinfo,v 1.24 2015/12/09 00:34:40 wiedi Exp $
 
-SHA1 (nano-2.4.2.tar.gz) = bcf2bb3fcc04874cb38c52cfd8feebce61dd5e0a
-RMD160 (nano-2.4.2.tar.gz) = 6a3d0569740c223230af6ae88f8ef0797402c4c2
-SHA512 (nano-2.4.2.tar.gz) = 487b03b33ac8fac4a774223e038b00463ca03e08093c506b10f4df56795039eff1c23518c1a4f32695cee1bb9bb5eb0a2dd3e1f8a9befcc573e7fca3d69fa9d3
-Size (nano-2.4.2.tar.gz) = 1898633 bytes
+SHA1 (nano-2.5.0.tar.gz) = 395440ff263fb6c6307be22836673b5f943441fc
+RMD160 (nano-2.5.0.tar.gz) = 5669d896c1d210e73642dce8a69831a2dd1254bf
+SHA512 (nano-2.5.0.tar.gz) = f05f1afa6a79ff6b87359c46fbdaf6161eacdc265ac6be155a0173e3ab5a17023e205d0b9667a942e754556182a9007fe4438f337a830d20b9546aad9d522ba6
+Size (nano-2.5.0.tar.gz) = 1909625 bytes
 SHA1 (patch-configure) = 3a63b02a39000d5a15087739648b82e999d14f56

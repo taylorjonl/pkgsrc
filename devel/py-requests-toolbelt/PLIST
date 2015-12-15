@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.2 2015/04/05 14:20:03 wiz Exp $
+@comment $NetBSD: PLIST,v 1.4 2015/12/04 21:48:21 wiz Exp $
 ${PYSITELIB}/${EGG_INFODIR}/PKG-INFO
 ${PYSITELIB}/${EGG_INFODIR}/SOURCES.txt
 ${PYSITELIB}/${EGG_INFODIR}/dependency_links.txt
@@ -7,6 +7,9 @@ ${PYSITELIB}/${EGG_INFODIR}/top_level.txt
 ${PYSITELIB}/requests_toolbelt/__init__.py
 ${PYSITELIB}/requests_toolbelt/__init__.pyc
 ${PYSITELIB}/requests_toolbelt/__init__.pyo
+${PYSITELIB}/requests_toolbelt/_compat.py
+${PYSITELIB}/requests_toolbelt/_compat.pyc
+${PYSITELIB}/requests_toolbelt/_compat.pyo
 ${PYSITELIB}/requests_toolbelt/adapters/__init__.py
 ${PYSITELIB}/requests_toolbelt/adapters/__init__.pyc
 ${PYSITELIB}/requests_toolbelt/adapters/__init__.pyo
@@ -25,6 +28,9 @@ ${PYSITELIB}/requests_toolbelt/adapters/ssl.pyo
 ${PYSITELIB}/requests_toolbelt/auth/__init__.py
 ${PYSITELIB}/requests_toolbelt/auth/__init__.pyc
 ${PYSITELIB}/requests_toolbelt/auth/__init__.pyo
+${PYSITELIB}/requests_toolbelt/auth/_digest_auth_compat.py
+${PYSITELIB}/requests_toolbelt/auth/_digest_auth_compat.pyc
+${PYSITELIB}/requests_toolbelt/auth/_digest_auth_compat.pyo
 ${PYSITELIB}/requests_toolbelt/auth/guess.py
 ${PYSITELIB}/requests_toolbelt/auth/guess.pyc
 ${PYSITELIB}/requests_toolbelt/auth/guess.pyo
@@ -34,12 +40,21 @@ ${PYSITELIB}/requests_toolbelt/auth/handler.pyo
 ${PYSITELIB}/requests_toolbelt/auth/http_proxy_digest.py
 ${PYSITELIB}/requests_toolbelt/auth/http_proxy_digest.pyc
 ${PYSITELIB}/requests_toolbelt/auth/http_proxy_digest.pyo
+${PYSITELIB}/requests_toolbelt/cookies/__init__.py
+${PYSITELIB}/requests_toolbelt/cookies/__init__.pyc
+${PYSITELIB}/requests_toolbelt/cookies/__init__.pyo
+${PYSITELIB}/requests_toolbelt/cookies/forgetful.py
+${PYSITELIB}/requests_toolbelt/cookies/forgetful.pyc
+${PYSITELIB}/requests_toolbelt/cookies/forgetful.pyo
 ${PYSITELIB}/requests_toolbelt/downloadutils/__init__.py
 ${PYSITELIB}/requests_toolbelt/downloadutils/__init__.pyc
 ${PYSITELIB}/requests_toolbelt/downloadutils/__init__.pyo
 ${PYSITELIB}/requests_toolbelt/downloadutils/stream.py
 ${PYSITELIB}/requests_toolbelt/downloadutils/stream.pyc
 ${PYSITELIB}/requests_toolbelt/downloadutils/stream.pyo
+${PYSITELIB}/requests_toolbelt/downloadutils/tee.py
+${PYSITELIB}/requests_toolbelt/downloadutils/tee.pyc
+${PYSITELIB}/requests_toolbelt/downloadutils/tee.pyo
 ${PYSITELIB}/requests_toolbelt/exceptions.py
 ${PYSITELIB}/requests_toolbelt/exceptions.pyc
 ${PYSITELIB}/requests_toolbelt/exceptions.pyo
@@ -70,6 +85,12 @@ ${PYSITELIB}/requests_toolbelt/utils/__init__.pyo
 ${PYSITELIB}/requests_toolbelt/utils/deprecated.py
 ${PYSITELIB}/requests_toolbelt/utils/deprecated.pyc
 ${PYSITELIB}/requests_toolbelt/utils/deprecated.pyo
+${PYSITELIB}/requests_toolbelt/utils/dump.py
+${PYSITELIB}/requests_toolbelt/utils/dump.pyc
+${PYSITELIB}/requests_toolbelt/utils/dump.pyo
+${PYSITELIB}/requests_toolbelt/utils/formdata.py
+${PYSITELIB}/requests_toolbelt/utils/formdata.pyc
+${PYSITELIB}/requests_toolbelt/utils/formdata.pyo
 ${PYSITELIB}/requests_toolbelt/utils/user_agent.py
 ${PYSITELIB}/requests_toolbelt/utils/user_agent.pyc
 ${PYSITELIB}/requests_toolbelt/utils/user_agent.pyo

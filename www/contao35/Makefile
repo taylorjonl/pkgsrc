@@ -1,29 +1,33 @@
-# $NetBSD: Makefile,v 1.3 2015/10/12 05:47:19 taca Exp $
+# $NetBSD: Makefile,v 1.8 2015/12/13 14:37:08 taca Exp $
 #
 
 DISTNAME=	contao-${CT_PKGVER}
-PKGNAME=	contao${CT_VER}-${CT_PKGVER}
+PKGNAME=	${PHP_PKG_PREFIX}-contao${CT_VER}-${CT_PKGVER}
+PKGREVISION=	1
 CATEGORIES=	www
-MASTER_SITES=	${CT_MASTER_SITE}
+MASTER_SITES=	${MASTER_SITE_GITHUB:=contao/}
+GITHUB_PROJECT=	core
+GITHUB_RELEASE=	${CT_VERSION}
 
 MAINTAINER=	taca@NetBSD.org
-HOMEPAGE=	http://www.contao.org/
+HOMEPAGE=	https://contao.org/
 COMMENT=	Contao Open Source CMS ${CT_VERSION}
 LICENSE=	gnu-lgpl-v3
 
 DEPENDS+=	${PHP_PKG_PREFIX}-dom>=5.4.0:../../textproc/php-dom
 DEPENDS+=	${PHP_PKG_PREFIX}-gd>=5.4.0:../../graphics/php-gd
 DEPENDS+=	${PHP_PKG_PREFIX}-mbstring>=5.4.0:../../converters/php-mbstring
-DEPENDS+=	${PHP_PKG_PREFIX}-{mysql,mysqli}>=5.4.0:../../databases/php-mysqli
+DEPENDS+=	${PHP_PKG_PREFIX}-mysqli>=5.4.0:../../databases/php-mysqli
 DEPENDS+=	${PHP_PKG_PREFIX}-mcrypt>=5.4.0:../../security/php-mcrypt
 DEPENDS+=	${PHP_PKG_PREFIX}-soap>=5.4.0:../../net/php-soap
 DEPENDS+=	${PHP_PKG_PREFIX}-curl>=5.4.0:../../www/php-curl
 DEPENDS+=	${PHP_PKG_PREFIX}-zlib>=5.4.0:../../archivers/php-zlib
 DEPENDS+=	bash>=4.0:../../shells/bash
 
-CT_VERS=	35
+CT_VERSION=	3.5.6
 USE_TOOLS=	bash pax
 NO_BUILD=	yes
+FILESDIR?=	${.CURDIR}/files
 
 EG_CONFIG=	ace.php agents.php constants.php countries.php \
 		languages.php mimetypes.php tcpdf.php timezones.php \

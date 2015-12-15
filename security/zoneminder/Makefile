@@ -1,8 +1,8 @@
-# $NetBSD: Makefile,v 1.22 2015/07/12 18:56:29 wiz Exp $
+# $NetBSD: Makefile,v 1.24 2015/12/06 12:13:12 taca Exp $
 
 PKGNAME=	${DISTNAME:S/ZoneMinder-/zoneminder-/}
 DISTNAME=	ZoneMinder-1.28.1
-PKGREVISION=	4
+PKGREVISION=	5
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_GITHUB:=ZoneMinder/}
 GITHUB_PROJECT=	ZoneMinder
@@ -18,6 +18,8 @@ LICENSE=	gnu-gpl-v2
 EXTRACT_USING=  gtar
 
 DEPENDS+=	netpbm-[0-9]*:../../graphics/netpbm
+
+PHP_VERSIONS_ACCEPTED=	55 56
 
 PKG_OPTIONS_VAR=	PKG_OPTIONS.zoneminder
 PKG_SUPPORTED_OPTIONS=	apache
